@@ -1,0 +1,43 @@
+.qty-selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.qty-selector button {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: var(--color-bg);
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.qty-selector button:hover:not(:disabled) {
+  background: rgba(76, 29, 149, 0.12);
+}
+
+.qty-selector button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.qty-selector input {
+  width: 46px;
+  text-align: center;
+  border: none;
+  border-left: 1.5px solid var(--color-border);
+  border-right: 1.5px solid var(--color-border);
+  height: 34px;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.qty-selector input:focus {
+  outline: none;
+}
