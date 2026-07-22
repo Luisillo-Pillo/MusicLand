@@ -21,17 +21,85 @@
 
 .home-filters {
   display: flex;
+  align-items: center;
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 24px;
 }
 
-.home-filters select {
-  padding: 8px 12px;
-  border-radius: var(--radius-sm);
+.home-filters-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  margin-right: 2px;
+}
+
+.home-filter-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.home-filter-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 9px 34px 9px 16px;
+  border-radius: 999px;
   border: 1.5px solid var(--color-border);
   background: var(--color-surface);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.home-filter-select select:hover {
+  border-color: var(--color-primary-light);
+}
+
+.home-filter-select select:focus {
+  outline: none;
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 3px rgba(76, 29, 149, 0.12);
+}
+
+.home-filter-select.active select {
+  border-color: var(--color-primary);
+  background: rgba(76, 29, 149, 0.07);
+  color: var(--color-primary);
+}
+
+.home-filter-chevron {
+  position: absolute;
+  right: 12px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.home-filter-select.active .home-filter-chevron {
+  color: var(--color-primary);
+}
+
+.home-filters-clear {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  background: none;
+  color: var(--color-danger);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.home-filters-clear:hover {
+  background: rgba(220, 38, 38, 0.08);
 }
 
 .product-grid {

@@ -1,15 +1,24 @@
 const Product = require('../models/Product');
 
+const SORT_OPTIONS = {
+  price_asc: { price: 1 },
+  price_desc: { price: -1 },
+  name_asc: { name: 1 },
+  name_desc: { name: -1 }
+};
+
 async function getProducts(req, res) {
   try {
-    const { search, category, brand, page = 1, limit = 100 } = req.query;
+    const { search, category, brand, sort, page = 1, limit = 100 } = req.query;
     const filter = {};
     if (search) filter.$text = { $search: search };
     if (category) filter.category = category;
     if (brand) filter.brand = brand;
 
+    const sortOption = SORT_OPTIONS[sort] || { createdAt: -1 };
+
     const products = await Product.find(filter)
-      .sort({ createdAt: -1 })
+      .sort(sortOption)
       .skip((Number(page) - 1) * Number(limit))
       .limit(Number(limit));
     const total = await Product.countDocuments(filter);

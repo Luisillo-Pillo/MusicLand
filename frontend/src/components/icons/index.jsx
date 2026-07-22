@@ -267,6 +267,20 @@ export function EyeOffIcon({ size = 18, ...props }) {
   );
 }
 
+export function FilterIcon({ size = 16, ...props }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" {...props}>
+      <path
+        d="M4 5h16l-6.5 7.5v5.5l-3 1.5v-7L4 5Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function MenuIcon({ size = 18, ...props }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" {...props}>

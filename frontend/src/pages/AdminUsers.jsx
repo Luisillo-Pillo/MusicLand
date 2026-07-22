@@ -51,7 +51,11 @@ function RowActionsMenu({ items }) {
     function updatePosition() {
       if (!triggerRef.current) return;
       const rect = triggerRef.current.getBoundingClientRect();
-      setPosition({ top: rect.bottom + 6, left: rect.left });
+      const menuHeight = menuRef.current ? menuRef.current.offsetHeight : 0;
+      const spaceBelow = window.innerHeight - rect.bottom;
+      const openUpward = menuHeight > 0 && spaceBelow < menuHeight + 12;
+      const top = openUpward ? Math.max(8, rect.top - menuHeight - 6) : rect.bottom + 6;
+      setPosition({ top, left: rect.left });
     }
     updatePosition();
     window.addEventListener('scroll', updatePosition, true);
