@@ -14,6 +14,7 @@ import Contact from './pages/Contact';
 import AdminProducts from './pages/AdminProducts';
 import AdminUsers from './pages/AdminUsers';
 import AdminUserProfile from './pages/AdminUserProfile';
+import AdminMessages from './pages/AdminMessages';
 import NotFound from './pages/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
 import ScrollToTop from './components/ScrollToTop';
@@ -92,6 +93,14 @@ export default function App() {
           element={
             <ProtectedRoute adminOnly>
               <AdminUserProfile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/mensajes"
+          element={
+            <ProtectedRoute adminOnly>
+              <AdminMessages />
             </ProtectedRoute>
           }
         />

@@ -1,0 +1,42 @@
+.admin-messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-message-card {
+  padding: 20px 24px;
+}
+
+.admin-message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-message-sender strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.admin-message-sender a {
+  font-size: 0.85rem;
+  color: var(--color-primary);
+}
+
+.admin-message-date {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.admin-message-body {
+  color: var(--color-text);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}

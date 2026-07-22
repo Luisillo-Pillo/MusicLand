@@ -2,21 +2,33 @@ import { useState } from 'react';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
 import { MailIcon, PhoneIcon, LocationIcon } from '../components/icons';
+import { sendContactMessageRequest } from '../api/contactApi';
 import './Contact.css';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   function handleChange(e) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSent(true);
-    setForm({ name: '', email: '', message: '' });
-    setTimeout(() => setSent(false), 3000);
+    setError('');
+    setLoading(true);
+    try {
+      await sendContactMessageRequest(form);
+      setSent(true);
+      setForm({ name: '', email: '', message: '' });
+      setTimeout(() => setSent(false), 3000);
+    } catch (err) {
+      setError(err.response?.data?.message || 'No se pudo enviar el mensaje. Intenta de nuevo.');
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -82,8 +94,9 @@ export default function Contact() {
                   onChange={handleChange}
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
-                {sent ? 'Mensaje enviado' : 'Enviar mensaje'}
+              {error && <p className="error-text">{error}</p>}
+              <button type="submit" className="btn btn-primary" disabled={loading}>
+                {loading ? 'Enviando...' : sent ? 'Mensaje enviado' : 'Enviar mensaje'}
               </button>
             </form>
           </div>

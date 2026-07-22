@@ -998,6 +998,1006 @@ const products = [
     "image": "https://picsum.photos/seed/audifonos-de-estudio-audio-technica-ath-m20x/600/400",
     "stock": 26,
     "featured": false
+  },
+  {
+    "name": "Guitarra Electrica Fender Player Plus Stratocaster HSS",
+    "price": 23900,
+    "category": "Guitarras",
+    "brand": "Fender",
+    "description": "Guitarra eléctrica con pastilla humbucker en el puente, mástil de arce y acabado moderno para versatilidad tonal.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-fender-player-plus-stratocaster-hss/600/400",
+    "stock": 5,
+    "featured": true
+  },
+  {
+    "name": "Guitarra Electrica Gibson Les Paul Junior",
+    "price": 28900,
+    "category": "Guitarras",
+    "brand": "Gibson",
+    "description": "Guitarra eléctrica minimalista con una sola pastilla P-90, ligera y con un tono crudo muy apreciado en el rock.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-gibson-les-paul-junior/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Electrica Epiphone SG Standard",
+    "price": 9900,
+    "category": "Guitarras",
+    "brand": "Epiphone",
+    "description": "Versión accesible de la icónica SG, con pastillas humbucker ProBucker y gran comodidad de ejecución.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-epiphone-sg-standard/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Electrica Squier Classic Vibe 60s Jazzmaster",
+    "price": 8900,
+    "category": "Guitarras",
+    "brand": "Squier",
+    "description": "Réplica fiel del clásico de los 60, con vibrato flotante y sonido brillante ideal para surf e indie.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-squier-classic-vibe-60s-jazzmaster/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Electrica Ibanez JEM77 Steve Vai",
+    "price": 45900,
+    "category": "Guitarras",
+    "brand": "Ibanez",
+    "description": "Guitarra signature de alto rendimiento con mástil Wizard y trémolo Edge, pensada para virtuosos.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-ibanez-jem77-steve-vai/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Electrica PRS SE Silver Sky",
+    "price": 24900,
+    "category": "Guitarras",
+    "brand": "PRS",
+    "description": "Guitarra versátil diseñada junto a John Mayer, con pastillas single-coil de gran claridad y sustain.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-prs-se-silver-sky/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Electrica Jackson Pro Series Soloist",
+    "price": 26900,
+    "category": "Guitarras",
+    "brand": "Jackson",
+    "description": "Guitarra de alto rendimiento con mástil delgado y humbuckers activos, ideal para metal técnico.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-jackson-pro-series-soloist/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Electrica ESP LTD MH-1000",
+    "price": 19900,
+    "category": "Guitarras",
+    "brand": "ESP LTD",
+    "description": "Guitarra de cuerpo sólido con pastillas EMG activas, pensada para géneros pesados y alta ganancia.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-esp-ltd-mh-1000/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Acustica Taylor GS Mini",
+    "price": 14900,
+    "category": "Guitarras",
+    "brand": "Taylor",
+    "description": "Guitarra acústica compacta con gran proyección, ideal para viajar sin sacrificar calidad de sonido.",
+    "image": "https://picsum.photos/seed/guitarra-acustica-taylor-gs-mini/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Acustica Martin LX1 Little Martin",
+    "price": 8900,
+    "category": "Guitarras",
+    "brand": "Martin",
+    "description": "Guitarra acústica de viaje con tapa maciza de abeto, sonido cálido en un formato reducido.",
+    "image": "https://picsum.photos/seed/guitarra-acustica-martin-lx1-little-martin/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Acustica Yamaha FGX830C",
+    "price": 8900,
+    "category": "Guitarras",
+    "brand": "Yamaha",
+    "description": "Guitarra electroacústica con cutaway y ecualizador integrado, tapa maciza de abeto tipo dreadnought.",
+    "image": "https://picsum.photos/seed/guitarra-acustica-yamaha-fgx830c/600/400",
+    "stock": 19,
+    "featured": true
+  },
+  {
+    "name": "Guitarra Electroacustica Cordoba Fusion 12",
+    "price": 12900,
+    "category": "Guitarras",
+    "brand": "Cordoba",
+    "description": "Guitarra clásica electroacústica con mástil delgado, ideal para guitarristas eléctricos que buscan cuerdas de nylon.",
+    "image": "https://picsum.photos/seed/guitarra-electroacustica-cordoba-fusion-12/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Clasica Yamaha CG122MS",
+    "price": 4900,
+    "category": "Guitarras",
+    "brand": "Yamaha",
+    "description": "Guitarra clásica con tapa maciza de abeto y aros de caoba, excelente relación calidad-precio.",
+    "image": "https://picsum.photos/seed/guitarra-clasica-yamaha-cg122ms/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Electrica Music Man Cutlass",
+    "price": 42900,
+    "category": "Guitarras",
+    "brand": "Music Man",
+    "description": "Guitarra eléctrica premium con pastillas activas y mástil ultra delgado, fabricada en EUA.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-music-man-cutlass/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Electrica Gretsch G5420T Electromatic",
+    "price": 21900,
+    "category": "Guitarras",
+    "brand": "Gretsch",
+    "description": "Guitarra hollow body con vibrato Bigsby, sonido cálido y twangy característico del rockabilly.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-gretsch-g5420t-electromatic/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Electrica Schecter Omen Extreme-6",
+    "price": 10900,
+    "category": "Guitarras",
+    "brand": "Schecter",
+    "description": "Guitarra de cuerpo sólido con pastillas activas EMG, mástil delgado ideal para riffs pesados.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-schecter-omen-extreme-6/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Electrica Charvel Pro-Mod DK24",
+    "price": 18900,
+    "category": "Guitarras",
+    "brand": "Charvel",
+    "description": "Guitarra superstrat con mástil compound radius y trémolo de alta precisión, para tocar rápido y cómodo.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-charvel-pro-mod-dk24/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Acustica Seagull S6 Original",
+    "price": 8900,
+    "category": "Guitarras",
+    "brand": "Seagull",
+    "description": "Guitarra acústica canadiense con tapa maciza de cedro, sonido cálido y construcción artesanal.",
+    "image": "https://picsum.photos/seed/guitarra-acustica-seagull-s6-original/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Electrica Reverend Double Agent",
+    "price": 15900,
+    "category": "Guitarras",
+    "brand": "Reverend",
+    "description": "Guitarra eléctrica versátil con electrónica única y hardware de calidad, sonido brillante y definido.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-reverend-double-agent/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Guitarra Electrica Fender American Professional II Telecaster",
+    "price": 32900,
+    "category": "Guitarras",
+    "brand": "Fender",
+    "description": "Guitarra fabricada en EUA con pastillas V-Mod II y mástil mejorado, referencia profesional Telecaster.",
+    "image": "https://picsum.photos/seed/guitarra-electrica-fender-american-professional-ii-telecaster/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Bajo Electrico Fender American Professional II P Bass",
+    "price": 38900,
+    "category": "Bajos",
+    "brand": "Fender",
+    "description": "Bajo fabricado en EUA con pastilla split-coil mejorada y mástil cómodo, tono profesional de referencia.",
+    "image": "https://picsum.photos/seed/bajo-electrico-fender-american-professional-ii-p-bass/600/400",
+    "stock": 5,
+    "featured": true
+  },
+  {
+    "name": "Bajo Electrico Music Man Bongo 4",
+    "price": 39900,
+    "category": "Bajos",
+    "brand": "Music Man",
+    "description": "Bajo de alto rendimiento con electrónica activa de 3 bandas y pastillas humbucker potentes.",
+    "image": "https://picsum.photos/seed/bajo-electrico-music-man-bongo-4/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Bajo Electrico Ibanez SR500",
+    "price": 11900,
+    "category": "Bajos",
+    "brand": "Ibanez",
+    "description": "Bajo de 4 cuerdas ligero con mástil delgado SR y electrónica activa/pasiva conmutable.",
+    "image": "https://picsum.photos/seed/bajo-electrico-ibanez-sr500/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Bajo Electrico Squier Classic Vibe 60s Jazz Bass",
+    "price": 8900,
+    "category": "Bajos",
+    "brand": "Squier",
+    "description": "Réplica del clásico Jazz Bass de los 60, con dos pastillas single-coil de tono versátil.",
+    "image": "https://picsum.photos/seed/bajo-electrico-squier-classic-vibe-60s-jazz-bass/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Bajo Electrico Yamaha BB434",
+    "price": 10900,
+    "category": "Bajos",
+    "brand": "Yamaha",
+    "description": "Bajo de cuerpo sólido con pastillas de alta salida, ideal para rock, funk y jazz moderno.",
+    "image": "https://picsum.photos/seed/bajo-electrico-yamaha-bb434/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Bajo Electrico Spector Performer 5",
+    "price": 13900,
+    "category": "Bajos",
+    "brand": "Spector",
+    "description": "Bajo de 5 cuerdas con cuerpo ergonómico y electrónica activa, gran rango tonal para estilos modernos.",
+    "image": "https://picsum.photos/seed/bajo-electrico-spector-performer-5/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Bajo Electrico Schecter Stiletto Studio-4",
+    "price": 14900,
+    "category": "Bajos",
+    "brand": "Schecter",
+    "description": "Bajo con cuerpo de caoba y arce, electrónica activa EMG, sonido definido y potente.",
+    "image": "https://picsum.photos/seed/bajo-electrico-schecter-stiletto-studio-4/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Bajo Acustico Ibanez AEB10E",
+    "price": 7900,
+    "category": "Bajos",
+    "brand": "Ibanez",
+    "description": "Bajo acústico con cutaway y preamplificador integrado, ideal para grabaciones íntimas.",
+    "image": "https://picsum.photos/seed/bajo-acustico-ibanez-aeb10e/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Bajo Electrico Epiphone Thunderbird Pro-IV",
+    "price": 12900,
+    "category": "Bajos",
+    "brand": "Epiphone",
+    "description": "Bajo de cuerpo explorer con pastillas humbucker, sonido profundo característico del rock clásico.",
+    "image": "https://picsum.photos/seed/bajo-electrico-epiphone-thunderbird-pro-iv/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Bajo Electrico Fender Squier Affinity Precision Bass PJ",
+    "price": 6900,
+    "category": "Bajos",
+    "brand": "Squier",
+    "description": "Bajo accesible con configuración PJ de pastillas, ideal para principiantes que buscan versatilidad.",
+    "image": "https://picsum.photos/seed/bajo-electrico-fender-squier-affinity-precision-bass-pj/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Bateria Acustica DW Design Series",
+    "price": 34900,
+    "category": "Percusión",
+    "brand": "DW",
+    "description": "Set de batería profesional de 5 piezas con cascos de arce, sonido cálido y gran proyección.",
+    "image": "https://picsum.photos/seed/bateria-acustica-dw-design-series/600/400",
+    "stock": 19,
+    "featured": true
+  },
+  {
+    "name": "Bateria Electronica Alesis Nitro Max",
+    "price": 12900,
+    "category": "Percusión",
+    "brand": "Alesis",
+    "description": "Batería electrónica con parches de malla y módulo de sonido expandido, ideal para práctica silenciosa.",
+    "image": "https://picsum.photos/seed/bateria-electronica-alesis-nitro-max/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Bateria Acustica Ludwig Breakbeats",
+    "price": 14900,
+    "category": "Percusión",
+    "brand": "Ludwig",
+    "description": "Set de batería compacto de 4 piezas, ideal para espacios reducidos y estilos urbanos.",
+    "image": "https://picsum.photos/seed/bateria-acustica-ludwig-breakbeats/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Platillo Sabian AAX Stage Crash 17",
+    "price": 5400,
+    "category": "Percusión",
+    "brand": "Sabian",
+    "description": "Platillo crash brillante y de respuesta rápida, ideal para rock y pop en vivo.",
+    "image": "https://picsum.photos/seed/platillo-sabian-aax-stage-crash-17/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Platillo Paiste PST 8 Rock Ride 20",
+    "price": 4900,
+    "category": "Percusión",
+    "brand": "Paiste",
+    "description": "Platillo ride potente con campana definida, pensado para estilos de alta energía.",
+    "image": "https://picsum.photos/seed/platillo-paiste-pst-8-rock-ride-20/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Set de Platillos Zildjian Planet Z",
+    "price": 4200,
+    "category": "Percusión",
+    "brand": "Zildjian",
+    "description": "Pack de platillos de entrada con hi-hat, crash y ride, ideal para bateristas principiantes.",
+    "image": "https://picsum.photos/seed/set-de-platillos-zildjian-planet-z/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Cajon Meinl Percussion Jam Cajon",
+    "price": 3200,
+    "category": "Percusión",
+    "brand": "Meinl",
+    "description": "Cajón flamenco con esquinas redondeadas y cuerdas ajustables, sonido versátil tipo snare.",
+    "image": "https://picsum.photos/seed/cajon-meinl-percussion-jam-cajon/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Djembe Remo Mondo",
+    "price": 3900,
+    "category": "Percusión",
+    "brand": "Remo",
+    "description": "Djembe con parche sintético resistente a la humedad, ideal para ensambles y clases grupales.",
+    "image": "https://picsum.photos/seed/djembe-remo-mondo/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Congas Meinl Headliner Series",
+    "price": 9900,
+    "category": "Percusión",
+    "brand": "Meinl",
+    "description": "Par de congas con cascos de madera y parches naturales, sonido cálido tradicional.",
+    "image": "https://picsum.photos/seed/congas-meinl-headliner-series/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Bongos Toca Players Series",
+    "price": 2900,
+    "category": "Percusión",
+    "brand": "Toca",
+    "description": "Par de bongós con parches de piel de búfalo, ideales para música latina y world music.",
+    "image": "https://picsum.photos/seed/bongos-toca-players-series/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Baquetas Promark 5B Hickory",
+    "price": 480,
+    "category": "Percusión",
+    "brand": "Promark",
+    "description": "Par de baquetas de nogal americano, punta de madera, estándar de la industria.",
+    "image": "https://picsum.photos/seed/baquetas-promark-5b-hickory/600/400",
+    "stock": 5,
+    "featured": true
+  },
+  {
+    "name": "Pedal de Bombo DW 5000 Series",
+    "price": 8900,
+    "category": "Percusión",
+    "brand": "DW",
+    "description": "Pedal de bombo profesional con acción suave y ajuste preciso, usado en grabaciones y directo.",
+    "image": "https://picsum.photos/seed/pedal-de-bombo-dw-5000-series/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Pandereta Meinl Percussion 10",
+    "price": 890,
+    "category": "Percusión",
+    "brand": "Meinl",
+    "description": "Pandereta de madera con platillos de acero inoxidable, sonido brillante y definido.",
+    "image": "https://picsum.photos/seed/pandereta-meinl-percussion-10/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Timbales LP Tito Puente",
+    "price": 15900,
+    "category": "Percusión",
+    "brand": "LP",
+    "description": "Set de timbales profesionales con herrajes cromados, diseño signature para música latina.",
+    "image": "https://picsum.photos/seed/timbales-lp-tito-puente/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Vibraphone Yamaha YV-1605",
+    "price": 89900,
+    "category": "Percusión",
+    "brand": "Yamaha",
+    "description": "Vibráfono profesional de 3 octavas con resonadores afinados, ideal para jazz y música contemporánea.",
+    "image": "https://picsum.photos/seed/vibraphone-yamaha-yv-1605/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Piano Digital Kawai ES120",
+    "price": 17900,
+    "category": "Teclados y Pianos",
+    "brand": "Kawai",
+    "description": "Piano digital portátil con acción de martillo realista y altavoces potentes integrados.",
+    "image": "https://picsum.photos/seed/piano-digital-kawai-es120/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Piano Digital Yamaha P-225",
+    "price": 15900,
+    "category": "Teclados y Pianos",
+    "brand": "Yamaha",
+    "description": "Piano digital compacto con sonido de piano de cola CFX muestreado y diseño elegante.",
+    "image": "https://picsum.photos/seed/piano-digital-yamaha-p-225/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Piano Digital Casio PX-S1100",
+    "price": 12900,
+    "category": "Teclados y Pianos",
+    "brand": "Casio",
+    "description": "Piano digital ultradelgado de 88 teclas con sonido acústico multidimensional.",
+    "image": "https://picsum.photos/seed/piano-digital-casio-px-s1100/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Piano Digital Roland FP-10",
+    "price": 11900,
+    "category": "Teclados y Pianos",
+    "brand": "Roland",
+    "description": "Piano digital de entrada con sonido SuperNATURAL y acción PHA-4 Standard.",
+    "image": "https://picsum.photos/seed/piano-digital-roland-fp-10/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Teclado Arreglista Yamaha PSR-E473",
+    "price": 9900,
+    "category": "Teclados y Pianos",
+    "brand": "Yamaha",
+    "description": "Teclado de 61 teclas con cientos de voces, ritmos y conectividad Bluetooth Audio.",
+    "image": "https://picsum.photos/seed/teclado-arreglista-yamaha-psr-e473/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Teclado Arreglista Casio CT-S500",
+    "price": 6900,
+    "category": "Teclados y Pianos",
+    "brand": "Casio",
+    "description": "Teclado portátil con altavoces potentes y salida de audio USB para grabación directa.",
+    "image": "https://picsum.photos/seed/teclado-arreglista-casio-ct-s500/600/400",
+    "stock": 19,
+    "featured": true
+  },
+  {
+    "name": "Sintetizador Korg Volca Keys",
+    "price": 4900,
+    "category": "Teclados y Pianos",
+    "brand": "Korg",
+    "description": "Sintetizador analógico compacto de 3 voces, ideal para producción y experimentación sonora.",
+    "image": "https://picsum.photos/seed/sintetizador-korg-volca-keys/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Sintetizador Roland Gaia 2",
+    "price": 19900,
+    "category": "Teclados y Pianos",
+    "brand": "Roland",
+    "description": "Sintetizador de síntesis virtual analógica con estructura de 3 osciladores por voz.",
+    "image": "https://picsum.photos/seed/sintetizador-roland-gaia-2/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Piano Vertical Digital Casio AP-270",
+    "price": 22900,
+    "category": "Teclados y Pianos",
+    "brand": "Casio",
+    "description": "Piano digital tipo mueble con acción de martillo escalado y doble teclado para clases.",
+    "image": "https://picsum.photos/seed/piano-vertical-digital-casio-ap-270/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Teclado Controlador Novation Launchkey 49",
+    "price": 6900,
+    "category": "Teclados y Pianos",
+    "brand": "Novation",
+    "description": "Controlador MIDI de 49 teclas con integración profunda a Ableton Live y otros DAW.",
+    "image": "https://picsum.photos/seed/teclado-controlador-novation-launchkey-49/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Teclado Controlador Arturia KeyLab Essential 61",
+    "price": 7900,
+    "category": "Teclados y Pianos",
+    "brand": "Arturia",
+    "description": "Controlador MIDI de 61 teclas semi-contrapesadas con software de producción incluido.",
+    "image": "https://picsum.photos/seed/teclado-controlador-arturia-keylab-essential-61/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Organo Electronico Yamaha YPT-270",
+    "price": 4900,
+    "category": "Teclados y Pianos",
+    "brand": "Yamaha",
+    "description": "Teclado educativo con lección integrada y cientos de timbres para aprender a tocar.",
+    "image": "https://picsum.photos/seed/organo-electronico-yamaha-ypt-270/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Piano Digital Kawai KDP120",
+    "price": 24900,
+    "category": "Teclados y Pianos",
+    "brand": "Kawai",
+    "description": "Piano digital tipo mueble con acción de martillo Responsive Hammer Compact.",
+    "image": "https://picsum.photos/seed/piano-digital-kawai-kdp120/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Estacion de Trabajo Korg Kronos 2",
+    "price": 89900,
+    "category": "Teclados y Pianos",
+    "brand": "Korg",
+    "description": "Workstation profesional con múltiples motores de sonido, usada por productores y bandas en gira.",
+    "image": "https://picsum.photos/seed/estacion-de-trabajo-korg-kronos-2/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Teclado Infantil Yamaha PSS-E30",
+    "price": 2200,
+    "category": "Teclados y Pianos",
+    "brand": "Yamaha",
+    "description": "Mini teclado de 37 teclas ideal para introducir a los niños en la música.",
+    "image": "https://picsum.photos/seed/teclado-infantil-yamaha-pss-e30/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Saxofon Alto Jupiter JAS500",
+    "price": 18900,
+    "category": "Instrumentos de Viento",
+    "brand": "Jupiter",
+    "description": "Saxofón alto estudiantil con mecanismo ajustado de fábrica y estuche resistente incluido.",
+    "image": "https://picsum.photos/seed/saxofon-alto-jupiter-jas500/600/400",
+    "stock": 5,
+    "featured": true
+  },
+  {
+    "name": "Saxofon Tenor Yamaha YTS-280",
+    "price": 32900,
+    "category": "Instrumentos de Viento",
+    "brand": "Yamaha",
+    "description": "Saxofón tenor estudiantil con buena proyección y afinación estable en todo el registro.",
+    "image": "https://picsum.photos/seed/saxofon-tenor-yamaha-yts-280/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Trompeta Jupiter JTR700",
+    "price": 12900,
+    "category": "Instrumentos de Viento",
+    "brand": "Jupiter",
+    "description": "Trompeta estudiantil en Bb con válvulas de precisión y acabado lacado duradero.",
+    "image": "https://picsum.photos/seed/trompeta-jupiter-jtr700/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Trompeta Yamaha YTR-4335GII",
+    "price": 24900,
+    "category": "Instrumentos de Viento",
+    "brand": "Yamaha",
+    "description": "Trompeta intermedia con campana de latón dorado y respuesta suave en todos los registros.",
+    "image": "https://picsum.photos/seed/trompeta-yamaha-ytr-4335gii/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Clarinete Buffet Crampon B12",
+    "price": 11900,
+    "category": "Instrumentos de Viento",
+    "brand": "Buffet Crampon",
+    "description": "Clarinete estudiantil de resina resistente con mecanismo niquelado, gran estabilidad de afinación.",
+    "image": "https://picsum.photos/seed/clarinete-buffet-crampon-b12/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Flauta Traversa Gemeinhardt 2SP",
+    "price": 9900,
+    "category": "Instrumentos de Viento",
+    "brand": "Gemeinhardt",
+    "description": "Flauta traversa estudiantil plateada, ligera y de fácil embocadura para principiantes.",
+    "image": "https://picsum.photos/seed/flauta-traversa-gemeinhardt-2sp/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Trombon Bach TB301",
+    "price": 13900,
+    "category": "Instrumentos de Viento",
+    "brand": "Bach",
+    "description": "Trombón tenor estudiantil con vara ligera y sonido cálido, ideal para bandas escolares.",
+    "image": "https://picsum.photos/seed/trombon-bach-tb301/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Tuba Yamaha YBB-105",
+    "price": 45900,
+    "category": "Instrumentos de Viento",
+    "brand": "Yamaha",
+    "description": "Tuba estudiantil en Bb de 3 pistones, con acabado lacado y proyección potente.",
+    "image": "https://picsum.photos/seed/tuba-yamaha-ybb-105/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Trompeta Conn Director",
+    "price": 9900,
+    "category": "Instrumentos de Viento",
+    "brand": "Conn",
+    "description": "Trompeta estudiantil clásica, confiable y de fácil mantenimiento para bandas escolares.",
+    "image": "https://picsum.photos/seed/trompeta-conn-director/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Armonica Suzuki Folkmaster",
+    "price": 850,
+    "category": "Instrumentos de Viento",
+    "brand": "Suzuki",
+    "description": "Armónica diatónica de 10 orificios con cuerpo de madera, tono cálido tradicional.",
+    "image": "https://picsum.photos/seed/armonica-suzuki-folkmaster/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Saxofon Baritono Jupiter JBS1000",
+    "price": 45900,
+    "category": "Instrumentos de Viento",
+    "brand": "Jupiter",
+    "description": "Saxofón barítono con mecanismo de fa agudo y estuche con ruedas incluido.",
+    "image": "https://picsum.photos/seed/saxofon-baritono-jupiter-jbs1000/600/400",
+    "stock": 19,
+    "featured": true
+  },
+  {
+    "name": "Flauta Dulce Aulos 205B",
+    "price": 450,
+    "category": "Instrumentos de Viento",
+    "brand": "Aulos",
+    "description": "Flauta dulce soprano de plástico de alta calidad, estándar en la educación musical.",
+    "image": "https://picsum.photos/seed/flauta-dulce-aulos-205b/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Corno Frances Yamaha YHR-314II",
+    "price": 34900,
+    "category": "Instrumentos de Viento",
+    "brand": "Yamaha",
+    "description": "Corno francés estudiantil de trompa sencilla, ligero y de fácil respuesta.",
+    "image": "https://picsum.photos/seed/corno-frances-yamaha-yhr-314ii/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Melodica Suzuki M-37C",
+    "price": 1500,
+    "category": "Instrumentos de Viento",
+    "brand": "Suzuki",
+    "description": "Melódica de 37 teclas con estuche incluido, instrumento viento-teclado para educación musical.",
+    "image": "https://picsum.photos/seed/melodica-suzuki-m-37c/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Gaita Escocesa McCallum Bagpipes",
+    "price": 15900,
+    "category": "Instrumentos de Viento",
+    "brand": "McCallum",
+    "description": "Gaita escocesa tradicional con roncones afinados, ideal para bandas de gaitas y folclore.",
+    "image": "https://picsum.photos/seed/gaita-escocesa-mccallum-bagpipes/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Violin Stentor Student I 4/4",
+    "price": 3900,
+    "category": "Cuerda Clásica y Folk",
+    "brand": "Stentor",
+    "description": "Violín estudiantil de entrada con arco y estuche incluidos, ideal para primeros pasos.",
+    "image": "https://picsum.photos/seed/violin-stentor-student-i-4-4/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Violonchelo Yamaha VC5S",
+    "price": 12900,
+    "category": "Cuerda Clásica y Folk",
+    "brand": "Yamaha",
+    "description": "Violonchelo estudiantil de tamaño completo con buen balance tonal y construcción sólida.",
+    "image": "https://picsum.photos/seed/violonchelo-yamaha-vc5s/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Viola Cecilio CVA-500",
+    "price": 5900,
+    "category": "Cuerda Clásica y Folk",
+    "brand": "Cecilio",
+    "description": "Viola estudiantil con estuche acolchado, ideal para estudiantes de orquesta escolar.",
+    "image": "https://picsum.photos/seed/viola-cecilio-cva-500/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Contrabajo Stentor Student II 3/4",
+    "price": 18900,
+    "category": "Cuerda Clásica y Folk",
+    "brand": "Stentor",
+    "description": "Contrabajo acústico de estudio con buen proyección, ideal para orquesta y jazz.",
+    "image": "https://picsum.photos/seed/contrabajo-stentor-student-ii-3-4/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Arpa de Mesa Rees Harps Sharpsicle",
+    "price": 8900,
+    "category": "Cuerda Clásica y Folk",
+    "brand": "Rees Harps",
+    "description": "Arpa de mesa portátil de 26 cuerdas, ideal para terapia musical y música folk.",
+    "image": "https://picsum.photos/seed/arpa-de-mesa-rees-harps-sharpsicle/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Ukelele Tenor Kala KA-T",
+    "price": 2900,
+    "category": "Cuerda Clásica y Folk",
+    "brand": "Kala",
+    "description": "Ukelele tenor de caoba con sonido cálido y mayor proyección que el soprano.",
+    "image": "https://picsum.photos/seed/ukelele-tenor-kala-ka-t/600/400",
+    "stock": 5,
+    "featured": true
+  },
+  {
+    "name": "Ukelele Baritono Cordoba 25B",
+    "price": 3200,
+    "category": "Cuerda Clásica y Folk",
+    "brand": "Cordoba",
+    "description": "Ukelele barítono con tapa maciza de abeto, afinación similar a las cuatro primeras cuerdas de guitarra.",
+    "image": "https://picsum.photos/seed/ukelele-baritono-cordoba-25b/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Banjo Recording King RK-R20",
+    "price": 8900,
+    "category": "Cuerda Clásica y Folk",
+    "brand": "Recording King",
+    "description": "Banjo de 5 cuerdas con aro resonador, sonido brillante ideal para bluegrass.",
+    "image": "https://picsum.photos/seed/banjo-recording-king-rk-r20/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Mandolina Ibanez M510",
+    "price": 4900,
+    "category": "Cuerda Clásica y Folk",
+    "brand": "Ibanez",
+    "description": "Mandolina estilo A con tapa maciza de abeto, ideal para folk y bluegrass.",
+    "image": "https://picsum.photos/seed/mandolina-ibanez-m510/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Violin de Estudio Yamaha V7SG 4/4",
+    "price": 13900,
+    "category": "Cuerda Clásica y Folk",
+    "brand": "Yamaha",
+    "description": "Violín de estudio avanzado con tapa maciza y acabado antiguo, ideal para nivel intermedio.",
+    "image": "https://picsum.photos/seed/violin-de-estudio-yamaha-v7sg-4-4/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Amplificador de Guitarra Boss Katana 50",
+    "price": 6900,
+    "category": "Accesorios",
+    "brand": "Boss",
+    "description": "Amplificador combo versátil con efectos digitales integrados y múltiples canales de sonido.",
+    "image": "https://picsum.photos/seed/amplificador-de-guitarra-boss-katana-50/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Amplificador de Bajo Fender Rumble 40",
+    "price": 5900,
+    "category": "Accesorios",
+    "brand": "Fender",
+    "description": "Amplificador combo para bajo de 40W con ecualizador de 3 bandas y entrada auxiliar.",
+    "image": "https://picsum.photos/seed/amplificador-de-bajo-fender-rumble-40/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Afinador de Pedal Boss TU-3",
+    "price": 1900,
+    "category": "Accesorios",
+    "brand": "Boss",
+    "description": "Afinador cromático de pedal con pantalla de alta visibilidad, estándar de la industria.",
+    "image": "https://picsum.photos/seed/afinador-de-pedal-boss-tu-3/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Cuerdas para Bajo Electrico Ernie Ball Slinky Bass",
+    "price": 450,
+    "category": "Accesorios",
+    "brand": "Ernie Ball",
+    "description": "Set de cuerdas de níquel para bajo de 4 cuerdas, calibre estándar y buen sustain.",
+    "image": "https://picsum.photos/seed/cuerdas-para-bajo-electrico-ernie-ball-slinky-bass/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Cuerdas para Guitarra Clasica DAddario EJ45",
+    "price": 250,
+    "category": "Accesorios",
+    "brand": "D'Addario",
+    "description": "Set de cuerdas de nylon para guitarra clásica, tensión normal y sonido cálido.",
+    "image": "https://picsum.photos/seed/cuerdas-para-guitarra-clasica-daddario-ej45/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Capo para Guitarra DAddario NS Artist",
+    "price": 350,
+    "category": "Accesorios",
+    "brand": "D'Addario",
+    "description": "Capo de bajo perfil con mecanismo de tensión ajustable, apto para acústicas y eléctricas.",
+    "image": "https://picsum.photos/seed/capo-para-guitarra-daddario-ns-artist/600/400",
+    "stock": 19,
+    "featured": true
+  },
+  {
+    "name": "Funda Acolchada para Bajo Gator",
+    "price": 1400,
+    "category": "Accesorios",
+    "brand": "Gator",
+    "description": "Funda acolchada con correa ajustable y bolsillo frontal, protección para transporte diario.",
+    "image": "https://picsum.photos/seed/funda-acolchada-para-bajo-gator/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Estuche Rigido para Bajo SKB",
+    "price": 3900,
+    "category": "Accesorios",
+    "brand": "SKB",
+    "description": "Estuche rígido con interior moldeado, máxima protección para transporte y viajes.",
+    "image": "https://picsum.photos/seed/estuche-rigido-para-bajo-skb/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Interfaz de Audio PreSonus AudioBox USB 96",
+    "price": 2900,
+    "category": "Accesorios",
+    "brand": "PreSonus",
+    "description": "Interfaz de audio de 2 canales con preamplificadores de calidad, ideal para grabación en casa.",
+    "image": "https://picsum.photos/seed/interfaz-de-audio-presonus-audiobox-usb-96/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Microfono Audio-Technica AT2020",
+    "price": 2900,
+    "category": "Accesorios",
+    "brand": "Audio-Technica",
+    "description": "Micrófono de condensador de estudio con captación de detalle excepcional.",
+    "image": "https://picsum.photos/seed/microfono-audio-technica-at2020/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Pedal de Efectos MXR Phase 90",
+    "price": 2200,
+    "category": "Accesorios",
+    "brand": "MXR",
+    "description": "Pedal de phaser clásico usado en incontables grabaciones de rock desde los años 70.",
+    "image": "https://picsum.photos/seed/pedal-de-efectos-mxr-phase-90/600/400",
+    "stock": 26,
+    "featured": false
+  },
+  {
+    "name": "Atril para Partituras On-Stage Stands",
+    "price": 850,
+    "category": "Accesorios",
+    "brand": "On-Stage",
+    "description": "Atril plegable de altura ajustable, ligero y fácil de transportar a ensayos.",
+    "image": "https://picsum.photos/seed/atril-para-partituras-on-stage-stands/600/400",
+    "stock": 5,
+    "featured": false
+  },
+  {
+    "name": "Soporte para Teclado Ultimate Support",
+    "price": 1900,
+    "category": "Accesorios",
+    "brand": "Ultimate Support",
+    "description": "Soporte en X de altura ajustable, estable y plegable para teclados y pianos digitales.",
+    "image": "https://picsum.photos/seed/soporte-para-teclado-ultimate-support/600/400",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "name": "Metronomo Korg MA-2",
+    "price": 450,
+    "category": "Accesorios",
+    "brand": "Korg",
+    "description": "Metrónomo compacto con múltiples ritmos y afinador de referencia integrado.",
+    "image": "https://picsum.photos/seed/metronomo-korg-ma-2/600/400",
+    "stock": 19,
+    "featured": false
+  },
+  {
+    "name": "Audifonos de Estudio Sony MDR-7506",
+    "price": 2900,
+    "category": "Accesorios",
+    "brand": "Sony",
+    "description": "Audífonos cerrados de monitoreo profesional, estándar en estudios de grabación y broadcast.",
+    "image": "https://picsum.photos/seed/audifonos-de-estudio-sony-mdr-7506/600/400",
+    "stock": 26,
+    "featured": false
   }
 ];
 
