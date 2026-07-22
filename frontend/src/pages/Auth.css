@@ -39,13 +39,3 @@
   color: var(--color-primary);
   font-weight: 700;
 }
-
-.auth-demo-hint {
-  margin-top: 18px;
-  padding: 12px 14px;
-  border-radius: var(--radius-sm);
-  background: rgba(76, 29, 149, 0.06);
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
-  line-height: 1.6;
-}

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
+import PasswordInput from '../components/PasswordInput';
 import { useAuth } from '../context/AuthContext';
 import './Auth.css';
 
@@ -9,7 +10,13 @@ export default function Register() {
   const { register } = useAuth();
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({ name: '', email: '', password: '', confirmPassword: '' });
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+    confirmPassword: ''
+  });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -17,9 +24,18 @@ export default function Register() {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   }
 
+  function handlePhoneChange(e) {
+    const digitsOnly = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setForm((f) => ({ ...f, phone: digitsOnly }));
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
+    if (form.phone.length !== 10) {
+      setError('El teléfono debe tener exactamente 10 dígitos');
+      return;
+    }
     if (form.password !== form.confirmPassword) {
       setError('Las contraseñas no coinciden');
       return;
@@ -30,7 +46,12 @@ export default function Register() {
     }
     setLoading(true);
     try {
-      await register({ name: form.name, email: form.email, password: form.password });
+      await register({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        password: form.password
+      });
       navigate('/', { replace: true });
     } catch (err) {
       setError(err.response?.data?.message || 'No se pudo completar el registro');
@@ -64,25 +85,38 @@ export default function Register() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Contraseña</label>
+              <label htmlFor="phone">Número de teléfono</label>
               <input
+                id="phone"
+                name="phone"
+                type="tel"
+                inputMode="numeric"
+                placeholder="10 dígitos"
+                required
+                value={form.phone}
+                onChange={handlePhoneChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Contraseña</label>
+              <PasswordInput
                 id="password"
                 name="password"
-                type="password"
                 required
                 value={form.password}
                 onChange={handleChange}
+                autoComplete="new-password"
               />
             </div>
             <div className="form-group">
               <label htmlFor="confirmPassword">Confirmar contraseña</label>
-              <input
+              <PasswordInput
                 id="confirmPassword"
                 name="confirmPassword"
-                type="password"
                 required
                 value={form.confirmPassword}
                 onChange={handleChange}
+                autoComplete="new-password"
               />
             </div>
             {error && <p className="error-text">{error}</p>}

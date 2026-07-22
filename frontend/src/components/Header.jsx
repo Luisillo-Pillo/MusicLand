@@ -2,7 +2,16 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import { LogoIcon, SearchIcon, CartIcon, ChevronDownIcon, UserIcon, LogoutIcon, EditIcon } from './icons';
+import {
+  LogoIcon,
+  SearchIcon,
+  CartIcon,
+  ChevronDownIcon,
+  UserIcon,
+  LogoutIcon,
+  EditIcon,
+  ReceiptIcon
+} from './icons';
 import './Header.css';
 
 export default function Header() {
@@ -96,6 +105,9 @@ export default function Header() {
                     </Link>
                     <Link to="/carrito" onClick={() => setMenuOpen(false)}>
                       <CartIcon size={16} /> Ver carrito
+                    </Link>
+                    <Link to="/historial-compras" onClick={() => setMenuOpen(false)}>
+                      <ReceiptIcon size={16} /> Historial de compras
                     </Link>
                     {user.role === 'admin' && (
                       <Link to="/admin/productos" onClick={() => setMenuOpen(false)}>

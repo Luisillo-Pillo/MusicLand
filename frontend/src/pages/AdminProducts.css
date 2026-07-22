@@ -58,3 +58,34 @@
   max-height: 88vh;
   overflow-y: auto;
 }
+
+.admin-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 420px;
+  margin-bottom: 20px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+}
+
+.admin-search-box input {
+  flex: 1;
+  border: none;
+  background: none;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.admin-search-box input:focus {
+  outline: none;
+}
+
+.admin-search-empty {
+  color: var(--color-text-muted);
+  padding: 24px 0;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,93 @@
+.admin-users-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 28px 0 14px;
+  font-size: 1.05rem;
+}
+
+.admin-users-section-title:first-of-type {
+  margin-top: 0;
+}
+
+.admin-user-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-users-empty {
+  color: var(--color-text-muted);
+  padding: 16px 0 8px;
+  font-size: 0.9rem;
+}
+
+.admin-users-you-badge {
+  margin-left: 8px;
+  background: var(--color-accent);
+  color: #2b1b00;
+}
+
+.row-actions-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.row-actions-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.row-actions-trigger:hover {
+  background: rgba(76, 29, 149, 0.08);
+}
+
+.row-actions-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 190px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  z-index: 40;
+}
+
+.row-actions-dropdown button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.row-actions-dropdown button:hover:not(:disabled) {
+  background: rgba(76, 29, 149, 0.08);
+}
+
+.row-actions-dropdown button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.row-actions-dropdown .row-actions-danger {
+  color: var(--color-danger);
+}

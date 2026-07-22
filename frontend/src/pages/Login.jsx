@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
+import PasswordInput from '../components/PasswordInput';
 import { useAuth } from '../context/AuthContext';
 import './Auth.css';
 
@@ -55,13 +56,13 @@ export default function Login() {
             </div>
             <div className="form-group">
               <label htmlFor="password">Contraseña</label>
-              <input
+              <PasswordInput
                 id="password"
                 name="password"
-                type="password"
                 required
                 value={form.password}
                 onChange={handleChange}
+                autoComplete="current-password"
               />
             </div>
             {error && <p className="error-text">{error}</p>}
@@ -73,12 +74,6 @@ export default function Login() {
           <p className="auth-switch">
             ¿No tienes cuenta? <Link to="/registro">Regístrate aquí</Link>
           </p>
-
-          <div className="auth-demo-hint">
-            Cuenta demo admin: admin@musicland.com / Admin123!
-            <br />
-            Cuenta demo usuario: usuario@musicland.com / Usuario123!
-          </div>
         </div>
       </div>
     </Layout>

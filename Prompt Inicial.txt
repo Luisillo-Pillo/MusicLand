@@ -1,0 +1,24 @@
+Quiero que generes un proyecto full stack con las siguientes características. Quiero que sea un e-commerce de productos musicales e instrumentos con una lista de productos variada y extensa.
+
+Front End:
+Quiero que en el header aparezca el nombre del sitio, una barra de búsqueda, un menú con "Inicio", "Categorías", "Marcas" y "Contáctanos" y botones para iniciar sesión o registrarse en caso de aún no tener una sesión iniciada, y si ya inició sesión, quiero que aparezca el ícono del carrito y el nombre del usuario con un menú desplegable para ver el perfil, ver el carrito o cerrar la sesión.
+En el main quiero que primero aparezca un carrusel de imágenes con los productos más destacados, alrededor de 10 imágenes de productos variados o promociones vigentes. Luego quiero que aparezcan los productos ordenados en 4 columnas. Que aparezcan inicialmente solo 3 filas, y agrega un botón de "Ver más" que haga que aparezcan más productos. Las tarjetas de productos deben contener la imagen del producto, el nombre, el precio y 2 botones en la parte de abajo, uno para agregar al carrito y otro para ver los detalles del producto.
+En el footer agrega datos de contacto, el nombre del sitio, todos los derechos reservados y otros elementos clásicos de un footer. 
+Para la página de detalles del producto quiero que aparezca a la izquierda la imagen del producto que estamos viendo, a la derecha arriba el nombre del producto, luego una descripción del producto, stock disponible, agregar al carrito (agrega un selector de cantidad que esté en 1 por default) y volver al inicio.
+Para la página de perfil, quiero que aparezca la foto de perfil del usuario, su nombre, correo y rol, además de botones para volver, editar información y cerrar sesión. Para que un usuario pueda agregar elementos al carrito debe de tener la sesión iniciada.
+Para la página del carrito deben aparecer los productos en lista a la izquierda, con una pequeña imagen del producto, nombre, precio (ajustado a la cantidad de unidades de cada producto), cantidad (ajustable para modificar la cantidad de unidades desde el carrito también) y un botón de eliminar el carrito que requiera confirmación. Si en el selector de unidades se indica un 0, el producto en cuestión se eliminará del carrito luego de recibir la confirmación. Del lado derecho quiero un resumen del carrito, con total de productos, precio total y un botón para proceder al pago. Debajo quiero un botón para vaciar el carrito que también requiere confirmación. En caso de que el carrito esté vacío, se verá un aviso de fondo que indique que está vacío.
+En cada página que hagas agrega un pequeño botón en la esquina izquierda superior de una flecha mirando a la izquierda, que al presionarlo regrese a la página anterior.
+Para la página del checkout quiero un resumen de la compra, una dirección de envío, un método de pago (no funcional) y un botón para volver y uno para finalizar la compra. Una vez confirmada la compra, aparecerá un mensaje de agradecimiento con número de pedido y resumen de compra.
+
+Back end:
+Quiero que sea una base de datos con mongoose y encriptada con JWT. Habrá 2 tipos de usuarios/roles: "user" y "admin".
+El esquema de los productos debe incluir un ID, nombre, precio, stock, descripción, categoría y marca.
+Genera un CRUD considerando los permisos requeridos para cada tipo de usuario.
+El esquema de usuario debe almacenar ID, nombre, foto de perfil, correo electrónico, contraseña (encriptada) y rol.
+La base de datos debe almacenar los métodos de pago, direcciones y productos del carrito por usuario, así como llevar un registro general de las compras procesadas con su número de pedido (ID), el usuario que la realizó, el precio, los productos de la compra y la fecha y hora en que se registró.
+
+Utiliza SVGs para los logos y símbolos que sean necesarios.
+
+Prepara todo para ser utilizado en render y vercel con mongo atlas. Al terminar, dame instrucciones de qué hacr a continuación y lanza el proyecto en local
+
+Antes de generar el proyecto, hazme las preguntas necesarias para aclarar dudas, corregir errores o complementar información para hacerlo todo lo más preciso posible.

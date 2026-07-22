@@ -7,10 +7,13 @@ import Profile from './pages/Profile';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import OrderConfirmation from './pages/OrderConfirmation';
+import OrderHistory from './pages/OrderHistory';
 import Categories from './pages/Categories';
 import Brands from './pages/Brands';
 import Contact from './pages/Contact';
 import AdminProducts from './pages/AdminProducts';
+import AdminUsers from './pages/AdminUsers';
+import AdminUserProfile from './pages/AdminUserProfile';
 import NotFound from './pages/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -58,10 +61,34 @@ export default function App() {
         }
       />
       <Route
+        path="/historial-compras"
+        element={
+          <ProtectedRoute>
+            <OrderHistory />
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path="/admin/productos"
         element={
           <ProtectedRoute adminOnly>
             <AdminProducts />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/usuarios"
+        element={
+          <ProtectedRoute adminOnly>
+            <AdminUsers />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/usuarios/:id"
+        element={
+          <ProtectedRoute adminOnly>
+            <AdminUserProfile />
           </ProtectedRoute>
         }
       />

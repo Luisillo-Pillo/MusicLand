@@ -50,6 +50,7 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       trim: true
     },
+    phone: { type: String, trim: true, default: '' },
     password: { type: String, required: true, minlength: 6, select: false },
     profilePhoto: {
       type: String,
@@ -57,6 +58,7 @@ const userSchema = new mongoose.Schema(
         'https://api.dicebear.com/7.x/initials/svg?seed=User&backgroundColor=6d28d9'
     },
     role: { type: String, enum: ['user', 'admin'], default: 'user' },
+    lastLogin: { type: Date, default: null },
     addresses: [addressSchema],
     paymentMethods: [paymentMethodSchema],
     cart: [cartItemSchema]

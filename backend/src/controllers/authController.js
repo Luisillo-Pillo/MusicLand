@@ -3,9 +3,12 @@ const generateToken = require('../utils/generateToken');
 
 async function register(req, res) {
   try {
-    const { name, email, password, profilePhoto } = req.body;
-    if (!name || !email || !password) {
-      return res.status(400).json({ message: 'Nombre, correo y contraseña son obligatorios' });
+    const { name, email, password, phone, profilePhoto } = req.body;
+    if (!name || !email || !password || !phone) {
+      return res.status(400).json({ message: 'Nombre, correo, teléfono y contraseña son obligatorios' });
+    }
+    if (!/^\d{10}$/.test(phone)) {
+      return res.status(400).json({ message: 'El teléfono debe tener exactamente 10 dígitos' });
     }
     const existing = await User.findOne({ email: email.toLowerCase() });
     if (existing) {
@@ -15,6 +18,8 @@ async function register(req, res) {
       name,
       email,
       password,
+      phone,
+      lastLogin: new Date(),
       profilePhoto:
         profilePhoto ||
         `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name)}&backgroundColor=6d28d9`
@@ -36,6 +41,8 @@ async function login(req, res) {
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ message: 'Credenciales inválidas' });
     }
+    user.lastLogin = new Date();
+    await user.save();
     const token = generateToken(user);
     res.json({ token, user: user.toSafeObject() });
   } catch (error) {

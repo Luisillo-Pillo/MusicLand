@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
 import { useAuth } from '../context/AuthContext';
-import { EditIcon, LogoutIcon } from '../components/icons';
+import { EditIcon, LogoutIcon, PhoneIcon, ReceiptIcon } from '../components/icons';
+import { getMyOrdersRequest } from '../api/orderApi';
 import './Profile.css';
 
 const roleLabels = {
@@ -18,22 +19,36 @@ export default function Profile() {
   const [editing, setEditing] = useState(false);
   const [form, setForm] = useState({
     name: user?.name || '',
-    profilePhoto: user?.profilePhoto || '',
+    phone: user?.phone || '',
     password: ''
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [totalPurchases, setTotalPurchases] = useState(null);
+
+  useEffect(() => {
+    getMyOrdersRequest().then(({ data }) => setTotalPurchases(data.length));
+  }, []);
 
   function handleChange(e) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   }
 
+  function handlePhoneChange(e) {
+    const digitsOnly = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setForm((f) => ({ ...f, phone: digitsOnly }));
+  }
+
   async function handleSave(e) {
     e.preventDefault();
     setError('');
+    if (form.phone.length !== 10) {
+      setError('El teléfono debe tener exactamente 10 dígitos');
+      return;
+    }
     setLoading(true);
     try {
-      const payload = { name: form.name, profilePhoto: form.profilePhoto };
+      const payload = { name: form.name, phone: form.phone };
       if (form.password) payload.password = form.password;
       await updateProfile(payload);
       setEditing(false);
@@ -62,6 +77,19 @@ export default function Profile() {
           <p className="profile-email">{user.email}</p>
           <span className="badge">{roleLabels[user.role] || user.role}</span>
 
+          <div className="profile-stats">
+            <div className="profile-stat-item">
+              <PhoneIcon size={16} />
+              {user.phone || 'Sin teléfono registrado'}
+            </div>
+            <div className="profile-stat-item">
+              <ReceiptIcon size={16} />
+              {totalPurchases === null
+                ? '—'
+                : `${totalPurchases} ${totalPurchases === 1 ? 'compra realizada' : 'compras realizadas'}`}
+            </div>
+          </div>
+
           {!editing ? (
             <div className="profile-actions">
               <button type="button" className="btn btn-outline" onClick={() => navigate(-1)}>
@@ -81,12 +109,16 @@ export default function Profile() {
                 <input id="name" name="name" value={form.name} onChange={handleChange} required />
               </div>
               <div className="form-group">
-                <label htmlFor="profilePhoto">URL de foto de perfil</label>
+                <label htmlFor="phone">Número de teléfono</label>
                 <input
-                  id="profilePhoto"
-                  name="profilePhoto"
-                  value={form.profilePhoto}
-                  onChange={handleChange}
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  inputMode="numeric"
+                  placeholder="10 dígitos"
+                  value={form.phone}
+                  onChange={handlePhoneChange}
+                  required
                 />
               </div>
               <div className="form-group">

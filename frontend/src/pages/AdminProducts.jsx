@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
+import AdminNav from '../components/AdminNav';
 import ConfirmModal from '../components/ConfirmModal';
-import { EditIcon, TrashIcon, PlusIcon } from '../components/icons';
+import { EditIcon, TrashIcon, PlusIcon, SearchIcon } from '../components/icons';
 import {
   getProductsRequest,
   createProductRequest,
@@ -31,6 +32,7 @@ export default function AdminProducts() {
   const [error, setError] = useState('');
   const [saving, setSaving] = useState(false);
   const [deleteTarget, setDeleteTarget] = useState(null);
+  const [search, setSearch] = useState('');
 
   async function loadProducts() {
     setLoading(true);
@@ -105,21 +107,45 @@ export default function AdminProducts() {
     await loadProducts();
   }
 
+  const filteredProducts = products.filter((product) => {
+    const term = search.trim().toLowerCase();
+    if (!term) return true;
+    return (
+      product.name.toLowerCase().includes(term) ||
+      product.category.toLowerCase().includes(term) ||
+      product.brand.toLowerCase().includes(term)
+    );
+  });
+
   return (
     <Layout>
       <BackButton />
       <div className="container">
         <div className="admin-header">
-          <h1>Panel de administración de productos</h1>
+          <h1>Administración de productos</h1>
           <button type="button" className="btn btn-primary" onClick={openCreateForm}>
             <PlusIcon size={14} /> Nuevo producto
           </button>
+        </div>
+
+        <AdminNav />
+
+        <div className="admin-search-box">
+          <SearchIcon size={16} />
+          <input
+            type="text"
+            placeholder="Buscar por nombre, categoría o marca..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
 
         {loading ? (
           <div className="spinner-wrapper">
             <div className="spinner" />
           </div>
+        ) : filteredProducts.length === 0 ? (
+          <p className="admin-search-empty">No se encontraron productos que coincidan con tu búsqueda.</p>
         ) : (
           <div className="admin-table-wrapper">
             <table className="admin-table">
@@ -135,7 +161,7 @@ export default function AdminProducts() {
                 </tr>
               </thead>
               <tbody>
-                {products.map((product) => (
+                {filteredProducts.map((product) => (
                   <tr key={product._id}>
                     <td>
                       <img className="admin-product-thumb" src={product.image} alt={product.name} />
