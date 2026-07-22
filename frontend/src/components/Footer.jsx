@@ -84,9 +84,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="footer-bottom">
+        <div className="footer-bottom"  style={{textAlign: 'center', alignItems: 'center', justifyContent: 'center'}}>
           <span>© {year} MusicLand. Todos los derechos reservados.</span>
-          <span>Hecho con dedicación para amantes de la música.</span>
+          {/* <span>Hecho con dedicación para amantes de la música.</span>   */}
         </div>
       </div>
     </footer>

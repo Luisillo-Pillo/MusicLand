@@ -29,9 +29,16 @@
   color: #2b1b00;
 }
 
-.row-actions-menu {
-  position: relative;
-  display: inline-block;
+.admin-table-fixed {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.admin-table-fixed th,
+.admin-table-fixed td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .row-actions-trigger {
@@ -52,16 +59,14 @@
 }
 
 .row-actions-dropdown {
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
+  position: fixed;
   min-width: 190px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
-  z-index: 40;
+  z-index: 200;
 }
 
 .row-actions-dropdown button {

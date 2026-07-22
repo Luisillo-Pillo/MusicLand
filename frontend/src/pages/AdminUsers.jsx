@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
@@ -26,47 +27,79 @@ function formatLastLogin(dateStr) {
 
 function RowActionsMenu({ items }) {
   const [open, setOpen] = useState(false);
-  const ref = useRef(null);
+  const [position, setPosition] = useState({ top: 0, left: 0 });
+  const triggerRef = useRef(null);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(e) {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+      if (
+        triggerRef.current &&
+        !triggerRef.current.contains(e.target) &&
+        menuRef.current &&
+        !menuRef.current.contains(e.target)
+      ) {
+        setOpen(false);
+      }
     }
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (!open) return undefined;
+    function updatePosition() {
+      if (!triggerRef.current) return;
+      const rect = triggerRef.current.getBoundingClientRect();
+      setPosition({ top: rect.bottom + 6, left: rect.left });
+    }
+    updatePosition();
+    window.addEventListener('scroll', updatePosition, true);
+    window.addEventListener('resize', updatePosition);
+    return () => {
+      window.removeEventListener('scroll', updatePosition, true);
+      window.removeEventListener('resize', updatePosition);
+    };
+  }, [open]);
+
   return (
-    <div className="row-actions-menu" ref={ref}>
+    <>
       <button
         type="button"
+        ref={triggerRef}
         className="row-actions-trigger"
         onClick={() => setOpen((o) => !o)}
         aria-label="Abrir acciones"
       >
         <MenuIcon size={18} />
       </button>
-      {open && (
-        <div className="row-actions-dropdown">
-          {items.map((item) => (
-            <button
-              key={item.label}
-              type="button"
-              disabled={item.disabled}
-              title={item.title || ''}
-              className={item.danger ? 'row-actions-danger' : ''}
-              onClick={() => {
-                setOpen(false);
-                item.onClick();
-              }}
-            >
-              {item.icon}
-              {item.label}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
+      {open &&
+        createPortal(
+          <div
+            className="row-actions-dropdown"
+            ref={menuRef}
+            style={{ top: position.top, left: position.left }}
+          >
+            {items.map((item) => (
+              <button
+                key={item.label}
+                type="button"
+                disabled={item.disabled}
+                title={item.title || ''}
+                className={item.danger ? 'row-actions-danger' : ''}
+                onClick={() => {
+                  setOpen(false);
+                  item.onClick();
+                }}
+              >
+                {item.icon}
+                {item.label}
+              </button>
+            ))}
+          </div>,
+          document.body
+        )}
+    </>
   );
 }
 
@@ -77,7 +110,17 @@ function UsersTable({ users, currentUserId, onToggleRole, onRequestDelete, onVie
 
   return (
     <div className="admin-table-wrapper">
-      <table className="admin-table">
+      <table className="admin-table admin-table-fixed">
+        <colgroup>
+          <col style={{ width: '6%' }} />
+          <col style={{ width: '17%' }} />
+          <col style={{ width: '21%' }} />
+          <col style={{ width: '12%' }} />
+          <col style={{ width: '10%' }} />
+          <col style={{ width: '9%' }} />
+          <col style={{ width: '12%' }} />
+          <col style={{ width: '13%' }} />
+        </colgroup>
         <thead>
           <tr>
             <th></th>
@@ -86,7 +129,7 @@ function UsersTable({ users, currentUserId, onToggleRole, onRequestDelete, onVie
             <th>Teléfono</th>
             <th>Rol</th>
             <th>Compras</th>
-            <th>Última conexión</th>
+            <th>Conexión</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -127,12 +170,12 @@ function UsersTable({ users, currentUserId, onToggleRole, onRequestDelete, onVie
                 <td>
                   <img className="admin-user-thumb" src={user.profilePhoto} alt={user.name} />
                 </td>
-                <td>
+                <td title={user.name}>
                   {user.name}
                   {isSelf && <span className="badge admin-users-you-badge">Tú</span>}
                 </td>
-                <td>{user.email}</td>
-                <td>{user.phone || '—'}</td>
+                <td title={user.email}>{user.email}</td>
+                <td title={user.phone || ''}>{user.phone || '—'}</td>
                 <td>
                   <span className="badge">{roleLabels[user.role] || user.role}</span>
                 </td>
