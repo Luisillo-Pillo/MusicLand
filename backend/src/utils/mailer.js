@@ -24,10 +24,11 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
+// Devuelve true si el correo se envió, false si se omitió por falta de configuración SMTP.
 async function sendMail({ subject, html, replyTo, to }) {
   if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
     console.warn('SMTP no configurado (SMTP_USER/SMTP_PASS); se omite el envío de correo.');
-    return;
+    return false;
   }
   const transport = getTransporter();
   await transport.sendMail({
@@ -37,6 +38,7 @@ async function sendMail({ subject, html, replyTo, to }) {
     html,
     replyTo
   });
+  return true;
 }
 
 module.exports = { sendMail, escapeHtml };

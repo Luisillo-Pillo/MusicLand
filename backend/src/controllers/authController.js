@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const generateToken = require('../utils/generateToken');
+const handleError = require('../utils/handleError');
 
 async function register(req, res) {
   try {
@@ -27,7 +28,7 @@ async function register(req, res) {
     const token = generateToken(user);
     res.status(201).json({ token, user: user.toSafeObject() });
   } catch (error) {
-    res.status(500).json({ message: 'Error al registrar usuario', error: error.message });
+    handleError(res, error, 'Error al registrar usuario');
   }
 }
 
@@ -46,7 +47,7 @@ async function login(req, res) {
     const token = generateToken(user);
     res.json({ token, user: user.toSafeObject() });
   } catch (error) {
-    res.status(500).json({ message: 'Error al iniciar sesión', error: error.message });
+    handleError(res, error, 'Error al iniciar sesión');
   }
 }
 

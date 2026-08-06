@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const connectDB = require('./src/config/db');
 
 const authRoutes = require('./src/routes/authRoutes');
@@ -12,10 +13,15 @@ const contactRoutes = require('./src/routes/contactRoutes');
 
 const app = express();
 
+// Render (y cualquier PaaS) sirve detrás de un proxy: sin esto req.ip es la IP del
+// proxy y el rate limiter agruparía a todos los usuarios en un mismo cubo.
+app.set('trust proxy', 1);
+
 const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173')
   .split(',')
   .map((origin) => origin.trim());
 
+app.use(helmet());
 app.use(
   cors({
     origin: allowedOrigins,

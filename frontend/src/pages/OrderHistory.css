@@ -77,7 +77,47 @@
 .order-history-actions {
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
   margin-top: 12px;
+}
+
+.order-history-badge.status-pendiente {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.order-history-badge.status-enviado {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.order-history-badge.status-entregado {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.order-history-badge.status-cancelado {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.order-history-cancelled {
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-danger);
+  background: rgba(220, 38, 38, 0.07);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.order-history-cancelled p {
+  margin: 0;
+}
+
+.order-history-cancel-reason {
+  margin-top: 6px !important;
+  white-space: pre-wrap;
 }
 
 .order-details-modal {

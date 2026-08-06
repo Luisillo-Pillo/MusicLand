@@ -1,0 +1,25 @@
+.cancel-order-modal {
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+}
+
+.cancel-order-lead {
+  margin: -8px 0 18px;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.cancel-order-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.cancel-order-meta .near-limit {
+  color: var(--color-danger);
+  font-weight: 600;
+}

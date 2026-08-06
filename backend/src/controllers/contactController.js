@@ -1,5 +1,6 @@
 const ContactMessage = require('../models/ContactMessage');
 const { sendMail, escapeHtml } = require('../utils/mailer');
+const handleError = require('../utils/handleError');
 
 async function sendContactMessage(req, res) {
   try {
@@ -28,7 +29,7 @@ async function sendContactMessage(req, res) {
 
     res.status(200).json({ message: 'Mensaje enviado correctamente' });
   } catch (error) {
-    res.status(500).json({ message: 'Error al enviar el mensaje', error: error.message });
+    handleError(res, error, 'Error al enviar el mensaje');
   }
 }
 
@@ -37,7 +38,7 @@ async function getContactMessages(req, res) {
     const messages = await ContactMessage.find().sort({ createdAt: -1 });
     res.json(messages);
   } catch (error) {
-    res.status(500).json({ message: 'Error al obtener los mensajes', error: error.message });
+    handleError(res, error, 'Error al obtener los mensajes');
   }
 }
 
@@ -47,7 +48,7 @@ async function deleteContactMessage(req, res) {
     if (!deleted) return res.status(404).json({ message: 'Mensaje no encontrado' });
     res.json({ message: 'Mensaje eliminado' });
   } catch (error) {
-    res.status(500).json({ message: 'Error al eliminar el mensaje', error: error.message });
+    handleError(res, error, 'Error al eliminar el mensaje');
   }
 }
 
@@ -83,7 +84,7 @@ async function replyContactMessage(req, res) {
 
     res.json(contactMessage);
   } catch (error) {
-    res.status(500).json({ message: 'Error al enviar la respuesta', error: error.message });
+    handleError(res, error, 'Error al enviar la respuesta');
   }
 }
 

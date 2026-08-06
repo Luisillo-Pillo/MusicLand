@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
 import { MailIcon, PhoneIcon, LocationIcon } from '../components/icons';
+import StoreMap from '../components/StoreMap';
 import { sendContactMessageRequest } from '../api/contactApi';
 import { useAuth } from '../context/AuthContext';
+import { siteInfo, addressLine, hoursLine } from '../config/siteInfo';
 import './Contact.css';
 
 export default function Contact() {
@@ -54,26 +56,30 @@ export default function Contact() {
               <LocationIcon />
               <div>
                 <strong>Dirección</strong>
-                Av. de la Música 123, Ciudad de México
+                {addressLine()}
+                <br />
+                C.P. {siteInfo.address.zipCode}
               </div>
             </div>
             <div className="contact-info-item">
               <PhoneIcon />
               <div>
                 <strong>Teléfono</strong>
-                +52 55 1234 5678
+                <a href={`tel:${siteInfo.phoneTel}`}>{siteInfo.phone}</a>
               </div>
             </div>
             <div className="contact-info-item">
               <MailIcon />
               <div>
                 <strong>Correo</strong>
-                contacto@musicland.com
+                <a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a>
               </div>
             </div>
             <div className="contact-info-item">
-              <strong style={{ display: 'block' }}>Horario de atención</strong>
-              Lunes a sábado, 9:00 - 19:00
+              <div>
+                <strong>Horario de atención</strong>
+                {hoursLine()}
+              </div>
             </div>
           </div>
 
@@ -111,6 +117,10 @@ export default function Contact() {
               </button>
             </form>
           </div>
+        </div>
+
+        <div className="contact-map-section">
+          <StoreMap title="Visítanos en la tienda" />
         </div>
       </div>
     </Layout>

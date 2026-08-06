@@ -92,6 +92,7 @@ export default function AdminMessages() {
   const [sending, setSending] = useState(false);
   const [replyError, setReplyError] = useState('');
   const [search, setSearch] = useState('');
+  const [listError, setListError] = useState('');
   const [dateMode, setDateMode] = useState('exact');
   const [exactDate, setExactDate] = useState('');
   const [dateFrom, setDateFrom] = useState('');
@@ -99,8 +100,10 @@ export default function AdminMessages() {
 
   function loadMessages() {
     setLoading(true);
+    setListError('');
     return getContactMessagesRequest()
       .then(({ data }) => setMessages(data))
+      .catch((err) => setListError(err.response?.data?.message || 'No se pudieron cargar los mensajes'))
       .finally(() => setLoading(false));
   }
 
@@ -133,9 +136,15 @@ export default function AdminMessages() {
 
   async function handleConfirmDelete() {
     if (!deleteTarget) return;
-    await deleteContactMessageRequest(deleteTarget._id);
+    const target = deleteTarget;
     setDeleteTarget(null);
-    await loadMessages();
+    setListError('');
+    try {
+      await deleteContactMessageRequest(target._id);
+      await loadMessages();
+    } catch (err) {
+      setListError(err.response?.data?.message || 'No se pudo eliminar el mensaje');
+    }
   }
 
   const term = search.trim().toLowerCase();
@@ -251,6 +260,8 @@ export default function AdminMessages() {
             </button>
           )}
         </div>
+
+        {listError && <p className="error-text" style={{ marginBottom: 16 }}>{listError}</p>}
 
         {loading ? (
           <div className="spinner-wrapper">

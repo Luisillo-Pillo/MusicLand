@@ -2,23 +2,19 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
-import { getProductsRequest } from '../api/productApi';
+import { getFiltersRequest } from '../api/productApi';
 import './ListingGrid.css';
 
 export default function Brands() {
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
-    getProductsRequest({ limit: 500 })
-      .then(({ data }) => {
-        const counts = {};
-        data.products.forEach((p) => {
-          counts[p.brand] = (counts[p.brand] || 0) + 1;
-        });
-        setBrands(Object.entries(counts).sort((a, b) => a[0].localeCompare(b[0])));
-      })
+    getFiltersRequest()
+      .then(({ data }) => setBrands(data.brands))
+      .catch((err) => setError(err.response?.data?.message || 'No se pudieron cargar las marcas.'))
       .finally(() => setLoading(false));
   }, []);
 
@@ -31,16 +27,20 @@ export default function Brands() {
           <div className="spinner-wrapper">
             <div className="spinner" />
           </div>
+        ) : error ? (
+          <p className="error-text">{error}</p>
         ) : (
           <div className="listing-grid">
-            {brands.map(([name, count]) => (
+            {brands.map(({ name, count }) => (
               <div
                 key={name}
                 className="listing-tile card"
                 onClick={() => navigate(`/?brand=${encodeURIComponent(name)}`)}
               >
                 {name}
-                <span>{count} productos</span>
+                <span>
+                  {count} {count === 1 ? 'producto' : 'productos'}
+                </span>
               </div>
             ))}
           </div>

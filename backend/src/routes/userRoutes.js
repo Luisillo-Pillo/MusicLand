@@ -6,6 +6,7 @@ const {
   getUserById,
   updateUserRole,
   deleteUser,
+  contactUser,
   updateMe,
   addAddress,
   updateAddress,
@@ -34,6 +35,7 @@ router.delete('/me/payment-methods/:paymentMethodId', deletePaymentMethod);
 
 router.get('/:id', adminOnly, getUserById);
 router.put('/:id/role', adminOnly, updateUserRole);
+router.post('/:id/contact', adminOnly, contactUser);
 router.delete('/:id', adminOnly, deleteUser);
 
 module.exports = router;

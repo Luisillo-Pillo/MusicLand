@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
+import ConfirmModal from '../components/ConfirmModal';
 import { useAuth } from '../context/AuthContext';
-import { EditIcon, LogoutIcon, PhoneIcon, ReceiptIcon } from '../components/icons';
+import { EditIcon, LogoutIcon, PhoneIcon, ReceiptIcon, LocationIcon, TrashIcon } from '../components/icons';
 import { getMyOrdersRequest } from '../api/orderApi';
+import { deleteAddressRequest, deletePaymentMethodRequest } from '../api/userApi';
 import { digitsOnly, formatPhoneDisplay } from '../utils/format';
 import './Profile.css';
 
@@ -14,7 +16,7 @@ const roleLabels = {
 };
 
 export default function Profile() {
-  const { user, updateProfile, logout } = useAuth();
+  const { user, updateProfile, logout, setUserData } = useAuth();
   const navigate = useNavigate();
 
   const [editing, setEditing] = useState(false);
@@ -26,10 +28,35 @@ export default function Profile() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [totalPurchases, setTotalPurchases] = useState(null);
+  const [savedError, setSavedError] = useState('');
+  const [deleteTarget, setDeleteTarget] = useState(null);
 
   useEffect(() => {
-    getMyOrdersRequest().then(({ data }) => setTotalPurchases(data.length));
+    getMyOrdersRequest()
+      .then(({ data }) => setTotalPurchases(data.length))
+      .catch(() => setTotalPurchases(null));
   }, []);
+
+  async function handleConfirmDelete() {
+    if (!deleteTarget) return;
+    const { type, id } = deleteTarget;
+    setDeleteTarget(null);
+    setSavedError('');
+    try {
+      if (type === 'address') {
+        const { data } = await deleteAddressRequest(id);
+        setUserData({ ...user, addresses: data });
+      } else {
+        const { data } = await deletePaymentMethodRequest(id);
+        setUserData({ ...user, paymentMethods: data });
+      }
+    } catch (err) {
+      setSavedError(
+        err.response?.data?.message ||
+          (type === 'address' ? 'No se pudo eliminar la dirección' : 'No se pudo eliminar el método de pago')
+      );
+    }
+  }
 
   function handleChange(e) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -66,6 +93,9 @@ export default function Profile() {
   }
 
   if (!user) return null;
+
+  const addresses = user.addresses || [];
+  const paymentMethods = user.paymentMethods || [];
 
   return (
     <Layout>
@@ -152,7 +182,110 @@ export default function Profile() {
             </form>
           )}
         </div>
+
+        {!editing && (
+          <>
+            {savedError && (
+              <p className="error-text" style={{ textAlign: 'center', marginTop: 20 }}>
+                {savedError}
+              </p>
+            )}
+
+            <div className="saved-data-card card">
+              <h3>
+                <LocationIcon size={17} /> Mis direcciones
+              </h3>
+              {addresses.length === 0 ? (
+                <p className="saved-data-empty">
+                  Aún no tienes direcciones guardadas. Se guardan automáticamente al finalizar una compra.
+                </p>
+              ) : (
+                <div className="saved-data-list">
+                  {addresses.map((addr) => (
+                    <div className="saved-data-item" key={addr._id}>
+                      <div className="saved-data-info">
+                        {addr.isDefault && <span className="badge saved-data-badge">Predeterminada</span>}
+                        <strong>{addr.fullName}</strong>
+                        <span>{addr.street}</span>
+                        <span>
+                          {addr.city}, {addr.state}, {addr.zipCode}
+                        </span>
+                        <span>{addr.country}</span>
+                        {addr.phone && <span>Tel: {formatPhoneDisplay(addr.phone)}</span>}
+                      </div>
+                      <button
+                        type="button"
+                        className="saved-data-delete"
+                        aria-label={`Eliminar la dirección de ${addr.street}`}
+                        title="Eliminar dirección"
+                        onClick={() => setDeleteTarget({ type: 'address', id: addr._id, label: addr.street })}
+                      >
+                        <TrashIcon size={16} />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="saved-data-card card">
+              <h3>
+                <ReceiptIcon size={17} /> Mis métodos de pago
+              </h3>
+              {paymentMethods.length === 0 ? (
+                <p className="saved-data-empty">
+                  Aún no tienes métodos de pago guardados. Se guardan automáticamente al finalizar una compra.
+                </p>
+              ) : (
+                <div className="saved-data-list">
+                  {paymentMethods.map((method) => (
+                    <div className="saved-data-item" key={method._id}>
+                      <div className="saved-data-info">
+                        {method.isDefault && (
+                          <span className="badge saved-data-badge">Predeterminado</span>
+                        )}
+                        <strong>{method.cardholderName}</strong>
+                        <span>
+                          {method.brand} •••• {method.last4}
+                        </span>
+                        <span>Vence {method.expiry}</span>
+                      </div>
+                      <button
+                        type="button"
+                        className="saved-data-delete"
+                        aria-label={`Eliminar la tarjeta terminada en ${method.last4}`}
+                        title="Eliminar método de pago"
+                        onClick={() =>
+                          setDeleteTarget({
+                            type: 'payment',
+                            id: method._id,
+                            label: `${method.brand} •••• ${method.last4}`
+                          })
+                        }
+                      >
+                        <TrashIcon size={16} />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </>
+        )}
       </div>
+
+      <ConfirmModal
+        open={!!deleteTarget}
+        title={deleteTarget?.type === 'address' ? 'Eliminar dirección' : 'Eliminar método de pago'}
+        message={
+          deleteTarget?.type === 'address'
+            ? `¿Seguro que deseas eliminar la dirección "${deleteTarget?.label}"?`
+            : `¿Seguro que deseas eliminar la tarjeta ${deleteTarget?.label}?`
+        }
+        confirmLabel="Eliminar"
+        onConfirm={handleConfirmDelete}
+        onCancel={() => setDeleteTarget(null)}
+      />
     </Layout>
   );
 }

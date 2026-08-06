@@ -211,6 +211,7 @@ export default function AdminUsers() {
     setLoading(true);
     return getAllUsersRequest()
       .then(({ data }) => setUsers(data))
+      .catch((err) => setError(err.response?.data?.message || 'No se pudieron cargar los usuarios'))
       .finally(() => setLoading(false));
   }
 

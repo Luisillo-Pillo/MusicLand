@@ -89,3 +89,156 @@
   padding: 24px 0;
   font-size: 0.9rem;
 }
+
+.admin-products-filters {
+  margin-bottom: 20px;
+}
+
+.admin-products-filters .admin-search-box {
+  margin-bottom: 12px;
+}
+
+.admin-products-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-products-filter-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.admin-products-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.admin-products-select select {
+  appearance: none;
+  height: 36px;
+  padding: 0 30px 0 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  max-width: 220px;
+}
+
+.admin-products-select svg {
+  position: absolute;
+  right: 11px;
+  pointer-events: none;
+  color: var(--color-text-muted);
+}
+
+.admin-products-select.active select {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.admin-products-price {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  transition: border-color 0.15s ease;
+}
+
+.admin-products-price:focus-within {
+  border-color: var(--color-primary);
+}
+
+.admin-products-price.active {
+  border-color: var(--color-primary);
+}
+
+.admin-products-price-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.admin-products-price.active .admin-products-price-label {
+  color: var(--color-primary);
+}
+
+.admin-products-price-sep {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+}
+
+/* Ancho suficiente para $000,000.00 sin que el texto se recorte. */
+.admin-products-price input {
+  width: 96px;
+  border: none;
+  background: none;
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+  padding: 0;
+  text-align: right;
+}
+
+.admin-products-price input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.admin-products-price input:focus {
+  outline: none;
+}
+
+.admin-products-range-warning {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  color: var(--color-danger);
+}
+
+.admin-products-clear {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.admin-products-count {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.admin-products-nostock {
+  color: var(--color-danger);
+  font-weight: 700;
+}
+
+.admin-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.admin-pagination span {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}

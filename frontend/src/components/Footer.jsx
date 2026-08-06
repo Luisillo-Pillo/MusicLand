@@ -1,5 +1,15 @@
 import { Link } from 'react-router-dom';
-import { LogoIcon, MailIcon, PhoneIcon, LocationIcon, FacebookIcon, InstagramIcon, TwitterIcon } from './icons';
+import {
+  LogoIcon,
+  MailIcon,
+  PhoneIcon,
+  LocationIcon,
+  ClockIcon,
+  FacebookIcon,
+  InstagramIcon,
+  TwitterIcon
+} from './icons';
+import { siteInfo, addressLine, hoursLine } from '../config/siteInfo';
 import './Footer.css';
 
 export default function Footer() {
@@ -71,15 +81,23 @@ export default function Footer() {
             <h4>Contacto</h4>
             <div className="footer-contact-item">
               <LocationIcon size={16} />
-              Av. de la Música 123, Ciudad de México
+              <span>
+                {addressLine()}
+                <br />
+                C.P. {siteInfo.address.zipCode}
+              </span>
             </div>
             <div className="footer-contact-item">
               <PhoneIcon size={16} />
-              +52 55 1234 5678
+              <a href={`tel:${siteInfo.phoneTel}`}>{siteInfo.phone}</a>
             </div>
             <div className="footer-contact-item">
               <MailIcon size={16} />
-              contacto@musicland.com
+              <a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a>
+            </div>
+            <div className="footer-contact-item">
+              <ClockIcon size={16} />
+              <span>{hoursLine()}</span>
             </div>
           </div>
         </div>

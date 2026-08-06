@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
-import { PhoneIcon, ReceiptIcon } from '../components/icons';
-import { getUserByIdRequest } from '../api/userApi';
+import ConfirmModal from '../components/ConfirmModal';
+import { PhoneIcon, ReceiptIcon, MailIcon, EditIcon, TrashIcon } from '../components/icons';
+import { useAuth } from '../context/AuthContext';
+import { getUserByIdRequest, updateUserRoleRequest, deleteUserRequest, contactUserRequest } from '../api/userApi';
 import { formatPhoneDisplay } from '../utils/format';
 import './Profile.css';
+import './AdminUserProfile.css';
 
 const roleLabels = {
   admin: 'Administrador',
@@ -14,8 +17,23 @@ const roleLabels = {
 
 export default function AdminUserProfile() {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { user: currentUser } = useAuth();
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [notice, setNotice] = useState('');
+
+  const [savingRole, setSavingRole] = useState(false);
+  const [confirmRole, setConfirmRole] = useState(null);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+
+  const [contactOpen, setContactOpen] = useState(false);
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+  const [sending, setSending] = useState(false);
+  const [contactError, setContactError] = useState('');
 
   useEffect(() => {
     setLoading(true);
@@ -24,6 +42,64 @@ export default function AdminUserProfile() {
       .catch(() => setUser(null))
       .finally(() => setLoading(false));
   }, [id]);
+
+  const isSelf = !!currentUser && currentUser._id === id;
+
+  async function handleToggleRole() {
+    const nextRole = user.role === 'admin' ? 'user' : 'admin';
+    setConfirmRole(null);
+    setError('');
+    setNotice('');
+    setSavingRole(true);
+    try {
+      const { data } = await updateUserRoleRequest(id, nextRole);
+      setUser((prev) => ({ ...prev, ...data }));
+      setNotice(
+        nextRole === 'admin'
+          ? `${data.name} ahora es administrador.`
+          : `${data.name} ya no es administrador.`
+      );
+    } catch (err) {
+      setError(err.response?.data?.message || 'No se pudo actualizar el rol del usuario');
+    } finally {
+      setSavingRole(false);
+    }
+  }
+
+  async function handleDelete() {
+    setConfirmDelete(false);
+    setError('');
+    try {
+      await deleteUserRequest(id);
+      navigate('/admin/usuarios');
+    } catch (err) {
+      setError(err.response?.data?.message || 'No se pudo eliminar el usuario');
+    }
+  }
+
+  function openContact() {
+    setSubject('');
+    setMessage('');
+    setContactError('');
+    setContactOpen(true);
+  }
+
+  async function handleSendContact(e) {
+    e.preventDefault();
+    if (!subject.trim() || !message.trim()) return;
+    setSending(true);
+    setContactError('');
+    setNotice('');
+    try {
+      const { data } = await contactUserRequest(id, { subject: subject.trim(), message: message.trim() });
+      setContactOpen(false);
+      setNotice(data.message);
+    } catch (err) {
+      setContactError(err.response?.data?.message || 'No se pudo enviar el mensaje');
+    } finally {
+      setSending(false);
+    }
+  }
 
   if (loading) {
     return (
@@ -47,6 +123,8 @@ export default function AdminUserProfile() {
     );
   }
 
+  const isAdmin = user.role === 'admin';
+
   return (
     <Layout>
       <BackButton />
@@ -56,6 +134,7 @@ export default function AdminUserProfile() {
           <h1>{user.name}</h1>
           <p className="profile-email">{user.email}</p>
           <span className="badge">{roleLabels[user.role] || user.role}</span>
+          {isSelf && <span className="badge admin-user-you-badge">Tú</span>}
 
           <div className="profile-stats">
             <div className="profile-stat-item">
@@ -67,8 +146,110 @@ export default function AdminUserProfile() {
               {user.totalPurchases} {user.totalPurchases === 1 ? 'compra realizada' : 'compras realizadas'}
             </div>
           </div>
+
+          {notice && <p className="admin-user-notice">{notice}</p>}
+          {error && <p className="error-text" style={{ marginTop: 16 }}>{error}</p>}
+
+          <div className="profile-actions">
+            <button
+              type="button"
+              className="btn btn-outline btn-sm"
+              onClick={() => navigate(`/admin/usuarios/${id}/compras`)}
+            >
+              <ReceiptIcon size={15} /> Ver compras
+            </button>
+
+            <button type="button" className="btn btn-outline btn-sm" onClick={openContact}>
+              <MailIcon size={15} /> Contactar
+            </button>
+
+            <button
+              type="button"
+              className="btn btn-outline btn-sm"
+              disabled={savingRole || (isSelf && isAdmin)}
+              title={isSelf && isAdmin ? 'No puedes quitarte tu propio rol de administrador' : ''}
+              onClick={() => setConfirmRole(isAdmin ? 'user' : 'admin')}
+            >
+              <EditIcon size={15} /> {isAdmin ? 'Quitar admin' : 'Hacer admin'}
+            </button>
+
+            <button
+              type="button"
+              className="btn btn-danger btn-sm"
+              disabled={isSelf}
+              title={isSelf ? 'No puedes borrar tu propia cuenta' : ''}
+              onClick={() => setConfirmDelete(true)}
+            >
+              <TrashIcon size={15} /> Eliminar
+            </button>
+          </div>
         </div>
       </div>
+
+      {contactOpen && (
+        <div className="modal-overlay" onClick={() => setContactOpen(false)}>
+          <div className="modal-box admin-user-contact-modal" onClick={(e) => e.stopPropagation()}>
+            <h3>Contactar a {user.name}</h3>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginTop: -8, marginBottom: 16 }}>
+              Se enviará un correo a {user.email}
+            </p>
+            <form onSubmit={handleSendContact}>
+              <div className="form-group">
+                <label htmlFor="contact-subject">Asunto</label>
+                <input
+                  id="contact-subject"
+                  type="text"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="contact-message">Mensaje</label>
+                <textarea
+                  id="contact-message"
+                  rows={5}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                />
+              </div>
+              {contactError && <p className="error-text">{contactError}</p>}
+              <div className="modal-actions">
+                <button type="button" className="btn btn-ghost" onClick={() => setContactOpen(false)}>
+                  Cancelar
+                </button>
+                <button type="submit" className="btn btn-primary" disabled={sending}>
+                  {sending ? 'Enviando...' : 'Enviar mensaje'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      <ConfirmModal
+        open={!!confirmRole}
+        title={confirmRole === 'admin' ? 'Hacer administrador' : 'Quitar administrador'}
+        message={
+          confirmRole === 'admin'
+            ? `¿Seguro que deseas darle permisos de administrador a "${user.name}"? Podrá gestionar productos, usuarios y mensajes.`
+            : `¿Seguro que deseas quitarle los permisos de administrador a "${user.name}"?`
+        }
+        confirmLabel={confirmRole === 'admin' ? 'Hacer admin' : 'Quitar admin'}
+        danger={confirmRole !== 'admin'}
+        onConfirm={handleToggleRole}
+        onCancel={() => setConfirmRole(null)}
+      />
+
+      <ConfirmModal
+        open={confirmDelete}
+        title="Eliminar usuario"
+        message={`¿Seguro que deseas eliminar la cuenta de "${user.name}"? Esta acción no se puede deshacer.`}
+        confirmLabel="Eliminar"
+        onConfirm={handleDelete}
+        onCancel={() => setConfirmDelete(false)}
+      />
     </Layout>
   );
 }

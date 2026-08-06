@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import {
@@ -18,9 +18,17 @@ export default function Header() {
   const { user, logout } = useAuth();
   const { totalItems } = useCart();
   const navigate = useNavigate();
-  const [search, setSearch] = useState('');
+  const [searchParams] = useSearchParams();
+  const activeSearch = searchParams.get('search') || '';
+  const [search, setSearch] = useState(activeSearch);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
+
+  // Mantiene la caja alineada con la URL: al llegar por enlace, al usar atrás/adelante
+  // o al quitar los filtros desde el listado, lo que se ve debe ser lo que se busca.
+  useEffect(() => {
+    setSearch(activeSearch);
+  }, [activeSearch]);
 
   useEffect(() => {
     function handleClickOutside(e) {

@@ -32,9 +32,13 @@ const orderSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ['pendiente', 'procesando', 'enviado', 'entregado'],
+      enum: ['pendiente', 'procesando', 'enviado', 'entregado', 'cancelado'],
       default: 'procesando'
-    }
+    },
+    cancelledAt: { type: Date, default: null },
+    // 'cliente' o 'admin': quién originó la cancelación.
+    cancelledBy: { type: String, enum: ['cliente', 'admin', null], default: null },
+    cancellationReason: { type: String, default: '', trim: true }
   },
   { timestamps: true }
 );

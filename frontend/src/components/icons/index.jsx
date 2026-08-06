@@ -137,6 +137,15 @@ export function PhoneIcon({ size = 18, ...props }) {
   );
 }
 
+export function ClockIcon({ size = 18, ...props }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" {...props}>
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
+      <path d="M12 7v5.2l3.2 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function LocationIcon({ size = 18, ...props }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" {...props}>
@@ -299,19 +308,6 @@ export function ReceiptIcon({ size = 16, ...props }) {
         strokeLinejoin="round"
       />
       <path d="M9 8h6M9 12h6M9 16h3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-export function StarIcon({ size = 16, filled = true, ...props }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} {...props}>
-      <path
-        d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5-4.8-4.6 6.6-.9 2.9-6Z"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinejoin="round"
-      />
     </svg>
   );
 }

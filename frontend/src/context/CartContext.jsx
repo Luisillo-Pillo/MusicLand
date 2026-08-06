@@ -24,6 +24,10 @@ export function CartProvider({ children }) {
     try {
       const { data } = await getCartRequest();
       setItems(data);
+    } catch (error) {
+      // El carrito es accesorio: si no carga, la app sigue siendo usable vacía.
+      console.error('No se pudo cargar el carrito:', error);
+      setItems([]);
     } finally {
       setLoading(false);
     }

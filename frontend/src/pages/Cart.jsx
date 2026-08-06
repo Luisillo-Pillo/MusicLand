@@ -54,11 +54,13 @@ function CartItemRow({ item, onQuantityChange, onRequestRemove }) {
 }
 
 export default function Cart() {
-  const { items, totalItems, totalPrice, updateQuantity, removeItem, clearCart, loading } = useCart();
+  const { items, totalItems, totalPrice, updateQuantity, removeItem, clearCart, refreshCart, loading } =
+    useCart();
   const navigate = useNavigate();
 
   const [confirmState, setConfirmState] = useState(null);
   const [clearConfirmOpen, setClearConfirmOpen] = useState(false);
+  const [error, setError] = useState('');
 
   function requestRemove(productId, revert) {
     setConfirmState({ productId, revert });
@@ -66,8 +68,15 @@ export default function Cart() {
 
   async function handleConfirmRemove() {
     if (!confirmState) return;
-    await removeItem(confirmState.productId);
+    const { productId, revert } = confirmState;
     setConfirmState(null);
+    setError('');
+    try {
+      await removeItem(productId);
+    } catch (err) {
+      if (revert) revert();
+      setError(err.response?.data?.message || 'No se pudo eliminar el producto del carrito.');
+    }
   }
 
   function handleCancelRemove() {
@@ -76,8 +85,23 @@ export default function Cart() {
   }
 
   async function handleConfirmClear() {
-    await clearCart();
     setClearConfirmOpen(false);
+    setError('');
+    try {
+      await clearCart();
+    } catch (err) {
+      setError(err.response?.data?.message || 'No se pudo vaciar el carrito.');
+    }
+  }
+
+  async function handleQuantityChange(productId, quantity) {
+    setError('');
+    try {
+      await updateQuantity(productId, quantity);
+    } catch (err) {
+      setError(err.response?.data?.message || 'No se pudo actualizar la cantidad.');
+      await refreshCart();
+    }
   }
 
   if (loading) {
@@ -97,6 +121,8 @@ export default function Cart() {
       <div className="container">
         <h1 style={{ marginBottom: 24 }}>Tu carrito</h1>
 
+        {error && <p className="error-text" style={{ marginBottom: 16 }}>{error}</p>}
+
         {items.length === 0 ? (
           <div className="empty-state card">
             <EmptyBoxIcon />
@@ -112,7 +138,7 @@ export default function Cart() {
                 <CartItemRow
                   key={item.product._id}
                   item={item}
-                  onQuantityChange={updateQuantity}
+                  onQuantityChange={handleQuantityChange}
                   onRequestRemove={requestRemove}
                 />
               ))}

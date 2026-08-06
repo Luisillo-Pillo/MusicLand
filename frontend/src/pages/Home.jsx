@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Layout from '../components/Layout';
 import Carousel from '../components/Carousel';
@@ -21,26 +21,70 @@ export default function Home() {
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [error, setError] = useState('');
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    getFeaturedProductsRequest().then(({ data }) => setFeatured(data));
-    getFiltersRequest().then(({ data }) => {
-      setCategories(data.categories);
-      setBrands(data.brands);
-    });
+    getFeaturedProductsRequest()
+      .then(({ data }) => setFeatured(data))
+      .catch(() => setFeatured([]));
+    getFiltersRequest()
+      .then(({ data }) => {
+        setCategories(data.categories);
+        setBrands(data.brands);
+      })
+      .catch(() => {
+        setCategories([]);
+        setBrands([]);
+      });
   }, []);
 
+  // Al cambiar los filtros se vuelve a la primera página y se reemplaza el listado.
   useEffect(() => {
     setLoading(true);
-    setVisibleCount(PAGE_SIZE);
-    getProductsRequest({ search, category, brand, sort, limit: 200 })
-      .then(({ data }) => setProducts(data.products))
+    setError('');
+    setPage(1);
+    getProductsRequest({ search, category, brand, sort, page: 1, limit: PAGE_SIZE })
+      .then(({ data }) => {
+        setProducts(data.products);
+        setTotal(data.total);
+      })
+      .catch((err) => {
+        setProducts([]);
+        setTotal(0);
+        setError(err.response?.data?.message || 'No se pudieron cargar los productos. Intenta de nuevo.');
+      })
       .finally(() => setLoading(false));
   }, [search, category, brand, sort]);
 
-  const visibleProducts = useMemo(() => products.slice(0, visibleCount), [products, visibleCount]);
-  const hasMore = visibleCount < products.length;
+  // "Ver más" pide la siguiente página al servidor y la añade: cargar el catálogo
+  // completo de una vez dejaría fuera todo lo que exceda el límite de la API.
+  async function loadMore() {
+    const next = page + 1;
+    setLoadingMore(true);
+    setError('');
+    try {
+      const { data } = await getProductsRequest({
+        search,
+        category,
+        brand,
+        sort,
+        page: next,
+        limit: PAGE_SIZE
+      });
+      setProducts((prev) => [...prev, ...data.products]);
+      setTotal(data.total);
+      setPage(next);
+    } catch (err) {
+      setError(err.response?.data?.message || 'No se pudieron cargar más productos.');
+    } finally {
+      setLoadingMore(false);
+    }
+  }
+
+  const hasMore = products.length < total;
   const hasActiveFilters = !!(search || category || brand || sort);
 
   function updateFilter(key, value) {
@@ -66,7 +110,7 @@ export default function Home() {
         <section>
           <div className="home-section-title">
             <h2>{search ? `Resultados para "${search}"` : 'Nuestros productos'}</h2>
-            <span>{products.length} productos disponibles</span>
+            <span>{total} productos disponibles</span>
           </div>
 
           <div className="home-filters">
@@ -79,8 +123,8 @@ export default function Home() {
               <select value={category} onChange={(e) => updateFilter('category', e.target.value)}>
                 <option value="">Todas las categorías</option>
                 {categories.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
+                  <option key={c.name} value={c.name}>
+                    {c.name} ({c.count})
                   </option>
                 ))}
               </select>
@@ -91,8 +135,8 @@ export default function Home() {
               <select value={brand} onChange={(e) => updateFilter('brand', e.target.value)}>
                 <option value="">Todas las marcas</option>
                 {brands.map((b) => (
-                  <option key={b} value={b}>
-                    {b}
+                  <option key={b.name} value={b.name}>
+                    {b.name} ({b.count})
                   </option>
                 ))}
               </select>
@@ -121,6 +165,10 @@ export default function Home() {
             <div className="spinner-wrapper">
               <div className="spinner" />
             </div>
+          ) : error ? (
+            <div className="empty-state">
+              <p className="error-text">{error}</p>
+            </div>
           ) : products.length === 0 ? (
             <div className="empty-state">
               <p>No encontramos productos que coincidan con tu búsqueda.</p>
@@ -128,7 +176,7 @@ export default function Home() {
           ) : (
             <>
               <div className="product-grid">
-                {visibleProducts.map((product) => (
+                {products.map((product) => (
                   <ProductCard key={product._id} product={product} />
                 ))}
               </div>
@@ -137,9 +185,10 @@ export default function Home() {
                   <button
                     type="button"
                     className="btn btn-primary"
-                    onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
+                    disabled={loadingMore}
+                    onClick={loadMore}
                   >
-                    Ver más productos
+                    {loadingMore ? 'Cargando...' : `Ver más productos (${total - products.length})`}
                   </button>
                 </div>
               )}

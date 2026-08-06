@@ -12,8 +12,11 @@ import Categories from './pages/Categories';
 import Brands from './pages/Brands';
 import Contact from './pages/Contact';
 import AdminProducts from './pages/AdminProducts';
+import AdminOrders from './pages/AdminOrders';
+import AdminOrderDetail from './pages/AdminOrderDetail';
 import AdminUsers from './pages/AdminUsers';
 import AdminUserProfile from './pages/AdminUserProfile';
+import AdminUserOrders from './pages/AdminUserOrders';
 import AdminMessages from './pages/AdminMessages';
 import NotFound from './pages/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -81,6 +84,22 @@ export default function App() {
           }
         />
         <Route
+          path="/admin/pedidos"
+          element={
+            <ProtectedRoute adminOnly>
+              <AdminOrders />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/pedidos/:id"
+          element={
+            <ProtectedRoute adminOnly>
+              <AdminOrderDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/admin/usuarios"
           element={
             <ProtectedRoute adminOnly>
@@ -93,6 +112,14 @@ export default function App() {
           element={
             <ProtectedRoute adminOnly>
               <AdminUserProfile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/usuarios/:id/compras"
+          element={
+            <ProtectedRoute adminOnly>
+              <AdminUserOrders />
             </ProtectedRoute>
           }
         />

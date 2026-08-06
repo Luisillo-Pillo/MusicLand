@@ -21,6 +21,7 @@ export default function ProductDetail() {
   const [loading, setLoading] = useState(true);
   const [adding, setAdding] = useState(false);
   const [feedback, setFeedback] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     setLoading(true);
@@ -39,10 +40,13 @@ export default function ProductDetail() {
       return;
     }
     setAdding(true);
+    setError('');
     try {
       await addToCart(product._id, quantity);
       setFeedback('Producto agregado al carrito.');
       setTimeout(() => setFeedback(''), 2000);
+    } catch (err) {
+      setError(err.response?.data?.message || 'No se pudo agregar el producto al carrito.');
     } finally {
       setAdding(false);
     }
@@ -105,6 +109,8 @@ export default function ProductDetail() {
                 <QuantitySelector value={quantity} onChange={setQuantity} min={1} max={product.stock} />
               </div>
             )}
+
+            {error && <p className="error-text">{error}</p>}
 
             <div className="product-detail-actions">
               <button

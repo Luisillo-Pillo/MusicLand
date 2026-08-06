@@ -82,4 +82,19 @@ userSchema.methods.toSafeObject = function toSafeObject() {
   return obj;
 };
 
+// Vista reducida para los listados de administración: expone solo lo que la interfaz
+// muestra, sin arrastrar direcciones, métodos de pago ni el carrito de cada cliente.
+userSchema.methods.toAdminObject = function toAdminObject() {
+  return {
+    _id: this._id,
+    name: this.name,
+    email: this.email,
+    phone: this.phone,
+    profilePhoto: this.profilePhoto,
+    role: this.role,
+    lastLogin: this.lastLogin,
+    createdAt: this.createdAt
+  };
+};
+
 module.exports = mongoose.model('User', userSchema);

@@ -1,5 +1,7 @@
 const User = require('../models/User');
 const Order = require('../models/Order');
+const { sendMail, escapeHtml } = require('../utils/mailer');
+const handleError = require('../utils/handleError');
 
 function getMe(req, res) {
   res.json(req.user.toSafeObject());
@@ -14,12 +16,12 @@ async function getAllUsers(req, res) {
       countByUser[entry._id.toString()] = entry.count;
     });
     const usersWithStats = users.map((user) => ({
-      ...user.toSafeObject(),
+      ...user.toAdminObject(),
       totalPurchases: countByUser[user._id.toString()] || 0
     }));
     res.json(usersWithStats);
   } catch (error) {
-    res.status(500).json({ message: 'Error al obtener usuarios', error: error.message });
+    handleError(res, error, 'Error al obtener usuarios');
   }
 }
 
@@ -28,7 +30,7 @@ async function getUserById(req, res) {
     const user = await User.findById(req.params.id);
     if (!user) return res.status(404).json({ message: 'Usuario no encontrado' });
     const totalPurchases = await Order.countDocuments({ user: user._id });
-    res.json({ ...user.toSafeObject(), totalPurchases });
+    res.json({ ...user.toAdminObject(), totalPurchases });
   } catch (error) {
     res.status(404).json({ message: 'Usuario no encontrado' });
   }
@@ -43,7 +45,7 @@ async function deleteUser(req, res) {
     if (!user) return res.status(404).json({ message: 'Usuario no encontrado' });
     res.json({ message: 'Usuario eliminado' });
   } catch (error) {
-    res.status(500).json({ message: 'Error al eliminar el usuario', error: error.message });
+    handleError(res, error, 'Error al eliminar el usuario');
   }
 }
 
@@ -60,7 +62,40 @@ async function updateUserRole(req, res) {
     if (!user) return res.status(404).json({ message: 'Usuario no encontrado' });
     res.json(user.toSafeObject());
   } catch (error) {
-    res.status(500).json({ message: 'Error al actualizar el rol', error: error.message });
+    handleError(res, error, 'Error al actualizar el rol');
+  }
+}
+
+async function contactUser(req, res) {
+  try {
+    const { subject, message } = req.body;
+    if (!subject || !subject.trim() || !message || !message.trim()) {
+      return res.status(400).json({ message: 'El asunto y el mensaje son obligatorios' });
+    }
+
+    const user = await User.findById(req.params.id);
+    if (!user) return res.status(404).json({ message: 'Usuario no encontrado' });
+
+    const sent = await sendMail({
+      to: user.email,
+      subject: subject.trim(),
+      replyTo: req.user.email,
+      html: `
+        <p>Hola ${escapeHtml(user.name)},</p>
+        <p>${escapeHtml(message.trim()).replace(/\n/g, '<br>')}</p>
+        <p>— Equipo MusicLand</p>
+      `
+    });
+
+    if (!sent) {
+      return res.status(503).json({
+        message: 'El servicio de correo no está configurado (SMTP_USER/SMTP_PASS); el mensaje no se envió'
+      });
+    }
+
+    res.json({ message: `Mensaje enviado a ${user.email}` });
+  } catch (error) {
+    handleError(res, error, 'Error al enviar el mensaje');
   }
 }
 
@@ -77,7 +112,7 @@ async function updateMe(req, res) {
     await user.save();
     res.json(user.toSafeObject());
   } catch (error) {
-    res.status(500).json({ message: 'Error al actualizar el perfil', error: error.message });
+    handleError(res, error, 'Error al actualizar el perfil');
   }
 }
 
@@ -94,7 +129,7 @@ async function addAddress(req, res) {
     await user.save();
     res.status(201).json(user.addresses);
   } catch (error) {
-    res.status(400).json({ message: 'Error al agregar la dirección', error: error.message });
+    handleError(res, error, 'Error al agregar la dirección');
   }
 }
 
@@ -112,7 +147,7 @@ async function updateAddress(req, res) {
     await user.save();
     res.json(user.addresses);
   } catch (error) {
-    res.status(400).json({ message: 'Error al actualizar la dirección', error: error.message });
+    handleError(res, error, 'Error al actualizar la dirección');
   }
 }
 
@@ -123,7 +158,7 @@ async function deleteAddress(req, res) {
     await user.save();
     res.json(user.addresses);
   } catch (error) {
-    res.status(500).json({ message: 'Error al eliminar la dirección', error: error.message });
+    handleError(res, error, 'Error al eliminar la dirección');
   }
 }
 
@@ -140,7 +175,7 @@ async function addPaymentMethod(req, res) {
     await user.save();
     res.status(201).json(user.paymentMethods);
   } catch (error) {
-    res.status(400).json({ message: 'Error al agregar el método de pago', error: error.message });
+    handleError(res, error, 'Error al agregar el método de pago');
   }
 }
 
@@ -158,7 +193,7 @@ async function updatePaymentMethod(req, res) {
     await user.save();
     res.json(user.paymentMethods);
   } catch (error) {
-    res.status(400).json({ message: 'Error al actualizar el método de pago', error: error.message });
+    handleError(res, error, 'Error al actualizar el método de pago');
   }
 }
 
@@ -169,7 +204,7 @@ async function deletePaymentMethod(req, res) {
     await user.save();
     res.json(user.paymentMethods);
   } catch (error) {
-    res.status(500).json({ message: 'Error al eliminar el método de pago', error: error.message });
+    handleError(res, error, 'Error al eliminar el método de pago');
   }
 }
 
@@ -179,6 +214,7 @@ module.exports = {
   getUserById,
   updateUserRole,
   deleteUser,
+  contactUser,
   updateMe,
   addAddress,
   updateAddress,
