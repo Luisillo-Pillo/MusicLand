@@ -7,6 +7,7 @@ import { getProductByIdRequest } from '../api/productApi';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { CartIcon } from '../components/icons';
+import { formatPrice } from '../utils/format';
 import './ProductDetail.css';
 
 export default function ProductDetail() {
@@ -89,7 +90,7 @@ export default function ProductDetail() {
               <span className="badge">{product.brand}</span>
             </div>
             <h1>{product.name}</h1>
-            <p className="product-detail-price">${product.price.toFixed(2)}</p>
+            <p className="product-detail-price">{formatPrice(product.price)}</p>
 
             <h4>Descripción</h4>
             <p className="product-detail-description">{product.description}</p>

@@ -11,6 +11,7 @@ const {
   updateAddress,
   deleteAddress,
   addPaymentMethod,
+  updatePaymentMethod,
   deletePaymentMethod
 } = require('../controllers/userController');
 
@@ -28,6 +29,7 @@ router.put('/me/addresses/:addressId', updateAddress);
 router.delete('/me/addresses/:addressId', deleteAddress);
 
 router.post('/me/payment-methods', addPaymentMethod);
+router.put('/me/payment-methods/:paymentMethodId', updatePaymentMethod);
 router.delete('/me/payment-methods/:paymentMethodId', deletePaymentMethod);
 
 router.get('/:id', adminOnly, getUserById);

@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeftIcon, ChevronRightIcon } from './icons';
+import { formatPrice } from '../utils/format';
 import './Carousel.css';
 
 export default function Carousel({ slides }) {
@@ -40,7 +41,7 @@ export default function Carousel({ slides }) {
             <div className="carousel-slide-overlay">
               <span className="badge">Destacado</span>
               <h3>{slide.name}</h3>
-              <p>${slide.price.toFixed(2)}</p>
+              <p>{formatPrice(slide.price)}</p>
               <button
                 type="button"
                 className="btn btn-accent btn-sm"

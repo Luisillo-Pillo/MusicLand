@@ -3,7 +3,11 @@ const Product = require('../models/Product');
 
 async function getPopulatedCart(userId) {
   const user = await User.findById(userId).populate('cart.product');
-  user.cart = user.cart.filter((item) => item.product);
+  const validItems = user.cart.filter((item) => item.product);
+  if (validItems.length !== user.cart.length) {
+    user.cart = validItems;
+    await user.save();
+  }
   return user.cart;
 }
 

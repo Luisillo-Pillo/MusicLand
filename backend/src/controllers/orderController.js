@@ -53,14 +53,26 @@ async function createOrder(req, res) {
     }
 
     const orderProducts = [];
+    const decremented = [];
     let total = 0;
+    let insufficientStockProduct = null;
 
     for (const item of user.cart) {
       const product = item.product;
       if (!product) continue;
-      if (product.stock < item.quantity) {
-        return res.status(400).json({ message: `Stock insuficiente para ${product.name}` });
+
+      const updated = await Product.findOneAndUpdate(
+        { _id: product._id, stock: { $gte: item.quantity } },
+        { $inc: { stock: -item.quantity } },
+        { new: true }
+      );
+
+      if (!updated) {
+        insufficientStockProduct = product.name;
+        break;
       }
+
+      decremented.push({ productId: product._id, quantity: item.quantity });
       orderProducts.push({
         product: product._id,
         name: product.name,
@@ -71,8 +83,11 @@ async function createOrder(req, res) {
       total += product.price * item.quantity;
     }
 
-    for (const item of user.cart) {
-      await Product.findByIdAndUpdate(item.product._id, { $inc: { stock: -item.quantity } });
+    if (insufficientStockProduct) {
+      for (const item of decremented) {
+        await Product.findByIdAndUpdate(item.productId, { $inc: { stock: item.quantity } });
+      }
+      return res.status(400).json({ message: `Stock insuficiente para ${insufficientStockProduct}` });
     }
 
     const order = await Order.create({

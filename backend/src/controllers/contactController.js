@@ -41,4 +41,50 @@ async function getContactMessages(req, res) {
   }
 }
 
-module.exports = { sendContactMessage, getContactMessages };
+async function deleteContactMessage(req, res) {
+  try {
+    const deleted = await ContactMessage.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).json({ message: 'Mensaje no encontrado' });
+    res.json({ message: 'Mensaje eliminado' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error al eliminar el mensaje', error: error.message });
+  }
+}
+
+async function replyContactMessage(req, res) {
+  try {
+    const { reply } = req.body;
+    if (!reply || !reply.trim()) {
+      return res.status(400).json({ message: 'La respuesta no puede estar vacía' });
+    }
+
+    const contactMessage = await ContactMessage.findById(req.params.id);
+    if (!contactMessage) return res.status(404).json({ message: 'Mensaje no encontrado' });
+
+    await sendMail({
+      to: contactMessage.email,
+      subject: 'Respuesta a tu mensaje - MusicLand',
+      html: `
+        <p>Hola ${escapeHtml(contactMessage.name)},</p>
+        <p>Gracias por escribirnos. Este es tu mensaje original:</p>
+        <blockquote style="margin:0;padding-left:12px;border-left:3px solid #6d28d9;color:#555;">
+          ${escapeHtml(contactMessage.message).replace(/\n/g, '<br>')}
+        </blockquote>
+        <p><strong>Nuestra respuesta:</strong></p>
+        <p>${escapeHtml(reply).replace(/\n/g, '<br>')}</p>
+        <p>— Equipo MusicLand</p>
+      `
+    });
+
+    contactMessage.replied = true;
+    contactMessage.reply = reply;
+    contactMessage.repliedAt = new Date();
+    await contactMessage.save();
+
+    res.json(contactMessage);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al enviar la respuesta', error: error.message });
+  }
+}
+
+module.exports = { sendContactMessage, getContactMessages, deleteContactMessage, replyContactMessage };

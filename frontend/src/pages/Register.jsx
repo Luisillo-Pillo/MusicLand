@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
 import PasswordInput from '../components/PasswordInput';
 import { useAuth } from '../context/AuthContext';
+import { digitsOnly, formatPhoneDisplay } from '../utils/format';
 import './Auth.css';
 
 export default function Register() {
@@ -25,8 +26,7 @@ export default function Register() {
   }
 
   function handlePhoneChange(e) {
-    const digitsOnly = e.target.value.replace(/\D/g, '').slice(0, 10);
-    setForm((f) => ({ ...f, phone: digitsOnly }));
+    setForm((f) => ({ ...f, phone: digitsOnly(e.target.value, 10) }));
   }
 
   async function handleSubmit(e) {
@@ -91,9 +91,10 @@ export default function Register() {
                 name="phone"
                 type="tel"
                 inputMode="numeric"
-                placeholder="10 dígitos"
+                placeholder="000 000 0000"
+                maxLength={12}
                 required
-                value={form.phone}
+                value={formatPhoneDisplay(form.phone)}
                 onChange={handlePhoneChange}
               />
             </div>

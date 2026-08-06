@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
 import { PhoneIcon, ReceiptIcon } from '../components/icons';
 import { getUserByIdRequest } from '../api/userApi';
+import { formatPhoneDisplay } from '../utils/format';
 import './Profile.css';
 
 const roleLabels = {
@@ -59,7 +60,7 @@ export default function AdminUserProfile() {
           <div className="profile-stats">
             <div className="profile-stat-item">
               <PhoneIcon size={16} />
-              {user.phone || 'Sin teléfono registrado'}
+              {user.phone ? formatPhoneDisplay(user.phone) : 'Sin teléfono registrado'}
             </div>
             <div className="profile-stat-item">
               <ReceiptIcon size={16} />

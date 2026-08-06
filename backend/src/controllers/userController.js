@@ -83,56 +83,94 @@ async function updateMe(req, res) {
 
 // Direcciones
 async function addAddress(req, res) {
-  const user = await User.findById(req.user._id);
-  if (req.body.isDefault) {
-    user.addresses.forEach((a) => {
-      a.isDefault = false;
-    });
+  try {
+    const user = await User.findById(req.user._id);
+    if (req.body.isDefault) {
+      user.addresses.forEach((a) => {
+        a.isDefault = false;
+      });
+    }
+    user.addresses.push(req.body);
+    await user.save();
+    res.status(201).json(user.addresses);
+  } catch (error) {
+    res.status(400).json({ message: 'Error al agregar la dirección', error: error.message });
   }
-  user.addresses.push(req.body);
-  await user.save();
-  res.status(201).json(user.addresses);
 }
 
 async function updateAddress(req, res) {
-  const user = await User.findById(req.user._id);
-  const address = user.addresses.id(req.params.addressId);
-  if (!address) return res.status(404).json({ message: 'Dirección no encontrada' });
-  if (req.body.isDefault) {
-    user.addresses.forEach((a) => {
-      a.isDefault = false;
-    });
+  try {
+    const user = await User.findById(req.user._id);
+    const address = user.addresses.id(req.params.addressId);
+    if (!address) return res.status(404).json({ message: 'Dirección no encontrada' });
+    if (req.body.isDefault) {
+      user.addresses.forEach((a) => {
+        a.isDefault = false;
+      });
+    }
+    Object.assign(address, req.body);
+    await user.save();
+    res.json(user.addresses);
+  } catch (error) {
+    res.status(400).json({ message: 'Error al actualizar la dirección', error: error.message });
   }
-  Object.assign(address, req.body);
-  await user.save();
-  res.json(user.addresses);
 }
 
 async function deleteAddress(req, res) {
-  const user = await User.findById(req.user._id);
-  user.addresses.pull({ _id: req.params.addressId });
-  await user.save();
-  res.json(user.addresses);
+  try {
+    const user = await User.findById(req.user._id);
+    user.addresses.pull({ _id: req.params.addressId });
+    await user.save();
+    res.json(user.addresses);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al eliminar la dirección', error: error.message });
+  }
 }
 
 // Métodos de pago
 async function addPaymentMethod(req, res) {
-  const user = await User.findById(req.user._id);
-  if (req.body.isDefault) {
-    user.paymentMethods.forEach((p) => {
-      p.isDefault = false;
-    });
+  try {
+    const user = await User.findById(req.user._id);
+    if (req.body.isDefault) {
+      user.paymentMethods.forEach((p) => {
+        p.isDefault = false;
+      });
+    }
+    user.paymentMethods.push(req.body);
+    await user.save();
+    res.status(201).json(user.paymentMethods);
+  } catch (error) {
+    res.status(400).json({ message: 'Error al agregar el método de pago', error: error.message });
   }
-  user.paymentMethods.push(req.body);
-  await user.save();
-  res.status(201).json(user.paymentMethods);
+}
+
+async function updatePaymentMethod(req, res) {
+  try {
+    const user = await User.findById(req.user._id);
+    const method = user.paymentMethods.id(req.params.paymentMethodId);
+    if (!method) return res.status(404).json({ message: 'Método de pago no encontrado' });
+    if (req.body.isDefault) {
+      user.paymentMethods.forEach((p) => {
+        p.isDefault = false;
+      });
+    }
+    Object.assign(method, req.body);
+    await user.save();
+    res.json(user.paymentMethods);
+  } catch (error) {
+    res.status(400).json({ message: 'Error al actualizar el método de pago', error: error.message });
+  }
 }
 
 async function deletePaymentMethod(req, res) {
-  const user = await User.findById(req.user._id);
-  user.paymentMethods.pull({ _id: req.params.paymentMethodId });
-  await user.save();
-  res.json(user.paymentMethods);
+  try {
+    const user = await User.findById(req.user._id);
+    user.paymentMethods.pull({ _id: req.params.paymentMethodId });
+    await user.save();
+    res.json(user.paymentMethods);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al eliminar el método de pago', error: error.message });
+  }
 }
 
 module.exports = {
@@ -146,5 +184,6 @@ module.exports = {
   updateAddress,
   deleteAddress,
   addPaymentMethod,
+  updatePaymentMethod,
   deletePaymentMethod
 };

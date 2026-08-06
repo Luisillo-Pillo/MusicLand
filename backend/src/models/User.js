@@ -25,8 +25,7 @@ const paymentMethodSchema = new mongoose.Schema(
       default: 'Visa'
     },
     last4: { type: String, required: true },
-    expiryMonth: { type: String, required: true },
-    expiryYear: { type: String, required: true },
+    expiry: { type: String, required: true, match: /^\d{2}\/\d{2}$/ },
     isDefault: { type: Boolean, default: false }
   },
   { timestamps: true }

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { CartIcon } from './icons';
+import { formatPrice } from '../utils/format';
 import './ProductCard.css';
 
 export default function ProductCard({ product }) {
@@ -37,7 +38,7 @@ export default function ProductCard({ product }) {
       <div className="product-card-body">
         <span className="product-card-category">{product.category}</span>
         <h3 className="product-card-name">{product.name}</h3>
-        <span className="product-card-price">${product.price.toFixed(2)}</span>
+        <span className="product-card-price">{formatPrice(product.price)}</span>
         <span className={`product-card-stock ${outOfStock ? 'low' : ''}`}>
           {outOfStock ? 'Sin stock' : `${product.stock} disponibles`}
         </span>

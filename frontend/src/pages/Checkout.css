@@ -42,30 +42,49 @@
   border-top: 1px solid var(--color-border);
 }
 
-.payment-options {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
-
-.payment-option {
-  flex: 1;
-  min-width: 110px;
-  padding: 12px;
+.address-card {
+  position: relative;
+  padding: 14px 16px;
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-sm);
-  text-align: center;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.address-card p {
+  margin: 2px 0;
+  font-size: 0.88rem;
   color: var(--color-text-muted);
 }
 
-.payment-option.selected {
+.address-card-name {
+  font-weight: 700;
+  color: var(--color-text) !important;
+}
+
+.address-default-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.address-choose-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.address-choice {
+  cursor: pointer;
+}
+
+.address-choice.selected {
   border-color: var(--color-primary);
-  color: var(--color-primary);
   background: rgba(76, 29, 149, 0.06);
+}
+
+.address-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .checkout-actions {

@@ -8,6 +8,7 @@ import ConfirmModal from '../components/ConfirmModal';
 import { MenuIcon, UserIcon, EditIcon, TrashIcon, SearchIcon } from '../components/icons';
 import { useAuth } from '../context/AuthContext';
 import { getAllUsersRequest, updateUserRoleRequest, deleteUserRequest } from '../api/userApi';
+import { formatPhoneDisplay } from '../utils/format';
 import './AdminProducts.css';
 import './AdminUsers.css';
 
@@ -179,7 +180,7 @@ function UsersTable({ users, currentUserId, onToggleRole, onRequestDelete, onVie
                   {isSelf && <span className="badge admin-users-you-badge">Tú</span>}
                 </td>
                 <td title={user.email}>{user.email}</td>
-                <td title={user.phone || ''}>{user.phone || '—'}</td>
+                <td title={user.phone || ''}>{user.phone ? formatPhoneDisplay(user.phone) : '—'}</td>
                 <td>
                   <span className="badge">{roleLabels[user.role] || user.role}</span>
                 </td>

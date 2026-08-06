@@ -10,5 +10,7 @@ export const updateAddressRequest = (id, data) => axiosClient.put(`/users/me/add
 export const deleteAddressRequest = (id) => axiosClient.delete(`/users/me/addresses/${id}`);
 
 export const addPaymentMethodRequest = (data) => axiosClient.post('/users/me/payment-methods', data);
+export const updatePaymentMethodRequest = (id, data) =>
+  axiosClient.put(`/users/me/payment-methods/${id}`, data);
 export const deletePaymentMethodRequest = (id) =>
   axiosClient.delete(`/users/me/payment-methods/${id}`);

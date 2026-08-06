@@ -4,6 +4,7 @@ import BackButton from '../components/BackButton';
 import AdminNav from '../components/AdminNav';
 import ConfirmModal from '../components/ConfirmModal';
 import { EditIcon, TrashIcon, PlusIcon, SearchIcon } from '../components/icons';
+import { formatPrice } from '../utils/format';
 import {
   getProductsRequest,
   createProductRequest,
@@ -169,7 +170,7 @@ export default function AdminProducts() {
                     <td>{product.name}</td>
                     <td>{product.category}</td>
                     <td>{product.brand}</td>
-                    <td>${product.price.toFixed(2)}</td>
+                    <td>{formatPrice(product.price)}</td>
                     <td>{product.stock}</td>
                     <td>
                       <div className="admin-table-actions">

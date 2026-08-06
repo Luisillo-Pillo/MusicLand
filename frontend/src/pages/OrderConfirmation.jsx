@@ -2,6 +2,7 @@ import { Link, Navigate, useLocation } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
 import { CheckCircleIcon } from '../components/icons';
+import { formatPrice } from '../utils/format';
 import './Checkout.css';
 
 export default function OrderConfirmation() {
@@ -30,12 +31,12 @@ export default function OrderConfirmation() {
                 <span>
                   {item.name} x{item.quantity}
                 </span>
-                <span>${(item.price * item.quantity).toFixed(2)}</span>
+                <span>{formatPrice(item.price * item.quantity)}</span>
               </div>
             ))}
             <div className="confirmation-summary-item" style={{ fontWeight: 800, border: 'none' }}>
               <span>Total pagado</span>
-              <span>${order.total.toFixed(2)}</span>
+              <span>{formatPrice(order.total)}</span>
             </div>
           </div>
 

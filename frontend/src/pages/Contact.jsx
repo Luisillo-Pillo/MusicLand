@@ -1,15 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
 import { MailIcon, PhoneIcon, LocationIcon } from '../components/icons';
 import { sendContactMessageRequest } from '../api/contactApi';
+import { useAuth } from '../context/AuthContext';
 import './Contact.css';
 
 export default function Contact() {
+  const { user } = useAuth();
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (!user) return;
+    setForm((f) => ({
+      ...f,
+      name: f.name || user.name,
+      email: f.email || user.email
+    }));
+  }, [user]);
 
   function handleChange(e) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -22,7 +33,7 @@ export default function Contact() {
     try {
       await sendContactMessageRequest(form);
       setSent(true);
-      setForm({ name: '', email: '', message: '' });
+      setForm({ name: user?.name || '', email: user?.email || '', message: '' });
       setTimeout(() => setSent(false), 3000);
     } catch (err) {
       setError(err.response?.data?.message || 'No se pudo enviar el mensaje. Intenta de nuevo.');

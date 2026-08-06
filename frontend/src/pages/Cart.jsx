@@ -6,6 +6,7 @@ import QuantitySelector from '../components/QuantitySelector';
 import ConfirmModal from '../components/ConfirmModal';
 import { useCart } from '../context/CartContext';
 import { TrashIcon, EmptyBoxIcon } from '../components/icons';
+import { formatPrice } from '../utils/format';
 import './Cart.css';
 
 function CartItemRow({ item, onQuantityChange, onRequestRemove }) {
@@ -35,10 +36,10 @@ function CartItemRow({ item, onQuantityChange, onRequestRemove }) {
       </div>
       <div className="cart-item-info">
         <h4>{product.name}</h4>
-        <p className="unit-price">${product.price.toFixed(2)} c/u</p>
+        <p className="unit-price">{formatPrice(product.price)} c/u</p>
         <QuantitySelector value={localQty} onChange={handleChange} min={0} max={product.stock} />
       </div>
-      <div className="cart-item-price">${(product.price * item.quantity).toFixed(2)}</div>
+      <div className="cart-item-price">{formatPrice(product.price * item.quantity)}</div>
       <button
         type="button"
         className="cart-item-remove"
@@ -125,7 +126,7 @@ export default function Cart() {
               </div>
               <div className="cart-summary-total">
                 <span>Total</span>
-                <span>${totalPrice.toFixed(2)}</span>
+                <span>{formatPrice(totalPrice)}</span>
               </div>
               <button type="button" className="btn btn-primary" onClick={() => navigate('/checkout')}>
                 Proceder al pago

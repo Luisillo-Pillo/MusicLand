@@ -24,7 +24,7 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
-async function sendMail({ subject, html, replyTo }) {
+async function sendMail({ subject, html, replyTo, to }) {
   if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
     console.warn('SMTP no configurado (SMTP_USER/SMTP_PASS); se omite el envío de correo.');
     return;
@@ -32,7 +32,7 @@ async function sendMail({ subject, html, replyTo }) {
   const transport = getTransporter();
   await transport.sendMail({
     from: `"MusicLand" <${process.env.SMTP_USER}>`,
-    to: process.env.NOTIFY_EMAIL || process.env.SMTP_USER,
+    to: to || process.env.NOTIFY_EMAIL || process.env.SMTP_USER,
     subject,
     html,
     replyTo

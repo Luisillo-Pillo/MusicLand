@@ -5,6 +5,7 @@ import BackButton from '../components/BackButton';
 import { useAuth } from '../context/AuthContext';
 import { EditIcon, LogoutIcon, PhoneIcon, ReceiptIcon } from '../components/icons';
 import { getMyOrdersRequest } from '../api/orderApi';
+import { digitsOnly, formatPhoneDisplay } from '../utils/format';
 import './Profile.css';
 
 const roleLabels = {
@@ -35,8 +36,7 @@ export default function Profile() {
   }
 
   function handlePhoneChange(e) {
-    const digitsOnly = e.target.value.replace(/\D/g, '').slice(0, 10);
-    setForm((f) => ({ ...f, phone: digitsOnly }));
+    setForm((f) => ({ ...f, phone: digitsOnly(e.target.value, 10) }));
   }
 
   async function handleSave(e) {
@@ -80,7 +80,7 @@ export default function Profile() {
           <div className="profile-stats">
             <div className="profile-stat-item">
               <PhoneIcon size={16} />
-              {user.phone || 'Sin teléfono registrado'}
+              {user.phone ? formatPhoneDisplay(user.phone) : 'Sin teléfono registrado'}
             </div>
             <div className="profile-stat-item">
               <ReceiptIcon size={16} />
@@ -92,8 +92,8 @@ export default function Profile() {
 
           {!editing ? (
             <div className="profile-actions">
-              <button type="button" className="btn btn-outline" onClick={() => navigate(-1)}>
-                Volver
+              <button type="button" className="btn btn-outline" onClick={() => navigate('/historial-compras')}>
+                <ReceiptIcon size={16} /> Ver historial de compras
               </button>
               <button type="button" className="btn btn-primary" onClick={() => setEditing(true)}>
                 <EditIcon size={16} /> Editar información
@@ -115,8 +115,9 @@ export default function Profile() {
                   name="phone"
                   type="tel"
                   inputMode="numeric"
-                  placeholder="10 dígitos"
-                  value={form.phone}
+                  placeholder="000 000 0000"
+                  maxLength={12}
+                  value={formatPhoneDisplay(form.phone)}
                   onChange={handlePhoneChange}
                   required
                 />
