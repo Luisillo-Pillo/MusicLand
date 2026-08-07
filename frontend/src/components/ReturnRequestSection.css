@@ -1,0 +1,120 @@
+.return-request {
+  padding: 28px;
+  /* Se queda fija junto al contenido largo de la izquierda, como el resumen
+     de compra del checkout. */
+  position: sticky;
+  top: calc(var(--header-height) + 20px);
+}
+
+.return-request h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+  font-size: 1.15rem;
+  color: var(--color-primary);
+}
+
+.return-request-guest p,
+.return-request-empty {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.return-request-guest {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.return-request-empty a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.return-request-success p {
+  margin: 0 0 14px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.return-request-success strong {
+  color: var(--color-text);
+}
+
+.return-request-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.return-request-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.return-request-item:last-child {
+  border-bottom: none;
+}
+
+.return-request-item input[type='checkbox'] {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.return-request-item-all {
+  background: var(--color-bg);
+  font-weight: 700;
+}
+
+.return-request-item-name {
+  flex: 1;
+  min-width: 0;
+  color: var(--color-text);
+}
+
+.return-request-item-price {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.return-request-meta {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.return-request .btn {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  /* En una sola columna no tiene sentido que quede "pegada" al hacer scroll:
+     ya no comparte fila con un contenido más largo a su izquierda. */
+  .return-request {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .return-request {
+    padding: 20px;
+  }
+}

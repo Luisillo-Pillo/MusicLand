@@ -29,6 +29,11 @@ html,
 body {
   margin: 0;
   padding: 0;
+  /* Salvaguarda del sitio: nunca debe aparecer una barra de scroll horizontal,
+     pase lo que pase dentro. Los contenedores que sí necesitan deslizarse de
+     lado (tablas admin, chips de filtros, el nav del admin) declaran su
+     propio overflow-x:auto y siguen funcionando con normalidad. */
+  overflow-x: hidden;
 }
 
 body {
@@ -36,10 +41,12 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   min-height: 100vh;
+  width: 100%;
 }
 
 #root {
   min-height: 100vh;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
 }

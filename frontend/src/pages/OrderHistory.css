@@ -8,6 +8,15 @@
   padding: 20px 24px;
 }
 
+@media (max-width: 480px) {
+  .order-history-card {
+    padding: 16px 18px;
+  }
+  .order-history-actions {
+    justify-content: flex-start;
+  }
+}
+
 .order-history-header {
   display: flex;
   justify-content: space-between;
@@ -109,6 +118,13 @@
   background: rgba(220, 38, 38, 0.07);
   font-size: 0.85rem;
   color: var(--color-text-muted);
+}
+
+/* Una solicitud de devolución no es un error como una cancelación: usa el
+   color primario en vez del rojo de peligro. */
+.order-history-return {
+  border-left-color: var(--color-primary);
+  background: rgba(76, 29, 149, 0.06);
 }
 
 .order-history-cancelled p {

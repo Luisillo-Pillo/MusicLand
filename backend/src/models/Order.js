@@ -11,6 +11,31 @@ const orderProductSchema = new mongoose.Schema(
   { _id: false }
 );
 
+// Línea de producto dentro de una solicitud de devolución: guarda su propia
+// copia de nombre/cantidad (igual que orderProductSchema) para que la
+// solicitud siga siendo legible aunque el producto cambie o se borre después.
+const returnItemSchema = new mongoose.Schema(
+  {
+    product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
+    name: { type: String, required: true },
+    quantity: { type: Number, required: true }
+  },
+  { _id: false }
+);
+
+const returnRequestSchema = new mongoose.Schema(
+  {
+    items: [returnItemSchema],
+    // true si se solicitó el pedido completo, para no perder ese matiz aunque
+    // 'items' termine coincidiendo con todo el contenido del pedido.
+    fullOrder: { type: Boolean, default: false },
+    reason: { type: String, required: true, trim: true },
+    status: { type: String, enum: ['pendiente', 'aprobada', 'rechazada'], default: 'pendiente' },
+    requestedAt: { type: Date, default: Date.now }
+  },
+  { _id: false }
+);
+
 const orderSchema = new mongoose.Schema(
   {
     orderNumber: { type: String, required: true, unique: true },
@@ -38,7 +63,10 @@ const orderSchema = new mongoose.Schema(
     cancelledAt: { type: Date, default: null },
     // 'cliente' o 'admin': quién originó la cancelación.
     cancelledBy: { type: String, enum: ['cliente', 'admin', null], default: null },
-    cancellationReason: { type: String, default: '', trim: true }
+    cancellationReason: { type: String, default: '', trim: true },
+    // Solo pedidos entregados pueden tener una solicitud de devolución, y solo
+    // una a la vez (ver requestReturn en orderController).
+    returnRequest: { type: returnRequestSchema, default: null }
   },
   { timestamps: true }
 );

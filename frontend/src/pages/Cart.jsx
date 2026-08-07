@@ -34,9 +34,9 @@ function CartItemRow({ item, onQuantityChange, onRequestRemove }) {
       <div className="cart-item-image">
         <img src={product.image} alt={product.name} />
       </div>
-      <div className="cart-item-info">
-        <h4>{product.name}</h4>
-        <p className="unit-price">{formatPrice(product.price)} c/u</p>
+      <h4 className="cart-item-name">{product.name}</h4>
+      <p className="cart-item-unit">{formatPrice(product.price)} c/u</p>
+      <div className="cart-item-qty">
         <QuantitySelector value={localQty} onChange={handleChange} min={0} max={product.stock} />
       </div>
       <div className="cart-item-price">{formatPrice(product.price * item.quantity)}</div>

@@ -11,9 +11,12 @@ import OrderHistory from './pages/OrderHistory';
 import Categories from './pages/Categories';
 import Brands from './pages/Brands';
 import Contact from './pages/Contact';
+import FAQ from './pages/FAQ';
+import ShippingReturns from './pages/ShippingReturns';
 import AdminProducts from './pages/AdminProducts';
 import AdminOrders from './pages/AdminOrders';
 import AdminOrderDetail from './pages/AdminOrderDetail';
+import AdminReturns from './pages/AdminReturns';
 import AdminUsers from './pages/AdminUsers';
 import AdminUserProfile from './pages/AdminUserProfile';
 import AdminUserOrders from './pages/AdminUserOrders';
@@ -32,6 +35,8 @@ export default function App() {
         <Route path="/categorias" element={<Categories />} />
         <Route path="/marcas" element={<Brands />} />
         <Route path="/contacto" element={<Contact />} />
+        <Route path="/preguntas-frecuentes" element={<FAQ />} />
+        <Route path="/envios-y-devoluciones" element={<ShippingReturns />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Register />} />
 
@@ -96,6 +101,14 @@ export default function App() {
           element={
             <ProtectedRoute adminOnly>
               <AdminOrderDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/devoluciones"
+          element={
+            <ProtectedRoute adminOnly>
+              <AdminReturns />
             </ProtectedRoute>
           }
         />

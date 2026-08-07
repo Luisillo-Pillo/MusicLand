@@ -26,3 +26,24 @@
   font-weight: 500;
   color: var(--color-text-muted);
 }
+
+@media (max-width: 640px) {
+  /* auto-fill con minmax(220px) deja 1 sola columna en un teléfono; se fuerzan
+     2 para aprovechar el ancho, como en la mayoría de tiendas móviles. */
+  .listing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .listing-tile {
+    padding: 20px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .listing-tile {
+    padding: 16px 10px;
+    font-size: 0.85rem;
+  }
+}

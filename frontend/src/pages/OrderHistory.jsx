@@ -6,7 +6,7 @@ import CancelOrderModal from '../components/CancelOrderModal';
 import { EmptyBoxIcon, EyeIcon, TrashIcon } from '../components/icons';
 import { getMyOrdersRequest, cancelOrderRequest } from '../api/orderApi';
 import { formatPrice, formatPhoneDisplay } from '../utils/format';
-import { statusLabels, canCancel, isCancelled } from '../utils/orderStatus';
+import { statusLabels, canCancel, isCancelled, returnStatusLabels } from '../utils/orderStatus';
 import './OrderHistory.css';
 
 function formatDate(dateStr) {
@@ -117,6 +117,17 @@ export default function OrderHistory() {
                         <strong>Motivo:</strong> {order.cancellationReason}
                       </p>
                     )}
+                  </div>
+                )}
+
+                {order.returnRequest && (
+                  <div className="order-history-cancelled order-history-return">
+                    <p>
+                      Solicitud de devolución{' '}
+                      {order.returnRequest.fullOrder ? 'del pedido completo' : 'de los productos seleccionados'}{' '}
+                      enviada el {formatDate(order.returnRequest.requestedAt)} —{' '}
+                      <strong>{returnStatusLabels[order.returnRequest.status]}</strong>.
+                    </p>
                   </div>
                 )}
 

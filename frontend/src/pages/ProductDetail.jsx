@@ -6,7 +6,7 @@ import QuantitySelector from '../components/QuantitySelector';
 import { getProductByIdRequest } from '../api/productApi';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import { CartIcon } from '../components/icons';
+import { CartIcon, BoltIcon } from '../components/icons';
 import { formatPrice } from '../utils/format';
 import './ProductDetail.css';
 
@@ -20,6 +20,7 @@ export default function ProductDetail() {
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const [adding, setAdding] = useState(false);
+  const [buying, setBuying] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [error, setError] = useState('');
 
@@ -49,6 +50,24 @@ export default function ProductDetail() {
       setError(err.response?.data?.message || 'No se pudo agregar el producto al carrito.');
     } finally {
       setAdding(false);
+    }
+  }
+
+  // Agrega el producto al carrito y salta directo a checkout, sin pasar por la
+  // pantalla de carrito: es el atajo de "una compra, un clic".
+  async function handleBuyNow() {
+    if (!user) {
+      navigate('/login', { state: { from: `/producto/${id}` } });
+      return;
+    }
+    setBuying(true);
+    setError('');
+    try {
+      await addToCart(product._id, quantity);
+      navigate('/checkout');
+    } catch (err) {
+      setError(err.response?.data?.message || 'No se pudo procesar la compra.');
+      setBuying(false);
     }
   }
 
@@ -115,9 +134,18 @@ export default function ProductDetail() {
             <div className="product-detail-actions">
               <button
                 type="button"
+                className="btn btn-accent"
+                onClick={handleBuyNow}
+                disabled={outOfStock || buying || adding}
+              >
+                <BoltIcon size={16} />
+                {buying ? 'Procesando...' : 'Comprar ahora'}
+              </button>
+              <button
+                type="button"
                 className="btn btn-primary"
                 onClick={handleAddToCart}
-                disabled={outOfStock || adding}
+                disabled={outOfStock || adding || buying}
               >
                 <CartIcon size={16} />
                 {feedback || 'Agregar al carrito'}

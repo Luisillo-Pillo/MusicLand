@@ -93,6 +93,12 @@
   padding: 20px 24px;
 }
 
+@media (max-width: 480px) {
+  .admin-message-card {
+    padding: 16px 18px;
+  }
+}
+
 .admin-message-header {
   display: flex;
   justify-content: space-between;

@@ -69,10 +69,10 @@ export default function Footer() {
                 <Link to="/carrito">Mi carrito</Link>
               </li>
               <li>
-                <Link to="/contacto">Preguntas frecuentes</Link>
+                <Link to="/preguntas-frecuentes">Preguntas frecuentes</Link>
               </li>
               <li>
-                <Link to="/contacto">Envíos y devoluciones</Link>
+                <Link to="/envios-y-devoluciones">Envíos y devoluciones</Link>
               </li>
             </ul>
           </div>

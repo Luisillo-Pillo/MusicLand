@@ -1,6 +1,10 @@
 .checkout-layout {
   display: grid;
-  grid-template-columns: 1fr 360px;
+  /* 360px se quedaba corto: con nombres largos de producto y precios en pesos
+     de varias cifras (esta tienda vende instrumentos caros), el texto quedaba
+     pegado al borde del recuadro. 400px les da aire sin robarle demasiado
+     espacio al formulario. */
+  grid-template-columns: 1fr 400px;
   gap: 28px;
   align-items: start;
 }
@@ -19,11 +23,17 @@
   flex-direction: column;
   gap: 10px;
   margin-bottom: 16px;
+  /* Si el carrito tiene muchos productos distintos, el recuadro no debe crecer
+     sin límite: se planta una altura máxima y el resto se desplaza. */
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 
 .checkout-summary-item {
   display: flex;
   justify-content: space-between;
+  gap: 12px;
   font-size: 0.88rem;
   color: var(--color-text-muted);
 }
@@ -31,6 +41,12 @@
 .checkout-summary-item span:first-child {
   color: var(--color-text);
   font-weight: 600;
+  min-width: 0;
+}
+
+.checkout-summary-item span:last-child {
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .checkout-total {
@@ -132,5 +148,20 @@
 @media (max-width: 900px) {
   .checkout-layout {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-section {
+    padding: 18px;
+  }
+  .confirmation-card {
+    padding: 28px 20px;
+  }
+  .checkout-actions {
+    flex-direction: column;
+  }
+  .checkout-actions .btn {
+    width: 100%;
   }
 }

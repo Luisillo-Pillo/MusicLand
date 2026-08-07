@@ -242,3 +242,120 @@
   font-size: 0.88rem;
   color: var(--color-text-muted);
 }
+
+/* Tablas admin → tarjetas en mobile. -----------------------------------------
+   Un <table> con muchas columnas nunca se lee cómodo en un teléfono: con
+   table-layout:fixed (AdminUsers) el texto se recorta a "N...", "COR..."; sin
+   fixed, obliga a hacer scroll horizontal para ver precio/estado/acciones.
+   En vez de eso, cada <tr> se convierte en una tarjeta y cada <td> en una fila
+   "etiqueta: valor" (la etiqueta sale de data-label, ver AdminProducts.jsx /
+   AdminUsers.jsx / AdminOrders.jsx). Reutilizado por Productos, Clientes y
+   Pedidos porque los tres importan este archivo para los estilos base de
+   .admin-table. */
+@media (max-width: 700px) {
+  .admin-table-wrapper {
+    overflow-x: visible;
+    border: none;
+    background: none;
+  }
+
+  .admin-table,
+  .admin-table-fixed {
+    /* Con las filas en display:block, la tabla ya no puede seguir en
+       display:table (colapsa a un ancho mínimo absurdo): también pasa a bloque. */
+    display: block;
+    width: 100%;
+    table-layout: auto;
+  }
+
+  .admin-table thead {
+    display: none;
+  }
+
+  .admin-table tbody {
+    display: block;
+  }
+
+  .admin-table tr {
+    display: block;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: 4px 14px;
+    margin-bottom: 12px;
+  }
+
+  .admin-table tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .admin-table td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+    text-align: right;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .admin-table td:last-child {
+    border-bottom: none;
+  }
+
+  .admin-table td[data-label]::before {
+    content: attr(data-label);
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--color-text-muted);
+    text-align: left;
+  }
+
+  /* La miniatura no lleva etiqueta: encabeza la tarjeta en vez de ser un
+     campo más, así que no necesita su propia línea divisoria. */
+  .admin-table td:not([data-label]) {
+    justify-content: flex-start;
+    border-bottom: none;
+    padding-top: 12px;
+  }
+
+  .admin-product-thumb,
+  .admin-user-thumb {
+    width: 52px;
+    height: 52px;
+  }
+
+  /* .admin-table-fixed (AdminUsers) trae overflow:hidden + ellipsis para su
+     modo de escritorio de ancho fijo; en tarjetas hace falta texto completo.
+     Selector más específico que el de AdminUsers.css para ganar la cascada
+     sin depender del orden de imports entre archivos. */
+  .admin-table-wrapper .admin-table-fixed td,
+  .admin-table-wrapper .admin-table-fixed th {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .admin-table td[data-label='Acciones'] {
+    padding-top: 12px;
+  }
+
+  .admin-table-actions {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  /* La fila que agrupa pedidos por estatus (con su botón de plegar/desplegar)
+     no es un campo de dato: se deja como el botón de ancho completo que ya es. */
+  .admin-orders-group-row td {
+    display: block;
+    padding: 0;
+  }
+}

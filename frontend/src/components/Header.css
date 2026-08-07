@@ -15,6 +15,22 @@
   gap: 20px;
 }
 
+.header-menu-btn {
+  display: none;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  /* Mismo tamaño que .header-cart-btn (40px): con tamaños distintos los círculos
+     no se ven alineados entre sí aunque compartan el mismo centro vertical. */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
 .header-brand {
   display: flex;
   align-items: center;
@@ -27,6 +43,7 @@
 
 .header-search {
   flex: 1;
+  min-width: 0;
   max-width: 420px;
   position: relative;
   display: flex;
@@ -177,10 +194,115 @@
 }
 
 @media (max-width: 860px) {
+  .header-menu-btn {
+    display: inline-flex;
+  }
+
   .header-nav {
     display: none;
   }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  /* Con solo 3-4 elementos en la fila, el padding de 20px de .container (el
+     mismo del resto del sitio) se ve pegado al borde: el header necesita más
+     aire propio para no sentirse apretado contra la pantalla. Selector con
+     mayor especificidad que ".header .container" y ".container" a propósito,
+     para no depender del orden en que Vite concatene los CSS de cada archivo. */
+  .header .header-row {
+    padding-left: 28px;
+    padding-right: 28px;
+    gap: 14px;
+  }
+
+  /* Menú de navegación desplegado bajo el header, sustituye a los enlaces ocultos.
+     Vive en todo el rango ≤860px: es el mismo rango en que aparece el botón
+     de hamburguesa, sin importar si la búsqueda cabe o no en la fila. */
+  .header-mobile-nav {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .header-mobile-nav a {
+    padding: 13px 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-mobile-nav a:last-child {
+    border-bottom: none;
+  }
+
+  .header-mobile-nav a.active {
+    color: var(--color-primary);
+    background: rgba(76, 29, 149, 0.06);
+  }
+}
+
+/* Entre 561 y 860px (tablets y celulares grandes en horizontal) la búsqueda
+   cabe perfectamente en la fila principal junto al logo y las acciones — antes
+   se mandaba a su propia fila igual que en un teléfono, dejando un hueco vacío
+   enorme en el medio sin necesidad. Solo por debajo de 560px, donde ya no cabe
+   ni encogida, se le da su propia fila completa. */
+@media (max-width: 560px) {
+  .header {
+    height: auto;
+  }
+
+  .header-row {
+    height: auto;
+    min-height: var(--header-height);
+    flex-wrap: wrap;
+    row-gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
   .header-search {
+    order: 4;
+    flex: 1 1 100%;
     max-width: none;
+  }
+
+  .header-row .header-brand {
+    order: 1;
+  }
+  .header-row .header-actions {
+    order: 2;
+  }
+}
+
+@media (min-width: 861px) {
+  /* Salvaguarda: si el menú quedó abierto y la ventana crece a escritorio, no se
+     muestra un panel redundante junto a la barra de navegación normal. */
+  .header-mobile-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-brand span {
+    display: none;
+  }
+  .user-menu-name {
+    display: none;
+  }
+  .header-actions {
+    gap: 6px;
+  }
+  .header-actions .btn-sm {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+  .user-menu-trigger {
+    /* Reduce solo el padding horizontal: el vertical (6px) se mantiene para que
+       siga midiendo 40px de alto, igual que el resto de botones del header. */
+    padding: 6px 8px 6px 5px;
   }
 }

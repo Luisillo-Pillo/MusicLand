@@ -102,6 +102,56 @@
   background: rgba(220, 38, 38, 0.08);
 }
 
+/* Botón "Filtrar por" + modal: ocultos en escritorio por defecto, la media
+   query de mobile los muestra y oculta la fila inline en su lugar. */
+.home-filters-mobile-btn {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.home-filters-mobile-btn.active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.home-filters-mobile-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.home-filters-modal {
+  max-width: 380px;
+}
+
+.home-filters-modal-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.home-filters-modal-list .home-filter-select select {
+  width: 100%;
+}
+
+.home-filters-modal-list .home-filters-clear {
+  align-self: flex-start;
+  padding: 6px 4px;
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -126,7 +176,36 @@
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 640px) {
+  /* 2 columnas también en teléfono, como en la mayoría de tiendas móviles:
+     1 sola columna deja demasiado espacio vacío a los lados y obliga a un
+     scroll interminable. Solo baja a 1 columna en pantallas muy angostas. */
+  .product-grid {
+    gap: 12px;
+  }
+
+  .home-section-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* La fila de filtros inline se reemplaza por el botón "Filtrar por" + modal
+     (y toda referencia al total de productos se retira, solo en mobile). */
+  .home-filters-desktop {
+    display: none;
+  }
+
+  .home-filters-mobile-btn {
+    display: inline-flex;
+  }
+
+  .home-total-desktop {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
   .product-grid {
     grid-template-columns: 1fr;
   }

@@ -89,6 +89,10 @@
 }
 
 @media (max-width: 640px) {
+  .user-orders-head {
+    padding: 18px;
+  }
+
   .user-orders-totals {
     width: 100%;
     justify-content: space-between;

@@ -9,6 +9,55 @@ import './Home.css';
 
 const PAGE_SIZE = 12;
 
+// Los 3 selects + "quitar filtros", compartidos entre la fila inline de
+// escritorio y el modal "Filtrar por" de mobile para no duplicar el markup.
+function FilterControls({ category, brand, sort, categories, brands, updateFilter, hasActiveFilters, clearFilters }) {
+  return (
+    <>
+      <label className={`home-filter-select ${category ? 'active' : ''}`}>
+        <select value={category} onChange={(e) => updateFilter('category', e.target.value)}>
+          <option value="">Todas las categorías</option>
+          {categories.map((c) => (
+            <option key={c.name} value={c.name}>
+              {c.name} ({c.count})
+            </option>
+          ))}
+        </select>
+        <ChevronDownIcon size={14} className="home-filter-chevron" />
+      </label>
+
+      <label className={`home-filter-select ${brand ? 'active' : ''}`}>
+        <select value={brand} onChange={(e) => updateFilter('brand', e.target.value)}>
+          <option value="">Todas las marcas</option>
+          {brands.map((b) => (
+            <option key={b.name} value={b.name}>
+              {b.name} ({b.count})
+            </option>
+          ))}
+        </select>
+        <ChevronDownIcon size={14} className="home-filter-chevron" />
+      </label>
+
+      <label className={`home-filter-select ${sort ? 'active' : ''}`}>
+        <select value={sort} onChange={(e) => updateFilter('sort', e.target.value)}>
+          <option value="">Más recientes</option>
+          <option value="price_asc">Precio: menor a mayor</option>
+          <option value="price_desc">Precio: mayor a menor</option>
+          <option value="name_asc">Nombre: A-Z</option>
+          <option value="name_desc">Nombre: Z-A</option>
+        </select>
+        <ChevronDownIcon size={14} className="home-filter-chevron" />
+      </label>
+
+      {hasActiveFilters && (
+        <button type="button" className="home-filters-clear" onClick={clearFilters}>
+          Quitar filtros
+        </button>
+      )}
+    </>
+  );
+}
+
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get('search') || '';
@@ -25,6 +74,9 @@ export default function Home() {
   const [error, setError] = useState('');
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
+  // Solo se usa en mobile: en escritorio los filtros van inline y este modal
+  // nunca se abre (el botón que lo dispara está oculto por CSS).
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   useEffect(() => {
     getFeaturedProductsRequest()
@@ -110,56 +162,63 @@ export default function Home() {
         <section>
           <div className="home-section-title">
             <h2>{search ? `Resultados para "${search}"` : 'Nuestros productos'}</h2>
-            <span>{total} productos disponibles</span>
+            {/* Solo en escritorio: en mobile se quita toda referencia al total. */}
+            <span className="home-total-desktop">{total} productos disponibles</span>
           </div>
 
-          <div className="home-filters">
+          {/* Fila inline de siempre, visible solo en escritorio (ver media query). */}
+          <div className="home-filters home-filters-desktop">
             <span className="home-filters-label">
               <FilterIcon size={15} />
               Filtrar por:
             </span>
-
-            <label className={`home-filter-select ${category ? 'active' : ''}`}>
-              <select value={category} onChange={(e) => updateFilter('category', e.target.value)}>
-                <option value="">Todas las categorías</option>
-                {categories.map((c) => (
-                  <option key={c.name} value={c.name}>
-                    {c.name} ({c.count})
-                  </option>
-                ))}
-              </select>
-              <ChevronDownIcon size={14} className="home-filter-chevron" />
-            </label>
-
-            <label className={`home-filter-select ${brand ? 'active' : ''}`}>
-              <select value={brand} onChange={(e) => updateFilter('brand', e.target.value)}>
-                <option value="">Todas las marcas</option>
-                {brands.map((b) => (
-                  <option key={b.name} value={b.name}>
-                    {b.name} ({b.count})
-                  </option>
-                ))}
-              </select>
-              <ChevronDownIcon size={14} className="home-filter-chevron" />
-            </label>
-
-            <label className={`home-filter-select ${sort ? 'active' : ''}`}>
-              <select value={sort} onChange={(e) => updateFilter('sort', e.target.value)}>
-                <option value="">Más recientes</option>
-                <option value="price_asc">Precio: menor a mayor</option>
-                <option value="price_desc">Precio: mayor a menor</option>
-                <option value="name_asc">Nombre: A-Z</option>
-                <option value="name_desc">Nombre: Z-A</option>
-              </select>
-              <ChevronDownIcon size={14} className="home-filter-chevron" />
-            </label>
-
-            {hasActiveFilters && (
-              <button type="button" className="home-filters-clear" onClick={clearFilters}>
-                Quitar filtros
-              </button>
-            )}
+            <FilterControls
+              category={category}
+              brand={brand}
+              sort={sort}
+              categories={categories}
+              brands={brands}
+              updateFilter={updateFilter}
+              hasActiveFilters={hasActiveFilters}
+              clearFilters={clearFilters}
+            />
           </div>
+
+          {/* Botón compacto, visible solo en mobile, que abre el modal de filtros. */}
+          <button
+            type="button"
+            className={`home-filters-mobile-btn ${hasActiveFilters ? 'active' : ''}`}
+            onClick={() => setMobileFiltersOpen(true)}
+          >
+            <FilterIcon size={15} />
+            Filtrar por
+            {hasActiveFilters && <span className="home-filters-mobile-dot" />}
+          </button>
+
+          {mobileFiltersOpen && (
+            <div className="modal-overlay" onClick={() => setMobileFiltersOpen(false)}>
+              <div className="modal-box home-filters-modal" onClick={(e) => e.stopPropagation()}>
+                <h3>Filtrar por</h3>
+                <div className="home-filters-modal-list">
+                  <FilterControls
+                    category={category}
+                    brand={brand}
+                    sort={sort}
+                    categories={categories}
+                    brands={brands}
+                    updateFilter={updateFilter}
+                    hasActiveFilters={hasActiveFilters}
+                    clearFilters={clearFilters}
+                  />
+                </div>
+                <div className="modal-actions">
+                  <button type="button" className="btn btn-primary" onClick={() => setMobileFiltersOpen(false)}>
+                    Ver resultados
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
 
           {loading ? (
             <div className="spinner-wrapper">
@@ -188,7 +247,14 @@ export default function Home() {
                     disabled={loadingMore}
                     onClick={loadMore}
                   >
-                    {loadingMore ? 'Cargando...' : `Ver más productos (${total - products.length})`}
+                    {loadingMore ? (
+                      'Cargando...'
+                    ) : (
+                      <>
+                        Ver más productos{' '}
+                        <span className="home-total-desktop">({total - products.length})</span>
+                      </>
+                    )}
                   </button>
                 </div>
               )}

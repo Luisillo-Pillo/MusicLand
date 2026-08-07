@@ -36,22 +36,22 @@ export default function ProductCard({ product }) {
         <img src={product.image} alt={product.name} loading="lazy" />
       </div>
       <div className="product-card-body">
-        <span className="product-card-category">{product.category}</span>
         <h3 className="product-card-name">{product.name}</h3>
         <span className="product-card-price">{formatPrice(product.price)}</span>
-        <span className={`product-card-stock ${outOfStock ? 'low' : ''}`}>
-          {outOfStock ? 'Sin stock' : `${product.stock} disponibles`}
-        </span>
       </div>
       <div className="product-card-actions">
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary product-card-add"
           onClick={handleAddToCart}
           disabled={outOfStock || adding}
+          aria-label={outOfStock ? 'Sin stock' : added ? 'Producto agregado' : 'Agregar al carrito'}
         >
           <CartIcon size={15} />
-          {added ? 'Agregado' : 'Agregar'}
+          {/* En mobile este texto se oculta por CSS y el botón queda solo como ícono. */}
+          <span className="product-card-add-label">
+            {outOfStock ? 'Sin stock' : added ? 'Agregado' : 'Agregar'}
+          </span>
         </button>
         <button
           type="button"

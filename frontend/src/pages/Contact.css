@@ -50,3 +50,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .contact-info-card,
+  .contact-form-card {
+    padding: 20px;
+  }
+}

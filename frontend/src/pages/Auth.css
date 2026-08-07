@@ -39,3 +39,9 @@
   color: var(--color-primary);
   font-weight: 700;
 }
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 24px 20px;
+  }
+}

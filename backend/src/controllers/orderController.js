@@ -16,6 +16,8 @@ const CLIENT_CANCELABLE = ['pendiente', 'procesando'];
 // Un pedido entregado o cancelado ya cerró su ciclo: su estatus queda congelado.
 const FINAL_STATUSES = ['entregado', 'cancelado'];
 
+const RETURN_REQUEST_STATUSES = ['pendiente', 'aprobada', 'rechazada'];
+
 // Devuelve al inventario las unidades ya descontadas cuando la compra no llega a completarse.
 async function restoreStock(decremented) {
   for (const item of decremented) {
@@ -361,6 +363,195 @@ async function cancelOrder(req, res) {
   }
 }
 
+// Aviso a la tienda: a diferencia de cancelar, una devolución no cambia nada
+// del pedido por sí sola, solo abre el caso para que alguien lo revise.
+async function notifyStoreOfReturnRequest(order, user, items, isFullOrder, reason) {
+  const itemsHtml = items.map((i) => `<li>${escapeHtml(i.name)} x${i.quantity}</li>`).join('');
+
+  await sendMail({
+    subject: `Solicitud de devolución - Pedido #${order.orderNumber} - MusicLand`,
+    replyTo: user?.email,
+    html: `
+      <h2>Nueva solicitud de devolución</h2>
+      <p><strong>Pedido:</strong> ${escapeHtml(order.orderNumber)}</p>
+      <p><strong>Cliente:</strong> ${escapeHtml(user?.name || 'Cuenta eliminada')} (${escapeHtml(user?.email || 'sin correo')})</p>
+      <p><strong>Alcance:</strong> ${isFullOrder ? 'Pedido completo' : 'Productos específicos del pedido'}</p>
+      <p><strong>Productos a devolver:</strong></p>
+      <ul>${itemsHtml}</ul>
+      <p><strong>Motivo:</strong></p>
+      <blockquote style="margin:0;padding-left:12px;border-left:3px solid #6d28d9;color:#555;">
+        ${escapeHtml(reason).replace(/\n/g, '<br>')}
+      </blockquote>
+    `
+  });
+}
+
+async function requestReturn(req, res) {
+  try {
+    const { items, fullOrder, reason } = req.body;
+
+    const trimmedReason = typeof reason === 'string' ? reason.trim() : '';
+    if (!trimmedReason) {
+      return res.status(400).json({ message: 'Cuéntanos el motivo de la devolución' });
+    }
+    if (trimmedReason.length > 1000) {
+      return res.status(400).json({ message: 'El motivo no puede superar los 1000 caracteres' });
+    }
+    if (!Array.isArray(items) || items.length === 0) {
+      return res.status(400).json({ message: 'Selecciona al menos un producto para devolver' });
+    }
+
+    const order = await Order.findById(req.params.id).populate('user', 'name email');
+    if (!order) return res.status(404).json({ message: 'Pedido no encontrado' });
+
+    const isOwner = order.user && order.user._id.toString() === req.user._id.toString();
+    if (!isOwner) {
+      return res.status(403).json({ message: 'No tienes acceso a este pedido' });
+    }
+
+    if (order.status !== 'entregado') {
+      return res.status(409).json({
+        message: 'Solo puedes solicitar la devolución de un pedido que ya fue entregado'
+      });
+    }
+
+    if (order.returnRequest && order.returnRequest.status === 'pendiente') {
+      return res.status(409).json({
+        message: 'Ya hay una solicitud de devolución en revisión para este pedido'
+      });
+    }
+
+    // Cada producto solicitado debe pertenecer al pedido: si no, alguien podría
+    // "devolver" algo que nunca compró aquí. La cantidad es la que se compró de
+    // ese producto, no una cantidad parcial elegida aparte.
+    const orderedByProduct = new Map(
+      order.products.filter((p) => p.product).map((p) => [p.product.toString(), p])
+    );
+    const returnItems = [];
+    for (const item of items) {
+      const productId = item?.productId;
+      const original = productId && orderedByProduct.get(productId.toString());
+      if (!original) {
+        return res.status(400).json({ message: 'Uno de los productos seleccionados no pertenece a este pedido' });
+      }
+      returnItems.push({ product: original.product, name: original.name, quantity: original.quantity });
+    }
+
+    const isFullOrder = !!fullOrder || returnItems.length === order.products.length;
+
+    order.returnRequest = {
+      items: returnItems,
+      fullOrder: isFullOrder,
+      reason: trimmedReason,
+      status: 'pendiente',
+      requestedAt: new Date()
+    };
+    await order.save();
+
+    // El correo es un aviso, no parte de la solicitud: si falla, la solicitud ya
+    // quedó registrada en el pedido, así que solo se anota el error.
+    try {
+      await notifyStoreOfReturnRequest(order, order.user, returnItems, isFullOrder, trimmedReason);
+    } catch (mailError) {
+      console.error('Error al enviar el aviso de solicitud de devolución:', mailError.message);
+    }
+
+    res.status(201).json(order);
+  } catch (error) {
+    handleError(res, error, 'Error al solicitar la devolución');
+  }
+}
+
+// Todos los pedidos con una solicitud de devolución, sin importar su estatus
+// (el filtro por estatus lo aplica el propio front, igual que en getAllOrders).
+async function getReturnRequests(req, res) {
+  try {
+    const { status } = req.query;
+    const filter = { returnRequest: { $ne: null } };
+    if (status && RETURN_REQUEST_STATUSES.includes(status)) {
+      filter['returnRequest.status'] = status;
+    }
+    const orders = await Order.find(filter)
+      .sort({ 'returnRequest.requestedAt': -1 })
+      .populate('user', 'name email');
+    res.json(orders);
+  } catch (error) {
+    handleError(res, error, 'Error al obtener las solicitudes de devolución');
+  }
+}
+
+async function notifyCustomerOfReturnStatus(order, user, status) {
+  const approved = status === 'aprobada';
+  await sendMail({
+    to: user.email,
+    subject: `Tu solicitud de devolución del pedido #${order.orderNumber} fue ${approved ? 'aprobada' : 'rechazada'} - MusicLand`,
+    html: `
+      <p>Hola ${escapeHtml(user.name)},</p>
+      <p>Tu solicitud de devolución del pedido <strong>#${escapeHtml(order.orderNumber)}</strong> fue
+        <strong>${approved ? 'aprobada' : 'rechazada'}</strong>.</p>
+      ${
+        approved
+          ? '<p>Nos pondremos en contacto contigo para coordinar la recolección o el punto de entrega, y procesaremos el reembolso a tu método de pago original en un plazo de 5 a 10 días hábiles.</p>'
+          : '<p>Si tienes dudas sobre esta decisión, responde a este correo y con gusto te explicamos los detalles.</p>'
+      }
+      <p>— Equipo MusicLand</p>
+    `
+  });
+}
+
+async function updateReturnRequestStatus(req, res) {
+  try {
+    const { status } = req.body;
+    if (!RETURN_REQUEST_STATUSES.includes(status)) {
+      return res.status(400).json({
+        message: `Estado inválido. Debe ser uno de: ${RETURN_REQUEST_STATUSES.join(', ')}`
+      });
+    }
+
+    const order = await Order.findById(req.params.id).populate('user', 'name email');
+    if (!order) return res.status(404).json({ message: 'Pedido no encontrado' });
+    if (!order.returnRequest) {
+      return res.status(404).json({ message: 'Este pedido no tiene una solicitud de devolución' });
+    }
+
+    order.returnRequest.status = status;
+    await order.save();
+
+    // El correo es un aviso, no parte del cambio: si falla, el estatus ya quedó
+    // actualizado, así que solo se registra el error.
+    try {
+      if (order.user?.email && status !== 'pendiente') {
+        await notifyCustomerOfReturnStatus(order, order.user, status);
+      }
+    } catch (mailError) {
+      console.error('Error al enviar el aviso de estatus de la devolución:', mailError.message);
+    }
+
+    res.json(order);
+  } catch (error) {
+    handleError(res, error, 'Error al actualizar el estado de la devolución');
+  }
+}
+
+// Borra solo la solicitud de devolución (el pedido en sí se conserva): libera
+// el registro sin perder el historial de compra ni forzar a eliminar el pedido.
+async function deleteReturnRequest(req, res) {
+  try {
+    const order = await Order.findById(req.params.id);
+    if (!order) return res.status(404).json({ message: 'Pedido no encontrado' });
+    if (!order.returnRequest) {
+      return res.status(404).json({ message: 'Este pedido no tiene una solicitud de devolución' });
+    }
+
+    order.returnRequest = null;
+    await order.save();
+
+    res.json({ message: 'Solicitud de devolución eliminada' });
+  } catch (error) {
+    handleError(res, error, 'Error al eliminar la solicitud de devolución');
+  }
+}
+
 async function getOrderById(req, res) {
   try {
     const order = await Order.findById(req.params.id).populate('user', 'name email phone profilePhoto');
@@ -405,5 +596,9 @@ module.exports = {
   getOrderById,
   updateOrderStatus,
   cancelOrder,
+  requestReturn,
+  getReturnRequests,
+  updateReturnRequestStatus,
+  deleteReturnRequest,
   deleteOrder
 };

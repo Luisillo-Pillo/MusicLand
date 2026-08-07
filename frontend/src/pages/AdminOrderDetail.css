@@ -147,3 +147,15 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .order-detail-section {
+    padding: 18px;
+  }
+  .order-detail-head {
+    gap: 12px;
+  }
+  .order-detail-status {
+    flex-wrap: wrap;
+  }
+}

@@ -11,14 +11,24 @@
   gap: 14px;
 }
 
+/* Grid con áreas nombradas: permite reacomodar los mismos elementos por
+   completo en mobile (ver media query) sin duplicar marcado ni romper el
+   layout de escritorio. */
 .cart-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 76px 1fr auto 34px;
+  grid-template-areas:
+    'image name  price remove'
+    'image unit  price remove'
+    'image qty   price remove';
   align-items: center;
-  gap: 16px;
+  column-gap: 16px;
+  row-gap: 2px;
   padding: 14px;
 }
 
 .cart-item-image {
+  grid-area: image;
   width: 76px;
   height: 76px;
   border-radius: var(--radius-sm);
@@ -33,30 +43,39 @@
   object-fit: cover;
 }
 
-.cart-item-info {
-  flex: 1;
+.cart-item-name {
+  grid-area: name;
+  margin: 0;
+  font-size: 0.98rem;
+  align-self: end;
   min-width: 0;
 }
 
-.cart-item-info h4 {
-  margin: 0 0 4px;
-  font-size: 0.98rem;
-}
-
-.cart-item-info .unit-price {
+.cart-item-unit {
+  grid-area: unit;
   font-size: 0.82rem;
   color: var(--color-text-muted);
   margin: 0;
 }
 
+.cart-item-qty {
+  grid-area: qty;
+  min-width: 0;
+}
+
 .cart-item-price {
+  grid-area: price;
   font-weight: 800;
   color: var(--color-primary);
   min-width: 84px;
   text-align: right;
+  /* Los totales en pesos pueden ser largos ($1,186,059.99); nunca deben
+     forzar el ancho de la fila, solo partirse si de plano no caben. */
+  overflow-wrap: anywhere;
 }
 
 .cart-item-remove {
+  grid-area: remove;
   background: none;
   border: none;
   color: var(--color-danger);
@@ -118,5 +137,38 @@
   }
   .cart-summary {
     position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  /* La fila de escritorio (imagen | nombre/cantidad | precio | eliminar) no cabe
+     en un teléfono: imagen+nombre arriba, cantidad en su propia fila, y precio +
+     eliminar abajo, con espacio real para totales largos. */
+  .cart-item {
+    grid-template-columns: 64px 1fr auto;
+    grid-template-areas:
+      'image name  name'
+      'image unit  unit'
+      'qty   price remove';
+    row-gap: 10px;
+    column-gap: 12px;
+  }
+
+  .cart-item-image {
+    width: 64px;
+    height: 64px;
+  }
+
+  .cart-item-name {
+    align-self: auto;
+  }
+
+  .cart-item-qty {
+    align-self: center;
+  }
+
+  .cart-item-price {
+    min-width: 0;
+    font-size: 1.05rem;
   }
 }

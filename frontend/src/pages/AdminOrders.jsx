@@ -279,8 +279,8 @@ export default function AdminOrders() {
 
                       {!isCollapsed && (
                         <tr>
-                          <td className="admin-orders-number">#{order.orderNumber}</td>
-                          <td>
+                          <td className="admin-orders-number" data-label="Pedido">#{order.orderNumber}</td>
+                          <td data-label="Cliente">
                             {order.user ? (
                               <Link
                                 to={`/admin/usuarios/${order.user._id}`}
@@ -293,10 +293,10 @@ export default function AdminOrders() {
                               <span style={{ color: 'var(--color-text-muted)' }}>Usuario eliminado</span>
                             )}
                           </td>
-                          <td className="order-history-date">{formatDate(order.createdAt)}</td>
-                          <td>{order.products.reduce((sum, p) => sum + p.quantity, 0)}</td>
-                          <td style={{ fontWeight: 700 }}>{formatPrice(order.total)}</td>
-                          <td>
+                          <td className="order-history-date" data-label="Fecha">{formatDate(order.createdAt)}</td>
+                          <td data-label="Artículos">{order.products.reduce((sum, p) => sum + p.quantity, 0)}</td>
+                          <td style={{ fontWeight: 700 }} data-label="Total">{formatPrice(order.total)}</td>
+                          <td data-label="Estado">
                             {canChangeStatus(order) ? (
                               <select
                                 className={`admin-orders-status-select status-${order.status}`}
@@ -320,7 +320,7 @@ export default function AdminOrders() {
                               </span>
                             )}
                           </td>
-                          <td>
+                          <td data-label="Acciones">
                             <div className="admin-table-actions">
                               <Link
                                 to={`/admin/pedidos/${order._id}`}

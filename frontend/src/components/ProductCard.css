@@ -30,14 +30,6 @@
   flex: 1;
 }
 
-.product-card-category {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
 .product-card-name {
   font-size: 1rem;
   font-weight: 700;
@@ -57,16 +49,6 @@
   margin: 4px 0 10px;
 }
 
-.product-card-stock {
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
-  margin-bottom: 10px;
-}
-
-.product-card-stock.low {
-  color: var(--color-danger);
-}
-
 .product-card-actions {
   display: flex;
   gap: 8px;
@@ -78,4 +60,23 @@
   flex: 1;
   padding: 9px 8px;
   font-size: 0.82rem;
+}
+
+@media (max-width: 640px) {
+  /* Solo en mobile: "Agregar" se reduce a un ícono para no competir por
+     espacio con "Ver detalles" en tarjetas de 2 columnas. El escritorio
+     conserva el botón con texto. */
+  .product-card-add {
+    flex: 0 0 auto;
+    width: 40px;
+    padding: 9px 0;
+  }
+
+  .product-card-add-label {
+    display: none;
+  }
+
+  .product-card-actions .btn-outline {
+    flex: 1;
+  }
 }

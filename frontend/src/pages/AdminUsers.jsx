@@ -175,18 +175,18 @@ function UsersTable({ users, currentUserId, onToggleRole, onRequestDelete, onVie
                 <td>
                   <img className="admin-user-thumb" src={user.profilePhoto} alt={user.name} />
                 </td>
-                <td title={user.name}>
+                <td data-label="Nombre" title={user.name}>
                   {user.name}
                   {isSelf && <span className="badge admin-users-you-badge">Tú</span>}
                 </td>
-                <td title={user.email}>{user.email}</td>
-                <td title={user.phone || ''}>{user.phone ? formatPhoneDisplay(user.phone) : '—'}</td>
-                <td>
+                <td data-label="Correo" title={user.email}>{user.email}</td>
+                <td data-label="Teléfono" title={user.phone || ''}>{user.phone ? formatPhoneDisplay(user.phone) : '—'}</td>
+                <td data-label="Rol">
                   <span className="badge">{roleLabels[user.role] || user.role}</span>
                 </td>
-                <td>{user.totalPurchases}</td>
-                <td>{formatLastLogin(user.lastLogin)}</td>
-                <td>
+                <td data-label="Compras">{user.totalPurchases}</td>
+                <td data-label="Conexión">{formatLastLogin(user.lastLogin)}</td>
+                <td data-label="Acciones">
                   <RowActionsMenu items={items} />
                 </td>
               </tr>

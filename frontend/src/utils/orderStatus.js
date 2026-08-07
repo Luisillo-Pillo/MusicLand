@@ -32,3 +32,16 @@ export function canChangeStatus(order) {
 export function canDelete(order) {
   return !!order && FINAL_STATUSES.includes(order.status);
 }
+
+// Solo se puede solicitar devolución de un pedido ya entregado, y no si ya hay
+// una solicitud en revisión (una aprobada o rechazada no bloquea volver a pedir).
+export function canRequestReturn(order) {
+  if (!order || order.status !== 'entregado') return false;
+  return !(order.returnRequest && order.returnRequest.status === 'pendiente');
+}
+
+export const returnStatusLabels = {
+  pendiente: 'En revisión',
+  aprobada: 'Aprobada',
+  rechazada: 'Rechazada'
+};

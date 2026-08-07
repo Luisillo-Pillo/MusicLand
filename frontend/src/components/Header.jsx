@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import {
@@ -10,7 +10,9 @@ import {
   UserIcon,
   LogoutIcon,
   EditIcon,
-  ReceiptIcon
+  ReceiptIcon,
+  MenuIcon,
+  CloseIcon
 } from './icons';
 import './Header.css';
 
@@ -18,10 +20,12 @@ export default function Header() {
   const { user, logout } = useAuth();
   const { totalItems } = useCart();
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchParams] = useSearchParams();
   const activeSearch = searchParams.get('search') || '';
   const [search, setSearch] = useState(activeSearch);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const menuRef = useRef(null);
 
   // Mantiene la caja alineada con la URL: al llegar por enlace, al usar atrás/adelante
@@ -29,6 +33,11 @@ export default function Header() {
   useEffect(() => {
     setSearch(activeSearch);
   }, [activeSearch]);
+
+  // Cierra el menú móvil al cambiar de página, para no dejarlo abierto tapando la vista siguiente.
+  useEffect(() => {
+    setMobileNavOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     function handleClickOutside(e) {
@@ -43,6 +52,7 @@ export default function Header() {
   function handleSearchSubmit(e) {
     e.preventDefault();
     navigate(search.trim() ? `/?search=${encodeURIComponent(search.trim())}` : '/');
+    setMobileNavOpen(false);
   }
 
   function handleLogout() {
@@ -53,10 +63,20 @@ export default function Header() {
 
   return (
     <header className="header">
-      <div className="container">
+      <div className="container header-row">
+        <button
+          type="button"
+          className="header-menu-btn"
+          onClick={() => setMobileNavOpen((o) => !o)}
+          aria-label={mobileNavOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={mobileNavOpen}
+        >
+          {mobileNavOpen ? <CloseIcon size={20} /> : <MenuIcon size={20} />}
+        </button>
+
         <Link to="/" className="header-brand">
           <LogoIcon />
-          MusicLand
+          <span>MusicLand</span>
         </Link>
 
         <form className="header-search" onSubmit={handleSearchSubmit}>
@@ -103,7 +123,7 @@ export default function Header() {
               <div className="user-menu" ref={menuRef}>
                 <button type="button" className="user-menu-trigger" onClick={() => setMenuOpen((o) => !o)}>
                   <img src={user.profilePhoto} alt={user.name} />
-                  {user.name.split(' ')[0]}
+                  <span className="user-menu-name">{user.name.split(' ')[0]}</span>
                   <ChevronDownIcon />
                 </button>
                 {menuOpen && (
@@ -132,6 +152,23 @@ export default function Header() {
           )}
         </div>
       </div>
+
+      {mobileNavOpen && (
+        <nav className="header-mobile-nav">
+          <NavLink to="/" end onClick={() => setMobileNavOpen(false)}>
+            Inicio
+          </NavLink>
+          <NavLink to="/categorias" onClick={() => setMobileNavOpen(false)}>
+            Categorías
+          </NavLink>
+          <NavLink to="/marcas" onClick={() => setMobileNavOpen(false)}>
+            Marcas
+          </NavLink>
+          <NavLink to="/contacto" onClick={() => setMobileNavOpen(false)}>
+            Contáctanos
+          </NavLink>
+        </nav>
+      )}
     </header>
   );
 }

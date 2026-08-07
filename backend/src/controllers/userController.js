@@ -1,7 +1,37 @@
 const User = require('../models/User');
 const Order = require('../models/Order');
+const Product = require('../models/Product');
 const { sendMail, escapeHtml } = require('../utils/mailer');
 const handleError = require('../utils/handleError');
+
+const ORDER_FINAL_STATUSES = ['entregado', 'cancelado'];
+
+// Cancela los pedidos que sigan activos de un usuario y devuelve su stock al
+// inventario. Se usa antes de borrar la cuenta: si no, esos pedidos quedarían
+// huérfanos (apuntando a un usuario que ya no existe) sin haber cerrado su
+// ciclo ni liberado las unidades que tenían reservadas.
+async function cancelUserOrders(userId) {
+  const activeOrders = await Order.find({ user: userId, status: { $nin: ORDER_FINAL_STATUSES } });
+
+  for (const order of activeOrders) {
+    for (const item of order.products) {
+      if (!item.product) continue;
+      try {
+        await Product.findByIdAndUpdate(item.product, { $inc: { stock: item.quantity } });
+      } catch (restoreError) {
+        console.error(
+          `No se pudo devolver el stock del producto ${item.product} al cancelar el pedido ${order.orderNumber}:`,
+          restoreError
+        );
+      }
+    }
+    order.status = 'cancelado';
+    order.cancelledAt = new Date();
+    order.cancelledBy = 'admin';
+    order.cancellationReason = 'Cancelado automáticamente: la cuenta del cliente fue eliminada';
+    await order.save();
+  }
+}
 
 function getMe(req, res) {
   res.json(req.user.toSafeObject());
@@ -41,8 +71,18 @@ async function deleteUser(req, res) {
     if (req.params.id === req.user._id.toString()) {
       return res.status(400).json({ message: 'No puedes borrar tu propia cuenta' });
     }
-    const user = await User.findByIdAndDelete(req.params.id);
+    const user = await User.findById(req.params.id);
     if (!user) return res.status(404).json({ message: 'Usuario no encontrado' });
+
+    // No bloquea el borrado si falla: la cuenta ya se decidió eliminar, así que
+    // solo se registra el error para revisar el inventario manualmente después.
+    try {
+      await cancelUserOrders(user._id);
+    } catch (cancelError) {
+      console.error(`No se pudieron cancelar los pedidos activos del usuario ${user._id}:`, cancelError);
+    }
+
+    await User.findByIdAndDelete(req.params.id);
     res.json({ message: 'Usuario eliminado' });
   } catch (error) {
     handleError(res, error, 'Error al eliminar el usuario');

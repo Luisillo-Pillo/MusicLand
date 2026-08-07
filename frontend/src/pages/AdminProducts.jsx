@@ -315,12 +315,12 @@ export default function AdminProducts() {
                       <td>
                         <img className="admin-product-thumb" src={product.image} alt={product.name} />
                       </td>
-                      <td>{product.name}</td>
-                      <td>{product.category}</td>
-                      <td>{product.brand}</td>
-                      <td>{formatPrice(product.price)}</td>
-                      <td className={product.stock === 0 ? 'admin-products-nostock' : ''}>{product.stock}</td>
-                      <td>
+                      <td data-label="Nombre">{product.name}</td>
+                      <td data-label="Categoría">{product.category}</td>
+                      <td data-label="Marca">{product.brand}</td>
+                      <td data-label="Precio">{formatPrice(product.price)}</td>
+                      <td data-label="Stock" className={product.stock === 0 ? 'admin-products-nostock' : ''}>{product.stock}</td>
+                      <td data-label="Acciones">
                         <div className="admin-table-actions">
                           <button
                             type="button"
