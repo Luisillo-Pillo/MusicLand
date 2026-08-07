@@ -12,7 +12,8 @@ export const cancelOrderRequest = (id, reason = '') =>
 export const requestReturnRequest = (id, { items, fullOrder, reason }) =>
   axiosClient.post(`/orders/${id}/return-request`, { items, fullOrder, reason });
 export const getReturnRequestsRequest = () => axiosClient.get('/orders/returns');
-export const updateReturnRequestStatusRequest = (id, status) =>
-  axiosClient.put(`/orders/${id}/return-request/status`, { status });
-export const deleteReturnRequestRequest = (id) => axiosClient.delete(`/orders/${id}/return-request`);
+export const updateReturnRequestStatusRequest = (id, requestId, status) =>
+  axiosClient.put(`/orders/${id}/return-request/${requestId}/status`, { status });
+export const deleteReturnRequestRequest = (id, requestId) =>
+  axiosClient.delete(`/orders/${id}/return-request/${requestId}`);
 export const deleteOrderRequest = (id) => axiosClient.delete(`/orders/${id}`);

@@ -131,6 +131,13 @@
   font-weight: 600;
 }
 
+.return-request-hint {
+  margin: 8px 0 0;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
 .return-request-meta {
   display: flex;
   justify-content: flex-end;

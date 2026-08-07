@@ -23,17 +23,21 @@ const returnItemSchema = new mongoose.Schema(
   { _id: false }
 );
 
+// Cada solicitud es una entrada de este arreglo (no un campo único en el
+// pedido): un pedido con varios productos puede devolverse por partes, cada
+// una con su propio motivo y estatus. Con _id propio para poder
+// aprobar/rechazar/borrar una solicitud puntual sin afectar las demás.
 const returnRequestSchema = new mongoose.Schema(
   {
     items: [returnItemSchema],
-    // true si se solicitó el pedido completo, para no perder ese matiz aunque
-    // 'items' termine coincidiendo con todo el contenido del pedido.
+    // true si esta solicitud cubrió todo lo que quedaba pendiente de devolver
+    // en ese momento, para no perder ese matiz en el correo/detalle.
     fullOrder: { type: Boolean, default: false },
     reason: { type: String, required: true, trim: true },
     status: { type: String, enum: ['pendiente', 'aprobada', 'rechazada'], default: 'pendiente' },
     requestedAt: { type: Date, default: Date.now }
   },
-  { _id: false }
+  { timestamps: false }
 );
 
 const orderSchema = new mongoose.Schema(
@@ -64,9 +68,12 @@ const orderSchema = new mongoose.Schema(
     // 'cliente' o 'admin': quién originó la cancelación.
     cancelledBy: { type: String, enum: ['cliente', 'admin', null], default: null },
     cancellationReason: { type: String, default: '', trim: true },
-    // Solo pedidos entregados pueden tener una solicitud de devolución, y solo
-    // una a la vez (ver requestReturn en orderController).
-    returnRequest: { type: returnRequestSchema, default: null }
+    // Fecha (sin hora, medianoche local) en que el pedido pasó a "entregado".
+    // Es la base de la ventana de 15 días para poder solicitar devolución.
+    deliveredAt: { type: Date, default: null },
+    // Un producto que ya aparece en alguna de estas solicitudes (sin importar
+    // su estatus) no se puede volver a solicitar — ver requestReturn.
+    returnRequests: { type: [returnRequestSchema], default: [] }
   },
   { timestamps: true }
 );

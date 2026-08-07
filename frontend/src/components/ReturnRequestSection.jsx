@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { getMyOrdersRequest, requestReturnRequest } from '../api/orderApi';
-import { canRequestReturn } from '../utils/orderStatus';
+import { canRequestReturn, returnableProducts } from '../utils/orderStatus';
 import { formatPrice } from '../utils/format';
 import { ReturnIcon } from './icons';
 import './ReturnRequestSection.css';
@@ -53,7 +53,14 @@ export default function ReturnRequestSection() {
     [orders, selectedOrderId]
   );
 
-  const allSelected = !!selectedOrder && selectedProductIds.length === selectedOrder.products.length;
+  // Solo los productos que todavía no se hayan incluido en una solicitud
+  // anterior pueden volver a solicitarse.
+  const eligibleProducts = useMemo(() => returnableProducts(selectedOrder), [selectedOrder]);
+  const alreadyRequestedCount = selectedOrder
+    ? selectedOrder.products.length - eligibleProducts.length
+    : 0;
+
+  const allSelected = !!selectedOrder && selectedProductIds.length === eligibleProducts.length;
 
   function handleSelectOrder(orderId) {
     setSelectedOrderId(orderId);
@@ -70,7 +77,7 @@ export default function ReturnRequestSection() {
 
   function toggleAll() {
     if (!selectedOrder) return;
-    setSelectedProductIds(allSelected ? [] : selectedOrder.products.filter((p) => p.product).map((p) => p.product));
+    setSelectedProductIds(allSelected ? [] : eligibleProducts.map((p) => p.product));
   }
 
   async function handleSubmit(e) {
@@ -186,9 +193,9 @@ export default function ReturnRequestSection() {
               <div className="return-request-items">
                 <label className="return-request-item return-request-item-all">
                   <input type="checkbox" checked={allSelected} onChange={toggleAll} />
-                  Todo el pedido
+                  Todo lo disponible para devolver
                 </label>
-                {selectedOrder.products.map((item, index) => (
+                {eligibleProducts.map((item, index) => (
                   <label className="return-request-item" key={`${item.product || 'x'}-${index}`}>
                     <input
                       type="checkbox"
@@ -205,6 +212,13 @@ export default function ReturnRequestSection() {
                   </label>
                 ))}
               </div>
+              {alreadyRequestedCount > 0 && (
+                <p className="return-request-hint">
+                  {alreadyRequestedCount === 1
+                    ? 'Ya se solicitó la devolución de 1 producto de este pedido; no aparece aquí.'
+                    : `Ya se solicitó la devolución de ${alreadyRequestedCount} productos de este pedido; no aparecen aquí.`}
+                </p>
+              )}
             </div>
           )}
 

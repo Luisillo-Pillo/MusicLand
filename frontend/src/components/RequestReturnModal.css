@@ -1,0 +1,13 @@
+.request-return-modal {
+  max-width: 480px;
+  max-height: 88vh;
+  overflow-y: auto;
+}
+
+.request-return-modal .cancel-order-meta {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}

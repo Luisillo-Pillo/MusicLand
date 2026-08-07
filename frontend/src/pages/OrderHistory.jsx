@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
 import CancelOrderModal from '../components/CancelOrderModal';
-import { EmptyBoxIcon, EyeIcon, TrashIcon } from '../components/icons';
-import { getMyOrdersRequest, cancelOrderRequest } from '../api/orderApi';
+import RequestReturnModal from '../components/RequestReturnModal';
+import { EmptyBoxIcon, EyeIcon, TrashIcon, ReturnIcon } from '../components/icons';
+import { getMyOrdersRequest, cancelOrderRequest, requestReturnRequest } from '../api/orderApi';
 import { formatPrice, formatPhoneDisplay } from '../utils/format';
-import { statusLabels, canCancel, isCancelled, returnStatusLabels } from '../utils/orderStatus';
+import { statusLabels, canCancel, canRequestReturn, isCancelled, returnStatusLabels } from '../utils/orderStatus';
 import './OrderHistory.css';
 
 function formatDate(dateStr) {
@@ -27,6 +28,9 @@ export default function OrderHistory() {
   const [cancelTarget, setCancelTarget] = useState(null);
   const [cancelling, setCancelling] = useState(false);
   const [cancelError, setCancelError] = useState('');
+  const [returnTarget, setReturnTarget] = useState(null);
+  const [returnSending, setReturnSending] = useState(false);
+  const [returnError, setReturnError] = useState('');
 
   async function handleConfirmCancel(reason) {
     if (!cancelTarget) return;
@@ -41,6 +45,22 @@ export default function OrderHistory() {
       setCancelError(err.response?.data?.message || 'No se pudo cancelar el pedido');
     } finally {
       setCancelling(false);
+    }
+  }
+
+  async function handleConfirmReturn(payload) {
+    if (!returnTarget) return;
+    setReturnSending(true);
+    setReturnError('');
+    try {
+      const { data } = await requestReturnRequest(returnTarget._id, payload);
+      setOrders((prev) => prev.map((o) => (o._id === data._id ? data : o)));
+      setDetailsOrder((prev) => (prev && prev._id === data._id ? data : prev));
+      setReturnTarget(null);
+    } catch (err) {
+      setReturnError(err.response?.data?.message || 'No se pudo enviar la solicitud de devolución');
+    } finally {
+      setReturnSending(false);
     }
   }
 
@@ -120,14 +140,16 @@ export default function OrderHistory() {
                   </div>
                 )}
 
-                {order.returnRequest && (
+                {order.returnRequests?.length > 0 && (
                   <div className="order-history-cancelled order-history-return">
-                    <p>
-                      Solicitud de devolución{' '}
-                      {order.returnRequest.fullOrder ? 'del pedido completo' : 'de los productos seleccionados'}{' '}
-                      enviada el {formatDate(order.returnRequest.requestedAt)} —{' '}
-                      <strong>{returnStatusLabels[order.returnRequest.status]}</strong>.
-                    </p>
+                    {order.returnRequests.map((request) => (
+                      <p key={request._id}>
+                        Solicitud de devolución{' '}
+                        {request.fullOrder ? 'del pedido completo' : 'de los productos seleccionados'}{' '}
+                        enviada el {formatDate(request.requestedAt)} —{' '}
+                        <strong>{returnStatusLabels[request.status]}</strong>.
+                      </p>
+                    ))}
                   </div>
                 )}
 
@@ -140,6 +162,16 @@ export default function OrderHistory() {
                       onClick={() => setCancelTarget(order)}
                     >
                       <TrashIcon size={15} /> Cancelar pedido
+                    </button>
+                  )}
+                  {canRequestReturn(order) && (
+                    <button
+                      type="button"
+                      className="btn btn-outline btn-sm"
+                      disabled={returnSending}
+                      onClick={() => setReturnTarget(order)}
+                    >
+                      <ReturnIcon size={15} /> Solicitar devolución
                     </button>
                   )}
                   <button type="button" className="btn btn-outline btn-sm" onClick={() => setDetailsOrder(order)}>
@@ -222,6 +254,14 @@ export default function OrderHistory() {
         error={cancelError}
         onConfirm={handleConfirmCancel}
         onClose={() => setCancelTarget(null)}
+      />
+
+      <RequestReturnModal
+        order={returnTarget}
+        sending={returnSending}
+        error={returnError}
+        onConfirm={handleConfirmReturn}
+        onClose={() => setReturnTarget(null)}
       />
     </Layout>
   );

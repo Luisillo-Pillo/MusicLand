@@ -29,8 +29,8 @@ router.get('/user/:userId', adminOnly, getOrdersByUser);
 
 router.get('/:id', getOrderById);
 router.put('/:id/status', adminOnly, updateOrderStatus);
-router.put('/:id/return-request/status', adminOnly, updateReturnRequestStatus);
-router.delete('/:id/return-request', adminOnly, deleteReturnRequest);
+router.put('/:id/return-request/:requestId/status', adminOnly, updateReturnRequestStatus);
+router.delete('/:id/return-request/:requestId', adminOnly, deleteReturnRequest);
 
 // Sin adminOnly: el propio cliente puede cancelar; cancelOrder verifica la propiedad.
 router.put('/:id/cancel', cancelOrder);

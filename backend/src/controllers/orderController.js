@@ -69,6 +69,47 @@ async function sendOrderNotification(order, user) {
   });
 }
 
+// Confirmación al cliente: a diferencia de sendOrderNotification (que avisa a
+// la tienda), esta es la que recibe quien compró — "gracias por tu compra"
+// con el detalle del pedido. Sale del mismo correo de MusicLand (SMTP_USER).
+async function sendCustomerOrderConfirmation(order, user) {
+  const itemsHtml = order.products
+    .map(
+      (item) =>
+        `<li>${escapeHtml(item.name)} x${item.quantity} — $${(item.price * item.quantity).toFixed(2)}</li>`
+    )
+    .join('');
+
+  const address = order.shippingAddress || {};
+
+  await sendMail({
+    to: user.email,
+    subject: `¡Gracias por tu compra! Pedido #${order.orderNumber} - MusicLand`,
+    html: `
+      <p>Hola ${escapeHtml(user.name)},</p>
+      <p>¡Gracias por tu compra! Ya recibimos tu pedido <strong>#${escapeHtml(order.orderNumber)}</strong> y lo estamos preparando.</p>
+      <p><strong>Productos:</strong></p>
+      <ul>${itemsHtml}</ul>
+      <p><strong>Total:</strong> $${order.total.toFixed(2)}</p>
+      <p><strong>Dirección de envío:</strong><br>
+        ${escapeHtml(address.fullName || '')}<br>
+        ${escapeHtml(address.street || '')}<br>
+        ${escapeHtml(address.city || '')}, ${escapeHtml(address.state || '')}, ${escapeHtml(address.zipCode || '')}<br>
+        ${escapeHtml(address.country || '')}
+      </p>
+      ${
+        order.paymentMethod?.last4
+          ? `<p><strong>Método de pago:</strong> ${escapeHtml(order.paymentMethod.brand || '')} •••• ${escapeHtml(order.paymentMethod.last4)}</p>`
+          : ''
+      }
+      <p><strong>Fecha:</strong> ${new Date(order.createdAt).toLocaleString('es-MX')}</p>
+      <p>Puedes revisar el estatus de tu pedido cuando quieras desde tu cuenta, en "Historial de compras".</p>
+      <p>Si tienes cualquier duda, responde a este correo y con gusto te atendemos.</p>
+      <p>— Equipo MusicLand</p>
+    `
+  });
+}
+
 async function createOrder(req, res) {
   // Se declara fuera del try para que el catch general también pueda devolver el
   // stock si el fallo ocurre a mitad del bucle de descuento.
@@ -188,6 +229,12 @@ async function createOrder(req, res) {
       console.error('Error al enviar el correo de notificación de compra:', mailError.message);
     }
 
+    try {
+      await sendCustomerOrderConfirmation(order, user);
+    } catch (mailError) {
+      console.error('Error al enviar el correo de confirmación al cliente:', mailError.message);
+    }
+
     res.status(201).json(order);
   } catch (error) {
     await restoreStock(decremented);
@@ -255,11 +302,20 @@ async function updateOrderStatus(req, res) {
       });
     }
 
-    const order = await Order.findByIdAndUpdate(
-      req.params.id,
-      { status },
-      { new: true, runValidators: true }
-    ).populate('user', 'name email');
+    // Se registra la fecha (sin hora) en que el pedido pasó a "entregado": es la
+    // base de la ventana de 15 días para solicitar una devolución. No se
+    // vuelve a tocar si ya estaba puesta (aunque, al ser 'entregado' un estatus
+    // final, no debería poder llegar aquí dos veces para el mismo pedido).
+    const update = { status };
+    if (status === 'entregado' && !current.deliveredAt) {
+      const now = new Date();
+      update.deliveredAt = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    }
+
+    const order = await Order.findByIdAndUpdate(req.params.id, update, {
+      new: true,
+      runValidators: true
+    }).populate('user', 'name email');
 
     res.json(order);
   } catch (error) {
@@ -450,11 +506,24 @@ async function requestReturn(req, res) {
       });
     }
 
-    if (order.returnRequest && order.returnRequest.status === 'pendiente') {
-      return res.status(409).json({
-        message: 'Ya hay una solicitud de devolución en revisión para este pedido'
-      });
+    // La ventana de devolución son 15 días naturales desde que el pedido se
+    // marcó como entregado (deliveredAt, sin hora). Pasado ese plazo la
+    // opción desaparece aunque nunca se haya solicitado una devolución.
+    if (order.deliveredAt) {
+      const deadline = new Date(order.deliveredAt);
+      deadline.setDate(deadline.getDate() + 15);
+      if (Date.now() > deadline.getTime()) {
+        return res.status(409).json({
+          message: 'El plazo de 15 días para solicitar una devolución de este pedido ya venció'
+        });
+      }
     }
+
+    // Un producto que ya apareció en cualquier solicitud anterior (sin importar
+    // su estatus: pendiente, aprobada o rechazada) no puede volver a solicitarse.
+    const alreadyRequested = new Set(
+      order.returnRequests.flatMap((r) => r.items.map((i) => i.product?.toString()).filter(Boolean))
+    );
 
     // Cada producto solicitado debe pertenecer al pedido: si no, alguien podría
     // "devolver" algo que nunca compró aquí. La cantidad es la que se compró de
@@ -465,22 +534,33 @@ async function requestReturn(req, res) {
     const returnItems = [];
     for (const item of items) {
       const productId = item?.productId;
-      const original = productId && orderedByProduct.get(productId.toString());
+      const key = productId && productId.toString();
+      const original = key && orderedByProduct.get(key);
       if (!original) {
         return res.status(400).json({ message: 'Uno de los productos seleccionados no pertenece a este pedido' });
+      }
+      if (alreadyRequested.has(key)) {
+        return res.status(409).json({
+          message: `Ya se solicitó la devolución de "${original.name}" anteriormente`
+        });
       }
       returnItems.push({ product: original.product, name: original.name, quantity: original.quantity });
     }
 
-    const isFullOrder = !!fullOrder || returnItems.length === order.products.length;
+    // "Pedido completo" ahora significa "todo lo que aún quedaba disponible para
+    // devolver", no todo el pedido original (una parte pudo devolverse antes).
+    const stillReturnable = order.products.filter(
+      (p) => p.product && !alreadyRequested.has(p.product.toString())
+    );
+    const isFullOrder = !!fullOrder || returnItems.length === stillReturnable.length;
 
-    order.returnRequest = {
+    order.returnRequests.push({
       items: returnItems,
       fullOrder: isFullOrder,
       reason: trimmedReason,
       status: 'pendiente',
       requestedAt: new Date()
-    };
+    });
     await order.save();
 
     // El correo es un aviso, no parte de la solicitud: si falla, la solicitud ya
@@ -497,17 +577,13 @@ async function requestReturn(req, res) {
   }
 }
 
-// Todos los pedidos con una solicitud de devolución, sin importar su estatus
-// (el filtro por estatus lo aplica el propio front, igual que en getAllOrders).
+// Todos los pedidos con al menos una solicitud de devolución. Un pedido puede
+// traer varias (una por cada tanda de productos solicitada); el front las
+// separa en filas individuales y aplica el filtro por estatus sobre cada una.
 async function getReturnRequests(req, res) {
   try {
-    const { status } = req.query;
-    const filter = { returnRequest: { $ne: null } };
-    if (status && RETURN_REQUEST_STATUSES.includes(status)) {
-      filter['returnRequest.status'] = status;
-    }
-    const orders = await Order.find(filter)
-      .sort({ 'returnRequest.requestedAt': -1 })
+    const orders = await Order.find({ 'returnRequests.0': { $exists: true } })
+      .sort({ createdAt: -1 })
       .populate('user', 'name email');
     res.json(orders);
   } catch (error) {
@@ -545,15 +621,19 @@ async function updateReturnRequestStatus(req, res) {
 
     const order = await Order.findById(req.params.id).populate('user', 'name email');
     if (!order) return res.status(404).json({ message: 'Pedido no encontrado' });
-    if (!order.returnRequest) {
-      return res.status(404).json({ message: 'Este pedido no tiene una solicitud de devolución' });
+
+    const request = order.returnRequests.id(req.params.requestId);
+    if (!request) {
+      return res.status(404).json({ message: 'Esta solicitud de devolución no existe' });
     }
 
-    order.returnRequest.status = status;
+    request.status = status;
     await order.save();
 
     // El correo es un aviso, no parte del cambio: si falla, el estatus ya quedó
-    // actualizado, así que solo se registra el error.
+    // actualizado, así que solo se registra el error. Esto es lo que hace que el
+    // cliente vea la devolución como aprobada/rechazada desde su historial: el
+    // estatus vive en el propio pedido que ya trae de vuelta getMyOrders.
     try {
       if (order.user?.email && status !== 'pendiente') {
         await notifyCustomerOfReturnStatus(order, order.user, status);
@@ -568,17 +648,20 @@ async function updateReturnRequestStatus(req, res) {
   }
 }
 
-// Borra solo la solicitud de devolución (el pedido en sí se conserva): libera
-// el registro sin perder el historial de compra ni forzar a eliminar el pedido.
+// Borra solo la solicitud puntual (el pedido y las demás solicitudes se
+// conservan): libera esos productos, que vuelven a quedar disponibles para
+// una nueva solicitud al no haber ya registro de ellos en returnRequests.
 async function deleteReturnRequest(req, res) {
   try {
     const order = await Order.findById(req.params.id);
     if (!order) return res.status(404).json({ message: 'Pedido no encontrado' });
-    if (!order.returnRequest) {
-      return res.status(404).json({ message: 'Este pedido no tiene una solicitud de devolución' });
+
+    const request = order.returnRequests.id(req.params.requestId);
+    if (!request) {
+      return res.status(404).json({ message: 'Esta solicitud de devolución no existe' });
     }
 
-    order.returnRequest = null;
+    order.returnRequests.pull(req.params.requestId);
     await order.save();
 
     res.json({ message: 'Solicitud de devolución eliminada' });

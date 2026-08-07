@@ -44,8 +44,8 @@ export default function OrderConfirmation() {
             <Link to="/" className="btn btn-primary">
               Volver al inicio
             </Link>
-            <Link to="/perfil" className="btn btn-outline">
-              Ver mi perfil
+            <Link to="/historial-compras" className="btn btn-outline">
+              Ver mis compras
             </Link>
           </div>
         </div>

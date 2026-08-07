@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
@@ -28,6 +28,10 @@ function formatDate(dateStr) {
 }
 
 export default function AdminReturns() {
+  // 'returns' guarda los pedidos tal cual los da la API (cada uno con su
+  // arreglo returnRequests); 'rows' los aplana a una fila por solicitud, que
+  // es la unidad real de esta pantalla — un pedido con devoluciones parciales
+  // aparece varias veces, una por cada solicitud.
   const [returns, setReturns] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -50,14 +54,34 @@ export default function AdminReturns() {
     loadReturns();
   }, []);
 
-  async function handleStatusChange(order, status) {
-    if (status === order.returnRequest.status) return;
-    setSavingId(order._id);
+  const rows = useMemo(
+    () =>
+      returns.flatMap((order) =>
+        (order.returnRequests || []).map((request) => ({
+          rowId: request._id,
+          order,
+          request
+        }))
+      ),
+    [returns]
+  );
+
+  function replaceOrder(updatedOrder) {
+    setReturns((prev) => prev.map((o) => (o._id === updatedOrder._id ? updatedOrder : o)));
+  }
+
+  async function handleStatusChange(row, status) {
+    if (status === row.request.status) return;
+    setSavingId(row.rowId);
     setError('');
     try {
-      const { data } = await updateReturnRequestStatusRequest(order._id, status);
-      setReturns((prev) => prev.map((o) => (o._id === data._id ? data : o)));
-      setDetailTarget((prev) => (prev && prev._id === data._id ? data : prev));
+      const { data } = await updateReturnRequestStatusRequest(row.order._id, row.request._id, status);
+      replaceOrder(data);
+      setDetailTarget((prev) => {
+        if (!prev || prev.rowId !== row.rowId) return prev;
+        const updatedRequest = data.returnRequests.find((r) => r._id === row.request._id);
+        return updatedRequest ? { rowId: row.rowId, order: data, request: updatedRequest } : null;
+      });
     } catch (err) {
       setError(err.response?.data?.message || 'No se pudo actualizar el estado de la devolución');
     } finally {
@@ -71,29 +95,37 @@ export default function AdminReturns() {
     setDeleteTarget(null);
     setError('');
     try {
-      await deleteReturnRequestRequest(target._id);
-      setReturns((prev) => prev.filter((o) => o._id !== target._id));
-      setDetailTarget((prev) => (prev && prev._id === target._id ? null : prev));
+      await deleteReturnRequestRequest(target.order._id, target.request._id);
+      setReturns((prev) =>
+        prev
+          .map((o) =>
+            o._id === target.order._id
+              ? { ...o, returnRequests: o.returnRequests.filter((r) => r._id !== target.request._id) }
+              : o
+          )
+          .filter((o) => o.returnRequests.length > 0)
+      );
+      setDetailTarget((prev) => (prev && prev.rowId === target.rowId ? null : prev));
     } catch (err) {
       setError(err.response?.data?.message || 'No se pudo eliminar la solicitud de devolución');
     }
   }
 
   const term = search.trim().toLowerCase();
-  const filteredReturns = returns
-    .filter((order) => {
-      if (statusFilter && order.returnRequest.status !== statusFilter) return false;
+  const filteredRows = rows
+    .filter((row) => {
+      if (statusFilter && row.request.status !== statusFilter) return false;
       if (!term) return true;
       return (
-        order.orderNumber.toLowerCase().includes(term) ||
-        (order.user?.name || '').toLowerCase().includes(term) ||
-        (order.user?.email || '').toLowerCase().includes(term)
+        row.order.orderNumber.toLowerCase().includes(term) ||
+        (row.order.user?.name || '').toLowerCase().includes(term) ||
+        (row.order.user?.email || '').toLowerCase().includes(term)
       );
     })
-    .sort((a, b) => new Date(b.returnRequest.requestedAt) - new Date(a.returnRequest.requestedAt));
+    .sort((a, b) => new Date(b.request.requestedAt) - new Date(a.request.requestedAt));
 
   const countByStatus = RETURN_STATUSES.reduce((acc, s) => {
-    acc[s] = returns.filter((o) => o.returnRequest.status === s).length;
+    acc[s] = rows.filter((row) => row.request.status === s).length;
     return acc;
   }, {});
 
@@ -104,7 +136,7 @@ export default function AdminReturns() {
         <div className="admin-header">
           <h1>Devoluciones</h1>
           <span style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
-            {returns.length} {returns.length === 1 ? 'solicitud registrada' : 'solicitudes registradas'}
+            {rows.length} {rows.length === 1 ? 'solicitud registrada' : 'solicitudes registradas'}
           </span>
         </div>
 
@@ -123,7 +155,7 @@ export default function AdminReturns() {
 
           <div className="admin-orders-status-tabs">
             <button type="button" className={statusFilter === '' ? 'active' : ''} onClick={() => setStatusFilter('')}>
-              Todas ({returns.length})
+              Todas ({rows.length})
             </button>
             {RETURN_STATUSES.map((s) => (
               <button
@@ -148,12 +180,12 @@ export default function AdminReturns() {
           <div className="spinner-wrapper">
             <div className="spinner" />
           </div>
-        ) : returns.length === 0 ? (
+        ) : rows.length === 0 ? (
           <div className="empty-state card">
             <EmptyBoxIcon />
             <p>Todavía no hay solicitudes de devolución.</p>
           </div>
-        ) : filteredReturns.length === 0 ? (
+        ) : filteredRows.length === 0 ? (
           <p className="admin-search-empty">No se encontraron devoluciones que coincidan con los filtros.</p>
         ) : (
           <div className="admin-table-wrapper">
@@ -169,34 +201,34 @@ export default function AdminReturns() {
                 </tr>
               </thead>
               <tbody>
-                {filteredReturns.map((order) => (
-                  <tr key={order._id}>
+                {filteredRows.map((row) => (
+                  <tr key={row.rowId}>
                     <td className="admin-orders-number" data-label="Pedido">
-                      #{order.orderNumber}
+                      #{row.order.orderNumber}
                     </td>
                     <td data-label="Cliente">
-                      {order.user ? (
-                        <Link to={`/admin/usuarios/${order.user._id}`} className="admin-orders-user-link">
-                          {order.user.name}
-                          <span>{order.user.email}</span>
+                      {row.order.user ? (
+                        <Link to={`/admin/usuarios/${row.order.user._id}`} className="admin-orders-user-link">
+                          {row.order.user.name}
+                          <span>{row.order.user.email}</span>
                         </Link>
                       ) : (
                         <span style={{ color: 'var(--color-text-muted)' }}>Usuario eliminado</span>
                       )}
                     </td>
                     <td className="order-history-date" data-label="Solicitada">
-                      {formatDate(order.returnRequest.requestedAt)}
+                      {formatDate(row.request.requestedAt)}
                     </td>
                     <td data-label="Alcance">
-                      {order.returnRequest.fullOrder ? 'Pedido completo' : 'Productos específicos'}
+                      {row.request.fullOrder ? 'Pedido completo' : 'Productos específicos'}
                     </td>
                     <td data-label="Estado">
                       <select
-                        className={`admin-returns-status-select status-${order.returnRequest.status}`}
-                        value={order.returnRequest.status}
-                        disabled={savingId === order._id}
-                        onChange={(e) => handleStatusChange(order, e.target.value)}
-                        aria-label={`Estado de la devolución del pedido ${order.orderNumber}`}
+                        className={`admin-returns-status-select status-${row.request.status}`}
+                        value={row.request.status}
+                        disabled={savingId === row.rowId}
+                        onChange={(e) => handleStatusChange(row, e.target.value)}
+                        aria-label={`Estado de la devolución del pedido ${row.order.orderNumber}`}
                       >
                         {RETURN_STATUSES.map((s) => (
                           <option key={s} value={s}>
@@ -207,18 +239,14 @@ export default function AdminReturns() {
                     </td>
                     <td data-label="Acciones">
                       <div className="admin-table-actions">
-                        <button
-                          type="button"
-                          className="btn btn-outline btn-sm"
-                          onClick={() => setDetailTarget(order)}
-                        >
+                        <button type="button" className="btn btn-outline btn-sm" onClick={() => setDetailTarget(row)}>
                           <EyeIcon size={14} /> Ver detalle
                         </button>
                         <button
                           type="button"
                           className="btn btn-danger btn-sm"
-                          onClick={() => setDeleteTarget(order)}
-                          aria-label={`Eliminar la solicitud de devolución del pedido ${order.orderNumber}`}
+                          onClick={() => setDeleteTarget(row)}
+                          aria-label={`Eliminar la solicitud de devolución del pedido ${row.order.orderNumber}`}
                           title="Eliminar solicitud"
                         >
                           <TrashIcon size={14} />
@@ -236,28 +264,33 @@ export default function AdminReturns() {
       {detailTarget && (
         <div className="modal-overlay" onClick={() => setDetailTarget(null)}>
           <div className="modal-box admin-returns-modal" onClick={(e) => e.stopPropagation()}>
-            <h3>Devolución del pedido #{detailTarget.orderNumber}</h3>
+            <h3>Devolución del pedido #{detailTarget.order.orderNumber}</h3>
 
             <div className="admin-returns-modal-meta">
               <span>
-                {detailTarget.user ? `${detailTarget.user.name} (${detailTarget.user.email})` : 'Usuario eliminado'}
+                {detailTarget.order.user
+                  ? `${detailTarget.order.user.name} (${detailTarget.order.user.email})`
+                  : 'Usuario eliminado'}
               </span>
-              <span>Solicitada el {formatDate(detailTarget.returnRequest.requestedAt)}</span>
+              <span>Solicitada el {formatDate(detailTarget.request.requestedAt)}</span>
             </div>
 
             <p className="admin-returns-modal-scope">
               <strong>Alcance:</strong>{' '}
-              {detailTarget.returnRequest.fullOrder ? 'Pedido completo' : 'Productos específicos'}
+              {detailTarget.request.fullOrder ? 'Pedido completo' : 'Productos específicos'}
             </p>
 
             <div className="order-history-items">
-              {detailTarget.returnRequest.items.map((item, index) => (
+              {detailTarget.request.items.map((item, index) => (
                 <div className="order-history-item" key={`${item.product || 'x'}-${index}`}>
                   <span className="order-history-item-name">
                     {item.name} x{item.quantity}
                   </span>
                   <span className="order-history-item-price">
-                    {formatPrice((detailTarget.products.find((p) => p.product?.toString() === item.product)?.price || 0) * item.quantity)}
+                    {formatPrice(
+                      (detailTarget.order.products.find((p) => p.product?.toString() === item.product)?.price || 0) *
+                        item.quantity
+                    )}
                   </span>
                 </div>
               ))}
@@ -266,15 +299,15 @@ export default function AdminReturns() {
             <p className="admin-returns-modal-reason-label">
               <strong>Motivo:</strong>
             </p>
-            <p className="admin-returns-modal-reason">{detailTarget.returnRequest.reason}</p>
+            <p className="admin-returns-modal-reason">{detailTarget.request.reason}</p>
 
             <div className="form-group">
               <label htmlFor="return-detail-status">Estado</label>
               <select
                 id="return-detail-status"
-                className={`admin-returns-status-select status-${detailTarget.returnRequest.status}`}
-                value={detailTarget.returnRequest.status}
-                disabled={savingId === detailTarget._id}
+                className={`admin-returns-status-select status-${detailTarget.request.status}`}
+                value={detailTarget.request.status}
+                disabled={savingId === detailTarget.rowId}
                 onChange={(e) => handleStatusChange(detailTarget, e.target.value)}
               >
                 {RETURN_STATUSES.map((s) => (
@@ -297,7 +330,7 @@ export default function AdminReturns() {
       <ConfirmModal
         open={!!deleteTarget}
         title="Eliminar solicitud de devolución"
-        message={`¿Seguro que deseas eliminar la solicitud de devolución del pedido #${deleteTarget?.orderNumber}? El pedido se conserva, solo se borra la solicitud. Esta acción no se puede deshacer.`}
+        message={`¿Seguro que deseas eliminar esta solicitud de devolución del pedido #${deleteTarget?.order.orderNumber}? El pedido se conserva, solo se borra la solicitud. Esta acción no se puede deshacer.`}
         confirmLabel="Eliminar"
         onConfirm={handleConfirmDelete}
         onCancel={() => setDeleteTarget(null)}
