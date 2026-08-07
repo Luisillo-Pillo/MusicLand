@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
 import { getFiltersRequest } from '../api/productApi';
+import { brandLogos } from '../config/brandLogos';
 import './ListingGrid.css';
 
 export default function Brands() {
@@ -34,9 +35,17 @@ export default function Brands() {
             {brands.map(({ name, count }) => (
               <div
                 key={name}
-                className="listing-tile card"
+                className="listing-tile listing-tile-brand card"
                 onClick={() => navigate(`/?brand=${encodeURIComponent(name)}`)}
               >
+                {brandLogos[name] && (
+                  // Fondo blanco fijo, sin importar el tema: los logos de marca
+                  // vienen pensados para fondo claro y varios son oscuros, así
+                  // que en modo oscuro se volverían invisibles sobre la tarjeta.
+                  <div className="listing-tile-logo-wrap">
+                    <img className="listing-tile-logo" src={brandLogos[name]} alt={`Logo de ${name}`} loading="lazy" />
+                  </div>
+                )}
                 {name}
                 <span>
                   {count} {count === 1 ? 'producto' : 'productos'}

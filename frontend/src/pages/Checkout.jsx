@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
 import { useCart } from '../context/CartContext';
@@ -22,9 +22,18 @@ import {
 import './Checkout.css';
 
 export default function Checkout() {
-  const { items, totalItems, totalPrice, refreshCart } = useCart();
+  const { items: cartItems, totalItems: cartTotalItems, totalPrice: cartTotalPrice, refreshCart } = useCart();
   const { user, setUserData } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // "Comprar ahora" llega con un producto puntual en el state de navegación:
+  // el checkout se arma con eso en vez de con el carrito, y el carrito ni se
+  // consulta ni se toca en todo el flujo.
+  const buyNow = location.state?.buyNow || null;
+  const items = buyNow ? [{ product: buyNow.product, quantity: buyNow.quantity }] : cartItems;
+  const totalItems = buyNow ? buyNow.quantity : cartTotalItems;
+  const totalPrice = buyNow ? buyNow.product.price * buyNow.quantity : cartTotalPrice;
 
   const savedAddresses = user.addresses || [];
   const initialDefaultAddress =
@@ -217,10 +226,12 @@ export default function Checkout() {
         setUserData(mergedUser);
       }
 
-      const { data } = await createOrderRequest({
-        shippingAddress,
-        paymentMethod: orderPaymentMethod
-      });
+      const payload = { shippingAddress, paymentMethod: orderPaymentMethod };
+      if (buyNow) {
+        payload.items = [{ productId: buyNow.product._id, quantity: buyNow.quantity }];
+      }
+
+      const { data } = await createOrderRequest(payload);
       await refreshCart();
       navigate('/pedido-confirmado', { state: { order: data } });
     } catch (err) {
@@ -230,7 +241,7 @@ export default function Checkout() {
     }
   }
 
-  if (items.length === 0) {
+  if (!buyNow && items.length === 0) {
     return (
       <Layout>
         <BackButton />
@@ -479,9 +490,6 @@ export default function Checkout() {
                 </div>
               )}
 
-              <p style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)', marginTop: 12 }}>
-                Este método de pago es simulado, no se realizará ningún cobro real.
-              </p>
             </div>
           </div>
 
@@ -509,7 +517,11 @@ export default function Checkout() {
             {error && <p className="error-text" style={{ marginTop: 14 }}>{error}</p>}
 
             <div className="checkout-actions">
-              <button type="button" className="btn btn-outline" onClick={() => navigate('/carrito')}>
+              <button
+                type="button"
+                className="btn btn-outline"
+                onClick={() => navigate(buyNow ? `/producto/${buyNow.product._id}` : '/carrito')}
+              >
                 Volver
               </button>
               <button type="button" className="btn btn-primary" onClick={handleConfirm} disabled={loading}>

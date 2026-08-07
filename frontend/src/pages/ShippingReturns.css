@@ -22,6 +22,10 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  /* Por defecto una columna de grid no encoge por debajo del contenido de sus
+     hijos (min-width: auto implícito) — en mobile, con la columna colapsada a
+     1fr, eso empujaba toda la fila más ancha que la pantalla. */
+  min-width: 0;
 }
 
 @media (max-width: 900px) {

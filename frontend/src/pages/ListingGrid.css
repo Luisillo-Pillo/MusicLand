@@ -27,6 +27,39 @@
   color: var(--color-text-muted);
 }
 
+.listing-tile-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listing-tile-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  margin-bottom: 14px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  /* Fondo blanco fijo: los logos son casi todos oscuros y pensados para verse
+     sobre claro, así que no siguen el tema (ver comentario en Brands.jsx). */
+  background: #fff;
+}
+
+.listing-tile-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .listing-tile-logo-wrap {
+    height: 44px;
+    margin-bottom: 10px;
+  }
+}
+
 @media (max-width: 640px) {
   /* auto-fill con minmax(220px) deja 1 sola columna en un teléfono; se fuerzan
      2 para aprovechar el ancho, como en la mayoría de tiendas móviles. */

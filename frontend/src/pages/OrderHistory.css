@@ -91,23 +91,23 @@
 }
 
 .order-history-badge.status-pendiente {
-  background: #fef3c7;
-  color: #92400e;
+  background: var(--badge-amber-bg);
+  color: var(--badge-amber-text);
 }
 
 .order-history-badge.status-enviado {
-  background: #e0f2fe;
-  color: #075985;
+  background: var(--badge-blue-bg);
+  color: var(--badge-blue-text);
 }
 
 .order-history-badge.status-entregado {
-  background: #dcfce7;
-  color: #166534;
+  background: var(--badge-green-bg);
+  color: var(--badge-green-text);
 }
 
 .order-history-badge.status-cancelado {
-  background: #fee2e2;
-  color: #991b1b;
+  background: var(--badge-red-bg);
+  color: var(--badge-red-text);
 }
 
 .order-history-cancelled {

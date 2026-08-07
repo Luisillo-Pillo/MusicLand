@@ -4,6 +4,10 @@
   gap: 32px;
 }
 
+.contact-layout > * {
+  min-width: 0;
+}
+
 .contact-info-card {
   padding: 28px;
 }

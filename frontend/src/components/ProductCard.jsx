@@ -13,7 +13,8 @@ export default function ProductCard({ product }) {
   const [adding, setAdding] = useState(false);
   const [added, setAdded] = useState(false);
 
-  async function handleAddToCart() {
+  async function handleAddToCart(e) {
+    e.stopPropagation();
     if (!user) {
       navigate('/login', { state: { from: '/' } });
       return;
@@ -28,10 +29,31 @@ export default function ProductCard({ product }) {
     }
   }
 
+  function goToDetail() {
+    navigate(`/producto/${product._id}`);
+  }
+
+  // El resto de la tarjeta (imagen, nombre, precio) navega al detalle al hacer
+  // clic; los botones cortan la propagación para no disparar la navegación
+  // por encima de su propia acción.
+  function handleCardKeyDown(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      goToDetail();
+    }
+  }
+
   const outOfStock = product.stock <= 0;
 
   return (
-    <div className="product-card card">
+    <div
+      className="product-card card"
+      onClick={goToDetail}
+      onKeyDown={handleCardKeyDown}
+      role="link"
+      tabIndex={0}
+      aria-label={`Ver detalles de ${product.name}`}
+    >
       <div className="product-card-image">
         <img src={product.image} alt={product.name} loading="lazy" />
       </div>
@@ -56,7 +78,10 @@ export default function ProductCard({ product }) {
         <button
           type="button"
           className="btn btn-outline"
-          onClick={() => navigate(`/producto/${product._id}`)}
+          onClick={(e) => {
+            e.stopPropagation();
+            goToDetail();
+          }}
         >
           Ver detalles
         </button>

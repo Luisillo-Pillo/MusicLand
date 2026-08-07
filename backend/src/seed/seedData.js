@@ -6,7 +6,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Clavinova en color natural, con acabado pro.",
     "category": "Pianos",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -16,7 +16,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo DGX en color transparente, con acabado custom.",
     "category": "Teclados",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -26,7 +26,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo FS en color vino, con acabado plus.",
     "category": "Guitarras Acústicas",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -36,7 +36,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo YSL en color azul océano, con acabado edition.",
     "category": "Instrumentos de Viento",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -46,7 +46,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Recording Custom en color rojo cereza, con acabado edition.",
     "category": "Baterías",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -56,7 +56,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo Stagepass en color gris metálico, con acabado custom.",
     "category": "Audio",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -66,7 +66,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo TransAcoustic en color negro, con acabado signature.",
     "category": "Pianos",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -76,7 +76,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Modx en color vino, con acabado custom.",
     "category": "Teclados",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -86,7 +86,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo APX en color sunburst, con acabado ii.",
     "category": "Guitarras Acústicas",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -96,7 +96,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo YAS en color sunburst, con acabado plus.",
     "category": "Instrumentos de Viento",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -106,7 +106,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Rydeen en color rojo cereza, con acabado classic.",
     "category": "Baterías",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -116,7 +116,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo Stagepass en color vino, con acabado classic.",
     "category": "Audio",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -126,7 +126,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo C3X en color vino, con acabado signature.",
     "category": "Pianos",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": true
   },
   {
@@ -136,7 +136,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Genos en color rojo cereza, con acabado standard.",
     "category": "Teclados",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -146,7 +146,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo Storia en color azul océano, con acabado deluxe.",
     "category": "Guitarras Acústicas",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -156,7 +156,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo YFL en color natural, con acabado elite.",
     "category": "Instrumentos de Viento",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -166,7 +166,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Rydeen en color transparente, con acabado edition.",
     "category": "Baterías",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -176,7 +176,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo AG en color negro, con acabado custom.",
     "category": "Audio",
     "brand": "Yamaha",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Yamaha+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -186,7 +186,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Telecaster en color transparente, con acabado edition.",
     "category": "Guitarras Eléctricas",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -196,7 +196,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo Precision Bass en color vino, con acabado signature.",
     "category": "Bajos Eléctricos",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -206,7 +206,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Champion en color rojo cereza, con acabado signature.",
     "category": "Amplificadores",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -216,7 +216,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo Newporter en color natural, con acabado pro.",
     "category": "Guitarras Acústicas",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -226,7 +226,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Stratocaster en color vino, con acabado vintage.",
     "category": "Guitarras Eléctricas",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": true
   },
   {
@@ -236,7 +236,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo Jazz Bass en color transparente, con acabado pro.",
     "category": "Bajos Eléctricos",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -246,7 +246,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Blues Junior en color azul océano, con acabado vintage.",
     "category": "Amplificadores",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -256,7 +256,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo CD-60S en color dorado, con acabado custom.",
     "category": "Guitarras Acústicas",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -266,7 +266,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Telecaster en color dorado, con acabado elite.",
     "category": "Guitarras Eléctricas",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -276,7 +276,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo American Ultra Bass en color azul océano, con acabado edition.",
     "category": "Bajos Eléctricos",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -286,7 +286,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Blues Junior en color rojo cereza, con acabado series.",
     "category": "Amplificadores",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -296,7 +296,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo CD-60S en color azul océano, con acabado plus.",
     "category": "Guitarras Acústicas",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -306,7 +306,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Jazzmaster en color transparente, con acabado plus.",
     "category": "Guitarras Eléctricas",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -316,7 +316,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo Jazz Bass en color sunburst, con acabado plus.",
     "category": "Bajos Eléctricos",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -326,7 +326,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Champion en color natural, con acabado plus.",
     "category": "Amplificadores",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -336,7 +336,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo Sonoran en color azul océano, con acabado se.",
     "category": "Guitarras Acústicas",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -346,7 +346,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Telecaster en color sunburst, con acabado special.",
     "category": "Guitarras Eléctricas",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -356,7 +356,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo Precision Bass en color negro, con acabado x.",
     "category": "Bajos Eléctricos",
     "brand": "Fender",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Fender+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -366,7 +366,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Les Paul Standard en color gris metálico, con acabado standard.",
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -376,7 +376,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo Hummingbird en color azul océano, con acabado ii.",
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -386,7 +386,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Les Paul Studio en color dorado, con acabado signature.",
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": true
   },
   {
@@ -396,7 +396,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo L-00 en color negro, con acabado special.",
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -406,7 +406,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Les Paul Standard en color blanco perla, con acabado plus.",
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -416,7 +416,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo L-00 en color blanco perla, con acabado standard.",
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -426,7 +426,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo SG Standard en color natural, con acabado x.",
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -436,7 +436,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo L-00 en color azul océano, con acabado elite.",
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -446,7 +446,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Les Paul Custom en color rojo cereza, con acabado standard.",
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -456,7 +456,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo Hummingbird en color vino, con acabado standard.",
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -466,7 +466,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Les Paul Custom en color azul océano, con acabado custom.",
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -476,7 +476,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo Hummingbird en color transparente, con acabado standard.",
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -486,7 +486,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Les Paul Custom en color natural, con acabado deluxe.",
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -496,7 +496,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo Hummingbird en color gris metálico, con acabado signature.",
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -506,7 +506,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo ES-335 en color sunburst, con acabado deluxe.",
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -516,7 +516,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo J-45 en color vino, con acabado custom.",
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -526,7 +526,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo SG Standard en color azul océano, con acabado custom.",
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -536,7 +536,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo J-200 en color vino, con acabado pro.",
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gibson+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -546,7 +546,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Juno en color sunburst, con acabado signature.",
     "category": "Sintetizadores",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": true
   },
   {
@@ -556,7 +556,7 @@ const products = [
     "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-27 en color natural, con acabado signature.",
     "category": "Baterías Electrónicas",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Baterías+Electrónicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
     "featured": false
   },
   {
@@ -566,7 +566,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo GO:KEYS en color vino, con acabado signature.",
     "category": "Teclados",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -576,7 +576,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo AIRA en color natural, con acabado edition.",
     "category": "Audio",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -586,7 +586,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Fantom en color dorado, con acabado classic.",
     "category": "Sintetizadores",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -596,7 +596,7 @@ const products = [
     "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-17 en color sunburst, con acabado special.",
     "category": "Baterías Electrónicas",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Baterías+Electrónicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
     "featured": false
   },
   {
@@ -606,7 +606,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo FP-30X en color transparente, con acabado studio.",
     "category": "Teclados",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -616,7 +616,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo AIRA en color rojo cereza, con acabado vintage.",
     "category": "Audio",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -626,7 +626,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Fantom en color azul océano, con acabado ii.",
     "category": "Sintetizadores",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -636,7 +636,7 @@ const products = [
     "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo SPD-SX en color azul océano, con acabado elite.",
     "category": "Baterías Electrónicas",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Baterías+Electrónicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
     "featured": false
   },
   {
@@ -646,7 +646,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Juno-DS en color blanco perla, con acabado pro.",
     "category": "Teclados",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -656,7 +656,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo Rubix en color blanco perla, con acabado signature.",
     "category": "Audio",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -666,7 +666,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Jupiter en color azul océano, con acabado se.",
     "category": "Sintetizadores",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -676,7 +676,7 @@ const products = [
     "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo V-Drums en color azul océano, con acabado vintage.",
     "category": "Baterías Electrónicas",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Baterías+Electrónicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
     "featured": false
   },
   {
@@ -686,7 +686,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Juno-DS en color natural, con acabado deluxe.",
     "category": "Teclados",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -696,7 +696,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo Duo-Capture en color vino, con acabado series.",
     "category": "Audio",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -706,7 +706,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Fantom en color transparente, con acabado classic.",
     "category": "Sintetizadores",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -716,7 +716,7 @@ const products = [
     "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-17 en color rojo cereza, con acabado edition.",
     "category": "Baterías Electrónicas",
     "brand": "Roland",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Roland+Baterías+Electrónicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
     "featured": false
   },
   {
@@ -726,7 +726,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Boston en color gris metálico, con acabado special.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": true
   },
   {
@@ -736,7 +736,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model B en color negro, con acabado edition.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -746,7 +746,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Essex en color rojo cereza, con acabado ii.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -756,7 +756,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model O en color sunburst, con acabado deluxe.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -766,7 +766,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model O en color rojo cereza, con acabado edition.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -776,7 +776,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model D en color gris metálico, con acabado ii.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -786,7 +786,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Essex en color transparente, con acabado classic.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -796,7 +796,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model B en color natural, con acabado vintage.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -806,7 +806,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Boston en color dorado, con acabado deluxe.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -816,7 +816,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Boston en color blanco perla, con acabado se.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -826,7 +826,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Essex en color sunburst, con acabado deluxe.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -836,7 +836,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Essex en color azul océano, con acabado vintage.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -846,7 +846,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model B en color dorado, con acabado plus.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -856,7 +856,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model M en color transparente, con acabado edition.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -866,7 +866,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model M en color azul océano, con acabado series.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -876,7 +876,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model B en color azul océano, con acabado edition.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -886,7 +886,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model M en color vino, con acabado standard.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -896,7 +896,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model M en color dorado, con acabado elite.",
     "category": "Pianos",
     "brand": "Steinway & Sons",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Steinway+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -906,7 +906,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo SA- en color dorado, con acabado deluxe.",
     "category": "Teclados",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -916,7 +916,7 @@ const products = [
     "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo CDP-S en color blanco perla, con acabado x.",
     "category": "Pianos Digitales",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Pianos+Digitales&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
     "featured": false
   },
   {
@@ -926,7 +926,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Casiotone en color natural, con acabado plus.",
     "category": "Teclados",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -936,7 +936,7 @@ const products = [
     "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo AP- en color natural, con acabado plus.",
     "category": "Pianos Digitales",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Pianos+Digitales&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
     "featured": false
   },
   {
@@ -946,7 +946,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo CT-X en color rojo cereza, con acabado signature.",
     "category": "Teclados",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -956,7 +956,7 @@ const products = [
     "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo Privia PX en color azul océano, con acabado elite.",
     "category": "Pianos Digitales",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Pianos+Digitales&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
     "featured": false
   },
   {
@@ -966,7 +966,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo CT-X en color gris metálico, con acabado edition.",
     "category": "Teclados",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -976,7 +976,7 @@ const products = [
     "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo Privia PX en color gris metálico, con acabado ii.",
     "category": "Pianos Digitales",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Pianos+Digitales&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
     "featured": false
   },
   {
@@ -986,7 +986,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo SA- en color transparente, con acabado pro.",
     "category": "Teclados",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -996,7 +996,7 @@ const products = [
     "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo CDP-S en color gris metálico, con acabado series.",
     "category": "Pianos Digitales",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Pianos+Digitales&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
     "featured": false
   },
   {
@@ -1006,7 +1006,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo SA- en color dorado, con acabado plus.",
     "category": "Teclados",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1016,7 +1016,7 @@ const products = [
     "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo Privia PX en color rojo cereza, con acabado series.",
     "category": "Pianos Digitales",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Pianos+Digitales&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
     "featured": false
   },
   {
@@ -1026,7 +1026,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo SA- en color dorado, con acabado classic.",
     "category": "Teclados",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1036,7 +1036,7 @@ const products = [
     "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo AP- en color gris metálico, con acabado pro.",
     "category": "Pianos Digitales",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Pianos+Digitales&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
     "featured": false
   },
   {
@@ -1046,7 +1046,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo CT-X en color blanco perla, con acabado edition.",
     "category": "Teclados",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1056,7 +1056,7 @@ const products = [
     "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo CDP-S en color rojo cereza, con acabado series.",
     "category": "Pianos Digitales",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Pianos+Digitales&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
     "featured": false
   },
   {
@@ -1066,7 +1066,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Casiotone en color gris metálico, con acabado signature.",
     "category": "Teclados",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1076,7 +1076,7 @@ const products = [
     "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo Privia PX en color rojo cereza, con acabado standard.",
     "category": "Pianos Digitales",
     "brand": "Casio",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Casio+Pianos+Digitales&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
     "featured": false
   },
   {
@@ -1086,7 +1086,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Minilogue en color azul océano, con acabado pro.",
     "category": "Sintetizadores",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -1096,7 +1096,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Pa1000 en color blanco perla, con acabado plus.",
     "category": "Teclados",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1106,7 +1106,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Volca en color natural, con acabado x.",
     "category": "Sintetizadores",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -1116,7 +1116,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Kronos en color natural, con acabado classic.",
     "category": "Teclados",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1126,7 +1126,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Prologue en color azul océano, con acabado series.",
     "category": "Sintetizadores",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -1136,7 +1136,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Pa1000 en color natural, con acabado special.",
     "category": "Teclados",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1146,7 +1146,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Minilogue en color vino, con acabado studio.",
     "category": "Sintetizadores",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -1156,7 +1156,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Nautilus en color gris metálico, con acabado pro.",
     "category": "Teclados",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1166,7 +1166,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo microKORG en color blanco perla, con acabado x.",
     "category": "Sintetizadores",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -1176,7 +1176,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Nautilus en color dorado, con acabado se.",
     "category": "Teclados",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1186,7 +1186,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo microKORG en color azul océano, con acabado deluxe.",
     "category": "Sintetizadores",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -1196,7 +1196,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo SV-2 en color dorado, con acabado plus.",
     "category": "Teclados",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1206,7 +1206,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo microKORG en color dorado, con acabado pro.",
     "category": "Sintetizadores",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -1216,7 +1216,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Pa1000 en color natural, con acabado studio.",
     "category": "Teclados",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1226,7 +1226,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo microKORG en color vino, con acabado pro.",
     "category": "Sintetizadores",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -1236,7 +1236,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo SV-2 en color vino, con acabado se.",
     "category": "Teclados",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1246,7 +1246,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Prologue en color negro, con acabado x.",
     "category": "Sintetizadores",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -1256,7 +1256,7 @@ const products = [
     "description": "Teclado versátil con amplia biblioteca de sonidos, ideal para práctica, composición y presentaciones en vivo. Modelo Pa1000 en color transparente, con acabado vintage.",
     "category": "Teclados",
     "brand": "Korg",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Korg+Teclados&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
     "featured": false
   },
   {
@@ -1266,7 +1266,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Artcore en color vino, con acabado edition.",
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -1276,7 +1276,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo Talman Bass en color natural, con acabado vintage.",
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -1286,7 +1286,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Artcore en color vino, con acabado special.",
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -1296,7 +1296,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo GSR en color dorado, con acabado ii.",
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -1306,7 +1306,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo RGA en color sunburst, con acabado vintage.",
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -1316,7 +1316,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo Talman Bass en color natural, con acabado classic.",
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -1326,7 +1326,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Artcore en color negro, con acabado standard.",
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -1336,7 +1336,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo BTB en color negro, con acabado special.",
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -1346,7 +1346,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo AZ en color blanco perla, con acabado deluxe.",
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -1356,7 +1356,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo SR Bass en color gris metálico, con acabado custom.",
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -1366,7 +1366,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Prestige en color blanco perla, con acabado standard.",
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -1376,7 +1376,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo SR Bass en color sunburst, con acabado plus.",
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -1386,7 +1386,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo RGA en color vino, con acabado plus.",
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -1396,7 +1396,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo Talman Bass en color natural, con acabado edition.",
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -1406,7 +1406,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Prestige en color azul océano, con acabado special.",
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -1416,7 +1416,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo SR Bass en color azul océano, con acabado classic.",
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -1426,7 +1426,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo RG en color dorado, con acabado edition.",
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -1436,7 +1436,7 @@ const products = [
     "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo SR Bass en color natural, con acabado plus.",
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Ibanez+Bajos+Eléctricos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
     "featured": false
   },
   {
@@ -1446,7 +1446,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo SM57 en color natural, con acabado plus.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": true
   },
   {
@@ -1456,7 +1456,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo Beta 58A en color sunburst, con acabado edition.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1466,7 +1466,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo MV7 en color sunburst, con acabado elite.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1476,7 +1476,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo MV7 en color sunburst, con acabado x.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1486,7 +1486,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo MV7 en color dorado, con acabado se.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1496,7 +1496,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo PGA58 en color negro, con acabado signature.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1506,7 +1506,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo SM58 en color transparente, con acabado signature.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1516,7 +1516,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo BLX Wireless en color natural, con acabado x.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1526,7 +1526,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo BLX Wireless en color dorado, con acabado custom.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1536,7 +1536,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo SM57 en color rojo cereza, con acabado classic.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1546,7 +1546,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo KSM8 en color dorado, con acabado standard.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1556,7 +1556,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo SM57 en color vino, con acabado series.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1566,7 +1566,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo BLX Wireless en color negro, con acabado edition.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1576,7 +1576,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo BLX Wireless en color negro, con acabado x.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1586,7 +1586,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo MV7 en color dorado, con acabado x.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1596,7 +1596,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo Beta 58A en color natural, con acabado classic.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1606,7 +1606,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo SM57 en color sunburst, con acabado plus.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1616,7 +1616,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo SM7B en color natural, con acabado se.",
     "category": "Micrófonos",
     "brand": "Shure",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Shure+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -1626,7 +1626,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Reference en color azul océano, con acabado se.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": true
   },
   {
@@ -1636,7 +1636,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Roadshow en color sunburst, con acabado elite.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1646,7 +1646,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Masters Maple en color negro, con acabado signature.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1656,7 +1656,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Decade Maple en color blanco perla, con acabado se.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1666,7 +1666,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Masters Maple en color dorado, con acabado series.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1676,7 +1676,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Midtown en color transparente, con acabado plus.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1686,7 +1686,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Export en color dorado, con acabado deluxe.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1696,7 +1696,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Reference en color dorado, con acabado elite.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1706,7 +1706,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Decade Maple en color sunburst, con acabado deluxe.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1716,7 +1716,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Decade Maple en color negro, con acabado x.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1726,7 +1726,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Roadshow en color dorado, con acabado custom.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1736,7 +1736,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Decade Maple en color sunburst, con acabado series.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1746,7 +1746,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Decade Maple en color rojo cereza, con acabado series.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1756,7 +1756,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Decade Maple en color transparente, con acabado standard.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1766,7 +1766,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Masters Maple en color sunburst, con acabado plus.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1776,7 +1776,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Midtown en color dorado, con acabado special.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1786,7 +1786,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Export en color negro, con acabado deluxe.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1796,7 +1796,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Roadshow en color vino, con acabado plus.",
     "category": "Baterías",
     "brand": "Pearl",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Pearl+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1806,7 +1806,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo K Custom en color sunburst, con acabado classic.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1816,7 +1816,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo I Family en color dorado, con acabado plus.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1826,7 +1826,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo Avedis en color dorado, con acabado signature.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1836,7 +1836,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo A Zildjian en color sunburst, con acabado classic.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1846,7 +1846,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo A Zildjian en color natural, con acabado edition.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1856,7 +1856,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo Avedis en color sunburst, con acabado se.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1866,7 +1866,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo FX en color natural, con acabado vintage.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1876,7 +1876,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo Avedis en color negro, con acabado signature.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1886,7 +1886,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo FX en color natural, con acabado se.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1896,7 +1896,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo Kerope en color azul océano, con acabado studio.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1906,7 +1906,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo I Family en color sunburst, con acabado elite.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1916,7 +1916,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo A Zildjian en color negro, con acabado x.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1926,7 +1926,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo A Custom en color rojo cereza, con acabado vintage.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1936,7 +1936,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo K Custom en color vino, con acabado studio.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1946,7 +1946,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo A Zildjian en color natural, con acabado se.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1956,7 +1956,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo Avedis en color blanco perla, con acabado custom.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1966,7 +1966,7 @@ const products = [
     "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo I Family en color vino, con acabado series.",
     "category": "Platillos",
     "brand": "Zildjian",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Zildjian+Platillos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
     "featured": false
   },
   {
@@ -1976,7 +1976,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Electromatic en color vino, con acabado signature.",
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -1986,7 +1986,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Broadkaster en color rojo cereza, con acabado series.",
     "category": "Baterías",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -1996,7 +1996,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Electromatic en color transparente, con acabado deluxe.",
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2006,7 +2006,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Energy en color gris metálico, con acabado vintage.",
     "category": "Baterías",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -2016,7 +2016,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo White Falcon en color sunburst, con acabado se.",
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2026,7 +2026,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Renown en color dorado, con acabado series.",
     "category": "Baterías",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -2036,7 +2036,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo G5420 en color gris metálico, con acabado elite.",
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2046,7 +2046,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Energy en color negro, con acabado signature.",
     "category": "Baterías",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -2056,7 +2056,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo G5420 en color rojo cereza, con acabado plus.",
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2066,7 +2066,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Broadkaster en color gris metálico, con acabado standard.",
     "category": "Baterías",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -2076,7 +2076,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo G5420 en color azul océano, con acabado custom.",
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2086,7 +2086,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Catalina Club en color azul océano, con acabado deluxe.",
     "category": "Baterías",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -2096,7 +2096,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Electromatic en color transparente, con acabado ii.",
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2106,7 +2106,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Broadkaster en color transparente, con acabado elite.",
     "category": "Baterías",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -2116,7 +2116,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo Streamliner en color blanco perla, con acabado signature.",
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2126,7 +2126,7 @@ const products = [
     "description": "Batería acústica con cascos de calidad y herrajes resistentes, lista para estudio o escenario. Modelo Renown en color rojo cereza, con acabado pro.",
     "category": "Baterías",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Baterías&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
     "featured": false
   },
   {
@@ -2136,7 +2136,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo White Falcon en color blanco perla, con acabado pro.",
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Gretsch+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2146,7 +2146,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo HD-28 en color sunburst, con acabado special.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2156,7 +2156,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo HD-28 en color dorado, con acabado special.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2166,7 +2166,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo D-28 en color dorado, con acabado vintage.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": true
   },
   {
@@ -2176,7 +2176,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo OM-28 en color gris metálico, con acabado series.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2186,7 +2186,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo D-28 en color rojo cereza, con acabado custom.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2196,7 +2196,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo D-18 en color gris metálico, con acabado deluxe.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2206,7 +2206,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo HD-28 en color sunburst, con acabado edition.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2216,7 +2216,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo D Junior en color gris metálico, con acabado ii.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2226,7 +2226,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo D-18 en color gris metálico, con acabado x.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2236,7 +2236,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo OM-28 en color natural, con acabado deluxe.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2246,7 +2246,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo OM-28 en color sunburst, con acabado custom.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2256,7 +2256,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo D-28 en color blanco perla, con acabado studio.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2266,7 +2266,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo HD-28 en color sunburst, con acabado deluxe.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2276,7 +2276,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo OM-28 en color natural, con acabado standard.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2286,7 +2286,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo HD-28 en color blanco perla, con acabado ii.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2296,7 +2296,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo D-18 en color sunburst, con acabado studio.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2306,7 +2306,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo OM-28 en color transparente, con acabado pro.",
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Martin+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2316,7 +2316,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo 114ce en color natural, con acabado classic.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": true
   },
   {
@@ -2326,7 +2326,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo GS Mini en color blanco perla, con acabado pro.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2336,7 +2336,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo American Dream en color blanco perla, con acabado custom.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2346,7 +2346,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo 114ce en color gris metálico, con acabado ii.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2356,7 +2356,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo GS Mini en color rojo cereza, con acabado vintage.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2366,7 +2366,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo 114ce en color blanco perla, con acabado standard.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2376,7 +2376,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo 812ce en color natural, con acabado custom.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2386,7 +2386,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo Academy 12 en color gris metálico, con acabado x.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2396,7 +2396,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo 114ce en color gris metálico, con acabado studio.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2406,7 +2406,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo Academy 12 en color vino, con acabado se.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2416,7 +2416,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo American Dream en color negro, con acabado standard.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2426,7 +2426,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo 214ce en color natural, con acabado signature.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2436,7 +2436,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo 812ce en color blanco perla, con acabado edition.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2446,7 +2446,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo Academy 12 en color sunburst, con acabado studio.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2456,7 +2456,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo American Dream en color dorado, con acabado pro.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2466,7 +2466,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo Academy 12 en color transparente, con acabado edition.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2476,7 +2476,7 @@ const products = [
     "description": "Guitarra acústica con cuerpo resonante y acabado cuidado, perfecta para grabación y presentaciones en vivo. Modelo GS Mini en color gris metálico, con acabado special.",
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Taylor+Guitarras+Acústicas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
     "featured": false
   },
   {
@@ -2486,7 +2486,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo Signature Clarinet en color rojo cereza, con acabado x.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2496,7 +2496,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo Series III en color transparente, con acabado edition.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2506,7 +2506,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo AS42 en color azul océano, con acabado deluxe.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2516,7 +2516,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo Signature Clarinet en color vino, con acabado special.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2526,7 +2526,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo AS42 en color azul océano, con acabado elite.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2536,7 +2536,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo Series III en color sunburst, con acabado elite.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2546,7 +2546,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo TS44 en color transparente, con acabado x.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2556,7 +2556,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo Signature Clarinet en color rojo cereza, con acabado deluxe.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2566,7 +2566,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo TS44 en color natural, con acabado vintage.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2576,7 +2576,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo Reference 54 en color dorado, con acabado vintage.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2586,7 +2586,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo AS42 en color sunburst, con acabado custom.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2596,7 +2596,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo TS44 en color dorado, con acabado standard.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2606,7 +2606,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo Series III en color transparente, con acabado deluxe.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2616,7 +2616,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo TS44 en color rojo cereza, con acabado special.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2626,7 +2626,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo Series III en color azul océano, con acabado standard.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2636,7 +2636,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo Signature Clarinet en color rojo cereza, con acabado classic.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2646,7 +2646,7 @@ const products = [
     "description": "Instrumento de viento con afinación estable y respuesta cómoda en todos los registros. Modelo TS44 en color transparente, con acabado deluxe.",
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Selmer+Instrumentos+de+Viento&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
     "featured": false
   },
   {
@@ -2656,7 +2656,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Origin20 en color rojo cereza, con acabado custom.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": true
   },
   {
@@ -2666,7 +2666,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Origin20 en color transparente, con acabado signature.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2676,7 +2676,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Code en color rojo cereza, con acabado elite.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2686,7 +2686,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo MG Series en color transparente, con acabado elite.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2696,7 +2696,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Code en color rojo cereza, con acabado series.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2706,7 +2706,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Code en color gris metálico, con acabado custom.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2716,7 +2716,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Origin20 en color azul océano, con acabado classic.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2726,7 +2726,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo JCM800 en color blanco perla, con acabado plus.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2736,7 +2736,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Code en color rojo cereza, con acabado standard.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2746,7 +2746,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Code en color blanco perla, con acabado series.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2756,7 +2756,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo JCM800 en color negro, con acabado x.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2766,7 +2766,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo MG Series en color dorado, con acabado vintage.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2776,7 +2776,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo MG Series en color rojo cereza, con acabado ii.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2786,7 +2786,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo MG Series en color gris metálico, con acabado vintage.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2796,7 +2796,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo JCM800 en color natural, con acabado elite.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2806,7 +2806,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo Code en color vino, con acabado special.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2816,7 +2816,7 @@ const products = [
     "description": "Amplificador con tono cálido y controles intuitivos, ideal tanto para ensayo como para conciertos. Modelo JCM800 en color dorado, con acabado signature.",
     "category": "Amplificadores",
     "brand": "Marshall",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Marshall+Amplificadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
     "featured": false
   },
   {
@@ -2826,7 +2826,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 330 en color dorado, con acabado plus.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2836,7 +2836,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 4003 Bass en color gris metálico, con acabado standard.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2846,7 +2846,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 330 en color azul océano, con acabado studio.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2856,7 +2856,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 620 en color blanco perla, con acabado elite.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2866,7 +2866,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 360 en color dorado, con acabado se.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2876,7 +2876,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 330 en color azul océano, con acabado signature.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2886,7 +2886,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 325 en color sunburst, con acabado edition.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2896,7 +2896,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 330 en color azul océano, con acabado standard.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2906,7 +2906,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 4003 Bass en color sunburst, con acabado custom.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2916,7 +2916,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 325 en color vino, con acabado pro.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2926,7 +2926,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 620 en color negro, con acabado edition.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2936,7 +2936,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 4003 Bass en color sunburst, con acabado classic.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2946,7 +2946,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 325 en color gris metálico, con acabado pro.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2956,7 +2956,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 4003 Bass en color natural, con acabado studio.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2966,7 +2966,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 620 en color sunburst, con acabado plus.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2976,7 +2976,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 360 en color rojo cereza, con acabado standard.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2986,7 +2986,7 @@ const products = [
     "description": "Guitarra eléctrica con pastillas de alta definición y acabado premium, pensada para escenarios exigentes. Modelo 360 en color dorado, con acabado x.",
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Rickenbacker+Guitarras+Eléctricas&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
     "featured": false
   },
   {
@@ -2996,7 +2996,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 200 en color negro, con acabado x.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3006,7 +3006,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 200 en color natural, con acabado deluxe.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3016,7 +3016,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 130 en color negro, con acabado signature.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3026,7 +3026,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 280 en color rojo cereza, con acabado standard.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3036,7 +3036,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 130 en color dorado, con acabado series.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3046,7 +3046,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 214VC en color dorado, con acabado se.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3056,7 +3056,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 280 en color gris metálico, con acabado custom.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3066,7 +3066,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 280 en color sunburst, con acabado deluxe.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3076,7 +3076,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 280 en color transparente, con acabado x.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3086,7 +3086,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 280 en color negro, con acabado x.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3096,7 +3096,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 130 en color negro, con acabado signature.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3106,7 +3106,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 280 en color negro, con acabado classic.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3116,7 +3116,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 130 en color blanco perla, con acabado standard.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3126,7 +3126,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 280 en color gris metálico, con acabado studio.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3136,7 +3136,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 214VC en color rojo cereza, con acabado x.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3146,7 +3146,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 214VC en color gris metálico, con acabado studio.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3156,7 +3156,7 @@ const products = [
     "description": "Piano de calidad profesional con mecanismo de acción refinado, ideal para intérpretes exigentes y espacios de concierto o estudio. Modelo Model 200 en color blanco perla, con acabado pro.",
     "category": "Pianos",
     "brand": "Bösendorfer",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Bösendorfer+Pianos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
     "featured": false
   },
   {
@@ -3166,7 +3166,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Subsequent 37 en color natural, con acabado signature.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3176,7 +3176,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Grandmother en color azul océano, con acabado se.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3186,7 +3186,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Matriarch en color dorado, con acabado classic.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3196,7 +3196,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo DFAM en color sunburst, con acabado studio.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3206,7 +3206,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Minimoog Model D en color rojo cereza, con acabado classic.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3216,7 +3216,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Minimoog Model D en color dorado, con acabado plus.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3226,7 +3226,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Grandmother en color vino, con acabado x.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3236,7 +3236,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Subsequent 37 en color gris metálico, con acabado vintage.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3246,7 +3246,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Matriarch en color transparente, con acabado edition.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3256,7 +3256,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo DFAM en color dorado, con acabado custom.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3266,7 +3266,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Minimoog Model D en color blanco perla, con acabado classic.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3276,7 +3276,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Subsequent 37 en color natural, con acabado elite.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3286,7 +3286,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Grandmother en color sunburst, con acabado vintage.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3296,7 +3296,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Grandmother en color natural, con acabado elite.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3306,7 +3306,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo DFAM en color transparente, con acabado classic.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3316,7 +3316,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo DFAM en color transparente, con acabado deluxe.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3326,7 +3326,7 @@ const products = [
     "description": "Sintetizador con motor de sonido versátil, ideal para producción musical moderna y presentaciones en vivo. Modelo Subsequent 37 en color transparente, con acabado standard.",
     "category": "Sintetizadores",
     "brand": "Moog",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Moog+Sintetizadores&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
     "featured": false
   },
   {
@@ -3336,7 +3336,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo EW 100 en color dorado, con acabado pro.",
     "category": "Micrófonos",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -3346,7 +3346,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo HD 280 Pro en color azul océano, con acabado se.",
     "category": "Audio",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -3356,7 +3356,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo MD 421 en color sunburst, con acabado x.",
     "category": "Micrófonos",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -3366,7 +3366,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo MKE 200 en color dorado, con acabado se.",
     "category": "Audio",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -3376,7 +3376,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo MD 421 en color rojo cereza, con acabado deluxe.",
     "category": "Micrófonos",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -3386,7 +3386,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo HD 25 en color azul océano, con acabado deluxe.",
     "category": "Audio",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -3396,7 +3396,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo e945 en color sunburst, con acabado elite.",
     "category": "Micrófonos",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -3406,7 +3406,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo MKE 200 en color blanco perla, con acabado plus.",
     "category": "Audio",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -3416,7 +3416,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo MD 421 en color blanco perla, con acabado ii.",
     "category": "Micrófonos",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -3426,7 +3426,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo MKE 200 en color dorado, con acabado vintage.",
     "category": "Audio",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -3436,7 +3436,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo EW 100 en color azul océano, con acabado plus.",
     "category": "Micrófonos",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -3446,7 +3446,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo HD 280 Pro en color transparente, con acabado se.",
     "category": "Audio",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -3456,7 +3456,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo EW 100 en color vino, con acabado vintage.",
     "category": "Micrófonos",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -3466,7 +3466,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo Profile en color rojo cereza, con acabado signature.",
     "category": "Audio",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -3476,7 +3476,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo EW 100 en color transparente, con acabado standard.",
     "category": "Micrófonos",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   },
   {
@@ -3486,7 +3486,7 @@ const products = [
     "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo HD 280 Pro en color gris metálico, con acabado custom.",
     "category": "Audio",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Audio&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
     "featured": false
   },
   {
@@ -3496,7 +3496,7 @@ const products = [
     "description": "Micrófono profesional con captación clara y consistente, apto para voz e instrumentos en estudio o en vivo. Modelo MD 421 en color blanco perla, con acabado special.",
     "category": "Micrófonos",
     "brand": "Sennheiser",
-    "image": "https://placehold.co/500x500/1a1a1a/ffffff/png?text=Sennheiser+Micrófonos&font=roboto",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
     "featured": false
   }
 ];

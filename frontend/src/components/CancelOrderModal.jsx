@@ -5,19 +5,27 @@ const MAX_REASON = 1000;
 
 export default function CancelOrderModal({ order, sending, error, byAdmin = false, onConfirm, onClose }) {
   const [reason, setReason] = useState('');
+  const [touched, setTouched] = useState(false);
 
   // Limpia el motivo al abrir para otro pedido, para no arrastrar el texto anterior.
   useEffect(() => {
     setReason('');
+    setTouched(false);
   }, [order?._id]);
 
   if (!order) return null;
 
   const units = order.products.reduce((sum, p) => sum + p.quantity, 0);
+  const trimmedReason = reason.trim();
+  const reasonMissing = touched && !trimmedReason;
 
   function handleSubmit(e) {
     e.preventDefault();
-    onConfirm(reason.trim());
+    if (!trimmedReason) {
+      setTouched(true);
+      return;
+    }
+    onConfirm(trimmedReason);
   }
 
   return (
@@ -31,11 +39,12 @@ export default function CancelOrderModal({ order, sending, error, byAdmin = fals
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="cancel-reason">Motivo de la cancelación (opcional)</label>
+            <label htmlFor="cancel-reason">Motivo de la cancelación</label>
             <textarea
               id="cancel-reason"
               rows={4}
               maxLength={MAX_REASON}
+              required
               value={reason}
               disabled={sending}
               placeholder={
@@ -44,6 +53,8 @@ export default function CancelOrderModal({ order, sending, error, byAdmin = fals
                   : 'Ej. Me equivoqué de talla o ya no lo necesito.'
               }
               onChange={(e) => setReason(e.target.value)}
+              onBlur={() => setTouched(true)}
+              aria-invalid={reasonMissing}
             />
             <div className="cancel-order-meta">
               <span>
@@ -55,6 +66,7 @@ export default function CancelOrderModal({ order, sending, error, byAdmin = fals
                 {reason.length}/{MAX_REASON}
               </span>
             </div>
+            {reasonMissing && <p className="error-text">Cuéntanos el motivo antes de cancelar el pedido.</p>}
           </div>
 
           {error && <p className="error-text">{error}</p>}

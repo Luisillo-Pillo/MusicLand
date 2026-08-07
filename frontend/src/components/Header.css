@@ -99,7 +99,8 @@
   flex-shrink: 0;
 }
 
-.header-cart-btn {
+.header-cart-btn,
+.header-theme-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -111,6 +112,11 @@
   background: var(--color-bg);
   color: var(--color-primary);
   cursor: pointer;
+  flex-shrink: 0;
+}
+
+.header-theme-btn:hover {
+  background: rgba(76, 29, 149, 0.08);
 }
 
 .header-cart-btn .cart-count {

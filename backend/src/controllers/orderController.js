@@ -75,21 +75,49 @@ async function createOrder(req, res) {
   const decremented = [];
 
   try {
-    const { shippingAddress, paymentMethod } = req.body;
+    const { shippingAddress, paymentMethod, items } = req.body;
     if (!shippingAddress || !paymentMethod) {
       return res.status(400).json({ message: 'Dirección de envío y método de pago son obligatorios' });
     }
 
-    const user = await User.findById(req.user._id).populate('cart.product');
-    if (!user.cart.length) {
-      return res.status(400).json({ message: 'El carrito está vacío' });
+    // 'items' es el atajo de "Comprar ahora" desde el detalle de un producto:
+    // compra solo esos productos puntuales sin tocar el carrito guardado del
+    // usuario. Sin 'items', se compra el carrito completo como siempre.
+    const isDirectPurchase = Array.isArray(items) && items.length > 0;
+
+    let user;
+    let sourceItems;
+
+    if (isDirectPurchase) {
+      const productIds = items.map((i) => i?.productId).filter(Boolean);
+      if (productIds.length !== items.length) {
+        return res.status(400).json({ message: 'Selección de productos inválida' });
+      }
+      const products = await Product.find({ _id: { $in: productIds } });
+      const productsById = new Map(products.map((p) => [p._id.toString(), p]));
+      sourceItems = items.map((i) => ({
+        product: productsById.get(i.productId?.toString()),
+        quantity: Number(i.quantity)
+      }));
+      if (sourceItems.some((i) => !i.product || !Number.isInteger(i.quantity) || i.quantity < 1)) {
+        return res.status(400).json({ message: 'Uno de los productos seleccionados ya no está disponible' });
+      }
+      // req.user ya es el documento completo (lo carga el middleware protect),
+      // no hace falta otra consulta ni popular el carrito.
+      user = req.user;
+    } else {
+      user = await User.findById(req.user._id).populate('cart.product');
+      if (!user.cart.length) {
+        return res.status(400).json({ message: 'El carrito está vacío' });
+      }
+      sourceItems = user.cart;
     }
 
     const orderProducts = [];
     let total = 0;
     let insufficientStockProduct = null;
 
-    for (const item of user.cart) {
+    for (const item of sourceItems) {
       const product = item.product;
       if (!product) continue;
 
@@ -141,13 +169,17 @@ async function createOrder(req, res) {
     // revertirse aunque falle algo de lo que viene después.
     decremented.length = 0;
 
-    try {
-      user.cart = [];
-      await user.save();
-    } catch (cartError) {
-      // El pedido ya existe y es válido; vaciar el carrito es secundario y se puede
-      // reintentar después, así que no se cancela la compra ni se devuelve el stock.
-      console.error('El pedido se creó pero no se pudo vaciar el carrito:', cartError);
+    // "Comprar ahora" no toca el carrito: lo que el usuario ya tenía guardado
+    // ahí se queda exactamente igual.
+    if (!isDirectPurchase) {
+      try {
+        user.cart = [];
+        await user.save();
+      } catch (cartError) {
+        // El pedido ya existe y es válido; vaciar el carrito es secundario y se puede
+        // reintentar después, así que no se cancela la compra ni se devuelve el stock.
+        console.error('El pedido se creó pero no se pudo vaciar el carrito:', cartError);
+      }
     }
 
     try {
@@ -289,6 +321,9 @@ async function notifyCustomerOfCancellation(order, user, reason) {
 async function cancelOrder(req, res) {
   try {
     const reason = typeof req.body?.reason === 'string' ? req.body.reason.trim() : '';
+    if (!reason) {
+      return res.status(400).json({ message: 'Cuéntanos el motivo de la cancelación' });
+    }
     if (reason.length > 1000) {
       return res.status(400).json({ message: 'El motivo no puede superar los 1000 caracteres' });
     }

@@ -4,6 +4,9 @@
      de compra del checkout. */
   position: sticky;
   top: calc(var(--header-height) + 20px);
+  /* Sin esto, la columna del grid (.sr-layout) no encoge por debajo del
+     contenido en mobile — mismo problema que .sr-sections, ver ese comentario. */
+  min-width: 0;
 }
 
 .return-request h2 {
@@ -42,6 +45,41 @@
 }
 
 .return-request-success strong {
+  color: var(--color-text);
+}
+
+.return-request-order-info {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+
+.return-request-order-info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.return-request-order-info-label {
+  color: var(--color-text-muted);
+}
+
+.return-request-order-info-products {
+  margin: 8px 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.return-request-order-info-total {
+  margin-bottom: 0;
+  font-weight: 700;
   color: var(--color-text);
 }
 

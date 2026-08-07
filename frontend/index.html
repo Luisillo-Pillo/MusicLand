@@ -5,6 +5,21 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MusicLand | Instrumentos musicales</title>
+    <script>
+      // Aplica el tema guardado antes de que React monte, para que no haya un
+      // parpadeo del tema claro antes de cambiar a oscuro. Mismo criterio que
+      // ThemeContext: sin localStorage, el predeterminado es claro (no se
+      // consulta la preferencia del sistema).
+      (function () {
+        try {
+          if (localStorage.getItem('musicland_theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) {
+          /* localStorage bloqueado (modo privado, etc.): se queda en claro. */
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

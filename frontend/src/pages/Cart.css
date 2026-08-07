@@ -5,6 +5,13 @@
   align-items: start;
 }
 
+/* Sin esto, una columna de grid no encoge por debajo del contenido de sus
+   hijos (min-width: auto implícito) — en mobile, con la columna colapsada a
+   1fr, eso puede empujar toda la fila más ancha que la pantalla. */
+.cart-layout > * {
+  min-width: 0;
+}
+
 .cart-list {
   display: flex;
   flex-direction: column;

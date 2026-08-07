@@ -20,7 +20,6 @@ export default function ProductDetail() {
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const [adding, setAdding] = useState(false);
-  const [buying, setBuying] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [error, setError] = useState('');
 
@@ -53,22 +52,14 @@ export default function ProductDetail() {
     }
   }
 
-  // Agrega el producto al carrito y salta directo a checkout, sin pasar por la
-  // pantalla de carrito: es el atajo de "una compra, un clic".
-  async function handleBuyNow() {
+  // Salta directo a checkout con este producto puntual, sin pasar por el
+  // carrito ni tocarlo: lo que el usuario ya tenía guardado ahí se queda igual.
+  function handleBuyNow() {
     if (!user) {
       navigate('/login', { state: { from: `/producto/${id}` } });
       return;
     }
-    setBuying(true);
-    setError('');
-    try {
-      await addToCart(product._id, quantity);
-      navigate('/checkout');
-    } catch (err) {
-      setError(err.response?.data?.message || 'No se pudo procesar la compra.');
-      setBuying(false);
-    }
+    navigate('/checkout', { state: { buyNow: { product, quantity } } });
   }
 
   if (loading) {
@@ -136,16 +127,16 @@ export default function ProductDetail() {
                 type="button"
                 className="btn btn-accent"
                 onClick={handleBuyNow}
-                disabled={outOfStock || buying || adding}
+                disabled={outOfStock}
               >
                 <BoltIcon size={16} />
-                {buying ? 'Procesando...' : 'Comprar ahora'}
+                Comprar ahora
               </button>
               <button
                 type="button"
                 className="btn btn-primary"
                 onClick={handleAddToCart}
-                disabled={outOfStock || adding || buying}
+                disabled={outOfStock || adding}
               >
                 <CartIcon size={16} />
                 {feedback || 'Agregar al carrito'}

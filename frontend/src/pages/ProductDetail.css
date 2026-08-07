@@ -5,6 +5,10 @@
   align-items: start;
 }
 
+.product-detail > * {
+  min-width: 0;
+}
+
 .product-detail-image {
   border-radius: var(--radius-lg);
   overflow: hidden;

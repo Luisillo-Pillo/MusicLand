@@ -22,8 +22,8 @@
 }
 
 .admin-returns-status-select.status-pendiente {
-  border-color: #d97706;
-  color: #d97706;
+  border-color: var(--color-warning);
+  color: var(--color-warning);
 }
 
 .admin-returns-status-select.status-aprobada {

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
+import { useTheme } from '../context/ThemeContext';
 import {
   LogoIcon,
   SearchIcon,
@@ -12,13 +13,16 @@ import {
   EditIcon,
   ReceiptIcon,
   MenuIcon,
-  CloseIcon
+  CloseIcon,
+  SunIcon,
+  MoonIcon
 } from './icons';
 import './Header.css';
 
 export default function Header() {
   const { user, logout } = useAuth();
   const { totalItems } = useCart();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
   const [searchParams] = useSearchParams();
@@ -99,6 +103,16 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
+          <button
+            type="button"
+            className="header-theme-btn"
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+            title={theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}
+          >
+            {theme === 'dark' ? <SunIcon size={18} /> : <MoonIcon size={18} />}
+          </button>
+
           {!user ? (
             <>
               <Link to="/login" className="btn btn-outline btn-sm">

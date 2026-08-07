@@ -190,18 +190,13 @@
     gap: 4px;
   }
 
-  /* La fila de filtros inline se reemplaza por el botón "Filtrar por" + modal
-     (y toda referencia al total de productos se retira, solo en mobile). */
+  /* La fila de filtros inline se reemplaza por el botón "Filtrar por" + modal. */
   .home-filters-desktop {
     display: none;
   }
 
   .home-filters-mobile-btn {
     display: inline-flex;
-  }
-
-  .home-total-desktop {
-    display: none;
   }
 }
 

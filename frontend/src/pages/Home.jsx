@@ -162,8 +162,6 @@ export default function Home() {
         <section>
           <div className="home-section-title">
             <h2>{search ? `Resultados para "${search}"` : 'Nuestros productos'}</h2>
-            {/* Solo en escritorio: en mobile se quita toda referencia al total. */}
-            <span className="home-total-desktop">{total} productos disponibles</span>
           </div>
 
           {/* Fila inline de siempre, visible solo en escritorio (ver media query). */}
@@ -247,14 +245,7 @@ export default function Home() {
                     disabled={loadingMore}
                     onClick={loadMore}
                   >
-                    {loadingMore ? (
-                      'Cargando...'
-                    ) : (
-                      <>
-                        Ver más productos{' '}
-                        <span className="home-total-desktop">({total - products.length})</span>
-                      </>
-                    )}
+                    {loadingMore ? 'Cargando...' : 'Ver más productos'}
                   </button>
                 </div>
               )}

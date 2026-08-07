@@ -270,7 +270,6 @@ export default function AdminOrderDetail() {
                 <p>
                   {order.paymentMethod.brand} •••• {order.paymentMethod.last4}
                 </p>
-                <p className="order-detail-muted">Pago simulado, sin cobro real.</p>
               </div>
             )}
           </div>

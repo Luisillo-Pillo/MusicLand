@@ -13,6 +13,16 @@ function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
+function formatDateTime(dateStr) {
+  return new Date(dateStr).toLocaleString('es-MX', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+}
+
 export default function ReturnRequestSection() {
   const { user } = useAuth();
 
@@ -149,6 +159,26 @@ export default function ReturnRequestSection() {
               ))}
             </select>
           </div>
+
+          {selectedOrder && (
+            <div className="return-request-order-info">
+              <div className="return-request-order-info-row">
+                <span className="return-request-order-info-label">Pedido</span>
+                <span>#{selectedOrder.orderNumber}</span>
+              </div>
+              <div className="return-request-order-info-row">
+                <span className="return-request-order-info-label">Fecha y hora</span>
+                <span>{formatDateTime(selectedOrder.createdAt)}</span>
+              </div>
+              <p className="return-request-order-info-products">
+                {selectedOrder.products.map((p) => `${p.name} x${p.quantity}`).join(' · ')}
+              </p>
+              <div className="return-request-order-info-row return-request-order-info-total">
+                <span className="return-request-order-info-label">Monto</span>
+                <span>{formatPrice(selectedOrder.total)}</span>
+              </div>
+            </div>
+          )}
 
           {selectedOrder && (
             <div className="form-group">
