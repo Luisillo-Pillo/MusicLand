@@ -1,0 +1,554 @@
+PROMPT INICIAL — PROYECTO "MUSICLAND"
+======================================
+(Este es el prompt que le daría a una IA de codificación para generar este
+proyecto completo desde cero en una sola sesión de trabajo extensa. Incluye
+stack, arquitectura, modelos de datos, reglas de negocio, endpoints, diseño
+y decisiones de producto que se fueron afinando durante el desarrollo real.)
+
+
+ROL Y CONTEXTO
+---------------
+Eres un desarrollador full-stack senior. Vas a construir "MusicLand", una
+tienda en línea (e-commerce) de instrumentos musicales y equipo de audio,
+de principio a fin: backend, frontend, base de datos, seed de datos reales
+y despliegue. El proyecto debe quedar funcional, seguro y listo para
+producción con una base de datos real en MongoDB Atlas (no uses una base de
+datos de prueba separada; todo el desarrollo y las pruebas se hacen contra
+la misma base de datos real del proyecto).
+
+El sitio es 100% en español (México). Todos los textos de interfaz, correos,
+mensajes de error y validaciones deben estar en español.
+
+
+STACK TECNOLÓGICO
+-------------------
+Backend:
+- Node.js (>=18) + Express 4
+- MongoDB + Mongoose 8 (usar MongoDB Atlas en producción)
+- Autenticación con JSON Web Tokens (jsonwebtoken) — duración configurable
+  por variable de entorno, por defecto 30 días
+- bcryptjs para hash de contraseñas
+- helmet para cabeceras de seguridad
+- cors configurado con lista blanca de orígenes desde variable de entorno
+- express-rate-limit para limitar intentos de login/registro y envíos del
+  formulario de contacto
+- nodemailer para envío de correos vía SMTP de Gmail
+- dotenv para variables de entorno
+- nodemon en desarrollo
+
+Frontend:
+- React 18 + Vite 5
+- React Router DOM 6 (rutas declarativas, sin SSR)
+- Axios para las llamadas a la API, con un cliente centralizado que inyecta
+  el JWT desde localStorage en cada request
+- CSS plano organizado por componente/página (un .css junto a cada .jsx),
+  sin framework de CSS ni CSS-in-JS. Variables CSS (custom properties) en
+  :root para theming.
+- Sin librería de gestión de estado global aparte de Context API de React
+  (Auth, Cart, Theme)
+
+Estructura de carpetas (monorepo simple, dos paquetes):
+
+  /backend
+    server.js                  <- entrypoint (arranca Express, conecta Mongo)
+    src/
+      config/db.js              <- conexión a Mongoose
+      models/                   <- User, Product, Order, ContactMessage
+      controllers/              <- lógica de cada recurso
+      routes/                   <- routers de Express por recurso
+      middleware/               <- auth (protect/adminOnly), rate limiters
+      utils/                    <- generateToken, mailer, handleError
+      seed/                     <- seedData.js (350 productos) + seed.js
+    .env.example
+
+  /frontend
+    src/
+      main.jsx, App.jsx          <- bootstrap y definición de rutas
+      pages/                     <- una página por ruta
+      components/                <- piezas reutilizables (Header, Footer,
+                                     modales, tarjetas, íconos, mapa, etc.)
+      context/                   <- AuthContext, CartContext, ThemeContext
+      api/                       <- un archivo por recurso (axios wrappers)
+      utils/                     <- formato de moneda/fecha, reglas de
+                                     estatus de pedidos
+      config/                    <- datos del sitio (dirección, teléfono,
+                                     horario, mapa) y logos de marcas
+    .env.example
+
+  README.md con instrucciones de instalación, variables de entorno y seed.
+
+
+MODELOS DE DATOS (Mongoose)
+-----------------------------
+
+### User
+- name (String, requerido)
+- email (String, requerido, único, lowercase)
+- phone (String)
+- password (String, requerido, min 6, con `select: false`, hasheado con
+  bcrypt en un hook `pre('save')`)
+- profilePhoto (String, URL; por defecto un avatar generado con la API de
+  DiceBear a partir del nombre)
+- role: enum ['user', 'admin'], default 'user'
+- lastLogin (Date)
+- addresses: arreglo de direcciones embebidas (label, fullName, street,
+  city, state, zipCode, country, phone, isDefault)
+- paymentMethods: arreglo de métodos de pago embebidos — SOLO datos de
+  tarjeta simulados/no sensibles (cardholderName, brand: enum
+  ['Visa','Mastercard','American Express'], last4, expiry con formato
+  MM/AA, isDefault). No se procesan pagos reales ni se guarda el número
+  completo ni el CVV.
+- cart: arreglo de { product: ref Product, quantity }
+- timestamps
+
+Métodos de instancia: comparePassword, toSafeObject (sin password),
+toAdminObject (vista reducida para listados de admin, sin direcciones,
+métodos de pago ni carrito).
+
+### Product
+- name, description, category (String libre), brand (String libre)
+- price (Number >= 0), stock (Number >= 0)
+- image (String, URL)
+- featured (Boolean)
+- índice de texto sobre name, description, brand, category para búsqueda
+- timestamps
+
+### Order
+- orderNumber (String único, generado como `ML-<timestamp base36>-<random>`)
+- user: ref User
+- products: copia congelada de cada línea comprada (product ref, name,
+  image, price, quantity) — así el pedido no cambia si el producto se
+  edita o borra después
+- total (Number)
+- shippingAddress y paymentMethod embebidos (copia al momento de comprar)
+- status: enum ['pendiente','procesando','enviado','entregado','cancelado'],
+  default 'procesando'
+- cancelledAt, cancelledBy (enum ['cliente','admin',null]), cancellationReason
+- deliveredAt (Date, SOLO fecha, sin hora — medianoche local): se rellena
+  automáticamente el momento en que un admin cambia el estatus a
+  "entregado". Es la base de la ventana de devoluciones.
+- returnRequests: ARREGLO de solicitudes de devolución (no un campo único),
+  porque un mismo pedido con varios productos puede devolverse por partes.
+  Cada entrada tiene su propio `_id` y:
+    - items: [{ product ref, name, quantity }]
+    - fullOrder (Boolean): si esa solicitud cubrió todo lo que aún quedaba
+      disponible para devolver en ese momento
+    - reason (String, requerido)
+    - status: enum ['pendiente','aprobada','rechazada']
+    - requestedAt (Date)
+- timestamps
+
+### ContactMessage
+- name, email, message
+- replied (Boolean), reply (String), repliedAt (Date)
+- timestamps
+
+
+AUTENTICACIÓN Y SEGURIDAD
+----------------------------
+- Registro y login devuelven { user, token }. El token se guarda en
+  localStorage en el frontend bajo la clave `musicland_token` y se manda
+  como `Authorization: Bearer <token>` en cada request vía un interceptor
+  de axios.
+- Middleware `protect`: exige y valida el JWT, adjunta el usuario completo
+  a `req.user`.
+- Middleware `adminOnly`: exige `req.user.role === 'admin'`.
+- Rate limiting: 10 intentos / 15 min en login y registro; 5 mensajes / 15
+  min en el formulario de contacto.
+- helmet activo; CORS restringido a los orígenes de `CLIENT_URL` (uno o
+  varios separados por coma).
+- `app.set('trust proxy', 1)` porque se despliega detrás de un proxy (Render
+  u otro PaaS) y el rate limiter necesita la IP real del cliente.
+- Nunca se guardan datos reales de tarjetas: el checkout es una simulación
+  de cobro (no hay integración real con una pasarela de pago). No debe
+  aparecer NINGÚN texto de cara al usuario que diga explícitamente "esto no
+  es un cobro real" — la app se presenta y se comporta como un checkout
+  normal, simplemente no está conectada a un procesador de pagos real por
+  debajo.
+
+
+ENDPOINTS DE LA API (prefijo /api)
+--------------------------------------
+Todas las rutas devuelven JSON. Los errores usan un helper común que
+responde `{ message }` con el código HTTP adecuado (400/401/403/404/409/500).
+
+/api/auth
+  POST /register            — crea usuario, devuelve token
+  POST /login                — valida credenciales, actualiza lastLogin
+
+/api/users   (todo detrás de `protect`)
+  GET    /                   [admin] lista de usuarios (vista reducida)
+  GET    /me                  perfil propio completo
+  PUT    /me                  actualizar nombre/teléfono/foto
+  POST   /me/addresses        agregar dirección
+  PUT    /me/addresses/:id    editar dirección
+  DELETE /me/addresses/:id    borrar dirección
+  POST   /me/payment-methods       agregar método de pago
+  PUT    /me/payment-methods/:id   editar método de pago
+  DELETE /me/payment-methods/:id   borrar método de pago
+  GET    /:id                 [admin] perfil de un usuario
+  PUT    /:id/role            [admin] cambiar rol user/admin
+  POST   /:id/contact         [admin] enviarle un correo a un usuario
+  DELETE /:id                 [admin] eliminar usuario — ver regla de
+                               cascada en "Reglas de negocio"
+
+/api/products
+  GET    /                    lista con búsqueda (?search=), filtros
+                               (?category=, ?brand=), orden (?sort=) y
+                               paginación (?page=, ?limit=)
+  GET    /featured             productos destacados para Home
+  GET    /filters               categorías y marcas disponibles (para los
+                               selects de filtro)
+  GET    /:id                  detalle de un producto
+  POST   /                    [admin] crear producto
+  PUT    /:id                 [admin] editar producto
+  DELETE /:id                 [admin] borrar producto
+
+/api/cart   (todo detrás de `protect`)
+  GET    /                    carrito del usuario (populado)
+  POST   /                    agregar producto
+  PUT    /:productId           actualizar cantidad
+  DELETE /clear                 vaciar carrito
+  DELETE /:productId            quitar un producto
+
+/api/orders   (todo detrás de `protect`)
+  POST   /                    crear pedido — ver reglas de negocio
+  GET    /                    mis pedidos
+  GET    /all                 [admin] todos los pedidos (?status= filtro)
+  GET    /returns             [admin] pedidos con al menos una solicitud
+                               de devolución
+  GET    /user/:userId        [admin] pedidos de un usuario específico
+  GET    /:id                  detalle de un pedido (dueño o admin)
+  PUT    /:id/status           [admin] cambiar estatus (no permite pasar a
+                               "cancelado" por aquí, ni tocar un pedido ya
+                               entregado/cancelado)
+  PUT    /:id/cancel            cancelar (cliente dueño o admin) — motivo
+                               obligatorio
+  POST   /:id/return-request                       solicitar devolución
+  PUT    /:id/return-request/:requestId/status     [admin] cambiar estatus
+                                                     de UNA solicitud puntual
+  DELETE /:id/return-request/:requestId            [admin] borrar UNA
+                                                     solicitud puntual
+  DELETE /:id                  [admin] borrar pedido (solo si su estatus es
+                               final: entregado o cancelado)
+
+/api/contact
+  POST   /                    [rate limited] enviar mensaje de contacto
+  GET    /                    [admin] listar mensajes
+  POST   /:id/reply           [admin] responder por correo
+  DELETE /:id                 [admin] borrar mensaje
+
+
+REGLAS DE NEGOCIO (la parte más importante — sé exhaustivo aquí)
+--------------------------------------------------------------------
+
+1) Compra / creación de pedido
+   - El pedido normal se arma desde el carrito del usuario.
+   - Además debe existir un flujo de "Comprar ahora" desde el detalle de un
+     producto: compra ÚNICAMENTE ese producto puntual (con la cantidad
+     elegida ahí mismo), pasado al checkout mediante estado de navegación
+     (no por query string), SIN tocar ni vaciar el carrito guardado del
+     usuario. El backend debe aceptar un `items` explícito en el body de
+     POST /orders para este caso; si no viene, usa el carrito completo.
+   - Al confirmar, se descuenta el stock de cada producto de forma atómica
+     (find-and-update condicionado a `stock >= cantidad`); si algún producto
+     no tiene stock suficiente, se aborta la compra completa y se revierte
+     cualquier descuento ya aplicado en esa misma transacción de negocio.
+   - El pedido guarda una copia congelada de nombre/imagen/precio de cada
+     producto (no una referencia viva), para que el historial no cambie si
+     el producto se edita o se borra después.
+   - Se generan dos correos al confirmarse la compra (ver sección de
+     correos): uno a la tienda y uno de agradecimiento al cliente.
+
+2) Estatus de un pedido
+   - Ciclo: pendiente → procesando → enviado → entregado. "cancelado" es
+     una salida alterna, no un paso de esta cadena.
+   - "entregado" y "cancelado" son estatus FINALES: una vez ahí, el pedido
+     ya no puede cambiar de estatus por la ruta genérica de actualización.
+   - Al marcar un pedido como "entregado", el backend debe registrar
+     automáticamente `deliveredAt` con la fecha de ESE momento, SIN
+     componente de hora (medianoche local). Esa fecha es la base de la
+     ventana de devoluciones (ver punto 4).
+   - Solo se pueden BORRAR pedidos que ya estén en un estatus final
+     (entregado o cancelado); los que siguen en curso no se pueden borrar.
+
+3) Cancelación de un pedido
+   - El cliente dueño puede cancelar mientras el pedido siga en "pendiente"
+     o "procesando". Un admin puede cancelar además uno ya "enviado".
+   - Un pedido "entregado" NUNCA se puede cancelar — a partir de ahí el
+     único camino es solicitar una devolución.
+   - Cancelar exige SIEMPRE un motivo de texto (obligatorio, no opcional,
+     máx. 1000 caracteres) tanto en el frontend (validación antes de
+     enviar) como en el backend (rechazo con 400 si viene vacío).
+   - Al cancelar se devuelve el stock descontado al inventario.
+   - Se registra quién canceló (`cliente` o `admin`) y se envía el correo
+     correspondiente (ver sección de correos).
+   - Si un admin ELIMINA la cuenta de un usuario, todos los pedidos de ese
+     usuario que sigan activos (no estén ya en un estatus final) deben
+     cancelarse automáticamente como parte de esa misma operación, devolviendo
+     su stock al inventario igual que una cancelación normal.
+
+4) Devoluciones — reglas de elegibilidad (leer con cuidado, son finas)
+   - Solo se puede solicitar la devolución de un pedido cuyo estatus sea
+     "entregado".
+   - Ventana de tiempo: la opción de devolución debe desaparecer 15 días
+     después de la fecha de entrega (`deliveredAt`). Pasado ese plazo, ya
+     no se puede solicitar devolución de nada de ese pedido, aunque nunca
+     se haya solicitado una.
+   - Elegibilidad POR PRODUCTO, no por pedido completo: un producto que ya
+     apareció en CUALQUIER solicitud de devolución anterior de ese pedido
+     — sin importar si esa solicitud terminó aprobada, rechazada o sigue
+     pendiente — YA NO puede volver a incluirse en una nueva solicitud.
+   - Un pedido con un solo producto al que ya se le pidió devolución deja
+     de ser elegible por completo (no hay nada más que pedir).
+   - Un pedido con varios productos permite solicitudes PARCIALES: en
+     cualquier momento se puede pedir la devolución solo de los productos
+     que todavía no se hayan incluido en ninguna solicitud previa. Cuando,
+     entre todas las solicitudes acumuladas, ya se cubrieron TODOS los
+     productos del pedido, ese pedido deja de ser elegible para nuevas
+     solicitudes.
+   - Por eso el modelo de datos usa un ARREGLO de solicitudes por pedido
+     (no un único campo): cada tanda de productos devueltos, con su propio
+     motivo y su propio estatus independiente.
+   - Al solicitar, el cliente elige: el pedido completo (léase: todo lo que
+     todavía esté disponible para devolver, no necesariamente el pedido
+     original si ya hubo devoluciones parciales antes) o productos
+     específicos, y debe escribir un motivo obligatorio.
+   - El admin gestiona cada solicitud de forma independiente: puede
+     aprobarla, rechazarla o borrarla sin afectar a las demás solicitudes
+     del mismo pedido. Borrar una solicitud libera esos productos (vuelven
+     a quedar disponibles para una futura solicitud, siempre que se siga
+     dentro de la ventana de 15 días).
+   - El cliente debe poder solicitar una devolución desde DOS lugares: (a)
+     una sección dedicada en la página de "Envíos y devoluciones" donde
+     primero elige de una lista cuál de sus pedidos entregados quiere
+     devolver (mostrando ahí mismo, dentro del mismo recuadro y no como un
+     menú aparte, el id, la fecha/hora, el listado compacto de productos y
+     el monto del pedido elegido), y (b) un botón directo en cada tarjeta
+     de un pedido entregado dentro del Historial de compras, que abre un
+     modal ya centrado en ese pedido en particular.
+   - El cliente debe ver reflejado en su Historial de compras el estatus
+     de cada solicitud que haya hecho (en revisión / aprobada / rechazada),
+     actualizado en cuanto el admin lo cambie.
+   - Panel de admin: pestaña "Devoluciones" con pestañas/filtros por
+     estatus, buscador (por número de pedido, cliente o correo), un select
+     de estatus por fila, un botón de "ver detalle" con toda la información
+     de esa solicitud puntual, y un botón de ícono de basura para borrarla
+     (con confirmación). Como un pedido puede tener varias solicitudes,
+     cada solicitud es su propia fila en la tabla (un mismo pedido puede
+     aparecer más de una vez).
+
+5) Reactivación / edición de stock
+   - Cualquier operación que revierta una compra (cancelación, cascada al
+     borrar un usuario, fallo a media transacción) debe devolver el stock
+     exacto que se había descontado, nunca de más ni de menos.
+
+
+SISTEMA DE CORREOS (nodemailer + SMTP de Gmail)
+--------------------------------------------------
+Todos salen del correo de la tienda (variable `SMTP_USER`, con contraseña
+de aplicación de 16 caracteres, variable `SMTP_PASS`). Hay un helper
+`sendMail` reutilizable con `escapeHtml` para sanear cualquier texto
+generado por el usuario antes de insertarlo en el HTML del correo. Ningún
+fallo de envío de correo debe tumbar la operación principal: siempre se
+manda dentro de un try/catch no bloqueante que solo registra el error en
+consola si algo sale mal.
+
+Correos a implementar:
+1. Nueva compra → aviso a la tienda (a `NOTIFY_EMAIL`), con detalle del
+   pedido, dirección de envío y datos del cliente.
+2. Nueva compra → confirmación de "gracias por tu compra" al correo del
+   propio cliente, con el detalle de lo comprado, dirección de envío y
+   método de pago (últimos 4 dígitos).
+3. Cancelación por el cliente → aviso a la tienda.
+4. Cancelación por el admin → aviso al cliente, incluyendo el motivo.
+5. Nueva solicitud de devolución → aviso a la tienda con el alcance
+   (pedido completo o productos específicos), los productos y el motivo.
+6. Cambio de estatus de una solicitud de devolución (aprobada/rechazada)
+   → aviso al cliente.
+7. Un admin le escribe directo a un usuario desde el panel de admin
+   (formulario libre) → correo al usuario con `replyTo` del admin.
+8. Alguien responde un mensaje del formulario de contacto desde el panel
+   de admin → correo de respuesta a quien escribió.
+
+
+PÁGINAS Y RUTAS DEL FRONTEND
+--------------------------------
+Públicas:
+  /                          Home (destacados, buscador, categorías)
+  /producto/:id               Detalle de producto (con botón "Agregar al
+                               carrito" y "Comprar ahora")
+  /categorias                  Listado de categorías
+  /marcas                      Listado de marcas con su logo
+  /contacto                    Formulario de contacto + mapa interactivo
+  /preguntas-frecuentes         FAQ
+  /envios-y-devoluciones        Políticas + formulario para solicitar
+                               devolución
+  /login, /registro
+
+Protegidas (usuario logueado):
+  /perfil                      Datos personales, direcciones, métodos de
+                               pago (agregar/editar/borrar de cada uno)
+  /carrito
+  /checkout                    Resumen + dirección + método de pago
+  /pedido-confirmado            Pantalla de éxito tras comprar
+  /historial-compras            Pedidos propios, con cancelar / solicitar
+                               devolución / ver detalle según el estatus
+
+Protegidas (solo admin):
+  /admin/productos              CRUD de productos
+  /admin/pedidos                 Lista con pestañas de estatus colapsables
+  /admin/pedidos/:id              Detalle de un pedido
+  /admin/devoluciones             Gestión de solicitudes de devolución
+  /admin/usuarios                 Lista de usuarios
+  /admin/usuarios/:id              Perfil de un usuario (cambiar rol,
+                                 contactarlo, eliminarlo)
+  /admin/usuarios/:id/compras      Pedidos de ese usuario
+  /admin/mensajes                  Bandeja del formulario de contacto
+
+* (cualquier otra ruta) → página 404
+
+
+DISEÑO, UX Y RESPONSIVIDAD
+------------------------------
+- Diseño limpio, morado como color de marca (`--color-primary`), tarjetas
+  con bordes redondeados y sombra suave, tipografía del sistema.
+- El sitio debe ser responsive de verdad, no solo "que no se rompa": probar
+  en anchos móviles reales (320–480px) además de tablet y desktop. Puntos
+  a cuidar específicamente porque son errores comunes y ya se detectaron
+  durante el desarrollo real de este proyecto:
+    · CSS Grid con columnas `1fr`: por defecto un hijo de grid tiene
+      `min-width: auto`, así que si su contenido es más ancho que la
+      columna, EMPUJA el layout y provoca scroll horizontal. Poner
+      `min-width: 0` explícito en los hijos directos de cualquier grid de
+      2+ columnas que pueda colapsar a 1 columna en mobile (carrito,
+      checkout, contacto, detalle de producto, secciones de la página de
+      envíos/devoluciones, detalle de pedido en admin, etc.).
+    · Los `<select>` sin un ancho fijo se dimensionan al texto de su
+      opción más larga y pueden desbordar en mobile: poner
+      `min-width: 0` también en inputs/selects/textareas dentro de
+      `.form-group`.
+    · Poner `overflow-x: hidden` en html/body como red de seguridad
+      adicional (nunca como sustituto de arreglar la causa real).
+  - Verificar SIEMPRE con capturas reales a un ancho móvil concreto (p. ej.
+    390×844 o el que reporte el usuario), no solo "achicar la ventana y ver
+    si se ve bien".
+- Barra de navegación: en desktop, elementos centrados/espaciados (no
+  pegados a los bordes); en mobile, colapsa a un menú hamburguesa que
+  muestra los links de navegación al abrirse.
+- En vista de un usuario normal, NO mostrar el conteo total de productos
+  del catálogo en ningún lado del Home (sí puede mostrarse en el panel de
+  admin). Tampoco mostrar el stock ni la categoría de un producto en las
+  tarjetas del Home — esa información solo aparece en la página de detalle.
+- Las tarjetas de producto del Home deben ser completamente clicables
+  (clic en cualquier parte de la tarjeta que no sea un botón interno
+  navega al detalle del producto), no solo un botón "Ver más".
+- En mobile, la lista de filtros de productos se colapsa en un modal en
+  vez de ocupar espacio permanente en la pantalla, y el botón de "agregar
+  al carrito" de cada tarjeta se reduce a solo ícono.
+- Modo claro/oscuro: selector visible en la barra de navegación. El modo
+  CLARO es el predeterminado explícito — NO detectar ni usar la preferencia
+  del sistema operativo (`prefers-color-scheme`) para decidir el modo
+  inicial; solo se cambia si el usuario lo elige, y esa elección se
+  recuerda en localStorage. Evitar el parpadeo de tema incorrecto al cargar
+  (aplicar el tema guardado antes del primer render, con un script inline
+  en el <head>).
+- El footer incluye datos de contacto (dirección, teléfono, correo,
+  horario) y enlaces a Preguntas frecuentes y Envíos y devoluciones.
+- La página de Contacto incluye un mapa interactivo (embed de
+  OpenStreetMap) centrado en la dirección real de la tienda, con enlace
+  para abrir direcciones en Google Maps.
+
+
+PANEL DE ADMINISTRACIÓN
+---------------------------
+- Navegación propia entre sus secciones (Productos, Pedidos, Devoluciones,
+  Usuarios, Mensajes).
+- Productos: alta/edición/borrado, con imagen, precio, stock, categoría,
+  marca y si es destacado.
+- Pedidos: lista con pestañas de estatus COLAPSABLES (se pueden expandir o
+  contraer para ahorrar espacio), cambio de estatus por fila (excepto
+  hacia/desde los estatus finales, que siguen sus reglas propias), borrado
+  solo si el pedido ya está en un estatus final.
+- Devoluciones: como se describió en la sección de reglas de negocio.
+- Usuarios: lista, ver perfil de cada uno, cambiar su rol (user/admin),
+  contactarlo por correo desde un formulario del propio panel, ver su
+  historial de compras, eliminar la cuenta (con la cascada de cancelación
+  de pedidos activos ya descrita).
+- Mensajes: bandeja de entrada del formulario de contacto público, marcar
+  como respondido y contestar por correo desde ahí mismo.
+
+
+DATOS SEMILLA (seed)
+------------------------
+Un script `npm run seed` que llena la base de datos con un catálogo
+realista de ~350 productos de instrumentos musicales y audio profesional,
+repartidos en categorías como: Pianos, Pianos Digitales, Teclados,
+Sintetizadores, Guitarras Acústicas, Guitarras Eléctricas, Bajos Eléctricos,
+Instrumentos de Viento, Baterías, Baterías Electrónicas, Platillos, Audio,
+Amplificadores, Micrófonos — de marcas reales del rubro (Yamaha, Fender,
+Gibson, Roland, Steinway & Sons, Casio, Korg, Ibanez, Shure, Pearl,
+Zildjian, Gretsch, Martin, Taylor Guitars, Selmer, Marshall, Rickenbacker,
+Bösendorfer, Moog, Sennheiser). Cada producto necesita nombre, descripción,
+precio, stock inicial, marca, categoría e imagen. Para las imágenes, usar
+fotos reales de esos instrumentos con licencia libre (por ejemplo, vía la
+API de Wikimedia Commons), asignadas de forma consistente por categoría ya
+que no es viable tener una foto única por cada uno de los 350 productos.
+También sembrar los logos reales de cada una de esas 20 marcas (misma
+fuente) para la página de Marcas, con un fondo blanco fijo detrás del logo
+(independiente del tema claro/oscuro) porque la mayoría de esos logos son
+oscuros y se perderían en fondo oscuro.
+
+
+INFORMACIÓN DEL SITIO (usar como único punto de verdad, no hardcodear en
+cada componente)
+-------------------------------------------------------------------------
+  Nombre: MusicLand
+  Dirección: Calle Aldama #306, Rincón de Romos Centro, Rincón de Romos,
+             Ags, C.P. 20400, México
+  Teléfono: +52 449 260 9175
+  Correo de la tienda: musicland1305@gmail.com
+  Horario: Lunes a sábado, 8:00 a.m. - 8:00 p.m.
+  (coordinar con el desarrollador el correo real donde llegan las
+  notificaciones internas — puede ser distinto al correo público de la
+  tienda)
+
+
+VARIABLES DE ENTORNO
+------------------------
+Backend (.env):
+  PORT=5000
+  MONGODB_URI=<connection string de MongoDB Atlas>
+  JWT_SECRET=<secreto largo y aleatorio>
+  JWT_EXPIRES_IN=30d
+  CLIENT_URL=http://localhost:5173        (uno o varios, separados por coma)
+  SMTP_USER=<correo de Gmail de la tienda>
+  SMTP_PASS=<contraseña de aplicación de 16 caracteres, no la contraseña normal>
+  NOTIFY_EMAIL=<correo donde llegan los avisos internos>
+
+Frontend (.env):
+  VITE_API_URL=http://localhost:5000/api
+
+
+CRITERIOS DE ACEPTACIÓN / CÓMO VERIFICAR QUE QUEDÓ BIEN
+------------------------------------------------------------
+- El sitio corre con `npm run dev` en ambas carpetas sin errores en
+  consola del navegador ni del servidor.
+- Flujo completo de compra probado de punta a punta: registro → agregar al
+  carrito o "comprar ahora" → checkout → confirmación → aparece en
+  Historial de compras → llegan los correos correspondientes.
+- Un pedido puede recorrer todo su ciclo de estatus desde el panel de
+  admin, respetando qué transiciones están permitidas y cuáles no.
+- Cancelar un pedido sin motivo debe rechazarse tanto en el formulario
+  (no deja enviar) como si se intenta forzar la llamada a la API
+  directamente.
+- Las reglas de devolución (ventana de 15 días, elegibilidad por producto,
+  solicitudes parciales) deben probarse con casos concretos: un pedido de
+  un solo producto ya solicitado, un pedido de varios productos con una
+  solicitud parcial previa, un pedido fuera de la ventana de 15 días.
+- Revisar visualmente cada página a un ancho de mobile real (no solo
+  "cabe o no cabe") confirmando que no hay scroll horizontal en ningún
+  punto del sitio.
+- El modo oscuro se puede activar, se recuerda al recargar, y no aparece
+  activado por defecto en un navegador nuevo aunque el sistema operativo
+  esté en modo oscuro.
