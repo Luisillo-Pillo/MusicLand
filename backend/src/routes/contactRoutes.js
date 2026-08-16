@@ -10,6 +10,9 @@ const {
 
 const router = express.Router();
 
+// Enviar el formulario de contacto es público (así lo usa cualquier visitante);
+// contactLimiter evita que se use para hacer spam. Leer, responder o borrar
+// esos mensajes es exclusivo del panel de administración.
 router.post('/', contactLimiter, sendContactMessage);
 router.get('/', protect, adminOnly, getContactMessages);
 router.post('/:id/reply', protect, adminOnly, replyContactMessage);

@@ -79,6 +79,7 @@ const FAQ_GROUPS = [
   }
 ];
 
+// Una pregunta del acordeón: la respuesta solo se monta en el DOM cuando está abierta.
 function FAQItem({ q, a, isOpen, onToggle }) {
   return (
     <div className={`faq-item ${isOpen ? 'open' : ''}`}>
@@ -91,6 +92,9 @@ function FAQItem({ q, a, isOpen, onToggle }) {
   );
 }
 
+// Página de preguntas frecuentes: acordeón agrupado por tema (FAQ_GROUPS,
+// contenido estático arriba). Solo una pregunta puede estar abierta a la vez
+// (openKey guarda "grupo-pregunta" de la que está abierta, o null si ninguna).
 export default function FAQ() {
   const [openKey, setOpenKey] = useState('0-0');
 

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { EyeIcon, EyeOffIcon } from './icons';
 import './PasswordInput.css';
 
+// Input de contraseña con botón de "mostrar/ocultar" (ojo). Se usa en
+// Login/Register/Profile en vez de un <input type="password"> plano.
 export default function PasswordInput({ id, name, value, onChange, required, autoComplete }) {
   const [visible, setVisible] = useState(false);
 

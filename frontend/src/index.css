@@ -118,9 +118,15 @@ button {
   font-family: inherit;
 }
 
+/* Ancho máximo del contenido en toda la app (Header, Footer y el cuerpo de
+   cada página usan esta misma clase). 1200px se sentía angosto en monitores
+   grandes — dejaba franjas vacías considerables a los lados en pantallas de
+   1440px+ — así que se amplió a 1440px, más acorde a lo que usan sitios de
+   e-commerce comparables. En pantallas más chicas no cambia nada: sigue
+   siendo 100% del ancho disponible menos el padding lateral. */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -293,10 +299,39 @@ button {
   opacity: 0.5;
 }
 
+/* Mensaje de error de cara al usuario: se usa en formularios y listados de
+   toda la app (login, checkout, carrito, panel de admin, etc.) a través de
+   esta única clase, así que el estilo que se defina aquí se aplica en todos
+   lados por igual. En vez de texto rojo suelto, se presenta como una tarjeta
+   de aviso: fondo tenue + borde de acento + una viñeta "!" para que se
+   distinga de inmediato de un párrafo normal, incluso sin leer el texto. */
 .error-text {
-  color: var(--color-danger);
-  font-size: 0.85rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
   margin: 0;
+  padding: 10px 14px;
+  background: var(--badge-red-bg);
+  border-left: 3px solid var(--color-danger);
+  border-radius: var(--radius-sm);
+  color: var(--badge-red-text);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.error-text::before {
+  content: '!';
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: var(--color-danger);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
 }
 
 .spinner-wrapper {

@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import './AdminNav.css';
 
+// Barra de navegación fija del panel de administración (se muestra en todas
+// las páginas /admin/*). NavLink resalta el enlace de la sección activa sola.
 export default function AdminNav() {
   return (
     <nav className="admin-nav">

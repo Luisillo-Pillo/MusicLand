@@ -3,6 +3,9 @@ import './CancelOrderModal.css';
 
 const MAX_REASON = 1000;
 
+// Modal de cancelación de pedido: pide un motivo obligatorio (se manda por
+// correo a la otra parte) antes de permitir confirmar. `byAdmin` solo cambia
+// los textos (quién recibe el aviso), la lógica de envío la maneja quien use este modal.
 export default function CancelOrderModal({ order, sending, error, byAdmin = false, onConfirm, onClose }) {
   const [reason, setReason] = useState('');
   const [touched, setTouched] = useState(false);
@@ -19,6 +22,9 @@ export default function CancelOrderModal({ order, sending, error, byAdmin = fals
   const trimmedReason = reason.trim();
   const reasonMissing = touched && !trimmedReason;
 
+  // El motivo es obligatorio: sin uno, marca el campo como "tocado" para
+  // mostrar el error en vez de enviar, en lugar de confiar solo en `required`
+  // del textarea (que no explica el motivo al estilo del resto de la app).
   function handleSubmit(e) {
     e.preventDefault();
     if (!trimmedReason) {

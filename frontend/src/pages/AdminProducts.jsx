@@ -8,7 +8,8 @@ import {
   formatPrice,
   parsePriceInput,
   formatPriceInput,
-  normalizePriceInput
+  normalizePriceInput,
+  getSellingPrice
 } from '../utils/format';
 import {
   getProductsRequest,
@@ -29,9 +30,12 @@ const emptyForm = {
   category: '',
   brand: '',
   image: '',
-  featured: false
+  discountPercent: '0'
 };
 
+// Panel de administración de productos: tabla paginada y filtrable (nombre,
+// categoría, marca, rango de precio, con debounce) más el modal de
+// crear/editar, que reutiliza el mismo formulario para ambos casos.
 export default function AdminProducts() {
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
@@ -57,6 +61,9 @@ export default function AdminProducts() {
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);
 
+  // Categorías/marcas para llenar los <select> de filtro y los <datalist> del
+  // formulario de crear/editar (autocompletado, no una lista cerrada: se
+  // puede escribir una categoría/marca nueva que no exista todavía).
   useEffect(() => {
     getFiltersRequest()
       .then(({ data }) => {
@@ -132,6 +139,8 @@ export default function AdminProducts() {
     setFormOpen(true);
   }
 
+  // Precarga el formulario con el producto a editar; editingId es lo que le
+  // dice a handleSubmit si debe crear o actualizar.
   function openEditForm(product) {
     setForm({
       name: product.name,
@@ -141,7 +150,7 @@ export default function AdminProducts() {
       category: product.category,
       brand: product.brand,
       image: product.image,
-      featured: product.featured
+      discountPercent: String(product.discountPercent || 0)
     });
     setEditingId(product._id);
     setError('');
@@ -153,6 +162,8 @@ export default function AdminProducts() {
     setForm((f) => ({ ...f, [name]: type === 'checkbox' ? checked : value }));
   }
 
+  // Crea o actualiza según editingId; los campos numéricos llegan como texto
+  // desde los inputs, así que se convierten antes de mandarlos al backend.
   async function handleSubmit(e) {
     e.preventDefault();
     setSaving(true);
@@ -161,7 +172,8 @@ export default function AdminProducts() {
       const payload = {
         ...form,
         price: Number(form.price),
-        stock: Number(form.stock)
+        stock: Number(form.stock),
+        discountPercent: Number(form.discountPercent) || 0
       };
       if (editingId) {
         await updateProductRequest(editingId, payload);
@@ -305,6 +317,7 @@ export default function AdminProducts() {
                     <th>Categoría</th>
                     <th>Marca</th>
                     <th>Precio</th>
+                    <th>Oferta</th>
                     <th>Stock</th>
                     <th>Acciones</th>
                   </tr>
@@ -319,6 +332,13 @@ export default function AdminProducts() {
                       <td data-label="Categoría">{product.category}</td>
                       <td data-label="Marca">{product.brand}</td>
                       <td data-label="Precio">{formatPrice(product.price)}</td>
+                      <td data-label="Oferta">
+                        {product.discountPercent > 0 ? (
+                          <span className="badge admin-products-deal-badge">-{product.discountPercent}%</span>
+                        ) : (
+                          <span className="admin-products-no-deal">—</span>
+                        )}
+                      </td>
                       <td data-label="Stock" className={product.stock === 0 ? 'admin-products-nostock' : ''}>{product.stock}</td>
                       <td data-label="Acciones">
                         <div className="admin-table-actions">
@@ -458,18 +478,25 @@ export default function AdminProducts() {
                   required
                 />
               </div>
-              <div className="form-group" style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+              <div className="form-group">
+                <label htmlFor="discountPercent">Descuento (%)</label>
                 <input
-                  id="featured"
-                  name="featured"
-                  type="checkbox"
-                  checked={form.featured}
+                  id="discountPercent"
+                  name="discountPercent"
+                  type="number"
+                  min="0"
+                  max="90"
+                  step="1"
+                  value={form.discountPercent}
                   onChange={handleChange}
-                  style={{ width: 'auto' }}
                 />
-                <label htmlFor="featured" style={{ margin: 0 }}>
-                  Mostrar en el carrusel de destacados
-                </label>
+                <p className="admin-products-discount-hint">
+                  {/* 0 = precio normal. Cualquier valor mayor pone al producto en oferta:
+                      aparece en el carrusel de la portada y con el precio tachado en toda la tienda. */}
+                  {Number(form.discountPercent) > 0 && form.price
+                    ? `Precio con descuento: ${formatPrice(getSellingPrice({ price: Number(form.price), discountPercent: Number(form.discountPercent) }))}`
+                    : 'Déjalo en 0 para vender al precio normal, sin oferta.'}
+                </p>
               </div>
 
               {error && <p className="error-text">{error}</p>}

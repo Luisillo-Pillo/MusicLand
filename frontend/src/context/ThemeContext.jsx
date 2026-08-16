@@ -19,6 +19,8 @@ export function ThemeProvider({ children }) {
     localStorage.setItem(STORAGE_KEY, theme);
   }, [theme]);
 
+  // Alterna claro/oscuro; el useEffect de arriba se encarga de reflejarlo en
+  // el DOM (data-theme, que es lo que lee el CSS) y de persistirlo.
   function toggleTheme() {
     setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
   }

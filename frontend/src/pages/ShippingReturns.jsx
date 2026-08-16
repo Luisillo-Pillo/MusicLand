@@ -6,6 +6,9 @@ import { TruckIcon, ReturnIcon, ShieldIcon } from '../components/icons';
 import { hoursLine } from '../config/siteInfo';
 import './ShippingReturns.css';
 
+// Página informativa de envíos/devoluciones/garantía (contenido estático) más
+// el formulario de ReturnRequestSection, para poder solicitar una devolución
+// sin salir de aquí.
 export default function ShippingReturns() {
   return (
     <Layout>

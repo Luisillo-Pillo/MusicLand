@@ -5,10 +5,15 @@ import { CheckCircleIcon } from '../components/icons';
 import { formatPrice } from '../utils/format';
 import './Checkout.css';
 
+// Pantalla de "gracias por tu compra" a la que redirige Checkout justo
+// después de crear el pedido con éxito, pasándolo por location.state.
 export default function OrderConfirmation() {
   const location = useLocation();
   const order = location.state?.order;
 
+  // Sin un pedido en el state (p. ej. si se llega escribiendo la URL
+  // directamente, o al recargar la página) no hay nada que mostrar, así que
+  // se manda de vuelta al inicio en vez de romper con datos vacíos.
   if (!order) {
     return <Navigate to="/" replace />;
   }

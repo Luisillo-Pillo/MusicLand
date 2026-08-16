@@ -1,3 +1,4 @@
+// Endpoints del carrito del usuario autenticado (uno solo por usuario, guardado en el servidor).
 import axiosClient from './axiosClient';
 
 export const getCartRequest = () => axiosClient.get('/cart');

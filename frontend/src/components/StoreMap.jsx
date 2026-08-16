@@ -2,6 +2,8 @@ import { LocationIcon } from './icons';
 import { siteInfo, addressFull, mapEmbedUrl, mapLinkUrl, directionsUrl } from '../config/siteInfo';
 import './StoreMap.css';
 
+// Tarjeta con el mapa embebido de la tienda (usa Google Maps vía iframe) y
+// enlaces de "cómo llegar"; la dirección y las URLs salen de config/siteInfo.js.
 export default function StoreMap({ title = 'Dónde estamos' }) {
   return (
     <div className="store-map card">

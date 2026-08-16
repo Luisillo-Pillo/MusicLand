@@ -2,6 +2,10 @@ const User = require('../models/User');
 const Product = require('../models/Product');
 const handleError = require('../utils/handleError');
 
+// Carga el carrito del usuario con los datos completos de cada producto (no
+// solo el id guardado). Si algún producto fue borrado del catálogo después de
+// agregarse al carrito, populate() lo deja en null: se filtra aquí y se
+// guarda la limpieza, así el carrito no vuelve a arrastrar esa referencia rota.
 async function getPopulatedCart(userId) {
   const user = await User.findById(userId).populate('cart.product');
   const validItems = user.cart.filter((item) => item.product);
@@ -12,12 +16,13 @@ async function getPopulatedCart(userId) {
   return user.cart;
 }
 
+// Devuelve el carrito del usuario autenticado.
 async function getCart(req, res) {
   try {
     const cart = await getPopulatedCart(req.user._id);
     res.json(cart);
   } catch (error) {
-    handleError(res, error, 'Error al obtener el carrito');
+    handleError(res, error, 'No pudimos cargar tu carrito');
   }
 }
 
@@ -28,6 +33,8 @@ function parseQuantity(value) {
   return n;
 }
 
+// Agrega un producto al carrito, o suma la cantidad si ya estaba: valida que
+// la cantidad pedida (sumada a lo que ya hubiera) no exceda el stock disponible.
 async function addToCart(req, res) {
   try {
     const { productId, quantity = 1 } = req.body;
@@ -60,10 +67,12 @@ async function addToCart(req, res) {
     await user.save();
     res.status(201).json(await getPopulatedCart(req.user._id));
   } catch (error) {
-    handleError(res, error, 'Error al agregar al carrito');
+    handleError(res, error, 'No pudimos agregar el producto a tu carrito');
   }
 }
 
+// Cambia la cantidad de un producto ya presente en el carrito. Mandar
+// cantidad 0 es la forma de quitarlo (equivale a removeCartItem).
 async function updateCartItem(req, res) {
   try {
     const { quantity } = req.body;
@@ -92,10 +101,11 @@ async function updateCartItem(req, res) {
     await user.save();
     res.json(await getPopulatedCart(req.user._id));
   } catch (error) {
-    handleError(res, error, 'Error al actualizar el carrito');
+    handleError(res, error, 'No pudimos actualizar tu carrito');
   }
 }
 
+// Quita por completo un producto del carrito.
 async function removeCartItem(req, res) {
   try {
     const user = await User.findById(req.user._id);
@@ -103,10 +113,12 @@ async function removeCartItem(req, res) {
     await user.save();
     res.json(await getPopulatedCart(req.user._id));
   } catch (error) {
-    handleError(res, error, 'Error al eliminar el producto');
+    handleError(res, error, 'No pudimos eliminar el producto');
   }
 }
 
+// Vacía el carrito completo (usado tras completar una compra, o manualmente
+// desde la página de Carrito).
 async function clearCart(req, res) {
   try {
     const user = await User.findById(req.user._id);
@@ -114,7 +126,7 @@ async function clearCart(req, res) {
     await user.save();
     res.json([]);
   } catch (error) {
-    handleError(res, error, 'Error al vaciar el carrito');
+    handleError(res, error, 'No pudimos vaciar tu carrito');
   }
 }
 

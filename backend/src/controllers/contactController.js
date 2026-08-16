@@ -2,6 +2,9 @@ const ContactMessage = require('../models/ContactMessage');
 const { sendMail, escapeHtml } = require('../utils/mailer');
 const handleError = require('../utils/handleError');
 
+// Formulario público de Contacto: guarda el mensaje en la base de datos (así
+// queda registrado aunque el correo falle) y de paso intenta avisar por
+// correo a la tienda.
 async function sendContactMessage(req, res) {
   try {
     const { name, email, message } = req.body;
@@ -11,6 +14,9 @@ async function sendContactMessage(req, res) {
 
     await ContactMessage.create({ name, email, message });
 
+    // El envío del correo es secundario: si falla, el mensaje ya quedó
+    // guardado en la base de datos y visible en /admin/mensajes, así que solo
+    // se registra el error sin hacer fallar la petición completa.
     try {
       await sendMail({
         subject: `Nuevo mensaje de contacto de ${name}`,
@@ -29,29 +35,33 @@ async function sendContactMessage(req, res) {
 
     res.status(200).json({ message: 'Mensaje enviado correctamente' });
   } catch (error) {
-    handleError(res, error, 'Error al enviar el mensaje');
+    handleError(res, error, 'No pudimos enviar tu mensaje');
   }
 }
 
+// Listado completo para /admin/mensajes (más recientes primero).
 async function getContactMessages(req, res) {
   try {
     const messages = await ContactMessage.find().sort({ createdAt: -1 });
     res.json(messages);
   } catch (error) {
-    handleError(res, error, 'Error al obtener los mensajes');
+    handleError(res, error, 'No pudimos cargar los mensajes');
   }
 }
 
+// Borra un mensaje de contacto ya atendido.
 async function deleteContactMessage(req, res) {
   try {
     const deleted = await ContactMessage.findByIdAndDelete(req.params.id);
     if (!deleted) return res.status(404).json({ message: 'Mensaje no encontrado' });
     res.json({ message: 'Mensaje eliminado' });
   } catch (error) {
-    handleError(res, error, 'Error al eliminar el mensaje');
+    handleError(res, error, 'No pudimos eliminar el mensaje');
   }
 }
 
+// El admin responde por correo (con el mensaje original citado) y la
+// respuesta queda guardada en el propio ContactMessage para consultarla después.
 async function replyContactMessage(req, res) {
   try {
     const { reply } = req.body;
@@ -84,7 +94,7 @@ async function replyContactMessage(req, res) {
 
     res.json(contactMessage);
   } catch (error) {
-    handleError(res, error, 'Error al enviar la respuesta');
+    handleError(res, error, 'No pudimos enviar tu respuesta');
   }
 }
 

@@ -27,6 +27,9 @@ function formatDate(dateStr) {
   });
 }
 
+// Panel de administración de solicitudes de devolución: tabla (una fila por
+// solicitud, no por pedido) con cambio de estatus, un modal de detalle y
+// borrado de la solicitud puntual.
 export default function AdminReturns() {
   // 'returns' guarda los pedidos tal cual los da la API (cada uno con su
   // arreglo returnRequests); 'rows' los aplana a una fila por solicitud, que
@@ -66,10 +69,16 @@ export default function AdminReturns() {
     [returns]
   );
 
+  // Sustituye un pedido en `returns` por su versión actualizada del backend
+  // (tras cambiar el estatus de una de sus solicitudes); `rows` se recalcula
+  // solo gracias al useMemo de arriba.
   function replaceOrder(updatedOrder) {
     setReturns((prev) => prev.map((o) => (o._id === updatedOrder._id ? updatedOrder : o)));
   }
 
+  // Cambia el estatus de UNA solicitud (row identifica pedido + solicitud
+  // puntual). Si el modal de detalle está abierto mostrando esta misma fila,
+  // también se refresca con los datos nuevos para no dejarlo desactualizado.
   async function handleStatusChange(row, status) {
     if (status === row.request.status) return;
     setSavingId(row.rowId);

@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import Layout from '../components/Layout';
 import Carousel from '../components/Carousel';
 import ProductCard from '../components/ProductCard';
-import { getProductsRequest, getFeaturedProductsRequest, getFiltersRequest } from '../api/productApi';
+import { getProductsRequest, getDealsRequest, getFiltersRequest } from '../api/productApi';
 import { FilterIcon, ChevronDownIcon } from '../components/icons';
 import './Home.css';
 
@@ -40,7 +40,7 @@ function FilterControls({ category, brand, sort, categories, brands, updateFilte
 
       <label className={`home-filter-select ${sort ? 'active' : ''}`}>
         <select value={sort} onChange={(e) => updateFilter('sort', e.target.value)}>
-          <option value="">Más recientes</option>
+          <option value="">Aleatorio</option>
           <option value="price_asc">Precio: menor a mayor</option>
           <option value="price_desc">Precio: mayor a menor</option>
           <option value="name_asc">Nombre: A-Z</option>
@@ -58,6 +58,10 @@ function FilterControls({ category, brand, sort, categories, brands, updateFilte
   );
 }
 
+// Página principal: hero con el carrusel de ofertas, filtros de
+// categoría/marca/orden y el grid paginado del catálogo (con "Ver más" en
+// vez de páginas numeradas). También hace de página de resultados de
+// búsqueda cuando llega ?search= desde el buscador del Header.
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get('search') || '';
@@ -65,7 +69,10 @@ export default function Home() {
   const brand = searchParams.get('brand') || '';
   const sort = searchParams.get('sort') || '';
 
-  const [featured, setFeatured] = useState([]);
+  // Productos con descuento activo para el carrusel del hero (ver
+  // getDeals en el backend); si ninguno tiene oferta en este momento, el
+  // propio backend cae de vuelta a mostrar los más recientes.
+  const [deals, setDeals] = useState([]);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);
@@ -78,10 +85,20 @@ export default function Home() {
   // nunca se abre (el botón que lo dispara está oculto por CSS).
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
+  // Semilla del orden aleatorio: se genera una sola vez por carga de página
+  // (useState con inicializador, no en cada render) y se manda en cada
+  // petición mientras dure la visita. Así "Ver más" continúa el mismo
+  // mezclado en vez de traer un orden nuevo en cada página, pero recargar el
+  // sitio sí vuelve a barajar el catálogo.
+  const [randomSeed] = useState(() => Math.random().toString(36).slice(2));
+  // sort='' (opción "Aleatorio" del select) se traduce aquí a la petición real
+  // que entiende el backend; un sort explícito (precio, nombre) lo respeta tal cual.
+  const effectiveSort = sort || 'random';
+
   useEffect(() => {
-    getFeaturedProductsRequest()
-      .then(({ data }) => setFeatured(data))
-      .catch(() => setFeatured([]));
+    getDealsRequest()
+      .then(({ data }) => setDeals(data))
+      .catch(() => setDeals([]));
     getFiltersRequest()
       .then(({ data }) => {
         setCategories(data.categories);
@@ -98,7 +115,7 @@ export default function Home() {
     setLoading(true);
     setError('');
     setPage(1);
-    getProductsRequest({ search, category, brand, sort, page: 1, limit: PAGE_SIZE })
+    getProductsRequest({ search, category, brand, sort: effectiveSort, seed: randomSeed, page: 1, limit: PAGE_SIZE })
       .then(({ data }) => {
         setProducts(data.products);
         setTotal(data.total);
@@ -109,7 +126,7 @@ export default function Home() {
         setError(err.response?.data?.message || 'No se pudieron cargar los productos. Intenta de nuevo.');
       })
       .finally(() => setLoading(false));
-  }, [search, category, brand, sort]);
+  }, [search, category, brand, sort, effectiveSort, randomSeed]);
 
   // "Ver más" pide la siguiente página al servidor y la añade: cargar el catálogo
   // completo de una vez dejaría fuera todo lo que exceda el límite de la API.
@@ -122,7 +139,8 @@ export default function Home() {
         search,
         category,
         brand,
-        sort,
+        sort: effectiveSort,
+        seed: randomSeed,
         page: next,
         limit: PAGE_SIZE
       });
@@ -155,7 +173,7 @@ export default function Home() {
       <div className="container">
         {!hasActiveFilters && (
           <section className="home-hero">
-            <Carousel slides={featured} />
+            <Carousel slides={deals} />
           </section>
         )}
 

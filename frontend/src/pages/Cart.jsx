@@ -6,9 +6,14 @@ import QuantitySelector from '../components/QuantitySelector';
 import ConfirmModal from '../components/ConfirmModal';
 import { useCart } from '../context/CartContext';
 import { TrashIcon, EmptyBoxIcon } from '../components/icons';
-import { formatPrice } from '../utils/format';
+import { formatPrice, getSellingPrice } from '../utils/format';
 import './Cart.css';
 
+// Una fila del carrito. Mantiene su propio estado de cantidad (localQty) para
+// que el selector responda al instante, en vez de esperar la respuesta del
+// servidor en cada clic; bajar a 0 no elimina directo, sino que dispara el
+// modal de confirmación (onRequestRemove) y, si se cancela, vuelve a la
+// última cantidad distinta de cero guardada en lastNonZeroRef.
 function CartItemRow({ item, onQuantityChange, onRequestRemove }) {
   const [localQty, setLocalQty] = useState(item.quantity);
   const lastNonZeroRef = useRef(item.quantity || 1);
@@ -28,6 +33,8 @@ function CartItemRow({ item, onQuantityChange, onRequestRemove }) {
   }
 
   const product = item.product;
+  const onSale = product.discountPercent > 0;
+  const unitPrice = getSellingPrice(product);
 
   return (
     <div className="cart-item card">
@@ -35,11 +42,18 @@ function CartItemRow({ item, onQuantityChange, onRequestRemove }) {
         <img src={product.image} alt={product.name} />
       </div>
       <h4 className="cart-item-name">{product.name}</h4>
-      <p className="cart-item-unit">{formatPrice(product.price)} c/u</p>
+      {onSale ? (
+        <p className="cart-item-unit">
+          {formatPrice(unitPrice)} c/u{' '}
+          <span className="cart-item-unit-original">{formatPrice(product.price)}</span>
+        </p>
+      ) : (
+        <p className="cart-item-unit">{formatPrice(unitPrice)} c/u</p>
+      )}
       <div className="cart-item-qty">
         <QuantitySelector value={localQty} onChange={handleChange} min={0} max={product.stock} />
       </div>
-      <div className="cart-item-price">{formatPrice(product.price * item.quantity)}</div>
+      <div className="cart-item-price">{formatPrice(unitPrice * item.quantity)}</div>
       <button
         type="button"
         className="cart-item-remove"
@@ -53,11 +67,15 @@ function CartItemRow({ item, onQuantityChange, onRequestRemove }) {
   );
 }
 
+// Página del carrito: lista editable de productos + resumen con el total,
+// más los modales de confirmación para eliminar un producto o vaciarlo todo.
 export default function Cart() {
   const { items, totalItems, totalPrice, updateQuantity, removeItem, clearCart, refreshCart, loading } =
     useCart();
   const navigate = useNavigate();
 
+  // confirmState guarda tanto el producto a eliminar como su función de
+  // "revertir" (para devolver el selector a su cantidad anterior si se cancela).
   const [confirmState, setConfirmState] = useState(null);
   const [clearConfirmOpen, setClearConfirmOpen] = useState(false);
   const [error, setError] = useState('');
@@ -94,6 +112,9 @@ export default function Cart() {
     }
   }
 
+  // Si el backend rechaza el cambio (p. ej. ya no hay suficiente stock),
+  // refreshCart trae de vuelta el estado real del servidor para que la
+  // cantidad mostrada no se quede desincronizada de lo que en verdad se guardó.
   async function handleQuantityChange(productId, quantity) {
     setError('');
     try {

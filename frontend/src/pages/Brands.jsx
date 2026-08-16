@@ -6,6 +6,8 @@ import { getFiltersRequest } from '../api/productApi';
 import { brandLogos } from '../config/brandLogos';
 import './ListingGrid.css';
 
+// Listado de marcas con su conteo de productos y logo (si existe en
+// config/brandLogos.js); cada tarjeta navega al Home filtrado por esa marca.
 export default function Brands() {
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -22,6 +22,9 @@ function formatDate(dateStr) {
   });
 }
 
+// Historial de compras de un cliente puntual, visto desde el panel de
+// administración: mismos filtros que AdminOrders pero acotados a un solo
+// usuario, más el total gastado (sin contar pedidos cancelados).
 export default function AdminUserOrders() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -33,6 +36,8 @@ export default function AdminUserOrders() {
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
 
+  // Se piden el usuario y sus pedidos en paralelo (no hace falta esperar uno
+  // para pedir el otro, ambos solo dependen del mismo :id de la URL).
   useEffect(() => {
     setLoading(true);
     setError('');
@@ -55,6 +60,7 @@ export default function AdminUserOrders() {
     );
   });
 
+  // Cuántos pedidos de este cliente hay en cada estatus, para las pestañas de filtro.
   const countByStatus = STATUSES.reduce((acc, s) => {
     acc[s] = orders.filter((o) => o.status === s).length;
     return acc;

@@ -7,9 +7,11 @@ import { getProductByIdRequest } from '../api/productApi';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { CartIcon, BoltIcon } from '../components/icons';
-import { formatPrice } from '../utils/format';
+import { formatPrice, getSellingPrice } from '../utils/format';
 import './ProductDetail.css';
 
+// Ficha de un producto: imagen, descripción, selector de cantidad y las dos
+// vías de compra (agregar al carrito, o "Comprar ahora" directo a checkout).
 export default function ProductDetail() {
   const { id } = useParams();
   const { user } = useAuth();
@@ -23,6 +25,9 @@ export default function ProductDetail() {
   const [feedback, setFeedback] = useState('');
   const [error, setError] = useState('');
 
+  // Se vuelve a pedir el producto cada vez que cambia el :id de la URL (p.
+  // ej. al navegar de un producto a otro desde "productos relacionados"),
+  // reiniciando la cantidad elegida a 1.
   useEffect(() => {
     setLoading(true);
     getProductByIdRequest(id)
@@ -34,9 +39,17 @@ export default function ProductDetail() {
       .finally(() => setLoading(false));
   }, [id]);
 
+  // Igual que en ProductCard: sin sesión, guarda qué se quería agregar
+  // (con la cantidad ya elegida) y a qué producto volver, para que Login.jsx
+  // lo agregue solo en cuanto inicie sesión.
   async function handleAddToCart() {
     if (!user) {
-      navigate('/login', { state: { from: `/producto/${id}` } });
+      navigate('/login', {
+        state: {
+          from: `/producto/${id}`,
+          pendingCartAdd: { productId: product._id, quantity }
+        }
+      });
       return;
     }
     setAdding(true);
@@ -54,9 +67,17 @@ export default function ProductDetail() {
 
   // Salta directo a checkout con este producto puntual, sin pasar por el
   // carrito ni tocarlo: lo que el usuario ya tenía guardado ahí se queda igual.
+  //
+  // Sin sesión: se manda el mismo { product, quantity } que se le pasaría a
+  // Checkout, pero como pendingBuyNow en el state de /login. Login.jsx, en
+  // vez de agregarlo al carrito, navega directo a /checkout con ese producto
+  // — que es "la página a la que el usuario quería ir" en este caso — sin
+  // volver a pasar por el detalle del producto ni pedirle repetir el clic.
   function handleBuyNow() {
     if (!user) {
-      navigate('/login', { state: { from: `/producto/${id}` } });
+      navigate('/login', {
+        state: { from: `/producto/${id}`, pendingBuyNow: { product, quantity } }
+      });
       return;
     }
     navigate('/checkout', { state: { buyNow: { product, quantity } } });
@@ -88,6 +109,8 @@ export default function ProductDetail() {
   }
 
   const outOfStock = product.stock <= 0;
+  const onSale = product.discountPercent > 0;
+  const sellingPrice = getSellingPrice(product);
 
   return (
     <Layout>
@@ -95,6 +118,7 @@ export default function ProductDetail() {
       <div className="container">
         <div className="product-detail">
           <div className="product-detail-image">
+            {onSale && <span className="product-detail-discount-badge">-{product.discountPercent}% OFF</span>}
             <img src={product.image} alt={product.name} />
           </div>
 
@@ -104,7 +128,17 @@ export default function ProductDetail() {
               <span className="badge">{product.brand}</span>
             </div>
             <h1>{product.name}</h1>
-            <p className="product-detail-price">{formatPrice(product.price)}</p>
+            {onSale ? (
+              <p className="product-detail-price-row">
+                <span className="product-detail-price product-detail-price-sale">
+                  {formatPrice(sellingPrice)}
+                </span>
+                <span className="product-detail-price-original">{formatPrice(product.price)}</span>
+                <span className="product-detail-discount-pill">Ahorras {formatPrice(product.price - sellingPrice)}</span>
+              </p>
+            ) : (
+              <p className="product-detail-price">{formatPrice(product.price)}</p>
+            )}
 
             <h4>Descripción</h4>
             <p className="product-detail-description">{product.description}</p>

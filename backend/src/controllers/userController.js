@@ -33,14 +33,23 @@ async function cancelUserOrders(userId) {
   }
 }
 
+// req.user ya lo cargó el middleware `protect` con el token; no hace falta
+// otra consulta a la base de datos, solo devolverlo sin la contraseña.
 function getMe(req, res) {
   res.json(req.user.toSafeObject());
 }
 
+// Listado para /admin/usuarios. El conteo de compras de cada usuario se
+// calcula con UNA sola agregación sobre toda la colección Order (agrupa por
+// usuario y cuenta), en vez de una consulta countDocuments por usuario en un
+// bucle — evita mandar N+1 consultas a Mongo cuando hay N usuarios.
 async function getAllUsers(req, res) {
   try {
     const users = await User.find().sort({ createdAt: -1 });
     const orderCounts = await Order.aggregate([{ $group: { _id: '$user', count: { $sum: 1 } } }]);
+    // countByUser: mapa "id de usuario" -> "cuántos pedidos tiene", armado a
+    // partir del resultado de la agregación para poder consultarlo O(1) por
+    // usuario al construir la respuesta de abajo.
     const countByUser = {};
     orderCounts.forEach((entry) => {
       countByUser[entry._id.toString()] = entry.count;
@@ -51,7 +60,7 @@ async function getAllUsers(req, res) {
     }));
     res.json(usersWithStats);
   } catch (error) {
-    handleError(res, error, 'Error al obtener usuarios');
+    handleError(res, error, 'No pudimos cargar los usuarios');
   }
 }
 
@@ -62,7 +71,11 @@ async function getUserById(req, res) {
     const totalPurchases = await Order.countDocuments({ user: user._id });
     res.json({ ...user.toAdminObject(), totalPurchases });
   } catch (error) {
-    res.status(404).json({ message: 'Usuario no encontrado' });
+    // handleError ya traduce un id con formato inválido (CastError) a un 400
+    // amigable y, de paso, registra en el servidor cualquier otro error real
+    // (antes se devolvía "Usuario no encontrado" para todo, incluso una caída
+    // de la base de datos, sin dejar rastro para depurarlo después).
+    handleError(res, error, 'No pudimos cargar este usuario');
   }
 }
 
@@ -85,10 +98,13 @@ async function deleteUser(req, res) {
     await User.findByIdAndDelete(req.params.id);
     res.json({ message: 'Usuario eliminado' });
   } catch (error) {
-    handleError(res, error, 'Error al eliminar el usuario');
+    handleError(res, error, 'No pudimos eliminar este usuario');
   }
 }
 
+// Solo dos roles existen: 'user' y 'admin'. La segunda validación evita que
+// un admin se quite a sí mismo el rol (podría dejar la tienda sin ningún
+// administrador con acceso si era el único) — a otro admin sí se le puede quitar.
 async function updateUserRole(req, res) {
   try {
     const { role } = req.body;
@@ -102,10 +118,14 @@ async function updateUserRole(req, res) {
     if (!user) return res.status(404).json({ message: 'Usuario no encontrado' });
     res.json(user.toSafeObject());
   } catch (error) {
-    handleError(res, error, 'Error al actualizar el rol');
+    handleError(res, error, 'No pudimos actualizar el rol del usuario');
   }
 }
 
+// Correo directo de un admin a un cliente puntual (botón "Contactar" en
+// AdminUserProfile). replyTo es el correo del ADMIN que escribe, no el de la
+// tienda: si el cliente responde el correo, le llega directo a quien se lo
+// mandó, no a la bandeja general de MusicLand.
 async function contactUser(req, res) {
   try {
     const { subject, message } = req.body;
@@ -135,10 +155,14 @@ async function contactUser(req, res) {
 
     res.json({ message: `Mensaje enviado a ${user.email}` });
   } catch (error) {
-    handleError(res, error, 'Error al enviar el mensaje');
+    handleError(res, error, 'No pudimos enviar tu mensaje');
   }
 }
 
+// El propio usuario edita su nombre/teléfono/contraseña. Cada campo es
+// opcional y solo se toca si vino en el body (`if (name) ...`), así que se
+// puede mandar solo el que cambió sin arrastrar los demás como vacíos; el
+// hash de la contraseña nueva lo hace el pre('save') del modelo, no aquí.
 async function updateMe(req, res) {
   try {
     const { name, phone, password } = req.body;
@@ -152,11 +176,15 @@ async function updateMe(req, res) {
     await user.save();
     res.json(user.toSafeObject());
   } catch (error) {
-    handleError(res, error, 'Error al actualizar el perfil');
+    handleError(res, error, 'No pudimos actualizar tu perfil');
   }
 }
 
-// Direcciones
+// Direcciones y métodos de pago comparten el mismo patrón "solo uno puede ser
+// el predeterminado": al agregar o editar uno marcándolo isDefault, primero
+// se le quita esa marca a todos los demás del arreglo antes de guardar —
+// nunca se valida esto a nivel de schema, se aplica aquí en cada operación.
+
 async function addAddress(req, res) {
   try {
     const user = await User.findById(req.user._id);
@@ -169,13 +197,15 @@ async function addAddress(req, res) {
     await user.save();
     res.status(201).json(user.addresses);
   } catch (error) {
-    handleError(res, error, 'Error al agregar la dirección');
+    handleError(res, error, 'No pudimos guardar la dirección');
   }
 }
 
 async function updateAddress(req, res) {
   try {
     const user = await User.findById(req.user._id);
+    // .id() es el método que da Mongoose para buscar un subdocumento de un
+    // arreglo por su _id (las direcciones no tienen su propio modelo/colección).
     const address = user.addresses.id(req.params.addressId);
     if (!address) return res.status(404).json({ message: 'Dirección no encontrada' });
     if (req.body.isDefault) {
@@ -187,22 +217,24 @@ async function updateAddress(req, res) {
     await user.save();
     res.json(user.addresses);
   } catch (error) {
-    handleError(res, error, 'Error al actualizar la dirección');
+    handleError(res, error, 'No pudimos actualizar la dirección');
   }
 }
 
 async function deleteAddress(req, res) {
   try {
     const user = await User.findById(req.user._id);
+    // .pull() quita el subdocumento con ese _id del arreglo; si no existe,
+    // no hace nada (no es un error) — de ahí que no haya un chequeo de "no
+    // encontrada" aquí como sí lo hay en updateAddress.
     user.addresses.pull({ _id: req.params.addressId });
     await user.save();
     res.json(user.addresses);
   } catch (error) {
-    handleError(res, error, 'Error al eliminar la dirección');
+    handleError(res, error, 'No pudimos eliminar la dirección');
   }
 }
 
-// Métodos de pago
 async function addPaymentMethod(req, res) {
   try {
     const user = await User.findById(req.user._id);
@@ -215,7 +247,7 @@ async function addPaymentMethod(req, res) {
     await user.save();
     res.status(201).json(user.paymentMethods);
   } catch (error) {
-    handleError(res, error, 'Error al agregar el método de pago');
+    handleError(res, error, 'No pudimos guardar el método de pago');
   }
 }
 
@@ -233,7 +265,7 @@ async function updatePaymentMethod(req, res) {
     await user.save();
     res.json(user.paymentMethods);
   } catch (error) {
-    handleError(res, error, 'Error al actualizar el método de pago');
+    handleError(res, error, 'No pudimos actualizar el método de pago');
   }
 }
 
@@ -244,7 +276,7 @@ async function deletePaymentMethod(req, res) {
     await user.save();
     res.json(user.paymentMethods);
   } catch (error) {
-    handleError(res, error, 'Error al eliminar el método de pago');
+    handleError(res, error, 'No pudimos eliminar el método de pago');
   }
 }
 

@@ -15,10 +15,14 @@ const roleLabels = {
   user: 'Cliente'
 };
 
+// Perfil del usuario: datos personales (editables), conteo de compras y las
+// direcciones/métodos de pago que se fueron guardando en cada checkout
+// (aquí solo se pueden borrar; agregar uno nuevo se hace desde Checkout).
 export default function Profile() {
   const { user, updateProfile, logout, setUserData } = useAuth();
   const navigate = useNavigate();
 
+  // editing alterna entre la vista de solo lectura y el formulario de edición.
   const [editing, setEditing] = useState(false);
   const [form, setForm] = useState({
     name: user?.name || '',
@@ -27,16 +31,24 @@ export default function Profile() {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  // null mientras se cargan los pedidos: distinto de 0 (que sí es "ninguna
+  // compra"), así el contador puede mostrar "—" en vez de "0" durante la carga.
   const [totalPurchases, setTotalPurchases] = useState(null);
   const [savedError, setSavedError] = useState('');
+  // deleteTarget: qué se va a borrar (una dirección o un método de pago) al
+  // confirmar en el ConfirmModal — ver su forma exacta en handleConfirmDelete.
   const [deleteTarget, setDeleteTarget] = useState(null);
 
+  // El total de compras no viene con el usuario; se pide aparte a /orders y
+  // solo se usa su longitud (no se guardan los pedidos en sí en esta página).
   useEffect(() => {
     getMyOrdersRequest()
       .then(({ data }) => setTotalPurchases(data.length))
       .catch(() => setTotalPurchases(null));
   }, []);
 
+  // deleteTarget guarda tipo ('address' | 'payment') + id, para que un solo
+  // ConfirmModal sirva para confirmar el borrado de cualquiera de los dos.
   async function handleConfirmDelete() {
     if (!deleteTarget) return;
     const { type, id } = deleteTarget;
@@ -66,6 +78,8 @@ export default function Profile() {
     setForm((f) => ({ ...f, phone: digitsOnly(e.target.value, 10) }));
   }
 
+  // Solo manda `password` si el usuario escribió una nueva (dejarlo en
+  // blanco significa "no la cambies").
   async function handleSave(e) {
     e.preventDefault();
     setError('');

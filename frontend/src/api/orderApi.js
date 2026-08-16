@@ -1,10 +1,11 @@
+// Endpoints de pedidos: creación, consulta propia/ajena, cancelación y devoluciones.
 import axiosClient from './axiosClient';
 
 export const createOrderRequest = (data) => axiosClient.post('/orders', data);
-export const getMyOrdersRequest = () => axiosClient.get('/orders');
-export const getUserOrdersRequest = (userId) => axiosClient.get(`/orders/user/${userId}`);
+export const getMyOrdersRequest = () => axiosClient.get('/orders'); // pedidos del usuario autenticado
+export const getUserOrdersRequest = (userId) => axiosClient.get(`/orders/user/${userId}`); // solo admin, pedidos de un cliente puntual
 export const getOrderByIdRequest = (id) => axiosClient.get(`/orders/${id}`);
-export const getAllOrdersRequest = (params) => axiosClient.get('/orders/all', { params });
+export const getAllOrdersRequest = (params) => axiosClient.get('/orders/all', { params }); // solo admin, con filtro opcional por estatus
 export const updateOrderStatusRequest = (id, status) =>
   axiosClient.put(`/orders/${id}/status`, { status });
 export const cancelOrderRequest = (id, reason = '') =>

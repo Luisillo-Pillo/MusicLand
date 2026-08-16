@@ -56,6 +56,14 @@
   white-space: nowrap;
 }
 
+.checkout-summary-discount-badge {
+  margin-left: 6px;
+  padding: 1px 6px;
+  font-size: 0.7rem;
+  background: var(--color-accent);
+  color: #1f1147;
+}
+
 .checkout-total {
   display: flex;
   justify-content: space-between;

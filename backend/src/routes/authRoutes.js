@@ -1,3 +1,6 @@
+// Rutas públicas de autenticación. authLimiter frena los intentos repetidos de
+// registro/login (fuerza bruta de contraseñas, spam de cuentas) antes de que
+// lleguen al controlador.
 const express = require('express');
 const { register, login } = require('../controllers/authController');
 const { authLimiter } = require('../middleware/rateLimiter');

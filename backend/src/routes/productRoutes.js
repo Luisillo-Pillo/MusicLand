@@ -2,7 +2,7 @@ const express = require('express');
 const { protect, adminOnly } = require('../middleware/auth');
 const {
   getProducts,
-  getFeaturedProducts,
+  getDeals,
   getCategoriesAndBrands,
   getProductById,
   createProduct,
@@ -12,8 +12,10 @@ const {
 
 const router = express.Router();
 
+// Consultar el catálogo es público (cualquiera puede navegar la tienda sin
+// cuenta); solo crear/editar/borrar productos exige sesión de administrador.
 router.get('/', getProducts);
-router.get('/featured', getFeaturedProducts);
+router.get('/deals', getDeals); // productos con descuento, para el carrusel del Home
 router.get('/filters', getCategoriesAndBrands);
 router.get('/:id', getProductById);
 

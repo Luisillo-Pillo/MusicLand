@@ -5,6 +5,8 @@ import BackButton from '../components/BackButton';
 import { getFiltersRequest } from '../api/productApi';
 import './ListingGrid.css';
 
+// Listado de categorías con su conteo de productos; cada tarjeta navega al
+// Home ya filtrado por esa categoría.
 export default function Categories() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);

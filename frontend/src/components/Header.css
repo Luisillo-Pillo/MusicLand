@@ -10,9 +10,35 @@
 
 .header .container {
   height: 100%;
+}
+
+/* 3 bloques a lo largo de la fila: izquierda y derecha se reparten el mismo
+   ancho (minmax(0,1fr) en vez de 1fr a secas, para que ninguno "gane" espacio
+   de más si su contenido es más ancho que el del otro lado — así el bloque
+   central queda siempre exactamente centrado en la fila, sin importar que el
+   logo y las acciones de la derecha no midan lo mismo). El bloque central usa
+   'auto': solo el ancho que su contenido necesita. En mobile (≤860px, ver
+   media query) esto se desarma por completo y vuelve a ser una sola fila
+   flexible, que es donde vive toda la lógica responsive de siempre. */
+.header-row {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 20px;
+}
+
+.header-group-left {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
+  min-width: 0;
+}
+
+.header-group-center {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .header-menu-btn {
@@ -95,8 +121,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: auto;
-  flex-shrink: 0;
+  justify-self: end;
+  min-width: 0;
 }
 
 .header-cart-btn,
@@ -200,6 +226,25 @@
 }
 
 @media (max-width: 860px) {
+  /* Los 3 bloques son un truco de escritorio nada más: en mobile no hay
+     navegación central que centrar (se va al menú hamburguesa), así que la
+     fila vuelve a ser un flex simple de toda la vida, y los dos bloques
+     nuevos (izquierdo y central) se vuelven invisibles como contenedores —
+     display:contents deja pasar a sus hijos (botón de menú, logo, buscador,
+     nav) como si fueran hijos directos de .header-row, que es exactamente
+     la estructura que ya esperan las reglas de abajo y las de los otros
+     media queries (order, flex-basis, etc.). El bloque derecho (.header-actions)
+     no se toca: siempre fue y sigue siendo un solo elemento flexible más.
+     */
+  .header-row {
+    display: flex;
+  }
+
+  .header-group-left,
+  .header-group-center {
+    display: contents;
+  }
+
   .header-menu-btn {
     display: inline-flex;
   }

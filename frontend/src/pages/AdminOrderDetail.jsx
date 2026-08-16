@@ -27,6 +27,9 @@ function formatDate(dateStr) {
   });
 }
 
+// Vista de un solo pedido para el admin: mismo cambio de estatus/cancelación
+// que en la tabla de AdminOrders, pero con el detalle completo (cliente,
+// dirección, pago) que ahí no cabe.
 export default function AdminOrderDetail() {
   const { id } = useParams();
   const [order, setOrder] = useState(null);

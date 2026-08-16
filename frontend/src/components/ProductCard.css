@@ -17,6 +17,7 @@
 }
 
 .product-card-image {
+  position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--color-bg);
@@ -26,6 +27,22 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Insignia de descuento sobre la imagen: mismo acento (naranja/dorado) que
+   el carrusel de ofertas del Home, para que se lea como "oferta" de un
+   vistazo y no se confunda con el rojo que usa el resto de la app para errores. */
+.product-card-discount-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+  background: var(--color-accent);
+  color: #1f1147;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
 }
 
 .product-card-body {
@@ -53,6 +70,28 @@
   font-weight: 800;
   color: var(--color-primary);
   margin: 4px 0 10px;
+}
+
+/* Con oferta: precio con descuento a la izquierda (destacado) + precio de
+   lista tachado a la derecha, el mismo patrón que usan la mayoría de las
+   tiendas en línea para dejar clara la comparación de un vistazo. */
+.product-card-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 4px 0 10px;
+}
+
+.product-card-price-sale {
+  margin: 0;
+  color: var(--color-danger);
+}
+
+.product-card-price-original {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
 }
 
 .product-card-actions {

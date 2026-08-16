@@ -173,15 +173,22 @@ async function createOrder(req, res) {
         break;
       }
 
+      // El precio que se cobra es el de `updated` (el documento recién leído
+      // al descontar el stock), no el de `product` (que pudo cargarse antes,
+      // p. ej. desde el carrito hace rato): así, si una oferta cambió o
+      // terminó entre que el cliente vio el producto y confirmó la compra,
+      // se cobra el precio real vigente en este instante, no uno obsoleto.
+      const sellingPrice = updated.getSellingPrice();
+
       decremented.push({ productId: product._id, quantity: item.quantity });
       orderProducts.push({
         product: product._id,
         name: product.name,
         image: product.image,
-        price: product.price,
+        price: sellingPrice,
         quantity: item.quantity
       });
-      total += product.price * item.quantity;
+      total += sellingPrice * item.quantity;
     }
 
     if (insufficientStockProduct) {
@@ -203,7 +210,7 @@ async function createOrder(req, res) {
       });
     } catch (orderError) {
       await restoreStock(decremented);
-      return handleError(res, orderError, 'Error al registrar la compra');
+      return handleError(res, orderError, 'No pudimos registrar tu compra');
     }
 
     // El pedido ya está confirmado: el descuento de stock es definitivo y no debe
@@ -238,41 +245,56 @@ async function createOrder(req, res) {
     res.status(201).json(order);
   } catch (error) {
     await restoreStock(decremented);
-    handleError(res, error, 'Error al procesar la compra');
+    handleError(res, error, 'No pudimos procesar tu compra');
   }
 }
 
+// Historial de compras del usuario autenticado (OrderHistory.jsx). El
+// desempate por _id en el sort, igual que en getProducts, garantiza un orden
+// total y estable — dos pedidos nunca comparten exactamente el mismo createdAt.
 async function getMyOrders(req, res) {
   try {
     const orders = await Order.find({ user: req.user._id }).sort({ createdAt: -1, _id: -1 });
     res.json(orders);
   } catch (error) {
-    handleError(res, error, 'Error al obtener pedidos');
+    handleError(res, error, 'No pudimos cargar tus pedidos');
   }
 }
 
+// Misma consulta que getMyOrders pero para un usuario cualquiera (por su id
+// en la URL) — usada por el admin desde AdminUserOrders. La ruta la protege
+// adminOnly, así que aquí no hace falta verificar quién pregunta.
 async function getOrdersByUser(req, res) {
   try {
     const orders = await Order.find({ user: req.params.userId }).sort({ createdAt: -1, _id: -1 });
     res.json(orders);
   } catch (error) {
-    handleError(res, error, 'Error al obtener los pedidos del usuario');
+    handleError(res, error, 'No pudimos cargar los pedidos de este cliente');
   }
 }
 
+// Todos los pedidos de la tienda (AdminOrders.jsx), opcionalmente filtrados
+// por estatus. populate('user', 'name email') trae solo esos dos campos del
+// cliente (no toda la cuenta) para no arrastrar direcciones/pagos/carrito de
+// cada uno en una lista que puede tener cientos de pedidos.
 async function getAllOrders(req, res) {
   try {
     const { status } = req.query;
+    // Un valor de `status` que no exista en ORDER_STATUSES se ignora en vez
+    // de dar error: equivale a "sin filtro" (todos los pedidos).
     const filter = status && ORDER_STATUSES.includes(status) ? { status } : {};
     const orders = await Order.find(filter)
       .sort({ createdAt: -1, _id: -1 })
       .populate('user', 'name email');
     res.json(orders);
   } catch (error) {
-    handleError(res, error, 'Error al obtener los pedidos');
+    handleError(res, error, 'No pudimos cargar los pedidos');
   }
 }
 
+// Cambia el estatus de un pedido (panel de admin). 'cancelado' está excluido
+// a propósito de este endpoint genérico — ver ASSIGNABLE_STATUSES arriba — y
+// se redirige al flujo de cancelOrder, que además devuelve el stock.
 async function updateOrderStatus(req, res) {
   try {
     const { status } = req.body;
@@ -319,7 +341,7 @@ async function updateOrderStatus(req, res) {
 
     res.json(order);
   } catch (error) {
-    handleError(res, error, 'Error al actualizar el estado del pedido');
+    handleError(res, error, 'No pudimos actualizar el estado del pedido');
   }
 }
 
@@ -450,7 +472,7 @@ async function cancelOrder(req, res) {
 
     res.json(cancelled);
   } catch (error) {
-    handleError(res, error, 'Error al cancelar el pedido');
+    handleError(res, error, 'No pudimos cancelar el pedido');
   }
 }
 
@@ -573,7 +595,7 @@ async function requestReturn(req, res) {
 
     res.status(201).json(order);
   } catch (error) {
-    handleError(res, error, 'Error al solicitar la devolución');
+    handleError(res, error, 'No pudimos enviar tu solicitud de devolución');
   }
 }
 
@@ -587,10 +609,13 @@ async function getReturnRequests(req, res) {
       .populate('user', 'name email');
     res.json(orders);
   } catch (error) {
-    handleError(res, error, 'Error al obtener las solicitudes de devolución');
+    handleError(res, error, 'No pudimos cargar las solicitudes de devolución');
   }
 }
 
+// Aviso al cliente: se manda solo cuando el admin resuelve la solicitud
+// (aprobada/rechazada), nunca al dejarla en 'pendiente' — ver el `if` en
+// updateReturnRequestStatus más abajo, que es quien decide cuándo llamar a esta función.
 async function notifyCustomerOfReturnStatus(order, user, status) {
   const approved = status === 'aprobada';
   await sendMail({
@@ -610,6 +635,10 @@ async function notifyCustomerOfReturnStatus(order, user, status) {
   });
 }
 
+// El admin aprueba o rechaza una solicitud puntual (una entre varias que un
+// mismo pedido puede tener, cada una con su propio _id — ver returnRequestSchema
+// en Order.js). Aprobar/rechazar NO mueve stock ni cambia el estatus del
+// pedido en sí: solo actualiza esta solicitud y avisa al cliente por correo.
 async function updateReturnRequestStatus(req, res) {
   try {
     const { status } = req.body;
@@ -622,6 +651,8 @@ async function updateReturnRequestStatus(req, res) {
     const order = await Order.findById(req.params.id).populate('user', 'name email');
     if (!order) return res.status(404).json({ message: 'Pedido no encontrado' });
 
+    // .id() busca el subdocumento de returnRequests con ese _id (llega en la
+    // URL como :requestId, distinto del :id del pedido).
     const request = order.returnRequests.id(req.params.requestId);
     if (!request) {
       return res.status(404).json({ message: 'Esta solicitud de devolución no existe' });
@@ -644,7 +675,7 @@ async function updateReturnRequestStatus(req, res) {
 
     res.json(order);
   } catch (error) {
-    handleError(res, error, 'Error al actualizar el estado de la devolución');
+    handleError(res, error, 'No pudimos actualizar el estado de la devolución');
   }
 }
 
@@ -666,10 +697,14 @@ async function deleteReturnRequest(req, res) {
 
     res.json({ message: 'Solicitud de devolución eliminada' });
   } catch (error) {
-    handleError(res, error, 'Error al eliminar la solicitud de devolución');
+    handleError(res, error, 'No pudimos eliminar la solicitud de devolución');
   }
 }
 
+// Detalle de un pedido puntual: lo usan tanto el cliente (OrderHistory "Ver
+// detalles") como el admin (AdminOrderDetail), así que la ruta no lleva
+// adminOnly — el control de acceso se hace aquí abajo, comparando dueño vs.
+// solicitante en vez de a nivel de middleware.
 async function getOrderById(req, res) {
   try {
     const order = await Order.findById(req.params.id).populate('user', 'name email phone profilePhoto');
@@ -682,7 +717,7 @@ async function getOrderById(req, res) {
     }
     res.json(order);
   } catch (error) {
-    handleError(res, error, 'Error al obtener el pedido');
+    handleError(res, error, 'No pudimos cargar este pedido');
   }
 }
 
@@ -702,7 +737,7 @@ async function deleteOrder(req, res) {
     await Order.findByIdAndDelete(req.params.id);
     res.json({ message: 'Pedido eliminado' });
   } catch (error) {
-    handleError(res, error, 'Error al eliminar el pedido');
+    handleError(res, error, 'No pudimos eliminar el pedido');
   }
 }
 

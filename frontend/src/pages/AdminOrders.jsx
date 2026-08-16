@@ -33,6 +33,9 @@ function formatDate(dateStr) {
   });
 }
 
+// Panel de administración de pedidos: tabla de todos los pedidos, agrupada y
+// plegable por estatus, con cambio de estatus en línea, cancelación (con
+// motivo) y borrado de los que ya cerraron su ciclo.
 export default function AdminOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -64,6 +67,7 @@ export default function AdminOrders() {
     loadOrders();
   }, []);
 
+  // Pliega/expande el grupo de la tabla correspondiente a un estatus.
   function toggleGroup(status) {
     setCollapsed((prev) => {
       const next = new Set(prev);
@@ -155,6 +159,9 @@ export default function AdminOrders() {
     return acc;
   }, {});
 
+  // Con un filtro de estatus activo solo hay un grupo posible (no tendría
+  // sentido plegar/expandir uno solo); sin filtro, se listan los estatus que
+  // de verdad tienen al menos un pedido visible tras la búsqueda.
   const groupsShown = statusFilter ? [statusFilter] : STATUSES.filter((s) => visibleByStatus[s]);
   const allCollapsed = groupsShown.length > 0 && groupsShown.every((s) => collapsed.has(s));
 

@@ -20,11 +20,19 @@ function formatDate(dateStr) {
   });
 }
 
+// Historial de compras del usuario: una tarjeta por pedido con su estatus,
+// productos y las acciones que apliquen (cancelar, solicitar devolución, ver
+// detalle completo en un modal). Las reglas de "cuándo se puede" viven en
+// utils/orderStatus.js, no aquí.
 export default function OrderHistory() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  // Pedido que se está viendo en el modal de "detalles completos" (dirección,
+  // pago), distinto de los modales de acción de abajo.
   const [detailsOrder, setDetailsOrder] = useState(null);
+  // cancelTarget/returnTarget: el pedido sobre el que se abrió el modal de
+  // CancelOrderModal / RequestReturnModal (null = modal cerrado).
   const [cancelTarget, setCancelTarget] = useState(null);
   const [cancelling, setCancelling] = useState(false);
   const [cancelError, setCancelError] = useState('');
@@ -32,6 +40,10 @@ export default function OrderHistory() {
   const [returnSending, setReturnSending] = useState(false);
   const [returnError, setReturnError] = useState('');
 
+  // Al cancelar, el backend devuelve el pedido ya actualizado (nuevo estatus,
+  // stock restaurado): se reemplaza en la lista y, si ese mismo pedido estaba
+  // abierto en el modal de detalles, también se refresca ahí para no
+  // mostrar datos obsoletos.
   async function handleConfirmCancel(reason) {
     if (!cancelTarget) return;
     setCancelling(true);
@@ -124,6 +136,7 @@ export default function OrderHistory() {
                   <span className="order-history-total">{formatPrice(order.total)}</span>
                 </div>
 
+                {/* Aviso de cancelación, con motivo si se registró uno. */}
                 {isCancelled(order) && (
                   <div className="order-history-cancelled">
                     <p>
@@ -140,6 +153,8 @@ export default function OrderHistory() {
                   </div>
                 )}
 
+                {/* Historial de solicitudes de devolución de este pedido (puede haber
+                    varias si se devolvió por partes) con su estatus actual. */}
                 {order.returnRequests?.length > 0 && (
                   <div className="order-history-cancelled order-history-return">
                     {order.returnRequests.map((request) => (
@@ -184,6 +199,8 @@ export default function OrderHistory() {
         )}
       </div>
 
+      {/* Modal de "Ver detalles": todo lo que no cabe en la tarjeta resumida
+          (dirección de envío completa, método de pago). */}
       {detailsOrder && (
         <div className="modal-overlay" onClick={() => setDetailsOrder(null)}>
           <div className="modal-box order-details-modal" onClick={(e) => e.stopPropagation()}>

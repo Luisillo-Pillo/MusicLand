@@ -65,6 +65,10 @@
   margin: 0;
 }
 
+.cart-item-unit-original {
+  text-decoration: line-through;
+}
+
 .cart-item-qty {
   grid-area: qty;
   min-width: 0;

@@ -22,6 +22,9 @@ function formatDate(dateStr) {
   });
 }
 
+// Convierte una fecha a "YYYY-MM-DD" en hora LOCAL (no UTC, a diferencia de
+// toISOString) para poder compararla tal cual contra el valor de un <input
+// type="date">, que también trabaja en fecha local sin hora.
 function toLocalDateInputValue(dateStr) {
   const d = new Date(dateStr);
   const year = d.getFullYear();
@@ -30,6 +33,7 @@ function toLocalDateInputValue(dateStr) {
   return `${year}-${month}-${day}`;
 }
 
+// Una tarjeta de mensaje de contacto, con su respuesta anterior visible si ya se contestó.
 function MessageCard({ msg, onReply, onDelete }) {
   return (
     <div className="admin-message-card card">
@@ -64,6 +68,7 @@ function MessageCard({ msg, onReply, onDelete }) {
   );
 }
 
+// Un grupo de mensajes con su título y contador (se usa para "Nuevos" y "Respondidos").
 function MessageSection({ title, messages, onReply, onDelete }) {
   return (
     <>
@@ -83,6 +88,9 @@ function MessageSection({ title, messages, onReply, onDelete }) {
   );
 }
 
+// Bandeja de mensajes de contacto del panel de administración: separados en
+// "Nuevos"/"Respondidos", con búsqueda por texto y filtro por fecha (exacta o
+// rango), y un modal para responder por correo sin salir de la página.
 export default function AdminMessages() {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -93,6 +101,9 @@ export default function AdminMessages() {
   const [replyError, setReplyError] = useState('');
   const [search, setSearch] = useState('');
   const [listError, setListError] = useState('');
+  // El filtro de fecha tiene dos modos mutuamente excluyentes: 'exact' (un
+  // solo día) o 'range' (desde/hasta). Cambiar de modo limpia los campos del
+  // otro (ver switchDateMode) para no dejar un filtro fantasma aplicado.
   const [dateMode, setDateMode] = useState('exact');
   const [exactDate, setExactDate] = useState('');
   const [dateFrom, setDateFrom] = useState('');
@@ -152,6 +163,9 @@ export default function AdminMessages() {
     dateMode === 'exact' ? !!exactDate : !!(dateFrom || dateTo);
   const hasActiveFilters = !!(term || hasActiveDateFilter);
 
+  // Un mensaje pasa el filtro si coincide con el texto buscado (nombre,
+  // correo o contenido) Y con la fecha (exacta o dentro del rango) — ambos
+  // criterios son independientes y se combinan con Y, no con O.
   const filteredMessages = messages.filter((msg) => {
     const matchesSearch =
       !term ||

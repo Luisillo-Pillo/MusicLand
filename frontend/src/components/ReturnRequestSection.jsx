@@ -23,6 +23,11 @@ function formatDateTime(dateStr) {
   });
 }
 
+// Formulario de devolución "autónomo" (trae su propia lista de pedidos
+// elegibles) que se embebe en la página de Envíos y Devoluciones, para poder
+// solicitar una devolución sin tener que ir primero al historial de compras.
+// Es la versión con selector de pedido de RequestReturnModal, que en cambio
+// recibe el pedido ya elegido desde afuera.
 export default function ReturnRequestSection() {
   const { user } = useAuth();
 
@@ -62,6 +67,8 @@ export default function ReturnRequestSection() {
 
   const allSelected = !!selectedOrder && selectedProductIds.length === eligibleProducts.length;
 
+  // Cambiar de pedido reinicia la selección de productos y cualquier
+  // mensaje de error/éxito del intento anterior.
   function handleSelectOrder(orderId) {
     setSelectedOrderId(orderId);
     setSelectedProductIds([]);
@@ -80,6 +87,10 @@ export default function ReturnRequestSection() {
     setSelectedProductIds(allSelected ? [] : eligibleProducts.map((p) => p.product));
   }
 
+  // Valida en el cliente (pedido, productos y motivo) antes de llamar al
+  // backend, que igual vuelve a validar todo por su cuenta. Al enviarse con
+  // éxito, quita el pedido de la lista (ya no puede volver a solicitarse
+  // completo) y limpia el formulario para dejarlo listo para otra solicitud.
   async function handleSubmit(e) {
     e.preventDefault();
     if (!selectedOrder) {

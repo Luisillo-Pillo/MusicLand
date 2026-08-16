@@ -1,3 +1,18 @@
+.admin-products-discount-hint {
+  margin: 6px 0 0;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.admin-products-deal-badge {
+  background: var(--color-accent);
+  color: #1f1147;
+}
+
+.admin-products-no-deal {
+  color: var(--color-text-muted);
+}
+
 .admin-header {
   display: flex;
   justify-content: space-between;

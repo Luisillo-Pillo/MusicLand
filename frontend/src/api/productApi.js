@@ -1,7 +1,8 @@
+// Endpoints del catálogo: consulta pública y administración (solo admin).
 import axiosClient from './axiosClient';
 
-export const getProductsRequest = (params) => axiosClient.get('/products', { params });
-export const getFeaturedProductsRequest = () => axiosClient.get('/products/featured');
+export const getProductsRequest = (params) => axiosClient.get('/products', { params }); // listado paginado/filtrable
+export const getDealsRequest = () => axiosClient.get('/products/deals'); // productos con descuento, para el carrusel del Home
 export const getFiltersRequest = () => axiosClient.get('/products/filters');
 export const getProductByIdRequest = (id) => axiosClient.get(`/products/${id}`);
 export const createProductRequest = (data) => axiosClient.post('/products', data);

@@ -26,6 +26,11 @@ function formatLastLogin(dateStr) {
   });
 }
 
+// Menú "..." de acciones por fila. Usa un portal a document.body (en vez de
+// renderizarse dentro de la celda de la tabla) para que el dropdown no quede
+// recortado por overflow:hidden/scroll de la tabla, y calcula su posición a
+// mano contra el trigger (incluida la lógica de abrir hacia arriba si no cabe
+// hacia abajo) porque, al vivir fuera del flujo normal, no puede hacerlo con CSS.
 function RowActionsMenu({ items }) {
   const [open, setOpen] = useState(false);
   const [position, setPosition] = useState({ top: 0, left: 0 });
@@ -108,6 +113,11 @@ function RowActionsMenu({ items }) {
   );
 }
 
+// Tabla de usuarios (se usa dos veces: una para admins, otra para clientes).
+// Arma las acciones de cada fila aquí mismo porque dependen del usuario de
+// esa fila (p. ej. "Hacer admin" vs "Quitar admin" según el rol actual) y de
+// si es la propia cuenta con sesión (no se puede uno quitar el rol admin ni
+// borrarse a sí mismo).
 function UsersTable({ users, currentUserId, onToggleRole, onRequestDelete, onViewProfile }) {
   if (!users.length) {
     return <p className="admin-users-empty">No hay usuarios en esta categoría.</p>;
@@ -198,6 +208,8 @@ function UsersTable({ users, currentUserId, onToggleRole, onRequestDelete, onVie
   );
 }
 
+// Panel de administración de clientes: dos tablas (administradores y
+// clientes) con buscador, cambio de rol y borrado de cuenta.
 export default function AdminUsers() {
   const { user: currentUser } = useAuth();
   const navigate = useNavigate();
@@ -256,6 +268,8 @@ export default function AdminUsers() {
     );
   });
 
+  // La propia cuenta aparece primero en la lista de administradores, para
+  // ubicarla de un vistazo entre potencialmente muchas.
   const admins = filteredUsers
     .filter((user) => user.role === 'admin')
     .sort((a, b) => (a._id === currentUser?._id ? -1 : b._id === currentUser?._id ? 1 : 0));

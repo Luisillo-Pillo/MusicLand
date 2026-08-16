@@ -7,7 +7,7 @@ const products = [
     "category": "Pianos",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha DGX Custom 442",
@@ -17,7 +17,7 @@ const products = [
     "category": "Teclados",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha FS Plus 626",
@@ -27,7 +27,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha YSL Edition 469",
@@ -37,7 +37,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha Recording Custom Edition 294",
@@ -47,7 +47,7 @@ const products = [
     "category": "Baterías",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha Stagepass Custom 109",
@@ -57,7 +57,7 @@ const products = [
     "category": "Audio",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha TransAcoustic Signature 757",
@@ -67,7 +67,7 @@ const products = [
     "category": "Pianos",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha Modx Custom 310",
@@ -77,7 +77,7 @@ const products = [
     "category": "Teclados",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha APX II 56",
@@ -87,7 +87,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha YAS Plus 399",
@@ -97,7 +97,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha Rydeen Classic 373",
@@ -107,7 +107,7 @@ const products = [
     "category": "Baterías",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha Stagepass Classic 756",
@@ -117,7 +117,7 @@ const products = [
     "category": "Audio",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha C3X Signature 234",
@@ -127,7 +127,7 @@ const products = [
     "category": "Pianos",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": true
+    "discountPercent": 15
   },
   {
     "name": "Yamaha Genos Standard 420",
@@ -137,7 +137,7 @@ const products = [
     "category": "Teclados",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha Storia Deluxe 681",
@@ -147,7 +147,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha YFL Elite 152",
@@ -157,7 +157,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha Rydeen Edition 418",
@@ -167,7 +167,7 @@ const products = [
     "category": "Baterías",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Yamaha AG Custom 891",
@@ -177,7 +177,7 @@ const products = [
     "category": "Audio",
     "brand": "Yamaha",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Telecaster Edition 75",
@@ -187,7 +187,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Precision Bass Signature 891",
@@ -197,7 +197,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Champion Signature 124",
@@ -207,7 +207,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Newporter Pro 522",
@@ -217,7 +217,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Stratocaster Vintage 633",
@@ -227,7 +227,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": true
+    "discountPercent": 20
   },
   {
     "name": "Fender Jazz Bass Pro 341",
@@ -237,7 +237,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Blues Junior Vintage 69",
@@ -247,7 +247,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender CD-60S Custom 845",
@@ -257,7 +257,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Telecaster Elite 979",
@@ -267,7 +267,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender American Ultra Bass Edition 961",
@@ -277,7 +277,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Blues Junior Series 458",
@@ -287,7 +287,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender CD-60S Plus 75",
@@ -297,7 +297,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Jazzmaster Plus 235",
@@ -307,7 +307,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Jazz Bass Plus 937",
@@ -317,7 +317,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Champion Plus 695",
@@ -327,7 +327,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Sonoran SE 813",
@@ -337,7 +337,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Telecaster Special 684",
@@ -347,7 +347,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Fender Precision Bass X 699",
@@ -357,7 +357,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Fender",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson Les Paul Standard Standard 755",
@@ -367,7 +367,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson Hummingbird II 559",
@@ -377,7 +377,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson Les Paul Studio Signature 265",
@@ -387,7 +387,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": true
+    "discountPercent": 25
   },
   {
     "name": "Gibson L-00 Special 677",
@@ -397,7 +397,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson Les Paul Standard Plus 426",
@@ -407,7 +407,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson L-00 Standard 398",
@@ -417,7 +417,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson SG Standard X 443",
@@ -427,7 +427,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson L-00 Elite 313",
@@ -437,7 +437,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson Les Paul Custom Standard 68",
@@ -447,7 +447,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson Hummingbird Standard 92",
@@ -457,7 +457,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson Les Paul Custom Custom 423",
@@ -467,7 +467,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson Hummingbird Standard 93",
@@ -477,7 +477,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson Les Paul Custom Deluxe 219",
@@ -487,7 +487,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson Hummingbird Signature 144",
@@ -497,7 +497,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson ES-335 Deluxe 19",
@@ -507,7 +507,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson J-45 Custom 228",
@@ -517,7 +517,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson SG Standard Custom 388",
@@ -527,7 +527,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gibson J-200 Pro 316",
@@ -537,7 +537,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Gibson",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland Juno Signature 921",
@@ -547,7 +547,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": true
+    "discountPercent": 30
   },
   {
     "name": "Roland TD-27 Signature 629",
@@ -557,7 +557,7 @@ const products = [
     "category": "Baterías Electrónicas",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland GO:KEYS Signature 510",
@@ -567,7 +567,7 @@ const products = [
     "category": "Teclados",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland AIRA Edition 55",
@@ -577,7 +577,7 @@ const products = [
     "category": "Audio",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland Fantom Classic 574",
@@ -587,7 +587,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland TD-17 Special 977",
@@ -597,7 +597,7 @@ const products = [
     "category": "Baterías Electrónicas",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland FP-30X Studio 575",
@@ -607,7 +607,7 @@ const products = [
     "category": "Teclados",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland AIRA Vintage 930",
@@ -617,7 +617,7 @@ const products = [
     "category": "Audio",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland Fantom II 692",
@@ -627,7 +627,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland SPD-SX Elite 895",
@@ -637,7 +637,7 @@ const products = [
     "category": "Baterías Electrónicas",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland Juno-DS Pro 764",
@@ -647,7 +647,7 @@ const products = [
     "category": "Teclados",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland Rubix Signature 816",
@@ -657,7 +657,7 @@ const products = [
     "category": "Audio",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland Jupiter SE 214",
@@ -667,7 +667,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland V-Drums Vintage 238",
@@ -677,7 +677,7 @@ const products = [
     "category": "Baterías Electrónicas",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland Juno-DS Deluxe 895",
@@ -687,7 +687,7 @@ const products = [
     "category": "Teclados",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland Duo-Capture Series 349",
@@ -697,7 +697,7 @@ const products = [
     "category": "Audio",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland Fantom Classic 995",
@@ -707,7 +707,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Roland TD-17 Edition 756",
@@ -717,7 +717,7 @@ const products = [
     "category": "Baterías Electrónicas",
     "brand": "Roland",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Boston Special 931",
@@ -727,7 +727,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": true
+    "discountPercent": 10
   },
   {
     "name": "Steinway Model B Edition 542",
@@ -737,7 +737,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Essex II 451",
@@ -747,7 +747,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Model O Deluxe 747",
@@ -757,7 +757,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Model O Edition 422",
@@ -767,7 +767,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Model D II 690",
@@ -777,7 +777,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Essex Classic 592",
@@ -787,7 +787,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Model B Vintage 225",
@@ -797,7 +797,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Boston Deluxe 462",
@@ -807,7 +807,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Boston SE 684",
@@ -817,7 +817,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Essex Deluxe 848",
@@ -827,7 +827,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Essex Vintage 835",
@@ -837,7 +837,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Model B Plus 635",
@@ -847,7 +847,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Model M Edition 209",
@@ -857,7 +857,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Model M Series 161",
@@ -867,7 +867,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Model B Edition 190",
@@ -877,7 +877,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Model M Standard 265",
@@ -887,7 +887,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Steinway Model M Elite 693",
@@ -897,7 +897,7 @@ const products = [
     "category": "Pianos",
     "brand": "Steinway & Sons",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio SA- Deluxe 637",
@@ -907,7 +907,7 @@ const products = [
     "category": "Teclados",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio CDP-S X 771",
@@ -917,7 +917,7 @@ const products = [
     "category": "Pianos Digitales",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio Casiotone Plus 794",
@@ -927,7 +927,7 @@ const products = [
     "category": "Teclados",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio AP- Plus 460",
@@ -937,7 +937,7 @@ const products = [
     "category": "Pianos Digitales",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio CT-X Signature 337",
@@ -947,7 +947,7 @@ const products = [
     "category": "Teclados",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio Privia PX Elite 402",
@@ -957,7 +957,7 @@ const products = [
     "category": "Pianos Digitales",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio CT-X Edition 348",
@@ -967,7 +967,7 @@ const products = [
     "category": "Teclados",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio Privia PX II 408",
@@ -977,7 +977,7 @@ const products = [
     "category": "Pianos Digitales",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio SA- Pro 399",
@@ -987,7 +987,7 @@ const products = [
     "category": "Teclados",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio CDP-S Series 561",
@@ -997,7 +997,7 @@ const products = [
     "category": "Pianos Digitales",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio SA- Plus 234",
@@ -1007,7 +1007,7 @@ const products = [
     "category": "Teclados",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio Privia PX Series 694",
@@ -1017,7 +1017,7 @@ const products = [
     "category": "Pianos Digitales",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio SA- Classic 951",
@@ -1027,7 +1027,7 @@ const products = [
     "category": "Teclados",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio AP- Pro 616",
@@ -1037,7 +1037,7 @@ const products = [
     "category": "Pianos Digitales",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio CT-X Edition 897",
@@ -1047,7 +1047,7 @@ const products = [
     "category": "Teclados",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio CDP-S Series 226",
@@ -1057,7 +1057,7 @@ const products = [
     "category": "Pianos Digitales",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio Casiotone Signature 268",
@@ -1067,7 +1067,7 @@ const products = [
     "category": "Teclados",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Casio Privia PX Standard 239",
@@ -1077,7 +1077,7 @@ const products = [
     "category": "Pianos Digitales",
     "brand": "Casio",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg Minilogue Pro 214",
@@ -1087,7 +1087,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg Pa1000 Plus 494",
@@ -1097,7 +1097,7 @@ const products = [
     "category": "Teclados",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg Volca X 795",
@@ -1107,7 +1107,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg Kronos Classic 120",
@@ -1117,7 +1117,7 @@ const products = [
     "category": "Teclados",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg Prologue Series 87",
@@ -1127,7 +1127,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg Pa1000 Special 880",
@@ -1137,7 +1137,7 @@ const products = [
     "category": "Teclados",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg Minilogue Studio 448",
@@ -1147,7 +1147,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg Nautilus Pro 852",
@@ -1157,7 +1157,7 @@ const products = [
     "category": "Teclados",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg microKORG X 455",
@@ -1167,7 +1167,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg Nautilus SE 456",
@@ -1177,7 +1177,7 @@ const products = [
     "category": "Teclados",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg microKORG Deluxe 860",
@@ -1187,7 +1187,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg SV-2 Plus 593",
@@ -1197,7 +1197,7 @@ const products = [
     "category": "Teclados",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg microKORG Pro 881",
@@ -1207,7 +1207,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg Pa1000 Studio 358",
@@ -1217,7 +1217,7 @@ const products = [
     "category": "Teclados",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg microKORG Pro 980",
@@ -1227,7 +1227,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg SV-2 SE 786",
@@ -1237,7 +1237,7 @@ const products = [
     "category": "Teclados",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg Prologue X 105",
@@ -1247,7 +1247,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Korg Pa1000 Vintage 387",
@@ -1257,7 +1257,7 @@ const products = [
     "category": "Teclados",
     "brand": "Korg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/YamahaKeyboard-2.jpg/500px-YamahaKeyboard-2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez Artcore Edition 348",
@@ -1267,7 +1267,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez Talman Bass Vintage 246",
@@ -1277,7 +1277,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez Artcore Special 983",
@@ -1287,7 +1287,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez GSR II 293",
@@ -1297,7 +1297,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez RGA Vintage 862",
@@ -1307,7 +1307,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez Talman Bass Classic 24",
@@ -1317,7 +1317,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez Artcore Standard 576",
@@ -1327,7 +1327,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez BTB Special 597",
@@ -1337,7 +1337,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez AZ Deluxe 998",
@@ -1347,7 +1347,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez SR Bass Custom 513",
@@ -1357,7 +1357,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez Prestige Standard 162",
@@ -1367,7 +1367,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez SR Bass Plus 581",
@@ -1377,7 +1377,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez RGA Plus 399",
@@ -1387,7 +1387,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez Talman Bass Edition 592",
@@ -1397,7 +1397,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez Prestige Special 650",
@@ -1407,7 +1407,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez SR Bass Classic 187",
@@ -1417,7 +1417,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez RG Edition 715",
@@ -1427,7 +1427,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Ibanez SR Bass Plus 733",
@@ -1437,7 +1437,7 @@ const products = [
     "category": "Bajos Eléctricos",
     "brand": "Ibanez",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure SM57 Plus 816",
@@ -1447,7 +1447,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": true
+    "discountPercent": 35
   },
   {
     "name": "Shure Beta 58A Edition 567",
@@ -1457,7 +1457,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure MV7 Elite 71",
@@ -1467,7 +1467,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure MV7 X 489",
@@ -1477,7 +1477,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure MV7 SE 92",
@@ -1487,7 +1487,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure PGA58 Signature 103",
@@ -1497,7 +1497,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure SM58 Signature 51",
@@ -1507,7 +1507,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure BLX Wireless X 195",
@@ -1517,7 +1517,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure BLX Wireless Custom 366",
@@ -1527,7 +1527,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure SM57 Classic 431",
@@ -1537,7 +1537,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure KSM8 Standard 100",
@@ -1547,7 +1547,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure SM57 Series 854",
@@ -1557,7 +1557,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure BLX Wireless Edition 202",
@@ -1567,7 +1567,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure BLX Wireless X 218",
@@ -1577,7 +1577,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure MV7 X 134",
@@ -1587,7 +1587,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure Beta 58A Classic 574",
@@ -1597,7 +1597,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure SM57 Plus 482",
@@ -1607,7 +1607,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Shure SM7B SE 531",
@@ -1617,7 +1617,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Shure",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Reference SE 477",
@@ -1627,7 +1627,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": true
+    "discountPercent": 20
   },
   {
     "name": "Pearl Roadshow Elite 292",
@@ -1637,7 +1637,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Masters Maple Signature 299",
@@ -1647,7 +1647,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Decade Maple SE 467",
@@ -1657,7 +1657,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Masters Maple Series 965",
@@ -1667,7 +1667,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Midtown Plus 402",
@@ -1677,7 +1677,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Export Deluxe 732",
@@ -1687,7 +1687,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Reference Elite 997",
@@ -1697,7 +1697,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Decade Maple Deluxe 905",
@@ -1707,7 +1707,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Decade Maple X 749",
@@ -1717,7 +1717,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Roadshow Custom 810",
@@ -1727,7 +1727,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Decade Maple Series 882",
@@ -1737,7 +1737,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Decade Maple Series 651",
@@ -1747,7 +1747,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Decade Maple Standard 80",
@@ -1757,7 +1757,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Masters Maple Plus 454",
@@ -1767,7 +1767,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Midtown Special 180",
@@ -1777,7 +1777,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Export Deluxe 310",
@@ -1787,7 +1787,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Pearl Roadshow Plus 431",
@@ -1797,7 +1797,7 @@ const products = [
     "category": "Baterías",
     "brand": "Pearl",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian K Custom Classic 634",
@@ -1807,7 +1807,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian I Family Plus 944",
@@ -1817,7 +1817,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian Avedis Signature 271",
@@ -1827,7 +1827,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian A Zildjian Classic 462",
@@ -1837,7 +1837,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian A Zildjian Edition 477",
@@ -1847,7 +1847,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian Avedis SE 252",
@@ -1857,7 +1857,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian FX Vintage 32",
@@ -1867,7 +1867,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian Avedis Signature 589",
@@ -1877,7 +1877,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian FX SE 804",
@@ -1887,7 +1887,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian Kerope Studio 661",
@@ -1897,7 +1897,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian I Family Elite 935",
@@ -1907,7 +1907,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian A Zildjian X 603",
@@ -1917,7 +1917,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian A Custom Vintage 775",
@@ -1927,7 +1927,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian K Custom Studio 523",
@@ -1937,7 +1937,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian A Zildjian SE 774",
@@ -1947,7 +1947,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian Avedis Custom 782",
@@ -1957,7 +1957,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Zildjian I Family Series 384",
@@ -1967,7 +1967,7 @@ const products = [
     "category": "Platillos",
     "brand": "Zildjian",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch Electromatic Signature 136",
@@ -1977,7 +1977,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch Broadkaster Series 120",
@@ -1987,7 +1987,7 @@ const products = [
     "category": "Baterías",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch Electromatic Deluxe 236",
@@ -1997,7 +1997,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch Energy Vintage 129",
@@ -2007,7 +2007,7 @@ const products = [
     "category": "Baterías",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch White Falcon SE 109",
@@ -2017,7 +2017,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch Renown Series 389",
@@ -2027,7 +2027,7 @@ const products = [
     "category": "Baterías",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch G5420 Elite 680",
@@ -2037,7 +2037,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch Energy Signature 716",
@@ -2047,7 +2047,7 @@ const products = [
     "category": "Baterías",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch G5420 Plus 111",
@@ -2057,7 +2057,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch Broadkaster Standard 292",
@@ -2067,7 +2067,7 @@ const products = [
     "category": "Baterías",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch G5420 Custom 667",
@@ -2077,7 +2077,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch Catalina Club Deluxe 138",
@@ -2087,7 +2087,7 @@ const products = [
     "category": "Baterías",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch Electromatic II 231",
@@ -2097,7 +2097,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch Broadkaster Elite 12",
@@ -2107,7 +2107,7 @@ const products = [
     "category": "Baterías",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch Streamliner Signature 122",
@@ -2117,7 +2117,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch Renown Pro 818",
@@ -2127,7 +2127,7 @@ const products = [
     "category": "Baterías",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg/500px-Ringo_Starr%27s_Ludwig_Downbeat_Four-piece_drum_set_with_cymbals_%281963%29_-_Play_It_Loud._MET_%282019-05-13_18.37.59_by_Eden%2C_Janine_and_Jim%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Gretsch White Falcon Pro 281",
@@ -2137,7 +2137,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Gretsch",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin HD-28 Special 497",
@@ -2147,7 +2147,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin HD-28 Special 525",
@@ -2157,7 +2157,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin D-28 Vintage 668",
@@ -2167,7 +2167,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": true
+    "discountPercent": 15
   },
   {
     "name": "Martin OM-28 Series 712",
@@ -2177,7 +2177,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin D-28 Custom 632",
@@ -2187,7 +2187,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin D-18 Deluxe 621",
@@ -2197,7 +2197,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin HD-28 Edition 822",
@@ -2207,7 +2207,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin D Junior II 472",
@@ -2217,7 +2217,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin D-18 X 435",
@@ -2227,7 +2227,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin OM-28 Deluxe 393",
@@ -2237,7 +2237,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin OM-28 Custom 861",
@@ -2247,7 +2247,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin D-28 Studio 579",
@@ -2257,7 +2257,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin HD-28 Deluxe 430",
@@ -2267,7 +2267,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin OM-28 Standard 624",
@@ -2277,7 +2277,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin HD-28 II 682",
@@ -2287,7 +2287,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin D-18 Studio 790",
@@ -2297,7 +2297,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Martin OM-28 Pro 961",
@@ -2307,7 +2307,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Martin (C.F. Martin & Co.)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor 114ce Classic 729",
@@ -2317,7 +2317,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": true
+    "discountPercent": 25
   },
   {
     "name": "Taylor GS Mini Pro 900",
@@ -2327,7 +2327,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor American Dream Custom 768",
@@ -2337,7 +2337,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor 114ce II 439",
@@ -2347,7 +2347,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor GS Mini Vintage 805",
@@ -2357,7 +2357,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor 114ce Standard 171",
@@ -2367,7 +2367,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor 812ce Custom 463",
@@ -2377,7 +2377,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor Academy 12 X 289",
@@ -2387,7 +2387,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor 114ce Studio 123",
@@ -2397,7 +2397,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor Academy 12 SE 693",
@@ -2407,7 +2407,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor American Dream Standard 219",
@@ -2417,7 +2417,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor 214ce Signature 345",
@@ -2427,7 +2427,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor 812ce Edition 142",
@@ -2437,7 +2437,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor Academy 12 Studio 416",
@@ -2447,7 +2447,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor American Dream Pro 953",
@@ -2457,7 +2457,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor Academy 12 Edition 424",
@@ -2467,7 +2467,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Taylor GS Mini Special 31",
@@ -2477,7 +2477,7 @@ const products = [
     "category": "Guitarras Acústicas",
     "brand": "Taylor Guitars",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gibson_SJ200.jpg/500px-Gibson_SJ200.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer Signature Clarinet X 100",
@@ -2487,7 +2487,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer Series III Edition 420",
@@ -2497,7 +2497,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer AS42 Deluxe 351",
@@ -2507,7 +2507,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer Signature Clarinet Special 532",
@@ -2517,7 +2517,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer AS42 Elite 115",
@@ -2527,7 +2527,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer Series III Elite 191",
@@ -2537,7 +2537,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer TS44 X 788",
@@ -2547,7 +2547,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer Signature Clarinet Deluxe 164",
@@ -2557,7 +2557,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer TS44 Vintage 615",
@@ -2567,7 +2567,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer Reference 54 Vintage 472",
@@ -2577,7 +2577,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer AS42 Custom 639",
@@ -2587,7 +2587,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer TS44 Standard 940",
@@ -2597,7 +2597,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer Series III Deluxe 497",
@@ -2607,7 +2607,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer TS44 Special 741",
@@ -2617,7 +2617,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer Series III Standard 734",
@@ -2627,7 +2627,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer Signature Clarinet Classic 391",
@@ -2637,7 +2637,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Selmer TS44 Deluxe 63",
@@ -2647,7 +2647,7 @@ const products = [
     "category": "Instrumentos de Viento",
     "brand": "Selmer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Yamaha_Trumpet_YTR-8335LA_crop.jpg/500px-Yamaha_Trumpet_YTR-8335LA_crop.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall Origin20 Custom 106",
@@ -2657,7 +2657,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": true
+    "discountPercent": 30
   },
   {
     "name": "Marshall Origin20 Signature 904",
@@ -2667,7 +2667,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall Code Elite 327",
@@ -2677,7 +2677,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall MG Series Elite 735",
@@ -2687,7 +2687,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall Code Series 842",
@@ -2697,7 +2697,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall Code Custom 530",
@@ -2707,7 +2707,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall Origin20 Classic 359",
@@ -2717,7 +2717,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall JCM800 Plus 168",
@@ -2727,7 +2727,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall Code Standard 907",
@@ -2737,7 +2737,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall Code Series 176",
@@ -2747,7 +2747,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall JCM800 X 430",
@@ -2757,7 +2757,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall MG Series Vintage 249",
@@ -2767,7 +2767,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall MG Series II 704",
@@ -2777,7 +2777,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall MG Series Vintage 524",
@@ -2787,7 +2787,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall JCM800 Elite 63",
@@ -2797,7 +2797,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall Code Special 881",
@@ -2807,7 +2807,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Marshall JCM800 Signature 937",
@@ -2817,7 +2817,7 @@ const products = [
     "category": "Amplificadores",
     "brand": "Marshall",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Marshall_5005_Lead_12_Mini-stack_White.jpg/500px-Marshall_5005_Lead_12_Mini-stack_White.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 330 Plus 915",
@@ -2827,7 +2827,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 4003 Bass Standard 524",
@@ -2837,7 +2837,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 330 Studio 38",
@@ -2847,7 +2847,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 620 Elite 49",
@@ -2857,7 +2857,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 360 SE 640",
@@ -2867,7 +2867,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 330 Signature 865",
@@ -2877,7 +2877,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 325 Edition 804",
@@ -2887,7 +2887,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 330 Standard 439",
@@ -2897,7 +2897,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 4003 Bass Custom 866",
@@ -2907,7 +2907,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 325 Pro 598",
@@ -2917,7 +2917,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 620 Edition 639",
@@ -2927,7 +2927,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 4003 Bass Classic 546",
@@ -2937,7 +2937,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 325 Pro 904",
@@ -2947,7 +2947,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 4003 Bass Studio 775",
@@ -2957,7 +2957,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 620 Plus 800",
@@ -2967,7 +2967,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 360 Standard 569",
@@ -2977,7 +2977,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Rickenbacker 360 X 656",
@@ -2987,7 +2987,7 @@ const products = [
     "category": "Guitarras Eléctricas",
     "brand": "Rickenbacker",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Strat.jpg/500px-Black_Strat.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 200 X 310",
@@ -2997,7 +2997,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 200 Deluxe 537",
@@ -3007,7 +3007,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 130 Signature 781",
@@ -3017,7 +3017,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 280 Standard 289",
@@ -3027,7 +3027,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 130 Series 926",
@@ -3037,7 +3037,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 214VC SE 386",
@@ -3047,7 +3047,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 280 Custom 90",
@@ -3057,7 +3057,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 280 Deluxe 91",
@@ -3067,7 +3067,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 280 X 744",
@@ -3077,7 +3077,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 280 X 754",
@@ -3087,7 +3087,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 130 Signature 86",
@@ -3097,7 +3097,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 280 Classic 156",
@@ -3107,7 +3107,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 130 Standard 78",
@@ -3117,7 +3117,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 280 Studio 982",
@@ -3127,7 +3127,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 214VC X 390",
@@ -3137,7 +3137,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 214VC Studio 331",
@@ -3147,7 +3147,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Bösendorfer Model 200 Pro 521",
@@ -3157,7 +3157,7 @@ const products = [
     "category": "Pianos",
     "brand": "Bösendorfer",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Steinway_Vienna_002.JPG/500px-Steinway_Vienna_002.JPG",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Subsequent 37 Signature 730",
@@ -3167,7 +3167,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Grandmother SE 135",
@@ -3177,7 +3177,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Matriarch Classic 99",
@@ -3187,7 +3187,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog DFAM Studio 573",
@@ -3197,7 +3197,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Minimoog Model D Classic 530",
@@ -3207,7 +3207,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Minimoog Model D Plus 36",
@@ -3217,7 +3217,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Grandmother X 142",
@@ -3227,7 +3227,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Subsequent 37 Vintage 744",
@@ -3237,7 +3237,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Matriarch Edition 85",
@@ -3247,7 +3247,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog DFAM Custom 487",
@@ -3257,7 +3257,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Minimoog Model D Classic 453",
@@ -3267,7 +3267,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Subsequent 37 Elite 178",
@@ -3277,7 +3277,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Grandmother Vintage 266",
@@ -3287,7 +3287,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Grandmother Elite 639",
@@ -3297,7 +3297,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog DFAM Classic 974",
@@ -3307,7 +3307,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog DFAM Deluxe 52",
@@ -3317,7 +3317,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Moog Subsequent 37 Standard 281",
@@ -3327,7 +3327,7 @@ const products = [
     "category": "Sintetizadores",
     "brand": "Moog",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/R.A.Moog_minimoog_2.jpg/500px-R.A.Moog_minimoog_2.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser EW 100 Pro 920",
@@ -3337,7 +3337,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser HD 280 Pro SE 834",
@@ -3347,7 +3347,7 @@ const products = [
     "category": "Audio",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser MD 421 X 715",
@@ -3357,7 +3357,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser MKE 200 SE 218",
@@ -3367,7 +3367,7 @@ const products = [
     "category": "Audio",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser MD 421 Deluxe 418",
@@ -3377,7 +3377,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser HD 25 Deluxe 487",
@@ -3387,7 +3387,7 @@ const products = [
     "category": "Audio",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser e945 Elite 61",
@@ -3397,7 +3397,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser MKE 200 Plus 843",
@@ -3407,7 +3407,7 @@ const products = [
     "category": "Audio",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser MD 421 II 520",
@@ -3417,7 +3417,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser MKE 200 Vintage 33",
@@ -3427,7 +3427,7 @@ const products = [
     "category": "Audio",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser EW 100 Plus 607",
@@ -3437,7 +3437,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser HD 280 Pro SE 913",
@@ -3447,7 +3447,7 @@ const products = [
     "category": "Audio",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser EW 100 Vintage 18",
@@ -3457,7 +3457,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser Profile Signature 792",
@@ -3467,7 +3467,7 @@ const products = [
     "category": "Audio",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser EW 100 Standard 585",
@@ -3477,7 +3477,7 @@ const products = [
     "category": "Micrófonos",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser HD 280 Pro Custom 526",
@@ -3487,7 +3487,7 @@ const products = [
     "category": "Audio",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
-    "featured": false
+    "discountPercent": 0
   },
   {
     "name": "Sennheiser MD 421 Special 109",
@@ -3497,7 +3497,507 @@ const products = [
     "category": "Micrófonos",
     "brand": "Sennheiser",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Shure_mikrofon_55S.jpg/500px-Shure_mikrofon_55S.jpg",
-    "featured": false
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland TD-27 Series 779",
+    "price": 57739.99,
+    "stock": 19,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-27 en color azul océano, con acabado series.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland V-Drums Elite 401",
+    "price": 45929.99,
+    "stock": 15,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo V-Drums en color rojo cereza, con acabado elite.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland SPD-SX Series 855",
+    "price": 35389.99,
+    "stock": 19,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo SPD-SX en color natural, con acabado series.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland TD-07 Vintage 785",
+    "price": 26279.99,
+    "stock": 12,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-07 en color gris metálico, con acabado vintage.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland SPD-SX Classic 429",
+    "price": 16139.99,
+    "stock": 10,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo SPD-SX en color negro, con acabado classic.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland TD-27 X 510",
+    "price": 53699.99,
+    "stock": 20,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-27 en color dorado, con acabado x.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland TD-17 SE 503",
+    "price": 15109.99,
+    "stock": 14,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-17 en color rojo cereza, con acabado se.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland TD-27 Series 382",
+    "price": 44379.99,
+    "stock": 15,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-27 en color dorado, con acabado series.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland SPD-SX II 71",
+    "price": 37019.99,
+    "stock": 17,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo SPD-SX en color gris metálico, con acabado ii.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland V-Drums Standard 926",
+    "price": 37139.99,
+    "stock": 20,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo V-Drums en color transparente, con acabado standard.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland TD-27 II 638",
+    "price": 37769.99,
+    "stock": 15,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-27 en color dorado, con acabado ii.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland TD-27 Elite 876",
+    "price": 22979.99,
+    "stock": 16,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-27 en color dorado, con acabado elite.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland SPD-SX SE 823",
+    "price": 35159.99,
+    "stock": 11,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo SPD-SX en color azul océano, con acabado se.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland TD-07 Signature 84",
+    "price": 55949.99,
+    "stock": 10,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-07 en color dorado, con acabado signature.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland SPD-SX Vintage 944",
+    "price": 55349.99,
+    "stock": 18,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo SPD-SX en color natural, con acabado vintage.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland TD-17 Edition 318",
+    "price": 52299.99,
+    "stock": 15,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-17 en color gris metálico, con acabado edition.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Roland TD-17 X 669",
+    "price": 41319.99,
+    "stock": 11,
+    "description": "Batería electrónica con parches sensibles y módulo de sonidos editables para práctica silenciosa o en vivo. Modelo TD-17 en color dorado, con acabado x.",
+    "category": "Baterías Electrónicas",
+    "brand": "Roland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roland_V-Drums_%282915493510%29.jpg/500px-Roland_V-Drums_%282915493510%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio AP- Classic 923",
+    "price": 15819.99,
+    "stock": 16,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo AP- en color gris metálico, con acabado classic.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio Privia PX Special 976",
+    "price": 20369.99,
+    "stock": 17,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo Privia PX en color vino, con acabado special.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio CDP-S II 87",
+    "price": 30639.99,
+    "stock": 19,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo CDP-S en color rojo cereza, con acabado ii.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio CDP-S Pro 731",
+    "price": 8029.99,
+    "stock": 16,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo CDP-S en color natural, con acabado pro.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio CDP-S Signature 440",
+    "price": 15989.99,
+    "stock": 16,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo CDP-S en color negro, con acabado signature.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio AP- Plus 803",
+    "price": 10889.99,
+    "stock": 13,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo AP- en color gris metálico, con acabado plus.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio Privia PX Elite 969",
+    "price": 23539.99,
+    "stock": 16,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo Privia PX en color rojo cereza, con acabado elite.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio PX-S Edition 61",
+    "price": 24569.99,
+    "stock": 14,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo PX-S en color dorado, con acabado edition.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio CDP-S II 943",
+    "price": 20799.99,
+    "stock": 19,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo CDP-S en color dorado, con acabado ii.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio PX-S Elite 819",
+    "price": 27839.99,
+    "stock": 15,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo PX-S en color natural, con acabado elite.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio PX-S Plus 265",
+    "price": 32049.99,
+    "stock": 20,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo PX-S en color blanco perla, con acabado plus.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio PX-S Special 374",
+    "price": 17839.99,
+    "stock": 16,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo PX-S en color azul océano, con acabado special.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Casio AP- Classic 610",
+    "price": 30359.99,
+    "stock": 10,
+    "description": "Piano digital con teclas contrapesadas y sonido de piano acústico muestreado en alta resolución. Modelo AP- en color natural, con acabado classic.",
+    "category": "Pianos Digitales",
+    "brand": "Casio",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Digital-piano-423.jpg/500px-Digital-piano-423.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Ibanez GSR Custom 49",
+    "price": 42119.99,
+    "stock": 16,
+    "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo GSR en color vino, con acabado custom.",
+    "category": "Bajos Eléctricos",
+    "brand": "Ibanez",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Ibanez GSR Series 78",
+    "price": 41179.99,
+    "stock": 12,
+    "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo GSR en color sunburst, con acabado series.",
+    "category": "Bajos Eléctricos",
+    "brand": "Ibanez",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Fender Precision Bass Plus 742",
+    "price": 37929.99,
+    "stock": 11,
+    "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo Precision Bass en color negro, con acabado plus.",
+    "category": "Bajos Eléctricos",
+    "brand": "Fender",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Ibanez GSR Vintage 32",
+    "price": 20959.99,
+    "stock": 10,
+    "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo GSR en color negro, con acabado vintage.",
+    "category": "Bajos Eléctricos",
+    "brand": "Ibanez",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Ibanez SR Bass Special 362",
+    "price": 18569.99,
+    "stock": 19,
+    "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo SR Bass en color negro, con acabado special.",
+    "category": "Bajos Eléctricos",
+    "brand": "Ibanez",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Fender American Ultra Bass Vintage 677",
+    "price": 59069.99,
+    "stock": 14,
+    "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo American Ultra Bass en color rojo cereza, con acabado vintage.",
+    "category": "Bajos Eléctricos",
+    "brand": "Fender",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Fender Precision Bass Pro 500",
+    "price": 28339.99,
+    "stock": 12,
+    "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo Precision Bass en color dorado, con acabado pro.",
+    "category": "Bajos Eléctricos",
+    "brand": "Fender",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Ibanez BTB Pro 456",
+    "price": 43109.99,
+    "stock": 14,
+    "description": "Bajo eléctrico con gran proyección de graves y ergonomía pensada para largas sesiones de tocada. Modelo BTB en color gris metálico, con acabado pro.",
+    "category": "Bajos Eléctricos",
+    "brand": "Ibanez",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Fender_Precision_Bass.jpg/500px-Fender_Precision_Bass.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Yamaha AG Series 740",
+    "price": 8479.99,
+    "stock": 12,
+    "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo AG en color negro, con acabado series.",
+    "category": "Audio",
+    "brand": "Yamaha",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Sennheiser HD 280 Pro Signature 910",
+    "price": 7019.99,
+    "stock": 18,
+    "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo HD 280 Pro en color natural, con acabado signature.",
+    "category": "Audio",
+    "brand": "Sennheiser",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Sennheiser HD 25 II 62",
+    "price": 17299.99,
+    "stock": 13,
+    "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo HD 25 en color vino, con acabado ii.",
+    "category": "Audio",
+    "brand": "Sennheiser",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Yamaha Stagepass Signature 504",
+    "price": 12489.99,
+    "stock": 10,
+    "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo Stagepass en color sunburst, con acabado signature.",
+    "category": "Audio",
+    "brand": "Yamaha",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Yamaha AG Elite 447",
+    "price": 10679.99,
+    "stock": 18,
+    "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo AG en color sunburst, con acabado elite.",
+    "category": "Audio",
+    "brand": "Yamaha",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Sennheiser Profile Custom 719",
+    "price": 13219.99,
+    "stock": 14,
+    "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo Profile en color transparente, con acabado custom.",
+    "category": "Audio",
+    "brand": "Sennheiser",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Sennheiser Profile SE 814",
+    "price": 17309.99,
+    "stock": 13,
+    "description": "Equipo de audio profesional pensado para monitoreo y grabación con fidelidad de estudio. Modelo Profile en color rojo cereza, con acabado se.",
+    "category": "Audio",
+    "brand": "Sennheiser",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg/500px-PreSonus_Eris_E4.5_HD_Active_Studio_Monitor_with_popup_-_2014_NAMM_Show_%28by_Matt_Vanacoro%29.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Zildjian Avedis X 441",
+    "price": 12129.99,
+    "stock": 18,
+    "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo Avedis en color rojo cereza, con acabado x.",
+    "category": "Platillos",
+    "brand": "Zildjian",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Zildjian Avedis Vintage 18",
+    "price": 3599.99,
+    "stock": 16,
+    "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo Avedis en color natural, con acabado vintage.",
+    "category": "Platillos",
+    "brand": "Zildjian",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Zildjian A Custom Standard 810",
+    "price": 11859.99,
+    "stock": 10,
+    "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo A Custom en color azul océano, con acabado standard.",
+    "category": "Platillos",
+    "brand": "Zildjian",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Zildjian A Custom Signature 377",
+    "price": 10109.99,
+    "stock": 15,
+    "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo A Custom en color dorado, con acabado signature.",
+    "category": "Platillos",
+    "brand": "Zildjian",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
+    "discountPercent": 0
+  },
+  {
+    "name": "Zildjian A Custom Signature 564",
+    "price": 4099.99,
+    "stock": 11,
+    "description": "Platillo con aleación de bronce de alta calidad, ofrece un brillo y sustain característicos. Modelo A Custom en color gris metálico, con acabado signature.",
+    "category": "Platillos",
+    "brand": "Zildjian",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZildjianCustomRide.jpg/500px-ZildjianCustomRide.jpg",
+    "discountPercent": 0
   }
 ];
 

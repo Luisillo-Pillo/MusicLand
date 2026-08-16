@@ -42,6 +42,49 @@
   margin: 6px 0 20px;
 }
 
+/* Insignia de oferta sobre la imagen grande, mismo criterio de color que la
+   de ProductCard (naranja/dorado = oferta, no se confunde con el rojo de error). */
+.product-detail-discount-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  background: var(--color-accent);
+  color: #1f1147;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.product-detail-price-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin: 6px 0 20px;
+}
+
+.product-detail-price-sale {
+  margin: 0;
+  color: var(--color-danger);
+}
+
+.product-detail-price-original {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.product-detail-discount-pill {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--badge-green-text);
+  background: var(--badge-green-bg);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
 .product-detail-info h4 {
   margin-bottom: 6px;
   font-size: 0.95rem;

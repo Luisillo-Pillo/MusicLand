@@ -15,6 +15,8 @@ const roleLabels = {
   user: 'Cliente'
 };
 
+// Perfil de un cliente visto desde el panel de administración: cambio de
+// rol, borrado de cuenta y un correo directo (contactUserRequest) al cliente.
 export default function AdminUserProfile() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -23,18 +25,25 @@ export default function AdminUserProfile() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  // notice: mensaje de éxito (verde/neutro) tras cambiar el rol, distinto de
+  // error (rojo) — ambos pueden mostrarse en momentos distintos de la misma sesión.
   const [notice, setNotice] = useState('');
 
+  // Estado del cambio de rol: confirmRole guarda A QUÉ rol se quiere cambiar
+  // ('admin' | 'user') mientras el modal de confirmación está abierto; null = cerrado.
   const [savingRole, setSavingRole] = useState(false);
   const [confirmRole, setConfirmRole] = useState(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
+  // Estado del modal "Contactar" (correo directo al cliente).
   const [contactOpen, setContactOpen] = useState(false);
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [sending, setSending] = useState(false);
   const [contactError, setContactError] = useState('');
 
+  // Carga el usuario de nuevo si cambia el :id de la URL (navegar de un
+  // perfil de cliente a otro sin pasar por la lista).
   useEffect(() => {
     setLoading(true);
     getUserByIdRequest(id)
@@ -43,8 +52,13 @@ export default function AdminUserProfile() {
       .finally(() => setLoading(false));
   }, [id]);
 
+  // El admin puede estar viendo su propio perfil desde este panel (llegó
+  // aquí navegando la lista de administradores): esto oculta/deshabilita las
+  // acciones que no tendría sentido aplicarse a sí mismo.
   const isSelf = !!currentUser && currentUser._id === id;
 
+  // Alterna admin <-> cliente (el modal de confirmación ya validó la
+  // intención antes de llegar aquí, ver confirmRole).
   async function handleToggleRole() {
     const nextRole = user.role === 'admin' ? 'user' : 'admin';
     setConfirmRole(null);
@@ -77,6 +91,8 @@ export default function AdminUserProfile() {
     }
   }
 
+  // Limpia el formulario del modal cada vez que se abre, para no arrastrar
+  // el asunto/mensaje de un correo anterior a otro cliente.
   function openContact() {
     setSubject('');
     setMessage('');

@@ -107,9 +107,18 @@ métodos de pago ni carrito).
 
 ### Product
 - name, description, category (String libre), brand (String libre)
-- price (Number >= 0), stock (Number >= 0)
+- price (Number >= 0): precio de lista, SIN descuento
+- stock (Number >= 0)
 - image (String, URL)
-- featured (Boolean)
+- discountPercent (Number, 0-90, default 0): 0 = sin oferta. Reemplaza al
+  antiguo campo `featured` — ya no existe un booleano aparte para "mostrar
+  en el carrusel"; cualquier producto con discountPercent > 0 ES la oferta,
+  y por eso mismo entra al carrusel del Home (ver sección de ofertas).
+- Método de instancia `getSellingPrice()`: precio real a cobrar
+  (`price * (1 - discountPercent/100)`, redondeado a centavos). Nunca se
+  guarda un "precio con descuento" aparte en la base de datos — se calcula
+  siempre a partir de price + discountPercent para que nunca queden
+  desincronizados entre sí.
 - índice de texto sobre name, description, brand, category para búsqueda
 - timestamps
 
@@ -194,9 +203,18 @@ responde `{ message }` con el código HTTP adecuado (400/401/403/404/409/500).
 
 /api/products
   GET    /                    lista con búsqueda (?search=), filtros
-                               (?category=, ?brand=), orden (?sort=) y
-                               paginación (?page=, ?limit=)
-  GET    /featured             productos destacados para Home
+                               (?category=, ?brand=), orden (?sort=, incluye
+                               'random' con ?seed= para el orden aleatorio
+                               del Home, paginable de forma estable) y
+                               paginación (?page=, ?limit=). Cada producto
+                               de la respuesta trae también `sellingPrice`
+                               ya calculado (ver Product.getSellingPrice).
+  GET    /deals                 productos con oferta activa (discountPercent
+                               > 0), del mayor al menor descuento, para el
+                               carrusel del Home; si ninguno tiene oferta en
+                               ese momento, cae de vuelta a los más recientes
+                               (nunca se muestra un carrusel vacío, pero
+                               tampoco se finge una oferta que no existe).
   GET    /filters               categorías y marcas disponibles (para los
                                selects de filtro)
   GET    /:id                  detalle de un producto
@@ -343,6 +361,56 @@ REGLAS DE NEGOCIO (la parte más importante — sé exhaustivo aquí)
      borrar un usuario, fallo a media transacción) debe devolver el stock
      exacto que se había descontado, nunca de más ni de menos.
 
+6) Iniciar sesión/registrarse con una acción pendiente
+   - Si un visitante SIN sesión intenta "Agregar al carrito" o "Comprar
+     ahora", se le manda a /login guardando en el estado de navegación (a)
+     a qué página volver (`from`, la página actual con sus filtros/búsqueda
+     incluidos) y (b) qué quería hacer: `pendingCartAdd` (productId +
+     cantidad) o `pendingBuyNow` (el producto completo + cantidad).
+   - Al iniciar sesión (o registrarse) con éxito: si había un
+     `pendingBuyNow`, se salta directo a /checkout con ese producto — es la
+     página a la que en realidad quería ir. Si había un `pendingCartAdd`,
+     se agrega el producto al carrito automáticamente y se vuelve a `from`.
+     Sin ninguna acción pendiente, simplemente se vuelve a `from` (o al
+     inicio si no había ninguna). Nunca se manda de vuelta al inicio a
+     ciegas perdiendo lo que el usuario quería hacer.
+   - Si agregar al carrito falla tras iniciar sesión (p. ej. el stock se
+     acabó mientras tanto), NO se navega como si hubiera funcionado: se
+     muestra el error ahí mismo en la pantalla de login/registro.
+   - El enlace cruzado entre /login y /registro ("¿No tienes cuenta?" /
+     "¿Ya tienes cuenta?") reenvía este mismo estado, para no perderlo si
+     el usuario cambia de una pantalla a la otra.
+
+SISTEMA DE OFERTAS Y DESCUENTOS
+------------------------------------
+- Cada producto tiene un `discountPercent` (0-90, 0 = sin oferta) además de
+  su `price` de lista. El precio a cobrar/mostrar siempre se calcula como
+  `price * (1 - discountPercent/100)`, redondeado a centavos — nunca se
+  guarda un precio con descuento aparte, así que nunca puede quedar
+  desincronizado del precio de lista o del porcentaje.
+- El carrusel del Home YA NO muestra "productos destacados" marcados a
+  mano: muestra los productos que tienen una oferta activa en ese momento
+  (los de mayor descuento primero), con insignia "-X% OFF", el precio
+  tachado junto al precio con descuento, y un texto de "Ahorras $X" en el
+  detalle de producto. Sin ninguna oferta activa, cae de vuelta a mostrar
+  productos recientes SIN insignia de descuento (no se finge una oferta).
+- El mismo tratamiento visual (precio tachado + precio con descuento +
+  insignia del porcentaje) se repite en la tarjeta de producto del listado,
+  el detalle de producto, cada línea del carrito y el resumen de checkout —
+  en todos lados se usa la MISMA fórmula de precio con descuento, para que
+  el total que el usuario ve en el carrito/checkout coincida exactamente
+  con lo que se le cobra al confirmar la compra.
+- El precio que de verdad se cobra al crear un pedido se recalcula en el
+  backend en el momento exacto de descontar el stock (no se confía en un
+  precio que el cliente traiga cacheado de antes): si una oferta cambió o
+  terminó entre que el cliente vio el producto y confirmó la compra, se
+  cobra el precio vigente en ese instante, no uno obsoleto.
+- Panel de admin: el formulario de producto tiene un campo "Descuento (%)"
+  (0-90, 0 por defecto) en vez del viejo checkbox de "destacado", con una
+  vista previa del precio resultante mientras se escribe. La tabla de
+  productos muestra una columna "Oferta" con el porcentaje o un guion si no
+  tiene.
+
 
 SISTEMA DE CORREOS (nodemailer + SMTP de Gmail)
 --------------------------------------------------
@@ -375,7 +443,7 @@ Correos a implementar:
 PÁGINAS Y RUTAS DEL FRONTEND
 --------------------------------
 Públicas:
-  /                          Home (destacados, buscador, categorías)
+  /                          Home (carrusel de ofertas, buscador, categorías)
   /producto/:id               Detalle de producto (con botón "Agregar al
                                carrito" y "Comprar ahora")
   /categorias                  Listado de categorías
@@ -433,9 +501,30 @@ DISEÑO, UX Y RESPONSIVIDAD
   - Verificar SIEMPRE con capturas reales a un ancho móvil concreto (p. ej.
     390×844 o el que reporte el usuario), no solo "achicar la ventana y ver
     si se ve bien".
-- Barra de navegación: en desktop, elementos centrados/espaciados (no
-  pegados a los bordes); en mobile, colapsa a un menú hamburguesa que
-  muestra los links de navegación al abrirse.
+- Barra de navegación: en desktop, dividida en 3 bloques a lo largo de toda
+  la fila (grid de 3 columnas, las 2 laterales del mismo ancho para que el
+  bloque central quede realmente centrado, no solo "empujado a la
+  izquierda" por el espacio sobrante) — logo a la izquierda, buscador +
+  links de navegación como una sola unidad centrada en medio, y
+  tema/carrito/perfil (o login/registro sin sesión) a la derecha. En mobile
+  colapsa a una fila simple con menú hamburguesa que muestra los links de
+  navegación al abrirse (los 3 bloques son solo un recurso de escritorio,
+  vía `display:contents` en mobile para no duplicar la lógica responsive).
+- Ancho del contenido: 1440px máximo (clase `.container`, usada por Header,
+  Footer y el cuerpo de cada página), no menos — en monitores grandes un
+  ancho menor deja franjas vacías notorias a los lados.
+- Mensajes de error de cara al usuario: banner con fondo tenue, borde de
+  acento y viñeta "!" (no texto rojo suelto), con redacción corta y en
+  segunda persona ("No pudimos cargar tus pedidos", nunca un mensaje
+  técnico tipo "Error al obtener pedidos"). Un error de RED (sin conexión,
+  backend caído, tiempo de espera agotado) debe distinguirse de un error de
+  NEGOCIO devuelto por el servidor: un interceptor de respuesta de axios
+  detecta cuándo la petición ni siquiera obtuvo respuesta y la completa con
+  un mensaje de conexión ("Revisa tu conexión a internet..."), en el mismo
+  formato que ya esperan todas las pantallas, para no tener que duplicar
+  ese caso en cada una. La página 404 sigue el mismo tono (disculpa breve,
+  nunca solo un código de error) y ofrece caminos concretos para seguir
+  navegando (inicio, categorías), no un callejón sin salida.
 - En vista de un usuario normal, NO mostrar el conteo total de productos
   del catálogo en ningún lado del Home (sí puede mostrarse en el panel de
   admin). Tampoco mostrar el stock ni la categoría de un producto en las
@@ -465,7 +554,7 @@ PANEL DE ADMINISTRACIÓN
 - Navegación propia entre sus secciones (Productos, Pedidos, Devoluciones,
   Usuarios, Mensajes).
 - Productos: alta/edición/borrado, con imagen, precio, stock, categoría,
-  marca y si es destacado.
+  marca y porcentaje de descuento (0 = sin oferta; ver sistema de ofertas).
 - Pedidos: lista con pestañas de estatus COLAPSABLES (se pueden expandir o
   contraer para ahorrar espacio), cambio de estatus por fila (excepto
   hacia/desde los estatus finales, que siguen sus reglas propias), borrado

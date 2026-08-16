@@ -8,6 +8,8 @@ import { useAuth } from '../context/AuthContext';
 import { siteInfo, addressLine, hoursLine } from '../config/siteInfo';
 import './Contact.css';
 
+// Página pública de contacto: datos de la tienda + mapa + formulario que
+// llega al backend (sendContactMessageRequest) y de ahí, por correo, al equipo.
 export default function Contact() {
   const { user } = useAuth();
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -15,6 +17,8 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // Si hay sesión iniciada, precarga nombre y correo (sin pisar lo que el
+  // usuario ya haya escrito a mano) para ahorrarle tecleo.
   useEffect(() => {
     if (!user) return;
     setForm((f) => ({
@@ -28,6 +32,8 @@ export default function Contact() {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   }
 
+  // Envía el mensaje y muestra un "enviado" temporal (3s) antes de volver al
+  // botón normal, dejando el formulario listo para otro mensaje.
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');

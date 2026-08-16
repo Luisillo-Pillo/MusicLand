@@ -2,6 +2,8 @@ const User = require('../models/User');
 const generateToken = require('../utils/generateToken');
 const handleError = require('../utils/handleError');
 
+// Crea una cuenta nueva y devuelve de una vez el token de sesión (el usuario
+// queda logueado sin tener que ir a /login después de registrarse).
 async function register(req, res) {
   try {
     const { name, email, password, phone, profilePhoto } = req.body;
@@ -28,16 +30,22 @@ async function register(req, res) {
     const token = generateToken(user);
     res.status(201).json({ token, user: user.toSafeObject() });
   } catch (error) {
-    handleError(res, error, 'Error al registrar usuario');
+    handleError(res, error, 'No pudimos completar tu registro');
   }
 }
 
+// Verifica credenciales y entrega un JWT. El mensaje de error es el mismo
+// tanto si el correo no existe como si la contraseña es incorrecta (no se
+// distingue cuál falló) para no confirmarle a un atacante qué correos están
+// registrados en el sitio.
 async function login(req, res) {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
       return res.status(400).json({ message: 'Correo y contraseña son obligatorios' });
     }
+    // .select('+password') es necesario porque el schema lo excluye por
+    // defecto (select: false) de cualquier consulta normal.
     const user = await User.findOne({ email: email.toLowerCase() }).select('+password');
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ message: 'Credenciales inválidas' });
@@ -47,7 +55,7 @@ async function login(req, res) {
     const token = generateToken(user);
     res.json({ token, user: user.toSafeObject() });
   } catch (error) {
-    handleError(res, error, 'Error al iniciar sesión');
+    handleError(res, error, 'No pudimos iniciar tu sesión');
   }
 }
 

@@ -12,7 +12,10 @@ import {
 import { siteInfo, addressLine, hoursLine } from '../config/siteInfo';
 import './Footer.css';
 
+// Pie de página fijo en toda la app: datos de contacto, horario y enlaces
+// rápidos (traídos de config/siteInfo.js, no están hardcodeados aquí).
 export default function Footer() {
+  // El año del copyright se calcula solo, así nunca se queda desactualizado.
   const year = new Date().getFullYear();
 
   return (

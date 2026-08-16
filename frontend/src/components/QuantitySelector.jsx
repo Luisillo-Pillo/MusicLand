@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { MinusIcon, PlusIcon } from './icons';
 import './QuantitySelector.css';
 
+// Control de "-  cantidad  +" con tecleo directo, usado en el carrito y en el
+// detalle de producto. Notifica cada cambio válido al padre vía onChange;
+// value/min/max los sigue controlando quien use el componente.
 export default function QuantitySelector({ value, onChange, min = 1, max = 99 }) {
   // El texto del campo se maneja aparte del valor confirmado para poder borrarlo y
   // reescribirlo: si se propagara el campo vacío como 0, en el carrito (min = 0)
@@ -20,6 +23,9 @@ export default function QuantitySelector({ value, onChange, min = 1, max = 99 })
     if (value < max) onChange(value + 1);
   }
 
+  // Filtra a solo dígitos y limita al rango [min, max] antes de propagar el
+  // cambio; el campo de texto en sí (`draft`) sí puede quedar vacío mientras
+  // se escribe, aunque no se avise nada al padre hasta que vuelva a haber un número.
   function handleInput(e) {
     const digits = e.target.value.replace(/\D/g, '');
     setDraft(digits);
@@ -27,6 +33,8 @@ export default function QuantitySelector({ value, onChange, min = 1, max = 99 })
     onChange(Math.min(max, Math.max(min, Number(digits))));
   }
 
+  // Si se deja el campo vacío y se le quita el foco, vuelve a mostrar el
+  // último valor confirmado en vez de quedarse en blanco.
   function handleBlur() {
     if (draft === '') setDraft(String(value));
   }

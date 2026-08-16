@@ -1,3 +1,7 @@
+// Modal de confirmación genérico ("¿Estás seguro?") reutilizado en toda la
+// app para acciones destructivas (borrar producto, borrar usuario, etc.):
+// no renderiza nada si `open` es false, así que basta con montarlo siempre y
+// controlar su visibilidad con estado.
 export default function ConfirmModal({
   open,
   title = '¿Estás seguro?',

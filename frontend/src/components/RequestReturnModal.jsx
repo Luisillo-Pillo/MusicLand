@@ -32,16 +32,21 @@ export default function RequestReturnModal({ order, sending, error, onConfirm, o
   const noProductsSelected = touched && selectedProductIds.length === 0;
   const reasonMissing = touched && !trimmedReason;
 
+  // Selección múltiple de productos a devolver (checkbox individual).
   function toggleProduct(productId) {
     setSelectedProductIds((prev) =>
       prev.includes(productId) ? prev.filter((id) => id !== productId) : [...prev, productId]
     );
   }
 
+  // Marca/desmarca todos los productos elegibles de una vez.
   function toggleAll() {
     setSelectedProductIds(allSelected ? [] : eligibleProducts.map((p) => p.product));
   }
 
+  // Exige al menos un producto y un motivo antes de mandar la solicitud;
+  // `fullOrder: allSelected` le dice al backend si esto cubre todo lo que
+  // quedaba disponible para devolver o solo una parte.
   function handleSubmit(e) {
     e.preventDefault();
     if (selectedProductIds.length === 0 || !trimmedReason) {

@@ -19,6 +19,12 @@ import {
 } from './icons';
 import './Header.css';
 
+// Barra superior fija en toda la app, dividida en 3 bloques a lo largo de la
+// fila en escritorio (ver Header.css): logo a la izquierda, buscador +
+// navegación principal centrados, y tema/carrito/usuario a la derecha. Los
+// bloques son solo contenedores visuales — en mobile "desaparecen" (display:
+// contents) y sus hijos vuelven a ser una fila plana con su propio menú
+// hamburguesa, que es como ya funcionaba antes de dividir el header en bloques.
 export default function Header() {
   const { user, logout } = useAuth();
   const { totalItems } = useCart();
@@ -43,6 +49,8 @@ export default function Header() {
     setMobileNavOpen(false);
   }, [location.pathname]);
 
+  // Cierra el menú de usuario al hacer clic fuera de él (el dropdown no tiene
+  // un botón de "cerrar" propio, se cierra por convención al perder foco/clic afuera).
   useEffect(() => {
     function handleClickOutside(e) {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -53,6 +61,7 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Envía la búsqueda como query param a Home, que es quien de verdad la resuelve.
   function handleSearchSubmit(e) {
     e.preventDefault();
     navigate(search.trim() ? `/?search=${encodeURIComponent(search.trim())}` : '/');
@@ -68,40 +77,48 @@ export default function Header() {
   return (
     <header className="header">
       <div className="container header-row">
-        <button
-          type="button"
-          className="header-menu-btn"
-          onClick={() => setMobileNavOpen((o) => !o)}
-          aria-label={mobileNavOpen ? 'Cerrar menú' : 'Abrir menú'}
-          aria-expanded={mobileNavOpen}
-        >
-          {mobileNavOpen ? <CloseIcon size={20} /> : <MenuIcon size={20} />}
-        </button>
+        {/* Bloque izquierdo: menú hamburguesa (solo mobile) + logo. */}
+        <div className="header-group-left">
+          <button
+            type="button"
+            className="header-menu-btn"
+            onClick={() => setMobileNavOpen((o) => !o)}
+            aria-label={mobileNavOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={mobileNavOpen}
+          >
+            {mobileNavOpen ? <CloseIcon size={20} /> : <MenuIcon size={20} />}
+          </button>
 
-        <Link to="/" className="header-brand">
-          <LogoIcon />
-          <span>MusicLand</span>
-        </Link>
+          <Link to="/" className="header-brand">
+            <LogoIcon />
+            <span>MusicLand</span>
+          </Link>
+        </div>
 
-        <form className="header-search" onSubmit={handleSearchSubmit}>
-          <SearchIcon />
-          <input
-            type="text"
-            placeholder="Buscar instrumentos, marcas..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </form>
+        {/* Bloque central: buscador + navegación principal, como una sola
+            unidad centrada en la fila (no cada uno centrado por separado). */}
+        <div className="header-group-center">
+          <form className="header-search" onSubmit={handleSearchSubmit}>
+            <SearchIcon />
+            <input
+              type="text"
+              placeholder="Buscar instrumentos, marcas..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </form>
 
-        <nav className="header-nav">
-          <NavLink to="/" end>
-            Inicio
-          </NavLink>
-          <NavLink to="/categorias">Categorías</NavLink>
-          <NavLink to="/marcas">Marcas</NavLink>
-          <NavLink to="/contacto">Contáctanos</NavLink>
-        </nav>
+          <nav className="header-nav">
+            <NavLink to="/" end>
+              Inicio
+            </NavLink>
+            <NavLink to="/categorias">Categorías</NavLink>
+            <NavLink to="/marcas">Marcas</NavLink>
+            <NavLink to="/contacto">Contáctanos</NavLink>
+          </nav>
+        </div>
 
+        {/* Bloque derecho: tema, carrito y perfil (o login/registro sin sesión). */}
         <div className="header-actions">
           <button
             type="button"

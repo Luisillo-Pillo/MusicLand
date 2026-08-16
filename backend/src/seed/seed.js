@@ -5,6 +5,11 @@ const Product = require('../models/Product');
 const User = require('../models/User');
 const products = require('./seedData');
 
+// Script de un solo uso (`npm run seed`) para poblar una base de datos nueva:
+// reemplaza TODO el catálogo de productos por el de seedData.js (por eso el
+// deleteMany antes del insertMany) y crea las dos cuentas de prueba si aún no
+// existen. Pensado para correrse una vez al preparar el entorno, no como
+// parte del arranque normal del servidor.
 async function run() {
   await connectDB();
 
@@ -12,6 +17,8 @@ async function run() {
   await Product.insertMany(products);
   console.log(`Se insertaron ${products.length} productos.`);
 
+  // No se recrean si ya existen, para no pisar la contraseña de una cuenta
+  // que el usuario ya haya cambiado desde un seed anterior.
   const adminEmail = 'admin@musicland.com';
   const existingAdmin = await User.findOne({ email: adminEmail });
   if (!existingAdmin) {

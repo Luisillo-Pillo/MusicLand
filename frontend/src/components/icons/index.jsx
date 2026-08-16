@@ -1,3 +1,8 @@
+// Íconos en SVG inline, sin dependencias externas. Cada componente es un
+// wrapper trivial de un solo <svg>: recibe `size` (con un valor por defecto
+// propio de cada ícono) y pasa cualquier otra prop (className, onClick, aria-*)
+// directo al <svg>. El nombre de cada función ya dice qué ícono dibuja, así
+// que no llevan comentario individual.
 export function LogoIcon({ size = 32, ...props }) {
   return (
     <svg width={size} height={size} viewBox="0 0 64 64" fill="none" {...props}>

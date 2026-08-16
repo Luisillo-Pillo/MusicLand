@@ -17,16 +17,19 @@ const {
 
 const router = express.Router();
 
+// Todo pedido requiere sesión: no hay compra como invitado en este proyecto.
 router.use(protect);
 
-router.post('/', createOrder);
-router.get('/', getMyOrders);
+router.post('/', createOrder); // crea el pedido (carrito completo, o un solo producto vía "Comprar ahora")
+router.get('/', getMyOrders); // pedidos del usuario autenticado, no de nadie más
 
 // Las rutas con prefijo fijo van antes de '/:id' para que Express no las capture como un id.
 router.get('/all', adminOnly, getAllOrders);
 router.get('/returns', adminOnly, getReturnRequests);
 router.get('/user/:userId', adminOnly, getOrdersByUser);
 
+// Sin adminOnly: getOrderById valida por su cuenta que quien pide sea el
+// dueño del pedido o un admin (ver el controlador).
 router.get('/:id', getOrderById);
 router.put('/:id/status', adminOnly, updateOrderStatus);
 router.put('/:id/return-request/:requestId/status', adminOnly, updateReturnRequestStatus);

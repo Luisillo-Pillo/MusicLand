@@ -20,8 +20,11 @@ const router = express.Router();
 
 router.use(protect);
 
+// Listado completo de usuarios: solo admin.
 router.get('/', adminOnly, getAllUsers);
 
+// "/me/*": el propio usuario autenticado gestiona sus datos, direcciones y
+// métodos de pago sin necesitar rol admin ni pasar su propio id en la URL.
 router.get('/me', getMe);
 router.put('/me', updateMe);
 
@@ -33,6 +36,7 @@ router.post('/me/payment-methods', addPaymentMethod);
 router.put('/me/payment-methods/:paymentMethodId', updatePaymentMethod);
 router.delete('/me/payment-methods/:paymentMethodId', deletePaymentMethod);
 
+// "/:id": gestión de cuentas ajenas desde el panel de administración.
 router.get('/:id', adminOnly, getUserById);
 router.put('/:id/role', adminOnly, updateUserRole);
 router.post('/:id/contact', adminOnly, contactUser);

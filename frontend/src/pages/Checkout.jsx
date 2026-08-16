@@ -17,10 +17,24 @@ import {
   formatCardNumberDisplay,
   formatExpiryDisplay,
   digitsOnly,
-  detectCardBrand
+  detectCardBrand,
+  getSellingPrice
 } from '../utils/format';
 import './Checkout.css';
 
+// Página de pago: dirección de envío + método de pago (simulado, no se cobra
+// de verdad) + resumen, y crea el pedido al confirmar. Compra el carrito
+// completo, salvo que se haya llegado desde "Comprar ahora" (buyNow) con un
+// solo producto.
+//
+// Dirección y pago comparten el mismo patrón de 3 modos:
+//   'selected' → se usa una dirección/tarjeta ya guardada (la que se marcó
+//                como predeterminada, o la última agregada si no hay ninguna).
+//   'choose'   → se muestra la lista completa para elegir otra ya guardada.
+//   'new'      → formulario para capturar una dirección/tarjeta nueva.
+// Al confirmar la compra, lo que se use (nuevo o ya guardado pero no
+// predeterminado) se guarda/marca como predeterminado en el perfil del
+// usuario, así la siguiente compra ya parte de ahí.
 export default function Checkout() {
   const { items: cartItems, totalItems: cartTotalItems, totalPrice: cartTotalPrice, refreshCart } = useCart();
   const { user, setUserData } = useAuth();
@@ -33,12 +47,20 @@ export default function Checkout() {
   const buyNow = location.state?.buyNow || null;
   const items = buyNow ? [{ product: buyNow.product, quantity: buyNow.quantity }] : cartItems;
   const totalItems = buyNow ? buyNow.quantity : cartTotalItems;
-  const totalPrice = buyNow ? buyNow.product.price * buyNow.quantity : cartTotalPrice;
+  // getSellingPrice, no buyNow.product.price directo: si el producto tiene
+  // oferta, "Comprar ahora" debe cobrar (y mostrar) lo mismo que cobraría
+  // pasando por el carrito, no el precio de lista.
+  const totalPrice = buyNow ? getSellingPrice(buyNow.product) * buyNow.quantity : cartTotalPrice;
 
   const savedAddresses = user.addresses || [];
+  // Arranca en la marcada como predeterminada; si nunca se marcó ninguna
+  // (usuario viejo, antes de que existiera ese campo), cae a la última agregada.
   const initialDefaultAddress =
     savedAddresses.find((a) => a.isDefault) || savedAddresses[savedAddresses.length - 1] || null;
 
+  // 'addresses' es una copia local editable (se actualiza al agregar una
+  // nueva sin recargar toda la página); addressMode arranca en 'selected' si
+  // hay algo que preseleccionar, o directo en 'new' si el usuario nunca guardó ninguna.
   const [addresses, setAddresses] = useState(savedAddresses);
   const [addressMode, setAddressMode] = useState(initialDefaultAddress ? 'selected' : 'new');
   const [selectedAddressId, setSelectedAddressId] = useState(initialDefaultAddress?._id || null);
@@ -52,6 +74,7 @@ export default function Checkout() {
     phone: ''
   });
 
+  // Mismo patrón que arriba, pero para el método de pago.
   const savedPaymentMethods = user.paymentMethods || [];
   const initialDefaultPayment =
     savedPaymentMethods.find((p) => p.isDefault) || savedPaymentMethods[savedPaymentMethods.length - 1] || null;
@@ -81,6 +104,9 @@ export default function Checkout() {
     setNewAddress((a) => ({ ...a, phone: digitsOnly(e.target.value, 10) }));
   }
 
+  // Las cuatro funciones de abajo solo mueven addressMode entre sus 3 estados
+  // ('selected' | 'choose' | 'new'); la lógica de qué mostrar en cada uno
+  // vive en el JSX de render, no aquí.
   function handleChooseOtherAddress() {
     setAddressMode('choose');
   }
@@ -95,6 +121,8 @@ export default function Checkout() {
     setAddressMode('selected');
   }
 
+  // "Cancelar" desde el formulario nuevo o la lista de elegir: vuelve a la
+  // dirección predeterminada (o la última) en vez de dejar addressMode a medias.
   function handleCancelAddressEdit() {
     const fallback = addresses.find((a) => a.isDefault) || addresses[addresses.length - 1] || null;
     if (fallback) {
@@ -142,6 +170,10 @@ export default function Checkout() {
     }
   }
 
+  // Valida dirección y pago, guarda/marca como predeterminado lo que se vaya
+  // a usar (si hace falta) y por último crea el pedido. Todo esto pasa antes
+  // de tocar el backend con la orden en sí, para no crear un pedido a medias
+  // si algo de la dirección o el pago está incompleto.
   async function handleConfirm() {
     setError('');
 
@@ -500,8 +532,13 @@ export default function Checkout() {
                 <div className="checkout-summary-item" key={item.product._id}>
                   <span>
                     {item.product.name} x{item.quantity}
+                    {item.product.discountPercent > 0 && (
+                      <span className="badge checkout-summary-discount-badge">
+                        -{item.product.discountPercent}%
+                      </span>
+                    )}
                   </span>
-                  <span>{formatPrice(item.product.price * item.quantity)}</span>
+                  <span>{formatPrice(getSellingPrice(item.product) * item.quantity)}</span>
                 </div>
               ))}
             </div>
