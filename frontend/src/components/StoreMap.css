@@ -1,10 +1,11 @@
 /* Ancho máximo = el del mapa (640px) + el padding del propio card a cada
    lado, para que la tarjeta abrace el mapa en vez de quedarse con el ancho
-   completo de la sección y dejar franjas vacías a los costados del mapa
-   más chico. Centrada con margin:0 auto dentro de .contact-map-section. */
+   completo de la sección y dejar una franja vacía a la derecha del mapa más
+   chico. Sin margin:auto a propósito: se deja pegada al borde izquierdo del
+   contenedor, alineada con .contact-info-card (misma columna izquierda del
+   grid de arriba) en vez de centrada en toda la sección.*/
 .store-map {
   max-width: 688px;
-  margin: 0 auto;
   padding: 22px 24px;
 }
 
