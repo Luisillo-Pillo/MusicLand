@@ -1,4 +1,10 @@
+/* Ancho máximo = el del mapa (640px) + el padding del propio card a cada
+   lado, para que la tarjeta abrace el mapa en vez de quedarse con el ancho
+   completo de la sección y dejar franjas vacías a los costados del mapa
+   más chico. Centrada con margin:0 auto dentro de .contact-map-section. */
 .store-map {
+  max-width: 688px;
+  margin: 0 auto;
   padding: 22px 24px;
 }
 
@@ -16,11 +22,17 @@
   color: var(--color-text-muted);
 }
 
-/* Proporción fija para que el iframe no colapse ni salte al cargar. */
+/* Proporción fija para que el iframe no colapse ni salte al cargar. Más
+   ancha que alta (antes 16/10) a propósito: con el contenedor del sitio a
+   1440px el mapa se veía demasiado grande/alto en pantallas anchas — "Ver
+   mapa más grande" ya cubre a quien quiera verlo en detalle, así que aquí
+   basta con una vista previa más compacta. */
 .store-map-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--color-border);
@@ -49,7 +61,8 @@
   }
 
   .store-map-frame {
-    aspect-ratio: 4 / 3;
+    max-width: none;
+    aspect-ratio: 16 / 10;
   }
 
   .store-map-actions .btn {
