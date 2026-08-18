@@ -9,10 +9,12 @@ import './ReturnRequestSection.css';
 
 const MAX_REASON = 1000;
 
+// Solo fecha, para cada opción del <select> de pedidos (una línea, sin espacio para la hora).
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
+// Fecha y hora, para el resumen del pedido ya seleccionado (sí hay espacio ahí).
 function formatDateTime(dateStr) {
   return new Date(dateStr).toLocaleString('es-MX', {
     year: 'numeric',

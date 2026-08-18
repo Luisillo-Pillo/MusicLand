@@ -34,6 +34,9 @@ export default function Categories() {
         ) : (
           <div className="listing-grid">
             {categories.map(({ name, count }) => (
+              // Navega al Home con ?category=... ya aplicado: Home es el único
+              // lugar que de verdad filtra por categoría, esta página es solo un
+              // punto de entrada más visual que el <select> del propio Home.
               <div
                 key={name}
                 className="listing-tile card"

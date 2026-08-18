@@ -3,9 +3,16 @@
    completo de la sección y dejar una franja vacía a la derecha del mapa más
    chico. Sin margin:auto a propósito: se deja pegada al borde izquierdo del
    contenedor, alineada con .contact-info-card (misma columna izquierda del
-   grid de arriba) en vez de centrada en toda la sección.*/
+   grid de arriba) en vez de centrada en toda la sección. display:flex column
+   + height:100%: cuando el grid de Contact.jsx estira esta tarjeta para
+   igualar el alto de la de "¿Tienes dudas?", el botón de acciones se ancla
+   abajo (ver margin-top:auto en .store-map-actions) en vez de quedarse
+   pegado justo debajo del mapa con un hueco suelto más abajo. */
 .store-map {
+  display: flex;
+  flex-direction: column;
   max-width: 688px;
+  height: 100%;
   padding: 22px 24px;
 }
 
@@ -53,7 +60,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 16px;
+  /* auto en vez de un valor fijo: empuja los botones al fondo de la tarjeta
+     cuando sobra alto (ver el comentario de .store-map arriba); si no sobra
+     alto, se comporta igual que un margen fijo normal. */
+  margin-top: auto;
+  padding-top: 16px;
 }
 
 @media (max-width: 640px) {

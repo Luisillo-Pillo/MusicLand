@@ -92,6 +92,9 @@ export default function Checkout() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  // Se recalculan en cada render a partir del id seleccionado (en vez de
+  // guardar el objeto completo en el estado) para que, si addresses/paymentMethods
+  // se reemplazan tras guardar uno nuevo, esto siempre apunte al dato fresco.
   const selectedAddress = addresses.find((a) => a._id === selectedAddressId) || null;
   const selectedPayment = paymentMethods.find((p) => p._id === selectedPaymentId) || null;
 
@@ -136,6 +139,10 @@ export default function Checkout() {
     setNewCard((c) => ({ ...c, [name]: value }));
   }
 
+  // Los tres campos de abajo solo guardan dígitos "crudos" en el estado
+  // (digitsOnly recorta a la longitud máxima de cada uno); lo que se ve en el
+  // input ya formateado ("0000 0000 0000 0000", "00/00") lo arma por separado
+  // formatCardNumberDisplay/formatExpiryDisplay al momento de pintar el value.
   function handleNewCardNumberChange(e) {
     setNewCard((c) => ({ ...c, cardNumber: digitsOnly(e.target.value, 16) }));
   }
@@ -219,8 +226,15 @@ export default function Checkout() {
         phone: addressToUse.phone || ''
       };
 
+      // mergedUser va acumulando los cambios de dirección/pago para actualizar
+      // el contexto de auth (setUserData) UNA sola vez al final, con todo junto,
+      // en vez de disparar una actualización de contexto por cada guardado.
       let mergedUser = user;
 
+      // Dirección nueva: se guarda en el perfil como predeterminada (isDefault:
+      // true) para que la próxima compra ya parta de ahí. Dirección ya
+      // guardada pero que no era la predeterminada: se marca como tal, sin
+      // volver a mandar sus demás datos (el backend solo necesita el cambio).
       if (addressMode === 'new') {
         const { data: updatedAddresses } = await addAddressRequest({ ...shippingAddress, isDefault: true });
         setAddresses(updatedAddresses);
@@ -231,6 +245,10 @@ export default function Checkout() {
         mergedUser = { ...mergedUser, addresses: updatedAddresses };
       }
 
+      // Mismo patrón que la dirección, para el método de pago. detectCardBrand
+      // adivina Visa/Mastercard/Amex por el primer dígito del número (ver
+      // utils/format.js); solo se guardan los últimos 4 dígitos y la
+      // expiración — el número completo y el CVV nunca salen de este formulario.
       let orderPaymentMethod;
       if (paymentMode === 'new') {
         const { data: updatedMethods } = await addPaymentMethodRequest({
@@ -258,12 +276,19 @@ export default function Checkout() {
         setUserData(mergedUser);
       }
 
+      // 'items' solo se manda en el "Comprar ahora": su presencia es lo que le
+      // dice al backend que compre ese único producto en vez del carrito
+      // completo (ver createOrder en el backend). El precio/total real los
+      // vuelve a calcular el servidor; esto es solo la selección de qué comprar.
       const payload = { shippingAddress, paymentMethod: orderPaymentMethod };
       if (buyNow) {
         payload.items = [{ productId: buyNow.product._id, quantity: buyNow.quantity }];
       }
 
       const { data } = await createOrderRequest(payload);
+      // refreshCart: si se compró el carrito completo, el backend ya lo vació;
+      // esto sincroniza el contexto local con eso (si fue "Comprar ahora", el
+      // carrito real no cambió y esto no tiene efecto visible).
       await refreshCart();
       navigate('/pedido-confirmado', { state: { order: data } });
     } catch (err) {
@@ -295,6 +320,10 @@ export default function Checkout() {
 
         <div className="checkout-layout">
           <div>
+            {/* Dirección de envío: uno de los 3 modos descritos en el comentario
+                de arriba del componente. 'selected' es el modo normal (muestra
+                la tarjeta de la dirección elegida); 'choose' y 'new' son los
+                dos caminos para cambiarla. */}
             <div className="checkout-section card">
               <h3>Dirección de envío</h3>
 
@@ -411,6 +440,8 @@ export default function Checkout() {
               )}
             </div>
 
+            {/* Método de pago: mismos 3 modos, mismo patrón que la dirección de
+                arriba, aplicado ahora a la tarjeta guardada/nueva. */}
             <div className="checkout-section card">
               <h3>Método de pago</h3>
 
@@ -525,6 +556,10 @@ export default function Checkout() {
             </div>
           </div>
 
+          {/* Resumen: lista de productos con precio ya con descuento aplicado
+              (getSellingPrice) si tienen oferta activa, y el total — este es
+              solo el total mostrado, el que de verdad se cobra lo recalcula
+              el backend al confirmar (ver el comentario de handleConfirm). */}
           <div className="checkout-section card">
             <h3>Resumen de compra</h3>
             <div className="checkout-summary-items">

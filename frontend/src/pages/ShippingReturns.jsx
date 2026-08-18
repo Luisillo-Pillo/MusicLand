@@ -21,6 +21,9 @@ export default function ShippingReturns() {
           <Link to="/contacto">Contáctanos</Link>.
         </p>
 
+        {/* Texto informativo (izquierda) + formulario para solicitar la
+            devolución (derecha, fijo al hacer scroll — ver ReturnRequestSection.css)
+            en el mismo layout de dos columnas que usa Checkout. */}
         <div className="sr-layout">
           <div className="sr-sections">
             <section className="card sr-section">

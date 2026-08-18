@@ -11,11 +11,29 @@
   text-decoration: underline;
 }
 
+/* Acordeón a la izquierda (ancho fijo, legible) + panel lateral a la derecha
+   que ocupa el resto — evita que el acordeón se quede solo, con una franja
+   vacía junto a él en pantallas anchas. minmax(0,1fr) en vez de 1fr: sin el
+   minmax, una tarjeta interna del acordeón que no encoja podría estirar la
+   columna más allá del espacio disponible. */
+.faq-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 780px) minmax(0, 1fr);
+  align-items: start;
+  gap: 32px;
+}
+
 .faq-groups {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  max-width: 780px;
+}
+
+/* scroll-margin-top: al saltar aquí desde un enlace #ancla del panel lateral,
+   deja el título de la sección por debajo del header fijo en vez de tapado
+   detrás de él (mismo offset que .faq-sidebar más abajo, por consistencia). */
+.faq-group {
+  scroll-margin-top: calc(var(--header-height) + 20px);
 }
 
 .faq-group-title {
@@ -72,6 +90,102 @@
   color: var(--color-text-muted);
   font-size: 0.9rem;
   line-height: 1.65;
+}
+
+/* Panel lateral: índice de saltos + tarjeta de contacto, uno debajo del otro.
+   Fijo al hacer scroll (mismo patrón que .return-request/.cart-summary) para
+   que el índice siga a la vista aunque el acordeón de la izquierda sea largo. */
+.faq-sidebar {
+  position: sticky;
+  top: calc(var(--header-height) + 20px);
+  min-width: 0;
+}
+
+/* Ocupa espacio (para alinear, ver el comentario en FAQ.jsx) pero no se
+   dibuja ni es anunciado por lectores de pantalla. */
+.faq-sidebar-spacer {
+  visibility: hidden;
+}
+
+.faq-sidebar-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.faq-toc {
+  padding: 20px 22px;
+}
+
+.faq-toc h3 {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+}
+
+.faq-toc nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.faq-toc nav a {
+  padding: 7px 8px;
+  margin: 0 -8px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.faq-toc nav a:hover {
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+}
+
+.faq-contact-card {
+  padding: 22px;
+  text-align: center;
+}
+
+.faq-contact-card svg {
+  color: var(--color-primary);
+}
+
+.faq-contact-card h3 {
+  margin: 10px 0 4px;
+  font-size: 0.98rem;
+}
+
+.faq-contact-card p {
+  margin: 0 0 16px;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.faq-contact-card .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Una sola columna: el panel dejaría de tener sentido "fijo" en un layout
+   apilado (el acordeón puede ser más largo que la pantalla), así que
+   también se le quita el sticky y pasa a fluir después del acordeón. */
+@media (max-width: 860px) {
+  .faq-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-sidebar {
+    position: static;
+  }
+
+  /* En una sola columna ya no hace falta alinear nada con el acordeón: el
+     espaciador solo dejaría un hueco vacío arriba del panel apilado. */
+  .faq-sidebar-spacer {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {

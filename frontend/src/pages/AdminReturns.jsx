@@ -17,6 +17,7 @@ import './AdminReturns.css';
 
 const RETURN_STATUSES = ['pendiente', 'aprobada', 'rechazada'];
 
+// Fecha corta con hora, igual que en AdminOrders (misma columna estrecha de tabla).
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleString('es-MX', {
     year: 'numeric',
@@ -44,6 +45,9 @@ export default function AdminReturns() {
   const [detailTarget, setDetailTarget] = useState(null);
   const [deleteTarget, setDeleteTarget] = useState(null);
 
+  // Trae todos los PEDIDOS que tengan al menos una solicitud de devolución
+  // (getReturnRequestsRequest → GET /orders/returns); el aplanado a filas
+  // individuales pasa después, en el useMemo de abajo.
   function loadReturns() {
     setLoading(true);
     setError('');
@@ -57,6 +61,8 @@ export default function AdminReturns() {
     loadReturns();
   }, []);
 
+  // useMemo: evita re-aplanar el arreglo completo en cada render si `returns`
+  // no cambió (p. ej. al escribir en el buscador, que no toca `returns`).
   const rows = useMemo(
     () =>
       returns.flatMap((order) =>
@@ -290,6 +296,10 @@ export default function AdminReturns() {
             </p>
 
             <div className="order-history-items">
+              {/* request.items solo guarda nombre/cantidad/id de producto (lo
+                  que se solicitó devolver); el precio se busca en el pedido
+                  original (order.products) para no duplicarlo en cada solicitud
+                  — así siempre refleja el precio real que se cobró en la compra. */}
               {detailTarget.request.items.map((item, index) => (
                 <div className="order-history-item" key={`${item.product || 'x'}-${index}`}>
                   <span className="order-history-item-name">

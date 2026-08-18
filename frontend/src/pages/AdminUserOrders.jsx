@@ -12,6 +12,7 @@ import './AdminProducts.css';
 import './AdminOrders.css';
 import './AdminUserOrders.css';
 
+// Fecha corta con hora, para el encabezado de cada tarjeta de pedido.
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleString('es-MX', {
     year: 'numeric',

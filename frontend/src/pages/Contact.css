@@ -41,8 +41,99 @@
   text-decoration: underline;
 }
 
+/* Misma rejilla de dos columnas que .contact-layout de arriba: el mapa (más
+   angosto que la columna, ver StoreMap.css) a la izquierda, y la tarjeta de
+   enlaces de ayuda a la derecha, para que no quede un hueco vacío junto al mapa.
+   align-items: stretch (el valor por defecto del grid, aquí explícito) hace
+   que ambas tarjetas tomen el alto de la más alta de las dos — el mapa,
+   normalmente — en vez de que cada una tome solo el alto de su propio contenido. */
 .contact-map-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 32px;
   margin-top: 24px;
+}
+
+/* Mismo ancho máximo que .store-map (ver StoreMap.css) para que las dos
+   tarjetas de esta fila se vean del mismo tamaño en vez de que esta se
+   estire al ancho completo de su columna del grid. display:flex column +
+   height:100% es lo que deja que, al estirarse por el align-items:stretch de
+   arriba, el contenido de adentro (el listado de enlaces) se reparta en todo
+   ese alto en vez de dejar un hueco vacío al fondo de la tarjeta. */
+.contact-help-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 688px;
+  height: 100%;
+  padding: 28px;
+}
+
+.contact-help-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.contact-help-card > p {
+  margin: 0 0 16px;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+/* flex:1 + justify-content:space-evenly: el listado crece para ocupar el
+   resto de la tarjeta (después del título y el texto de arriba) y reparte
+   los 4 enlaces en ese espacio, en vez de amontonarse arriba y dejar un
+   bloque vacío debajo cuando la tarjeta se estira para igualar al mapa. */
+.contact-help-links {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 8px;
+}
+
+.contact-help-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.contact-help-link:hover {
+  background-color: var(--color-bg);
+}
+
+.contact-help-link svg:first-child {
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.contact-help-link > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-help-link strong {
+  display: block;
+  font-size: 0.92rem;
+}
+
+.contact-help-link span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.contact-help-link > svg:last-child {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
 }
 
 .contact-form-card {
@@ -50,7 +141,8 @@
 }
 
 @media (max-width: 860px) {
-  .contact-layout {
+  .contact-layout,
+  .contact-map-section {
     grid-template-columns: 1fr;
   }
 }

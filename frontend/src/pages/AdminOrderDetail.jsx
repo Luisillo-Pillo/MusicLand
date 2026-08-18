@@ -17,6 +17,9 @@ import './OrderHistory.css';
 import './AdminOrders.css';
 import './AdminOrderDetail.css';
 
+// Fecha larga con hora ("17 de agosto de 2026, 10:30") para el encabezado del
+// pedido y el aviso de cancelación; distinta del formato corto que usa la
+// tabla de AdminOrders, que no necesita tanto detalle en una fila.
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleString('es-MX', {
     year: 'numeric',
@@ -35,11 +38,15 @@ export default function AdminOrderDetail() {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  // saving: cambio de estatus normal (select) en curso. confirmCancel guarda
+  // si el modal de cancelación está abierto; cancelling/cancelError son el
+  // estado de ESE modal en específico, separados de saving/error de arriba.
   const [saving, setSaving] = useState(false);
   const [confirmCancel, setConfirmCancel] = useState(false);
   const [cancelError, setCancelError] = useState('');
   const [cancelling, setCancelling] = useState(false);
 
+  // Carga (o recarga) el pedido cada vez que cambia el :id de la URL.
   useEffect(() => {
     setLoading(true);
     setError('');
@@ -72,6 +79,9 @@ export default function AdminOrderDetail() {
     }
   }
 
+  // Confirmación del modal de CancelOrderModal: cancela con el motivo que
+  // escribió el admin. Mismo truco de conservar order.user que arriba, por
+  // la misma razón (la respuesta de cancelar tampoco trae el cliente completo).
   async function handleCancel(reason) {
     setCancelling(true);
     setCancelError('');
@@ -111,12 +121,18 @@ export default function AdminOrderDetail() {
     );
   }
 
+  // Suma de unidades de todas las líneas, para el "(N artículos)" del título
+  // de la sección de productos — no es lo mismo que order.products.length
+  // (número de líneas distintas) si algún producto se compró en cantidad > 1.
   const totalUnits = order.products.reduce((sum, p) => sum + p.quantity, 0);
 
   return (
     <Layout>
       <BackButton />
       <div className="container">
+        {/* Encabezado: número de pedido + fecha a la izquierda, control de
+            estatus a la derecha (selector editable, o una insignia fija si
+            el pedido ya llegó a un estado final — ver canChangeStatus). */}
         <div className="order-detail-head">
           <div>
             <h1>Pedido #{order.orderNumber}</h1>
@@ -161,6 +177,9 @@ export default function AdminOrderDetail() {
           </div>
         </div>
 
+        {/* Aviso fijo de cancelación: quién canceló y cuándo, más el motivo si
+            se dio uno (el cliente siempre escribe uno; un admin puede cancelar
+            sin él). Solo se muestra si el pedido está cancelado. */}
         {isCancelled(order) && (
           <div className="order-detail-cancelled-notice">
             <p>
@@ -177,6 +196,9 @@ export default function AdminOrderDetail() {
           </div>
         )}
 
+        {/* Mismo tipo de aviso, pero para "entregado": explica por qué no hay
+            selector de estatus ni botón de cancelar en este caso (ver arriba,
+            canChangeStatus/canCancel ya los ocultan; esto es solo el porqué). */}
         {order.status === 'entregado' && (
           <div className="order-detail-delivered-notice">
             Pedido entregado. Su estado ya no puede modificarse y tampoco puede cancelarse; si el
@@ -187,6 +209,9 @@ export default function AdminOrderDetail() {
         {error && <p className="error-text" style={{ marginBottom: 16 }}>{error}</p>}
 
         <div className="order-detail-grid">
+          {/* Columna principal: cada línea del pedido (imagen, nombre —
+              enlazado al producto si todavía existe, precio unitario y
+              subtotal) y el total al final. */}
           <div className="card order-detail-section">
             <h3>
               <ReceiptIcon size={17} /> Productos ({totalUnits} {totalUnits === 1 ? 'artículo' : 'artículos'})
@@ -196,6 +221,9 @@ export default function AdminOrderDetail() {
                 <div className="order-history-item" key={`${order._id}-${index}`}>
                   <img src={item.image} alt={item.name} />
                   <span className="order-history-item-name">
+                    {/* item.product es el id del producto original; puede faltar
+                        si ese producto se borró del catálogo después de la compra
+                        — en ese caso se muestra el nombre guardado sin enlace. */}
                     {item.product ? (
                       <Link to={`/producto/${item.product}`}>{item.name}</Link>
                     ) : (
@@ -217,6 +245,10 @@ export default function AdminOrderDetail() {
             </div>
           </div>
 
+          {/* Columna lateral: quién compró, a dónde se envía y con qué se
+              pagó. Cada bloque es opcional por su cuenta (la cuenta del
+              cliente pudo borrarse, y en teoría el pedido podría no traer
+              dirección/pago si viniera de datos antiguos). */}
           <div className="order-detail-aside">
             <div className="card order-detail-section">
               <h3>
@@ -267,6 +299,9 @@ export default function AdminOrderDetail() {
               </div>
             )}
 
+            {/* Solo la marca y los últimos 4 dígitos: es lo único que este
+                proyecto guarda del método de pago (nunca el número completo
+                ni el CVV, ver paymentMethodSchema en el backend). */}
             {order.paymentMethod && (
               <div className="card order-detail-section">
                 <h3>Pago</h3>

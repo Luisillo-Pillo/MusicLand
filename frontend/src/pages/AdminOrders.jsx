@@ -23,6 +23,9 @@ import './AdminProducts.css';
 import './OrderHistory.css';
 import './AdminOrders.css';
 
+// Fecha corta con hora ("17 ago 2026, 10:30 a.m.") para que quepa en una
+// columna de tabla; AdminOrderDetail usa una versión más larga para su
+// encabezado, donde sí hay espacio de sobra.
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleString('es-MX', {
     year: 'numeric',
@@ -54,6 +57,9 @@ export default function AdminOrders() {
   // nuevo aparezca abierto por defecto.
   const [collapsed, setCollapsed] = useState(() => new Set());
 
+  // Trae TODOS los pedidos de la tienda de una vez (sin paginar en el
+  // servidor): el filtrado por estatus/búsqueda de abajo se hace en el
+  // cliente sobre ese arreglo completo, así cambiar de filtro es instantáneo.
   function loadOrders() {
     setLoading(true);
     setError('');
@@ -115,6 +121,9 @@ export default function AdminOrders() {
     }
   }
 
+  // Confirmación del modal de borrado. Solo aplica a pedidos ya en un estatus
+  // final (canDelete lo exige antes de mostrar el botón, ver más abajo en el
+  // JSX): borrar uno activo perdería el rastro de mercancía comprometida.
   async function handleConfirmDelete() {
     if (!deleteTarget) return;
     const target = deleteTarget;
@@ -248,6 +257,14 @@ export default function AdminOrders() {
                 </tr>
               </thead>
               <tbody>
+                {/* filteredOrders ya viene ordenado por estatus (ver el .sort()
+                    de arriba), así que basta comparar cada fila con la anterior
+                    para saber si empieza un grupo nuevo — no hace falta un
+                    segundo recorrido para armar los grupos por separado.
+                    Fragment (no <>) porque hace falta la prop `key` en el nivel
+                    del .map(), y cada "fila" en realidad son dos <tr> (la del
+                    encabezado plegable + la del pedido) que deben ir sueltas
+                    dentro de <tbody>, no envueltas en un contenedor. */}
                 {filteredOrders.map((order, index) => {
                   const startsGroup = order.status !== filteredOrders[index - 1]?.status;
                   const isCollapsed = collapsed.has(order.status);

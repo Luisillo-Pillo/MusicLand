@@ -157,6 +157,9 @@ export default function Home() {
   const hasMore = products.length < total;
   const hasActiveFilters = !!(search || category || brand || sort);
 
+  // Los filtros viven en la URL (searchParams), no en un useState propio: así
+  // se pueden compartir/recargar con el filtro aplicado y el botón "atrás" del
+  // navegador los deshace uno por uno de forma natural.
   function updateFilter(key, value) {
     const next = new URLSearchParams(searchParams);
     if (value) next.set(key, value);
@@ -171,6 +174,9 @@ export default function Home() {
   return (
     <Layout>
       <div className="container">
+        {/* El carrusel de ofertas solo tiene sentido como portada de la
+            tienda; con cualquier filtro o búsqueda activa se oculta para
+            darle todo el espacio de arriba a los resultados. */}
         {!hasActiveFilters && (
           <section className="home-hero">
             <Carousel slides={deals} />

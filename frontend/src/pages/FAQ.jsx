@@ -2,15 +2,18 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
-import { ChevronDownIcon } from '../components/icons';
+import { ChevronDownIcon, MailIcon } from '../components/icons';
 import { siteInfo } from '../config/siteInfo';
 import './FAQ.css';
 
 // Agrupadas por tema para que la página no se sienta como una lista plana de
-// 15 preguntas sueltas.
+// 15 preguntas sueltas. Cada grupo lleva su propio `slug`: es el id de la
+// sección (para el enlace "saltar a" del panel lateral) y no depende del
+// título por si algún día se traduce o se retoca el texto sin querer romper el enlace.
 const FAQ_GROUPS = [
   {
     title: 'Pedidos y pagos',
+    slug: 'pedidos-y-pagos',
     items: [
       {
         q: '¿Qué métodos de pago aceptan?',
@@ -32,6 +35,7 @@ const FAQ_GROUPS = [
   },
   {
     title: 'Envíos',
+    slug: 'envios',
     items: [
       {
         q: '¿A qué zonas envían?',
@@ -49,6 +53,7 @@ const FAQ_GROUPS = [
   },
   {
     title: 'Devoluciones y garantía',
+    slug: 'devoluciones-y-garantia',
     items: [
       {
         q: '¿Puedo devolver un producto si no me convence?',
@@ -66,6 +71,7 @@ const FAQ_GROUPS = [
   },
   {
     title: 'Productos y stock',
+    slug: 'productos-y-stock',
     items: [
       {
         q: '¿Los instrumentos son nuevos?',
@@ -108,26 +114,67 @@ export default function FAQ() {
           encuentras lo que buscas, <Link to="/contacto">contáctanos</Link> directamente.
         </p>
 
-        <div className="faq-groups">
-          {FAQ_GROUPS.map((group, gi) => (
-            <section className="faq-group" key={group.title}>
-              <h2 className="faq-group-title">{group.title}</h2>
-              <div className="card faq-list">
-                {group.items.map((item, ii) => {
-                  const key = `${gi}-${ii}`;
-                  return (
-                    <FAQItem
-                      key={key}
-                      q={item.q}
-                      a={item.a}
-                      isOpen={openKey === key}
-                      onToggle={() => setOpenKey(openKey === key ? null : key)}
-                    />
-                  );
-                })}
+        {/* Acordeón (izquierda) + panel lateral fijo (derecha, ver FAQ.css):
+            el panel es solo un atajo de navegación — el contenido real sigue
+            siendo el acordeón, esto no lo duplica en ningún lado. */}
+        <div className="faq-layout">
+          <div className="faq-groups">
+            {FAQ_GROUPS.map((group, gi) => (
+              <section className="faq-group" id={group.slug} key={group.title}>
+                <h2 className="faq-group-title">{group.title}</h2>
+                <div className="card faq-list">
+                  {group.items.map((item, ii) => {
+                    const key = `${gi}-${ii}`;
+                    return (
+                      <FAQItem
+                        key={key}
+                        q={item.q}
+                        a={item.a}
+                        isOpen={openKey === key}
+                        onToggle={() => setOpenKey(openKey === key ? null : key)}
+                      />
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
+          </div>
+
+          <aside className="faq-sidebar">
+            {/* Espaciador invisible: reutiliza la MISMA clase que el <h2> de
+                cada sección ("Pedidos y pagos" es la primera) para ocupar
+                exactamente el mismo alto + margen que ese título en la
+                columna izquierda. Sin esto, las tarjetas de este panel
+                arrancan más arriba que la primera tarjeta del acordeón,
+                porque esa sí tiene un título encima y este panel no.
+                visibility:hidden (no display:none) para que siga ocupando
+                su espacio en el layout aunque no se vea. */}
+            <h2 className="faq-group-title faq-sidebar-spacer" aria-hidden="true">
+              {FAQ_GROUPS[0].title}
+            </h2>
+
+            <div className="faq-sidebar-cards">
+              <div className="card faq-toc">
+                <h3>En esta página</h3>
+                <nav>
+                  {FAQ_GROUPS.map((group) => (
+                    <a key={group.slug} href={`#${group.slug}`}>
+                      {group.title}
+                    </a>
+                  ))}
+                </nav>
               </div>
-            </section>
-          ))}
+
+              <div className="card faq-contact-card">
+                <MailIcon size={22} />
+                <h3>¿No encontraste tu respuesta?</h3>
+                <p>Escríbenos directamente y te ayudamos con tu caso puntual.</p>
+                <Link to="/contacto" className="btn btn-primary btn-sm">
+                  Contáctanos
+                </Link>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </Layout>

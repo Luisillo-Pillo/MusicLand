@@ -12,6 +12,7 @@ import {
 import './AdminProducts.css';
 import './AdminMessages.css';
 
+// Fecha corta con hora, para el encabezado de cada tarjeta de mensaje.
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleString('es-MX', {
     year: 'numeric',
@@ -122,12 +123,19 @@ export default function AdminMessages() {
     loadMessages();
   }, []);
 
+  // Abre el modal de responder. Si el mensaje ya se había respondido antes
+  // ("Responder de nuevo"), precarga esa respuesta anterior como punto de
+  // partida en vez de empezar el textarea vacío.
   function openReply(msg) {
     setReplyTarget(msg);
     setReplyText(msg.reply || '');
     setReplyError('');
   }
 
+  // Envía la respuesta: el backend la manda por correo al remitente original
+  // (replyTo del formulario de contacto) y marca el mensaje como respondido.
+  // Recarga toda la lista al terminar para que se mueva de "Nuevos" a
+  // "Respondidos" con el texto de la respuesta ya guardado.
   async function handleSendReply(e) {
     e.preventDefault();
     if (!replyTarget || !replyText.trim()) return;

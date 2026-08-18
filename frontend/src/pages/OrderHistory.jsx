@@ -10,6 +10,7 @@ import { formatPrice, formatPhoneDisplay } from '../utils/format';
 import { statusLabels, canCancel, canRequestReturn, isCancelled, returnStatusLabels } from '../utils/orderStatus';
 import './OrderHistory.css';
 
+// Fecha corta con hora para el encabezado de cada tarjeta de pedido.
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleString('es-MX', {
     year: 'numeric',
@@ -60,6 +61,9 @@ export default function OrderHistory() {
     }
   }
 
+  // payload lo arma RequestReturnModal (motivo + qué productos, o pedido
+  // completo); aquí solo se envía y se aplica la misma actualización en el
+  // sitio que hace handleConfirmCancel arriba.
   async function handleConfirmReturn(payload) {
     if (!returnTarget) return;
     setReturnSending(true);

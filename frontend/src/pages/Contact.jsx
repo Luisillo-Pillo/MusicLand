@@ -1,12 +1,54 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import BackButton from '../components/BackButton';
-import { MailIcon, PhoneIcon, LocationIcon } from '../components/icons';
+import {
+  MailIcon,
+  PhoneIcon,
+  LocationIcon,
+  HelpIcon,
+  TruckIcon,
+  UserIcon,
+  ReceiptIcon,
+  ChevronRightIcon
+} from '../components/icons';
 import StoreMap from '../components/StoreMap';
 import { sendContactMessageRequest } from '../api/contactApi';
 import { useAuth } from '../context/AuthContext';
 import { siteInfo, addressLine, hoursLine } from '../config/siteInfo';
 import './Contact.css';
+
+// Accesos rápidos a otras páginas de ayuda del sitio: si alguien llega a
+// Contáctanos con una duda que ya está resuelta en otro lado (FAQ, envíos,
+// su propia cuenta), esto le ahorra escribir el formulario y esperar
+// respuesta. Los íconos y las rutas ya existen en el resto de la app (ver
+// App.jsx y Footer.jsx); aquí solo se reutilizan.
+const helpLinks = [
+  {
+    to: '/preguntas-frecuentes',
+    icon: HelpIcon,
+    title: 'Preguntas frecuentes',
+    description: 'Pagos, cuentas y dudas comunes'
+  },
+  {
+    to: '/envios-y-devoluciones',
+    icon: TruckIcon,
+    title: 'Envíos y devoluciones',
+    description: 'Tiempos de entrega, cancelaciones y devoluciones'
+  },
+  {
+    to: '/historial-compras',
+    icon: ReceiptIcon,
+    title: 'Mis pedidos',
+    description: 'Da seguimiento, cancela o solicita una devolución'
+  },
+  {
+    to: '/perfil',
+    icon: UserIcon,
+    title: 'Mi cuenta',
+    description: 'Direcciones, métodos de pago y tus datos'
+  }
+];
 
 // Página pública de contacto: datos de la tienda + mapa + formulario que
 // llega al backend (sendContactMessageRequest) y de ahí, por correo, al equipo.
@@ -127,6 +169,27 @@ export default function Contact() {
 
         <div className="contact-map-section">
           <StoreMap title="Visítanos en la tienda" />
+
+          {/* Junto al mapa (que ya no ocupa el ancho completo) para no dejar
+              esa columna vacía: enlaces a las otras páginas de ayuda del sitio. */}
+          <div className="contact-help-card card">
+            <h3>
+              <HelpIcon size={17} /> ¿Tienes dudas?
+            </h3>
+            <p>Antes de escribirnos, puede que ya tengamos la respuesta:</p>
+            <div className="contact-help-links">
+              {helpLinks.map(({ to, icon: Icon, title, description }) => (
+                <Link key={to} to={to} className="contact-help-link">
+                  <Icon size={18} />
+                  <div>
+                    <strong>{title}</strong>
+                    <span>{description}</span>
+                  </div>
+                  <ChevronRightIcon size={16} />
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </Layout>

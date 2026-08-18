@@ -22,6 +22,10 @@ import './AdminProducts.css';
 
 const PAGE_SIZE = 25;
 
+// Valores iniciales del modal de crear/editar; openCreateForm lo usa tal
+// cual, openEditForm lo reemplaza con los datos del producto a editar.
+// Todos los campos numéricos se guardan como texto porque así es como los
+// entrega un <input>; se convierten a Number recién al enviar (handleSubmit).
 const emptyForm = {
   name: '',
   price: '',
@@ -189,6 +193,9 @@ export default function AdminProducts() {
     }
   }
 
+  // Confirmación del modal de borrado (ConfirmModal). Cierra el modal de una
+  // vez (antes de que la petición termine) para que no se sienta trabado; si
+  // falla, el error se muestra en la lista, no en un modal que ya se cerró.
   async function handleDelete() {
     if (!deleteTarget) return;
     const target = deleteTarget;
@@ -215,6 +222,10 @@ export default function AdminProducts() {
 
         <AdminNav />
 
+        {/* Barra de filtros: buscador de texto libre, tres selectores
+            (categoría/marca/rango de precio) y un botón para limpiarlos
+            todos de una vez. Cada uno pasa por changeFilter para que, al
+            cambiar, también se reinicie la paginación a la página 1. */}
         <div className="admin-products-filters">
           <div className="admin-search-box">
             <SearchIcon size={16} />
@@ -231,6 +242,9 @@ export default function AdminProducts() {
               <FilterIcon size={15} /> Filtrar por:
             </span>
 
+            {/* Las opciones (y su conteo entre paréntesis) salen de
+                getFiltersRequest, no de una lista fija: reflejan las
+                categorías/marcas que de verdad existen en el catálogo ahora mismo. */}
             <label className={`admin-products-select ${category ? 'active' : ''}`}>
               <select value={category} onChange={(e) => changeFilter(setCategory, e.target.value)}>
                 <option value="">Todas las categorías</option>
@@ -255,6 +269,9 @@ export default function AdminProducts() {
               <ChevronDownIcon size={14} />
             </label>
 
+            {/* parsePriceInput/formatPriceInput/normalizePriceInput (utils/format.js)
+                son las que dejan escribir "18,499.99" con formato de moneda
+                mientras se sigue guardando el valor crudo por dentro. */}
             <div className={`admin-products-price ${minPrice !== '' || maxPrice !== '' ? 'active' : ''}`}>
               <span className="admin-products-price-label">Precio</span>
               <input
@@ -308,6 +325,10 @@ export default function AdminProducts() {
           <p className="admin-search-empty">No se encontraron productos que coincidan con los filtros.</p>
         ) : (
           <>
+            {/* Tabla de la página actual (máx. PAGE_SIZE = 25 filas): miniatura,
+                datos básicos, la insignia de oferta si tiene descuento activo, y
+                los botones de editar/eliminar. data-label en cada <td> es lo que
+                usa el CSS para mostrar la etiqueta en la vista de tarjetas en mobile. */}
             <div className="admin-table-wrapper">
               <table className="admin-table">
                 <thead>
@@ -393,6 +414,11 @@ export default function AdminProducts() {
         )}
       </div>
 
+      {/* Modal de crear/editar: el mismo formulario para ambos casos — el
+          título y el texto del botón cambian según editingId, y handleSubmit
+          decide internamente si crea o actualiza. Clic en el fondo (overlay)
+          cierra el modal; clic dentro de la caja no (stopPropagation), para
+          no cerrarlo por accidente al hacer clic en un campo. */}
       {formOpen && (
         <div className="modal-overlay" onClick={() => setFormOpen(false)}>
           <div className="modal-box admin-form-modal" onClick={(e) => e.stopPropagation()}>

@@ -32,6 +32,9 @@ export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const [searchParams] = useSearchParams();
+  // El query param ?search=... de la URL actual es la fuente de verdad de qué
+  // se está buscando (Home lo lee igual para filtrar); `search` de abajo es
+  // solo el valor que se ve mientras se teclea, antes de enviar el formulario.
   const activeSearch = searchParams.get('search') || '';
   const [search, setSearch] = useState(activeSearch);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -154,6 +157,8 @@ export default function Header() {
               <div className="user-menu" ref={menuRef}>
                 <button type="button" className="user-menu-trigger" onClick={() => setMenuOpen((o) => !o)}>
                   <img src={user.profilePhoto} alt={user.name} />
+                  {/* Solo el primer nombre: el encabezado tiene poco espacio
+                      horizontal y el nombre completo del usuario puede ser largo. */}
                   <span className="user-menu-name">{user.name.split(' ')[0]}</span>
                   <ChevronDownIcon />
                 </button>

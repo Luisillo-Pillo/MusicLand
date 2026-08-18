@@ -80,6 +80,10 @@ export default function Cart() {
   const [clearConfirmOpen, setClearConfirmOpen] = useState(false);
   const [error, setError] = useState('');
 
+  // `revert` es opcional: viene de CartItemRow cuando se llega aquí bajando la
+  // cantidad a 0 con el selector (para poder restaurarla si se cancela); al
+  // eliminar con el botón de basurero no hay nada que revertir, así que
+  // confirmState.revert queda undefined y handleCancelRemove simplemente no hace nada.
   function requestRemove(productId, revert) {
     setConfirmState({ productId, revert });
   }
@@ -102,6 +106,8 @@ export default function Cart() {
     setConfirmState(null);
   }
 
+  // Vacía el carrito completo (botón "Vaciar carrito", con su propio modal de
+  // confirmación aparte del de eliminar un solo producto).
   async function handleConfirmClear() {
     setClearConfirmOpen(false);
     setError('');

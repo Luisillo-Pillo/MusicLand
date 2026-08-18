@@ -17,6 +17,9 @@ const roleLabels = {
   user: 'Cliente'
 };
 
+// Solo fecha (sin hora): la columna "Conexión" es de referencia rápida, no
+// necesita tanta precisión. null (nunca inició sesión, p. ej. una cuenta
+// creada por un admin) se muestra como texto en vez de una fecha rara.
 function formatLastLogin(dateStr) {
   if (!dateStr) return 'Nunca';
   return new Date(dateStr).toLocaleDateString('es-MX', {
@@ -37,6 +40,9 @@ function RowActionsMenu({ items }) {
   const triggerRef = useRef(null);
   const menuRef = useRef(null);
 
+  // Cierra el menú al hacer clic fuera de él (ni el botón "..." ni el propio
+  // dropdown) — patrón estándar de "click afuera cierra", necesario porque el
+  // dropdown vive en un portal y no dentro de la fila que lo abrió.
   useEffect(() => {
     function handleClickOutside(e) {
       if (
@@ -52,6 +58,10 @@ function RowActionsMenu({ items }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Recalcula la posición del dropdown mientras esté abierto: al abrirlo, y
+  // de nuevo si la página hace scroll o cambia de tamaño (por eso los
+  // listeners de scroll/resize) — sin esto, el menú se quedaría "flotando"
+  // en un punto fijo de la pantalla en vez de seguir a su botón disparador.
   useEffect(() => {
     if (!open) return undefined;
     function updatePosition() {
@@ -231,6 +241,9 @@ export default function AdminUsers() {
     loadUsers();
   }, []);
 
+  // "Hacer admin" / "Quitar admin" desde el menú de una fila. Recarga toda la
+  // lista al terminar para que el usuario se mueva de una tabla a la otra
+  // (Administradores <-> Clientes) con su rol ya actualizado.
   async function handleToggleRole(user, role) {
     setError('');
     try {
@@ -241,6 +254,10 @@ export default function AdminUsers() {
     }
   }
 
+  // Confirmación del modal de borrado. El backend, al eliminar la cuenta,
+  // también cancela y devuelve al inventario cualquier pedido activo que
+  // tuviera ese usuario (ver cancelUserOrders en userController) — aquí solo
+  // se dispara la petición y se refresca la lista.
   async function handleConfirmDelete() {
     if (!deleteTarget) return;
     setError('');
