@@ -43,6 +43,9 @@
   align-items: center;
 }
 
+/* appearance:none quita la flechita nativa del navegador (que no se puede
+   restylear) para dibujar la propia (.home-filter-chevron, un ChevronDownIcon
+   posicionado encima) y que combine con el resto de los botones "pill" del sitio. */
 .home-filter-select select {
   appearance: none;
   -webkit-appearance: none;

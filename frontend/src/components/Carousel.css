@@ -7,6 +7,11 @@
   background: var(--color-primary-dark);
 }
 
+/* El "carrusel" es una fila flex de todas las diapositivas una junto a la
+   otra (cada una al 100% del ancho, ver .carousel-slide) que se desliza
+   completa con transform: translateX(-N * 100%) — ese translateX lo pone
+   Carousel.jsx en línea según `index`, aquí solo se define la transición
+   suave para que el cambio se anime en vez de saltar de golpe. */
 .carousel-track {
   display: flex;
   height: 100%;

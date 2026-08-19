@@ -58,7 +58,7 @@ Estructura de carpetas (monorepo simple, dos paquetes):
       routes/                   <- routers de Express por recurso
       middleware/               <- auth (protect/adminOnly), rate limiters
       utils/                    <- generateToken, mailer, handleError
-      seed/                     <- seedData.js (350 productos) + seed.js
+      seed/                     <- seedData.js (400 productos) + seed.js
     .env.example
 
   /frontend
@@ -544,9 +544,20 @@ DISEÑO, UX Y RESPONSIVIDAD
   en el <head>).
 - El footer incluye datos de contacto (dirección, teléfono, correo,
   horario) y enlaces a Preguntas frecuentes y Envíos y devoluciones.
-- La página de Contacto incluye un mapa interactivo (embed de
-  OpenStreetMap) centrado en la dirección real de la tienda, con enlace
-  para abrir direcciones en Google Maps.
+- La página de Contacto incluye un mapa interactivo de Google Maps (embed
+  SIN API key, vía el parámetro `output=embed` sobre la URL normal de
+  búsqueda — evita tener que dar de alta un proyecto de Google Cloud con
+  tarjeta vinculada solo para mostrar un mapa) centrado en la dirección real
+  de la tienda, con enlaces para abrir direcciones y el mapa completo en
+  Google Maps. Junto al mapa (columna derecha, mismo ancho y alto que la
+  tarjeta del mapa) va una tarjeta "¿Tienes dudas?" con accesos directos a
+  Preguntas frecuentes, Envíos y devoluciones, Mis pedidos y Mi cuenta — así
+  no queda un hueco vacío junto al mapa en pantallas anchas. La página de
+  Preguntas frecuentes sigue el mismo patrón de dos columnas: acordeón a la
+  izquierda, panel lateral fijo (sticky) a la derecha con un índice de saltos
+  a cada sección más una tarjeta de "contáctanos" — alineado en la parte de
+  arriba exactamente con la primera tarjeta del acordeón, no con el título
+  que la precede.
 
 
 PANEL DE ADMINISTRACIÓN
@@ -571,18 +582,18 @@ PANEL DE ADMINISTRACIÓN
 DATOS SEMILLA (seed)
 ------------------------
 Un script `npm run seed` que llena la base de datos con un catálogo
-realista de ~350 productos de instrumentos musicales y audio profesional,
-repartidos en categorías como: Pianos, Pianos Digitales, Teclados,
+realista de 400 productos de instrumentos musicales y audio profesional,
+repartidos en 14 categorías: Pianos, Pianos Digitales, Teclados,
 Sintetizadores, Guitarras Acústicas, Guitarras Eléctricas, Bajos Eléctricos,
 Instrumentos de Viento, Baterías, Baterías Electrónicas, Platillos, Audio,
-Amplificadores, Micrófonos — de marcas reales del rubro (Yamaha, Fender,
+Amplificadores, Micrófonos — de 20 marcas reales del rubro (Yamaha, Fender,
 Gibson, Roland, Steinway & Sons, Casio, Korg, Ibanez, Shure, Pearl,
 Zildjian, Gretsch, Martin, Taylor Guitars, Selmer, Marshall, Rickenbacker,
 Bösendorfer, Moog, Sennheiser). Cada producto necesita nombre, descripción,
 precio, stock inicial, marca, categoría e imagen. Para las imágenes, usar
 fotos reales de esos instrumentos con licencia libre (por ejemplo, vía la
 API de Wikimedia Commons), asignadas de forma consistente por categoría ya
-que no es viable tener una foto única por cada uno de los 350 productos.
+que no es viable tener una foto única por cada uno de los 400 productos.
 También sembrar los logos reales de cada una de esas 20 marcas (misma
 fuente) para la página de Marcas, con un fondo blanco fijo detrás del logo
 (independiente del tema claro/oscuro) porque la mayoría de esos logos son
