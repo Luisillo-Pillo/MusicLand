@@ -11,6 +11,8 @@ E-commerce full stack de instrumentos musicales y equipo de audio. Monorepo con 
 MusicLand/
 ├── backend/
 │   ├── src/
+│   │   ├── app.js            # la app de Express (middlewares, rutas) sin abrir puerto — la usan
+│   │   │                       server.js (con app.listen real) y las pruebas (con supertest)
 │   │   ├── config/db.js
 │   │   ├── models/          # User, Product, Order, ContactMessage
 │   │   ├── middleware/       # auth (protect/adminOnly), rate limiters
@@ -18,7 +20,8 @@ MusicLand/
 │   │   ├── routes/
 │   │   ├── seed/            # catálogo de ejemplo (400 productos) + script de siembra
 │   │   └── utils/           # generateToken, mailer (nodemailer), handleError
-│   ├── server.js
+│   ├── tests/                # Jest + Supertest + mongodb-memory-server (ver sección Pruebas)
+│   ├── server.js             # entrypoint real: conecta Mongo y pone app.js a escuchar
 │   ├── render.yaml          # blueprint de despliegue en Render
 │   └── .env.example
 └── frontend/
@@ -28,6 +31,7 @@ MusicLand/
     │   ├── components/       # Header, Footer, Carousel, ProductCard, modales, icons, mapa, etc.
     │   ├── pages/             # una página por ruta, cargadas con React.lazy
     │   └── utils/, config/    # formato de precios/fechas, reglas de estatus, datos del sitio
+    ├── tests/                 # Vitest + React Testing Library (ver sección Pruebas)
     ├── vercel.json           # config de despliegue en Vercel
     └── .env.example
 ```
@@ -155,6 +159,23 @@ El frontend queda disponible en `http://localhost:5173`.
   descuento aplicado), total, dirección de envío, método de pago, estatus (pendiente → procesando →
   enviado → entregado, o cancelado), datos de cancelación y arreglo de solicitudes de devolución.
 - **ContactMessage**: nombre, correo, mensaje, estatus de respuesta.
+
+## Pruebas
+
+Ambos proyectos tienen su propia suite de pruebas automatizadas — ninguna toca la base de datos
+real ni requiere que el backend/frontend estén corriendo aparte.
+
+```bash
+cd backend && npm test    # Jest + Supertest, contra un MongoDB real EN MEMORIA
+                           # (mongodb-memory-server) — nunca contra tu Atlas de desarrollo.
+cd frontend && npm test   # Vitest + React Testing Library.
+```
+
+Cubre lo más sensible del proyecto: que el precio y el stock de un pedido SIEMPRE se calculen en
+el servidor (un precio manipulado en la petición se ignora por completo), las reglas de
+cancelación/devolución por estatus, `handleError` (que un error interno nunca filtre detalle al
+cliente), y los formatos de precio/teléfono/tarjeta. No es cobertura exhaustiva — es la base
+mínima para detectar una regresión real antes de que llegue a producción.
 
 ## Endpoints principales
 

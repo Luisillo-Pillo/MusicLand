@@ -35,10 +35,13 @@ Backend:
 - nodemailer para envío de correos vía SMTP de Gmail
 - dotenv para variables de entorno
 - nodemon en desarrollo
+- Jest + Supertest + mongodb-memory-server para pruebas de integración de la
+  API contra un MongoDB real pero en memoria (nunca contra Atlas)
 
 Frontend:
-- React 18 + Vite 5
-- React Router DOM 6 (rutas declarativas, sin SSR)
+- React 18 + Vite 6
+- React Router DOM 7 (modo declarativo: `BrowserRouter`/`Routes`/`Route`,
+  sin el "modo framework" con data loaders de v7, sin SSR)
 - Axios para las llamadas a la API, con un cliente centralizado que inyecta
   el JWT desde localStorage en cada request
 - CSS plano organizado por componente/página (un .css junto a cada .jsx),
@@ -46,12 +49,15 @@ Frontend:
   :root para theming.
 - Sin librería de gestión de estado global aparte de Context API de React
   (Auth, Cart, Theme)
+- Vitest + React Testing Library para pruebas de utils puros y componentes
 
 Estructura de carpetas (monorepo simple, dos paquetes):
 
   /backend
-    server.js                  <- entrypoint (arranca Express, conecta Mongo)
+    server.js                  <- entrypoint real (conecta Mongo, pone src/app.js a escuchar)
     src/
+      app.js                     <- la app de Express en sí (middlewares, rutas), SIN
+                                     app.listen() — la reutilizan server.js y las pruebas
       config/db.js              <- conexión a Mongoose
       models/                   <- User, Product, Order, ContactMessage
       controllers/              <- lógica de cada recurso
@@ -59,6 +65,7 @@ Estructura de carpetas (monorepo simple, dos paquetes):
       middleware/               <- auth (protect/adminOnly), rate limiters
       utils/                    <- generateToken, mailer, handleError
       seed/                     <- seedData.js (400 productos) + seed.js
+    tests/                      <- pruebas (unit/ e integration/) + helpers/db.js
     .env.example
 
   /frontend
@@ -73,9 +80,10 @@ Estructura de carpetas (monorepo simple, dos paquetes):
                                      estatus de pedidos
       config/                    <- datos del sitio (dirección, teléfono,
                                      horario, mapa) y logos de marcas
+    tests/                       <- pruebas (utils/ y components/) + setup.js
     .env.example
 
-  README.md con instrucciones de instalación, variables de entorno y seed.
+  README.md con instrucciones de instalación, variables de entorno, seed y pruebas.
 
 
 MODELOS DE DATOS (Mongoose)
